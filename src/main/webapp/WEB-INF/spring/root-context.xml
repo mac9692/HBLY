@@ -37,9 +37,16 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
     </bean>
     
+    
+    
+   
    <context:component-scan base-package="edu.bit.hbly.dao" />
    <context:component-scan base-package="edu.bit.hbly.service" />
    <context:component-scan base-package="edu.bit.hbly.vo" />
+   <context:component-scan base-package="edu.bit.hbly.utils" />
+   
+   
+   
 
 		
 </beans>

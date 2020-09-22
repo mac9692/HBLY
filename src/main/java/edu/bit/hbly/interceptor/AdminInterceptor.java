@@ -23,7 +23,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
   
   
   if(member == null) {
-	  res.sendRedirect("/ex/member/signin");
+	  res.sendRedirect("/hbly/member/signin");
 	  return false;
 	 }
   
@@ -31,7 +31,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
   
   
   if(member == null || member.getVerify() != 9) {
-   res.sendRedirect("/ex");
+   res.sendRedirect("/hbly");
    return false;
   }
   

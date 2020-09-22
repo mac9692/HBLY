@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bit.hbly.mappers.adminMapper">
+  
+  
+  
+<!-- 카테고리 호출 -->
+<select id="category" resultType="edu.bit.hbly.vo.CategoryVO">
+ select
+  level, categoryName, categoryCode, categoryCodeRef
+ from goods_category
+     start with categoryCodeRef is null connect by prior categoryCode = categoryCodeRef
+</select>
+
+<!-- 상품 등록 -->
+<insert id="register">
+	insert into tbl_goods (goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock,goodsDescribe,
+	goodsImage, goodsThumbImage)
+     values (tbl_goods_seq.nextval, #{goodsName},#{categoryCode},#{goodsPrice},#{goodsStock},#{goodsDescribe},
+     #{goodsImage},#{goodsThumbImage})
+</insert>
+
+<!-- 상품 목록 -->
+<select id="goodslist" resultType="edu.bit.hbly.vo.GoodsVO">
+	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsDate
+     from tbl_goods
+     order by goodsNumber desc
+</select>
+
+
+<!-- 
+상품 조회 기존에 쓰던 것 join 생각 안하고 쓴 것
+<select id="goodsView" resultType="edu.bit.hbly.vo.GoodsVO">
+	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsDate
+	from tbl_goods
+	where goodsNumber= #{goodsNumber}
+</select>
+ -->
+
+
+<!-- 상품 조회 -->
+<select id="goodsView" resultType="edu.bit.hbly.vo.GoodsViewVO">
+select g.goodsNumber, g.goodsName, g.categoryCode,c.categoryCodeRef, g.goodsPrice, g.goodsStock, g.goodsDescribe, g.goodsImage, g.goodsDate,
+	   g.goodsImage, g.goodsThumbImage
+from tbl_goods g
+inner join goods_category c
+on g.categoryCode = c.categoryCode
+where g.goodsNumber = #{goodsNumber}
+</select>
+
+<!-- 상품 수정 -->
+<update id="goodsModify">
+update tbl_goods
+set
+goodsName = #{goodsName},
+goodsPrice = #{goodsPrice},
+goodsStock = #{goodsStock},
+goodsDescribe = #{goodsDescribe},
+categoryCode = #{categoryCode},
+goodsImage = #{goodsImage},
+goodsThumbImage = #{goodsThumbImage}
+where goodsNumber = ${goodsNumber}
+</update>
+
+<!-- 상품 삭제-->
+<delete id="goodsDelete">
+delete 
+tbl_goods 
+where goodsNumber = #{goodsNumber}
+</delete>
+
+</mapper>

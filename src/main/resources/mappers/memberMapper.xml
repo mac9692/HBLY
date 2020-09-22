@@ -13,7 +13,7 @@
 <!-- 로그인 -->
 <select id="signin" resultType="edu.bit.hbly.vo.MemberVO">
  select
-     userId,userPassword,userName,userNickname,userPhoneNumber, userAddress1, userAddress2, userAddress3, regiDate, verify
+     userId,userPassword,userName,userNickname,userPhoneNumber, userAddress1, userAddress2, userAddress3, userRegidate, verify
  from
      tbl_member
  where userId = #{userId}

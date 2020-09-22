@@ -4,19 +4,7 @@ import java.util.Date;
 
 
 public class MemberVO {
- /*   
-	userId varchar2(50) not null,
-    userPassword varchar2(100) not null,
-    userName varchar2(30) not null,
-    userPhoneNumber varchar2(20) not null,
-    userAddress1 varchar2(20) not null,
-    userAddress2 varchar2(50) not null,
-    userAddress3 varchar2(50) not null,
-    regidate date default sysdate,
-    verify number default 0,
-    primary key(userId)
-    
-    */
+
 	private String userId;
 	private String userPassword;
 	private String userName;
@@ -25,7 +13,7 @@ public class MemberVO {
 	private String userAddress1;
 	private String userAddress2;
 	private String userAddress3;
-	private Date regidate;
+	private Date userRegidate;
 	private int verify;
 	
 	
@@ -37,7 +25,7 @@ public class MemberVO {
 	
 	
 	public MemberVO(String userId, String userPassword, String userName, String userNickname, String userPhoneNumber,
-			String userAddress1, String userAddress2, String userAddress3, Date regidate, int verify) {
+			String userAddress1, String userAddress2, String userAddress3, Date userRegidate, int verify) {
 		super();
 		this.userId = userId;
 		this.userPassword = userPassword;
@@ -47,7 +35,7 @@ public class MemberVO {
 		this.userAddress1 = userAddress1;
 		this.userAddress2 = userAddress2;
 		this.userAddress3 = userAddress3;
-		this.regidate = regidate;
+		this.userRegidate = userRegidate;
 		this.verify = verify;
 	}
 
@@ -117,12 +105,12 @@ public class MemberVO {
 		this.userAddress3 = userAddress3;
 	}
 
-	public Date getRegidate() {
-		return regidate;
+	public Date getUserRegidate() {
+		return userRegidate;
 	}
 
-	public void setRegidate(Date regidate) {
-		this.regidate = regidate;
+	public void setUserRegidate(Date userRegidate) {
+		this.userRegidate = userRegidate;
 	}
 
 	public int getVerify() {

@@ -5,17 +5,7 @@ import java.util.Date;
 
 
 public class GoodsVO {
-	/*
-	 goodsNumber number not null,
-	    goodsName varchar2(50) not null,
-	    goodsPrice number not null,
-	    goodsStock number null,
-	    goodsDescribe varchar2(500) null,
-	    goodsImage varchar2(200) null,
-	    goodsDate date default sysdate,
-	    categoryCode varchar2(30) not null,
-	    primary key(goodsNum)
-	    */
+	
 	private int goodsNumber;
 	private String goodsName;
 	private int goodsPrice;
