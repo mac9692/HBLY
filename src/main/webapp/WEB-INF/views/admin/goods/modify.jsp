@@ -162,7 +162,7 @@
 						<label for="goodsIamge">이미지</label>
 						<input type="file" id="goodsImage" name="file" />
 						<div class="select_img">
-						  <img src="${pageContext.request.contextPath}/${goods.goodsImage}" />
+						  <img src="${goods.goodsImage}" />
 						  <input type="hidden" name="goodsImage" value="${goods.goodsImage}" />
 						  <input type="hidden" name="goodsThumbImage" value="${goods.goodsThumbImage}" /> 
 						 </div>
@@ -196,7 +196,7 @@
 							<script>
 							 $("#back_Btn").click(function(){
 							  //history.back();
-							  location.href = "${pageContext.request.contextPath}/admin/goods/view?n=" + ${goods.goodsNumber};
+							  location.href = "/admin/goods/view?n=" + ${goods.goodsNumber};
 							 });   
 							</script>
 						</div>   

@@ -71,6 +71,7 @@
 		
 		.oriImg{ width:500px; height:auto; }
 		.thumbImg{}
+		.goodsDescribe img { max-width:600px; height:auto; }
 		</style>	
 		
 	</head>
@@ -103,7 +104,7 @@
 					<form role="form" method="post" autocomplete="off">
 					<input type="hidden" name="n" value="${goods.goodsNumber}"/>
 						 <label>1차 분류</label>
-						 <span class="category1"></span>
+						 <span class="category1">${goods.categoryCodeRef}</span>
 						
 						 <label>2차 분류</label>
 						 <span class="category2">${goods.categoryCode}</span>
@@ -127,16 +128,17 @@
 						
 						<div class="inputArea">
 						 <label for="goodsDescribe">상품소개</label>
-						 <span>${goods.goodsDescribe}</span>
+						 <%-- <span>${goods.goodsDescribe}</span> --%>
+						 <div class="goodsDescribe">${goods.goodsDescribe}</div>
 						</div>
 						
 						<div class="inputArea">
 						 <label for="goodsImage">이미지</label>
 						 <p>원본 이미지</p>
-						 <img src="${pageContext.request.contextPath}/${goods.goodsImage}" class="oriImg"/>
+						 <img src="${goods.goodsImage}" class="oriImg"/>
 						 
 						 <p>썸네일</p>
-						 <img src="${pageContext.request.contextPath}/${goods.goodsThumbImage}" class="thumbImg"/>
+						 <img src="${goods.goodsThumbImage}" class="thumbImg"/>
 						</div>
 						
 						

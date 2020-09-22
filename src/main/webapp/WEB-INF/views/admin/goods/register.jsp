@@ -22,11 +22,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 			
 		
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-theme.min.css">
-		<script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.js"></script>
-		
-		<script src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
+		<link rel="stylesheet" href="/resources/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="/resources/bootstrap/bootstrap-theme.min.css">
+		<script src="/resources/bootstrap/bootstrap.min.js"></script>
+		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
 		
 		<style>
@@ -130,7 +129,7 @@
 								   resize_enaleb : false,
 								   enterMode : CKEDITOR.ENTER_BR,
 								   shiftEnterMode : CKEDITOR.ENTER_P,
-								   filebrowserUploadUrl : "${pageContext.request.contextPath}/admin/goods/ckUpload"
+								   filebrowserUploadUrl : "/admin/goods/ckUpload"
 							 };
 							 
 							 CKEDITOR.replace("goodsDescribe", ckeditor_config);
@@ -140,7 +139,7 @@
 						</div>
 						
 						<div class="inputArea">
-						<label for="goodsIamge">이미지</label>
+						<label for="goodsImage">이미지</label>
 						<input type="file" id="goodsImage" name="file" />
 						<div class="select_img"><img src="" /></div>
 						
@@ -155,6 +154,7 @@
 							reader.readAsDataURL(this.files[0]);
 							}
 						});
+						
 						</script>
 						<%= request.getRealPath("/") %>
 						

@@ -117,7 +117,7 @@
 								</td>
 								<td>${list.goodsStock}</td>
 								<td>
-								<fmt:formatDate value="${list.goodsDate}" pattern="yyyy-MM-dd"/>
+								<fmt:formatDate value="${list.goodsRegidate}" pattern="yyyy-MM-dd"/>
 								</td>
 							</tr>
 							</c:forEach>	

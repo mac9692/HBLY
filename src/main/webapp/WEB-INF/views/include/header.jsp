@@ -4,5 +4,5 @@
     
     
 <h1 class="title">
-	<a href="${pageContext.request.contextPath}">HBLY</a>
+	<a href="/">HBLY</a>
 </h1>

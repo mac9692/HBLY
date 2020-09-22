@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 
     <h1 class="title">
-    	<a href="${pageContext.request.contextPath}/admin/index">HBLY ADMIN</a>
+    	<a href="/admin/index">HBLY ADMIN</a>
     </h1>

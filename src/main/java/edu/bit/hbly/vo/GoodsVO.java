@@ -12,7 +12,7 @@ public class GoodsVO {
 	private int goodsStock;
 	private String goodsDescribe;
 	private String goodsImage;
-	private Date goodsDate;
+	private Date goodsRegidate;
 	private String categoryCode;
 	private String  goodsThumbImage;
 	
@@ -21,9 +21,10 @@ public class GoodsVO {
 	}
 
 	
-
+	
+	
 	public GoodsVO(int goodsNumber, String goodsName, int goodsPrice, int goodsStock, String goodsDescribe,
-			String goodsImage, Date goodsDate, String categoryCode, String goodsThumbImage) {
+			String goodsImage, Date goodsRegidate, String categoryCode, String goodsThumbImage) {
 		super();
 		this.goodsNumber = goodsNumber;
 		this.goodsName = goodsName;
@@ -31,10 +32,11 @@ public class GoodsVO {
 		this.goodsStock = goodsStock;
 		this.goodsDescribe = goodsDescribe;
 		this.goodsImage = goodsImage;
-		this.goodsDate = goodsDate;
+		this.goodsRegidate = goodsRegidate;
 		this.categoryCode = categoryCode;
 		this.goodsThumbImage = goodsThumbImage;
 	}
+
 
 
 
@@ -86,12 +88,12 @@ public class GoodsVO {
 		this.goodsImage = goodsImage;
 	}
 
-	public Date getGoodsDate() {
-		return goodsDate;
+	public Date getGoodsRegidate() {
+		return goodsRegidate;
 	}
 
-	public void setGoodsDate(Date goodsDate) {
-		this.goodsDate = goodsDate;
+	public void setGoodsRegidate(Date goodsRegidate) {
+		this.goodsRegidate = goodsRegidate;
 	}
 
 	public String getCategoryCode() {
@@ -109,7 +111,7 @@ public class GoodsVO {
 	public void setGoodsThumbImage(String goodsThumbImage) {
 		this.goodsThumbImage = goodsThumbImage;
 	}
+
 	
-	
-	
+
 }

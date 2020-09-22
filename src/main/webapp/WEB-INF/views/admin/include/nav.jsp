@@ -4,10 +4,10 @@
     <ul>
     <c:if test="${member != null}">
     	<li>
-    		<a href="${pageContext.request.contextPath}">일반 화면</a>
+    		<a href="">일반 화면</a>
     	</li>
     	<li>
-    		<a href="${pageContext.request.contextPath}/member/signout">로그아웃</a>
+    		<a href="/member/signout">로그아웃</a>
     	</li>
     </c:if>
     </ul>

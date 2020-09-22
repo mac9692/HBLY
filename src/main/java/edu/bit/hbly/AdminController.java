@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import com.google.gson.JsonObject;
 
 import edu.bit.hbly.service.AdminService;
 import edu.bit.hbly.utils.UploadFileUtils;
@@ -43,6 +43,8 @@ public class AdminController {
 	@Inject
 	AdminService adminService;
 	
+	
+	//Servlet-context에서 설정한 uploadPath
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
@@ -53,42 +55,44 @@ public class AdminController {
 	}
 	
 	
-	//ck ?뿉?뵒?꽣?뿉?꽌 ?뙆?씪 ?뾽濡쒕뱶
+	//ck 에디터에서 파일 업로드
 		@RequestMapping(value = "/goods/ckUpload", method = RequestMethod.POST)
 		public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload ) throws Exception{
 			logger.info("post CKEditor img upload");
-			// ?옖?뜡 臾몄옄 ?깮?꽦
+			
+			
+			//랜덤 문자 생성
 			 UUID uid = UUID.randomUUID();
 			 
 			 OutputStream out = null;
 			 PrintWriter printWriter = null;
 			   
-			 // ?씤肄붾뵫
+			 //인코딩
 			 res.setCharacterEncoding("utf-8");
 			 res.setContentType("text/html;charset=utf-8");
 			 
 			 try {
 			  
-			  String fileName = upload.getOriginalFilename();  // ?뙆?씪 ?씠由? 媛??졇?삤湲?
+			  String fileName = upload.getOriginalFilename();  //파일 이름 가져오기
 			  byte[] bytes = upload.getBytes();
 			  
-			  // ?뾽濡쒕뱶 寃쎈줈
+			  //업로드 경로
 			  String ckUploadPath = uploadPath + File.separator + "ckUpload" + File.separator + uid + "_" + fileName;
 			  
 			  out = new FileOutputStream(new File(ckUploadPath));
 			  out.write(bytes);
-			  out.flush();  // out?뿉 ???옣?맂 ?뜲?씠?꽣瑜? ?쟾?넚?븯怨? 珥덇린?솕
+			  out.flush();  // out에 저장된 데이터를 전송하고 초기화
 			  
 			  String callback = req.getParameter("CKEditorFuncNum");
 			  printWriter = res.getWriter();
-			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  // ?옉?꽦?솕硫?
+			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  //작성화면
 			  
 			  // 업로드시 메시지 출력
-			  printWriter.println("<script type='text/javascript'>"
-			     + "window.parent.CKEDITOR.tools.callFunction("
-			     + callback+",'"+ fileUrl+"','이미지를 업로드하였습니다.')"
-			     +"</script>");
-			  
+			  JsonObject json = new JsonObject();
+			  json.addProperty("uploaded", 1);
+			  json.addProperty("fileName", fileName);
+			  json.addProperty("url", fileUrl);
+			  printWriter.println(json);
 			  printWriter.flush();
 			  
 			 } catch (IOException e) { e.printStackTrace();
@@ -114,7 +118,7 @@ public class AdminController {
 	 model.addAttribute("category", JSONArray.fromObject(category));
 	}
 	
-	// ?긽?뭹 ?벑濡쒺OST
+	//상품 등록 POST
 	@RequestMapping(value = "/goods/register", method = RequestMethod.POST)
 	public String postGoodsRegister(GoodsVO vo, MultipartFile file) throws Exception {
 	logger.info("post goods register");
