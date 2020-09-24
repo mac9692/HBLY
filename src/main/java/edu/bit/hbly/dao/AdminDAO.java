@@ -18,7 +18,7 @@ public interface AdminDAO {
 	public void register(GoodsVO vo) throws Exception;
 	
 	//?ƒ?’ˆ ëª©ë¡
-	public List<GoodsVO> goodslist() throws Exception;
+	public List<GoodsViewVO> goodslist() throws Exception;
 	
 	//?ƒ?’ˆ ì¡°íšŒ
 	public GoodsViewVO goodsView(int goodsNumber) throws Exception;

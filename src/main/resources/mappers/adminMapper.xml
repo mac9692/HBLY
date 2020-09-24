@@ -22,16 +22,26 @@
      #{goodsImage},#{goodsThumbImage})
 </insert>
 
-<!-- 상품 목록 -->
-<select id="goodslist" resultType="edu.bit.hbly.vo.GoodsVO">
+<!-- 상품 목록 join 안하고 쓴 기존의 것-->
+<!-- <select id="goodslist" resultType="edu.bit.hbly.vo.GoodsVO">
 	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate
      from tbl_goods
      order by goodsNumber desc
+</select> -->
+
+<!--  상품 목록 -->
+<select id="goodslist" resultType="edu.bit.hbly.vo.GoodsViewVO">
+select
+     g.goodsNumber, g.goodsName, g.categoryCode, c.categoryCoderef, c.categoryName, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate,
+     g.goodsImage, g.goodsThumbImage
+         from tbl_goods g
+             inner join goods_category c
+                 on g.categoryCode = c.categoryCode
 </select>
 
 
 <!-- 
-상품 조회 기존에 쓰던 것 join 생각 안하고 쓴 것
+상품 조회 기존에 쓰던 것 join안하고 쓴 것
 <select id="goodsView" resultType="edu.bit.hbly.vo.GoodsVO">
 	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsDate
 	from tbl_goods

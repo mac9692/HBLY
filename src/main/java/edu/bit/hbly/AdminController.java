@@ -118,27 +118,35 @@ public class AdminController {
 	 model.addAttribute("category", JSONArray.fromObject(category));
 	}
 	
-	//상품 등록 POST
+	// 상품 등록
 	@RequestMapping(value = "/goods/register", method = RequestMethod.POST)
 	public String postGoodsRegister(GoodsVO vo, MultipartFile file) throws Exception {
-	logger.info("post goods register");
 	 
-	String imgUploadPath = uploadPath + File.separator + "imgUpload";
-	String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
-	String fileName = null;
+	 String imgUploadPath = uploadPath + File.separator + "imgUpload"; // 이미지를 업로드할 폴더를 설정 = /uploadPath/imgUpload
+	 String ymdPath = UploadFileUtils.calcPath(imgUploadPath);// 위의 폴더를 기준으로 연월일 폴더를 생성
+	 String fileName = null; // 기본 경로와 별개로 작성되는 경로 + 파일이름
+	   
+	 if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+	  // 파일 인풋박스에 첨부된 파일이 없다면(=첨부된 파일이 이름이 없다면)
+	  
+	  fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
 
-	if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-	 fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
-	} else {
-	 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
-	}
-
-	vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-	vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
-	
-	adminService.register(vo);
-		
-	return "redirect:/admin/index";
+	  // gdsImg에 원본 파일 경로 + 파일명 저장
+	  vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+	  // gdsThumbImg에 썸네일 파일 경로 + 썸네일 파일명 저장
+	  vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+	  
+	 } else { // 첨부된 파일이 없으면
+	  fileName = File.separator + "images" + File.separator + "none.png";
+	  // 미리 준비된 none.png파일을 대신 출력함
+	  
+	  vo.setGoodsImage(fileName);
+	  vo.setGoodsThumbImage(fileName);
+	 }
+	      
+	 adminService.register(vo);
+	 
+	 return "redirect:/admin/index";
 	}
 	
 	
@@ -151,7 +159,7 @@ public class AdminController {
 	public void getGoodsList(Model model) throws Exception{
 		logger.info("get goods list");
 		
-		List<GoodsVO> list = adminService.goodslist();
+		List<GoodsViewVO> list = adminService.goodslist();
 		model.addAttribute("list", list);
 	}
 	
