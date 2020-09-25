@@ -5,12 +5,23 @@
 
 <ul>
 <c:if test="${member == null}">
+
+
+
  <li>
   <a href="/member/signin">로그인</a>
  </li>
  <li>
   <a href="/member/signup">회원가입</a>
  </li>
+ <li>
+  <a href="/board/list">게시판</a>
+ </li>
+  <li>
+  <a href="/board/writeView">글쓰기</a>
+ </li>
+ 
+
 </c:if>
 
 
