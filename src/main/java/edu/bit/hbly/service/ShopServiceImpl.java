@@ -12,6 +12,9 @@ import edu.bit.hbly.vo.CartVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
+import edu.bit.hbly.vo.OrderDetailsVO;
+import edu.bit.hbly.vo.OrderListVO;
+import edu.bit.hbly.vo.OrderVO;
 
 
 
@@ -95,4 +98,40 @@ public class ShopServiceImpl implements ShopService{
 		dao.deleteCart(cart);
 		
 	}
+
+
+	@Override
+	public void orderInfo(OrderVO order) throws Exception {
+		dao.orderInfo(order);
+		
+	}
+
+
+	@Override
+	public void orderInfo_Details(OrderDetailsVO orderDetails) throws Exception {
+		dao.orderInfo_Details(orderDetails);
+		
+	}
+
+
+	@Override
+	public void cartAllDelete(String userId) throws Exception {
+		dao.cartAllDelete(userId);
+		
+	}
+
+
+	@Override
+	public List<OrderVO> orderList(OrderVO order) throws Exception {
+		return dao.orderList(order);
+	}
+
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception {
+		
+		return dao.orderView(order);
+	}
+	
+
 }

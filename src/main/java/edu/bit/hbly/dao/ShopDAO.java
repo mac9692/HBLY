@@ -7,6 +7,9 @@ import edu.bit.hbly.vo.CartVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
+import edu.bit.hbly.vo.OrderDetailsVO;
+import edu.bit.hbly.vo.OrderListVO;
+import edu.bit.hbly.vo.OrderVO;
 
 public interface ShopDAO {
 	
@@ -43,5 +46,20 @@ public interface ShopDAO {
 	
 	//장바구니 삭제
 	public void deleteCart(CartVO cart) throws Exception;
+	
+	//주문 정보
+	public void orderInfo(OrderVO order) throws Exception;
+	
+	//주문 상세 정보
+	public void orderInfo_Details(OrderDetailsVO orderDetails) throws Exception;
+	
+	//카트 비우기
+	public void cartAllDelete(String userId) throws Exception;
+	
+	//주문 목록
+	public List<OrderVO> orderList(OrderVO order) throws Exception;
+	
+	//특정 주문 목록
+	public List<OrderListVO> orderView(OrderVO order) throws Exception;
 	
 }

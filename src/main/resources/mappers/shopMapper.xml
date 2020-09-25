@@ -94,4 +94,52 @@ delete tbl_cart
 where cartNumber = #{cartNumber}
 and userId = #{userId}
 </delete>
+
+
+<!-- 주문 정보 -->
+<insert id="orderInfo">
+insert into tbl_order(orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount)
+values (#{orderId}, #{userId}, #{orderRec}, #{userAddress1}, #{userAddress2}, #{userAddress3}, #{orderPhoneNumber}, #{amount})
+
+</insert>
+
+
+<!-- 주문 상세 정보 -->
+<insert id="orderInfo_Details">
+insert into tbl_order_details(orderDetailsNumber, orderId, goodsNumber, cartStock)
+select tbl_order_details_seq.nextval, #{orderId}, goodsNumber, cartStock
+from tbl_cart
+</insert>
+
+
+<!-- 카트 비우기 -->
+<delete id="cartAllDelete">
+delete tbl_cart
+where userId = #{userId}
+</delete>
+
+<!-- 주문목록 -->
+<select id="orderList" resultType="edu.bit.hbly.vo.OrderVO">
+select
+orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount, orderDate
+from tbl_order
+where userId = #{userId}
+
+</select>
+
+<!-- 특정 주문 목록 -->
+<select id="orderView" resultType="edu.bit.hbly.vo.OrderListVO">
+select
+o.orderId, o.userId, o.orderRec, o.userAddress1, o.userAddress2, o.userAddress3, o.orderPhoneNumber, o.amount, o.orderDate,
+d.orderDetailsNumber, d.goodsNumber, d.cartStock,
+g.goodsName, g.goodsThumbImage, g.goodsPrice
+from tbl_order o
+    inner join tbl_order_details d
+        on o.orderId = d.orderId
+    inner join tbl_goods g
+        on d.goodsNumber = g.goodsNumber
+where o.userId = #{userId}
+    and o.orderId = #{orderId}
+
+</select>
 </mapper>

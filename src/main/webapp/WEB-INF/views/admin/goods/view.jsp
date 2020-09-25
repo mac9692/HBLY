@@ -152,7 +152,7 @@
 						 		var formObj = $("form[role='form']");
 						 		
 						 		$("#modify_Btn").click(function(){
-						 			formObj.attr("action","${pageContext.request.contextPath}/admin/goods/modify");
+						 			formObj.attr("action","/admin/goods/modify");
 						 			formObj.attr("method","get")
 						 			formObj.submit();
 						 		});
@@ -162,7 +162,7 @@
 						 			 var con = confirm("정말로 삭제하시겠습니까?");
 						 			 
 						 			 if(con) {      
-						 			  formObj.attr("action", "${pageContext.request.contextPath}/admin/goods/delete");
+						 			  formObj.attr("action", "/admin/goods/delete");
 						 			  formObj.submit();
 						 			 }
 						 			});

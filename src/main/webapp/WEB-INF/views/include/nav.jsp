@@ -26,6 +26,9 @@
 		<a href="/shop/cartList">장바구니 리스트</a>
 	</li>
 	<li>
+		<a href="/shop/orderList">주문 목록</a>
+	</li>
+	<li>
 		<a href="/member/signout">로그아웃</a>
 	</li>
 </c:if>

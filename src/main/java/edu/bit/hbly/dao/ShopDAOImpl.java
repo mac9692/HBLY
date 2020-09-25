@@ -13,6 +13,9 @@ import edu.bit.hbly.vo.CartVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
+import edu.bit.hbly.vo.OrderDetailsVO;
+import edu.bit.hbly.vo.OrderListVO;
+import edu.bit.hbly.vo.OrderVO;
 
 
 
@@ -101,6 +104,36 @@ public class ShopDAOImpl implements ShopDAO {
 		sql.delete(namespace + ".deleteCart", cart);
 		
 	}
+
+	@Override
+	public void orderInfo(OrderVO order) throws Exception {
+		sql.insert(namespace + ".orderInfo", order);
+		
+	}
+
+	@Override
+	public void orderInfo_Details(OrderDetailsVO orderDetails) throws Exception {
+		sql.insert(namespace + ".orderInfo_Details", orderDetails);
+		
+	}
+
+	@Override
+	public void cartAllDelete(String userId) throws Exception {
+		sql.delete(namespace + ".cartAllDelete", userId);
+		
+	}
+
+	@Override
+	public List<OrderVO> orderList(OrderVO order) throws Exception {
+		return sql.selectList(namespace + ".orderList", order);
+	}
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception {
+		
+		return sql.selectList(namespace + ".orderView", order);
+	}
+	
 	
 	
 	
