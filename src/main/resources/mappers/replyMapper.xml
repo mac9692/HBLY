@@ -4,12 +4,48 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="replyMapper">
 
-<!-- 댓글 조회 -->
+	<!-- 댓글 조회 -->
 	<select id="readReply" resultType="edu.bit.hbly.vo.ReplyVO">
     	SELECT
     		  boardReplyNumber, userId, boardReplyContent, boardReplyRegidate
     	 FROM tbl_board_reply
     	WHERE boardNumber = #{boardNumber}
+	</select>
+	
+	<!-- 댓글 작성 -->
+	<insert id="writeReply">
+	INSERT INTO tbl_board_reply(  boardNumber
+								, boardReplyNumber
+								, userId
+								, boardReplyContent)
+					VALUES(    #{boardNumber}
+							, tbl_board_reply_seq.nextval
+							, #{userId}
+							, #{boardReplyContent}	)
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="edu.bit.hbly.vo.ReplyVO">
+		UPDATE tbl_board_reply SET boardReplyContent = #{boardReplyContent}
+		WHERE boardReplyNumber = #{boardReplyNumber}
+	</update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="edu.bit.hbly.vo.ReplyVO">
+		DELETE FROM tbl_board_reply
+		WHERE boardReplyNumber = #{boardReplyNumber}
+	</delete>
+	
+	<!-- 선택된 댓글 조회 -->
+	<select id="selectReply" resultType="edu.bit.hbly.vo.ReplyVO">
+		SELECT
+				boardNumber
+			  , boardReplyNumber
+			  , userId
+			  , boardReplyContent
+			  , boardReplyRegidate
+		  FROM tbl_board_reply
+		 WHERE boardReplyNumber = #{boardReplyNumber}
 	</select>
 
 </mapper>

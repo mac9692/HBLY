@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.bit.hbly.dao.BoardDAO;
 import edu.bit.hbly.vo.BoardVO;
@@ -35,13 +37,15 @@ public class BoardServiceImpl implements BoardService {
 		return dao.listCount(scri);
 	}
 
-	//게시물 수정
+	//게시물 조회
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(int boardNumber) throws Exception {
+			dao.boardHit(boardNumber);
 		return dao.read(boardNumber);
 	}
 
-	//게시물 삭제
+	//게시물 수정
 	@Override
 	public void update(BoardVO boardVO) throws Exception {
 		dao.update(boardVO);		

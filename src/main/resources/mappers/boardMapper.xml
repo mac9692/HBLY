@@ -23,13 +23,15 @@
 		        boardTitle, 
 		        boardContent,
 		        userId,
-		        boardRegiDate
+		        boardRegiDate,
+		        boardHit
 		 FROM ( 
 		        SELECT boardNumber, 
 		               boardTitle, 
 		               boardContent, 
 		               userId, 
 		               boardRegidate, 
+		               boardHit,
 		               row_number() OVER(ORDER BY boardNumber DESC) AS rNum
 		         FROM tbl_board
 		         WHERE 1=1 
@@ -81,5 +83,12 @@
 		  FROM tbl_board
 		 WHERE boardNumber = #{boardNumber}
 	</delete>
+	
+	<!-- 게시판 조회수 -->
+    <update id="boardHit" parameterType="int">
+    	UPDATE tbl_board SET
+    	boardHit = boardHit+1
+    	WHERE boardNumber = #{boardNumber}
+    </update>
    
 </mapper>

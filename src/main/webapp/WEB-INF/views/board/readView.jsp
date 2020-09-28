@@ -37,11 +37,38 @@
 										+"&perPageNum=${scri.perPageNum}"
 										+"&searchType=${scri.searchType}&keyword=${scri.keyword}";
 			})
+			
+			//댓글 쓰기
+			$(".replyWriteBtn").on("click", function(){
+				  var formObj = $("form[name='replyForm']");
+				  formObj.attr("action", "/board/replyWrite");
+				  formObj.submit();
+				});
+			
+			//댓글 수정 View
+			$(".replyUpdateBtn").on("click", function(){
+				location.href = "/board/replyUpdateView?boardNumber=${read.boardNumber}"
+								+ "&page=${scri.page}"
+								+ "&perPageNum=${scri.perPageNum}"
+								+ "&searchType=${scri.searchType}"
+								+ "&keyword=${scri.keyword}"
+								+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
+			});
+					
+			//댓글 삭제 View
+			$(".replyDeleteBtn").on("click", function(){
+				location.href = "/board/replyDeleteView?boardNumber=${read.boardNumber}"
+					+ "&page=${scri.page}"
+					+ "&perPageNum=${scri.perPageNum}"
+					+ "&searchType=${scri.searchType}"
+					+ "&keyword=${scri.keyword}"
+					+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
+			});
 		})
 	</script>
 	
 	<body>	
-		<div id="root">
+		<div class="container">
 			<header>
 				<h1> 게시판</h1>
 			</header>			
@@ -66,17 +93,20 @@
 						<tbody>	
 							<tr>
 								<td>
-									<label for="boardTitle">제목</label><input type="text" id="boardTitle" name="boardTitle" value="${read.boardTitle}" readonly="readonly"/>
+									<label for="boardTitle">제목</label>
+									<input type="text" id="boardTitle" name="boardTitle" value="${read.boardTitle}" readonly="readonly"/>
 								</td>
 							</tr>	
 							<tr>
 								<td>
-									<label for="boardContent">내용</label><textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
+									<label for="boardContent">내용</label>
+									<textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label for="userId">작성자</label><input type="text" id="userId" name="userId" value="${read.userId}" readonly="readonly" />
+									<label for="userId">작성자</label>
+									<input type="text" id="userId" name="userId" value="${read.userId}" readonly="readonly" />
 								</td>
 							</tr>
 							<tr>
@@ -93,23 +123,43 @@
 						<button type="submit" class="list_btn">목록</button>	
 					</div>
 					
-					<!-- 댓글 -->
-					<div id="reply">
-					  <ol class="replyList">
-					    <c:forEach items="${replyList}" var="replyList">
-					      <li>
-					        <p>
-							        작성자 : ${replyList.userId}<br />
-							        작성 날짜 :  <fmt:formatDate value="${replyList.boardReplyRegidate}" pattern="yyyy-MM-dd" />
-					        </p>
+		<!-- 댓글 -->
+		<div id="reply">
+			<ol class="replyList">
+				<c:forEach items="${replyList}" var="replyList">
+					 <li>
+					    <p>
+						작성자 : ${replyList.userId}<br />
+						작성 날짜 : <fmt:formatDate value="${replyList.boardReplyRegidate}" pattern="yyyy-MM-dd" />
+					    </p>
 					
-					        <p>${replyList.boardReplyContent}</p>
-					      </li>
-					    </c:forEach>   
-					  </ol>
-					</div>
-			</section>
-			<hr />
+					   <p>${replyList.boardReplyContent}</p>
+				<div>
+					<button type="button" class="replyUpdateBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">수정</button>
+					<button type="button" class="replyDeleteBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">삭제</button>
+				</div>
+					</li>
+				</c:forEach>   
+			 </ol>
+		</div>
+					
+		<form name="replyForm" method="post">
+			<input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
+			<input type="hidden" id="page" name="page" value="${scri.page}"> 
+			<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+			<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+			<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+					
+			<div>
+				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" /><br/>
+				<label for="boardReplyContent">댓글 내용</label><input type="text" id="boardReplyContent" name="boardReplyContent" />
+			</div>
+			<div>
+				 <button type="button" class="replyWriteBtn">작성</button>
+			</div>
+		</form>
+		</section>
+		<hr />
 		</div>
 	</body>
 </html>

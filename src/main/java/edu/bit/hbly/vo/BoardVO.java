@@ -9,7 +9,14 @@ public class BoardVO {
 	private String boardContent;
 	private Date boardRegidate;
 	private String userId;
+	private int boardHit;
 	
+	public int getBoardHit() {
+		return boardHit;
+	}
+	public void setBoardHit(int boardHit) {
+		this.boardHit = boardHit;
+	}
 	public int getBoardNumber() {
 		return boardNumber;
 	}

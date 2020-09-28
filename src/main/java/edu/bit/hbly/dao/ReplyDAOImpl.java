@@ -21,4 +21,28 @@ public class ReplyDAOImpl implements ReplyDAO {
 		return sql.selectList("replyMapper.readReply", boardNumber);
 	}
 
+	//댓글작성
+	@Override
+	public void writeReply(ReplyVO ReplyVO) throws Exception {
+		sql.insert("replyMapper.writeReply", ReplyVO);		
+	}
+
+	//댓글수정
+	@Override
+	public void updateReply(ReplyVO ReplyVO) throws Exception {
+		sql.update("replyMapper.updateReply", ReplyVO);
+	}
+
+	//댓글삭제
+	@Override
+	public void deleteReply(ReplyVO ReplyVO) throws Exception {
+		sql.delete("replyMapper.deleteReply", ReplyVO);
+	}
+
+	//선택된 댓글 조회
+	@Override
+	public ReplyVO selectReply(int boardReplyNumber) throws Exception {
+		return sql.selectOne("replyMapper.selectReply", boardReplyNumber);
+	}
+
 }

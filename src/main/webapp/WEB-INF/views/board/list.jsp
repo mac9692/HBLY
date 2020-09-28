@@ -7,7 +7,7 @@
 	</head>
 	
 	<body>
-		<div id="root">
+		<div class="container">
 			<header>
 				<h1> 게시판</h1>
 			</header>
@@ -25,7 +25,8 @@
 						<tr><th>글 번호</th>
 							<th>제목</th>
 							<th>작성자</th>
-							<th>작성날짜</th>
+							<th>등록일</th>
+							<th>조회수</th>
 						</tr>
 						
 						<c:forEach items="${list}" var = "list">
@@ -40,6 +41,7 @@
 								</td>
 								<td><c:out value="${list.userId}" /></td>
 								<td><fmt:formatDate value="${list.boardRegidate}" pattern="yyyy-MM-dd"/></td>
+								<td><c:out value="${list.boardHit }"/></td>
 							</tr>
 						</c:forEach>											
 					</table>
