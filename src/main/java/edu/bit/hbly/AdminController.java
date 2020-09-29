@@ -37,7 +37,7 @@ import net.sf.json.JSONArray;
 
 
 
-//di
+
 @Controller
 @RequestMapping("/admin/*")
 public class AdminController {
