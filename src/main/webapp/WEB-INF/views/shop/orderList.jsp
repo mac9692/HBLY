@@ -145,6 +145,7 @@
 					   <p><span>수령인</span>${orderList.orderRec}</p>
 					   <p><span>주소</span>(${orderList.userAddress1}) ${orderList.userAddress2} ${orderList.userAddress3}</p>
 					   <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderList.amount}" /> 원</p>
+					   <p><span>상태</span>${orderList.delivery}</p>
 					  </div>
 					  </li>
 					  </c:forEach>

@@ -121,7 +121,7 @@ where userId = #{userId}
 <!-- 주문목록 -->
 <select id="orderList" resultType="edu.bit.hbly.vo.OrderVO">
 select
-orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount, orderDate
+orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount, orderDate, delivery
 from tbl_order
 where userId = #{userId}
 
@@ -130,7 +130,7 @@ where userId = #{userId}
 <!-- 특정 주문 목록 -->
 <select id="orderView" resultType="edu.bit.hbly.vo.OrderListVO">
 select
-o.orderId, o.userId, o.orderRec, o.userAddress1, o.userAddress2, o.userAddress3, o.orderPhoneNumber, o.amount, o.orderDate,
+o.orderId, o.userId, o.orderRec, o.userAddress1, o.userAddress2, o.userAddress3, o.orderPhoneNumber, o.amount, o.orderDate, o.delivery,
 d.orderDetailsNumber, d.goodsNumber, d.cartStock,
 g.goodsName, g.goodsThumbImage, g.goodsPrice
 from tbl_order o

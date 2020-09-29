@@ -12,6 +12,7 @@ public class OrderListVO {
 	private String orderPhoneNumber;
 	private int amount;
 	private Date orderDate;
+	private String delivery;
 	
 	private int orderDetailsNumber;
 	private int goodsNumber;
@@ -20,14 +21,15 @@ public class OrderListVO {
 	private String goodsName;
 	private String goodsThumbImage;
 	private int goodsPrice;
-	
+
 	public OrderListVO() {
 		
 	}
 
 	public OrderListVO(String orderId, String userId, String orderRec, String userAddress1, String userAddress2,
-			String userAddress3, String orderPhoneNumber, int amount, Date orderDate, int orderDetailsNumber,
-			int goodsNumber, int cartStock, String goodsName, String goodsThumbImage, int goodsPrice) {
+			String userAddress3, String orderPhoneNumber, int amount, Date orderDate, String delivery,
+			int orderDetailsNumber, int goodsNumber, int cartStock, String goodsName, String goodsThumbImage,
+			int goodsPrice) {
 		super();
 		this.orderId = orderId;
 		this.userId = userId;
@@ -38,6 +40,7 @@ public class OrderListVO {
 		this.orderPhoneNumber = orderPhoneNumber;
 		this.amount = amount;
 		this.orderDate = orderDate;
+		this.delivery = delivery;
 		this.orderDetailsNumber = orderDetailsNumber;
 		this.goodsNumber = goodsNumber;
 		this.cartStock = cartStock;
@@ -118,6 +121,14 @@ public class OrderListVO {
 		this.orderDate = orderDate;
 	}
 
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+
 	public int getOrderDetailsNumber() {
 		return orderDetailsNumber;
 	}
@@ -165,7 +176,6 @@ public class OrderListVO {
 	public void setGoodsPrice(int goodsPrice) {
 		this.goodsPrice = goodsPrice;
 	}
-	
-	
 
+	
 }

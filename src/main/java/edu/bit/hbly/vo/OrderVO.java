@@ -25,13 +25,14 @@ public class OrderVO {
 	private String orderPhoneNumber;
 	private int amount;
 	private Date orderDate;
+	private String delivery;
 	
 	public OrderVO() {
 		
 	}
 
 	public OrderVO(String orderId, String userId, String orderRec, String userAddress1, String userAddress2,
-			String userAddress3, String orderPhoneNumber, int amount, Date orderDate) {
+			String userAddress3, String orderPhoneNumber, int amount, Date orderDate, String delivery) {
 		super();
 		this.orderId = orderId;
 		this.userId = userId;
@@ -42,6 +43,7 @@ public class OrderVO {
 		this.orderPhoneNumber = orderPhoneNumber;
 		this.amount = amount;
 		this.orderDate = orderDate;
+		this.delivery = delivery;
 	}
 
 	public String getOrderId() {
@@ -115,6 +117,14 @@ public class OrderVO {
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	
+
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+
 	
 }
