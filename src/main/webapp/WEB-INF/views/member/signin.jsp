@@ -1,5 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+
 <html>
 	<head>
 		<title>HBLY</title>
@@ -17,11 +22,20 @@
 					<%@ include file= "../include/nav.jsp" %>
 				</div>
 			</nav>
-			
+			<c:url value="/login" var="loginUrl" />
+					
 			<section id="container">
 				<div id="container_box">
 					<section id="content">
- 						<form role="form" method="post" autocomplete="off">
+					
+ 						<form:form role="form" action="${loginUrl}" method="POST" autocomplete="off">
+ 						
+ 						
+ 						<c:if test="${param.error != null}">
+        				<p>아이디와 비밀번호가 잘못되었습니다.</p>
+    					</c:if>
+    					
+    					
 		  					<div class="input_area">
 		   					<label for="userId">아이디</label>
 		  					<input type="email" id="userId" name="userId" required="required" />      
@@ -34,12 +48,8 @@
 					       
 					  <button type="submit" id="signin_btn" name="signin_btn">로그인</button>
 					  
-					  <c:if test="${msg == false}">
-					   <p style="color:#f00;">로그인에 실패했습니다.</p>
-					  </c:if>
-					  
-						  </form>   
-					</section>
+				</form:form>   
+			</section>
 					
 					
 				</div>

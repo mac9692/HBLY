@@ -16,7 +16,15 @@ public class MemberVO {
 	private Date userRegidate;
 	private int verify;
 	
-	
+	public String getAuthorities() {
+		
+		String authorities = "ROLE_USER";
+		
+		if(getVerify()==9)
+			authorities="ROLE_ADMIN";
+		
+		return authorities;
+	}
 	
 	public MemberVO() {
 		
@@ -120,6 +128,10 @@ public class MemberVO {
 	public void setVerify(int verify) {
 		this.verify = verify;
 	}
+
+
+
+	
 	
 	
 	

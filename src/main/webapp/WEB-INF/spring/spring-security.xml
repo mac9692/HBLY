@@ -7,6 +7,44 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security.xsd">
       
-    <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+   <!-- 검사 URL -->
+    <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/member/signin" access="permitAll" />
+        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/member/**" access="permitAll" />
+        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" />
+        
+        <form-login login-page="/member/signin"
+                    default-target-url="/"
+                    authentication-failure-url="/member/signin?error"
+                    username-parameter="userId"
+                    
+                    password-parameter="userPassword" />
+        
+         <logout logout-url="/signout"
+                logout-success-url="/" /> 
+                
+        <access-denied-handler error-page="/member/accessDenied" />
+         <csrf disabled="false"></csrf>
+        
+    </http>    
     
+     <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="dataSource" ref="dataSource"/><!-- root.xml에 있는 커넥션풀에서 datasource를 받아오는것 -->
+    </beans:bean> 
+    
+    <beans:bean id="customNoOpPasswordEncoder" class="edu.bit.hbly.security.CustomNoOpPasswordEncoder"></beans:bean>
+    <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+    <beans:bean id="customUserDetailsService" class="edu.bit.hbly.security.CustomUserDetailsService"></beans:bean>
+    
+    
+     
+    <!--  provider  -->
+       <authentication-manager>
+        <authentication-provider user-service-ref="customUserDetailsService">
+        <password-encoder ref="bcryptPasswordEncoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
 </beans:beans>
