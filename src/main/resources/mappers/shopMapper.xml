@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bit.hbly.mappers.shopMapper">
+
+
+<!-- 카테고리별 상품 리스트 : 1차분류 -->
+<select id="list_1" resultType="edu.bit.hbly.vo.GoodsViewVO">
+select
+    g.goodsNumber, g.goodsName, g.categoryCode, c.categoryCodeRef, c.categoryName, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate, g.goodsImage, g.goodsThumbImage
+        from tbl_goods g
+            inner join goods_category c
+                on g.categoryCode = c.categoryCode           
+            where g.categoryCode = #{categoryCode}
+            	or c.categoryCodeRef = #{categoryCodeRef}
+</select>
+
+
+<!-- 카테고리별 상품 리스트 : 2차분류 -->
+<select id="list_2" resultType="edu.bit.hbly.vo.GoodsViewVO">
+select
+    g.goodsNumber, g.goodsName, g.categoryCode, c.categoryCodeRef, c.categoryName, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate, g.goodsImage, g.goodsThumbImage
+        from tbl_goods g
+            inner join goods_category c
+                on g.categoryCode = c.categoryCode           
+            where g.categoryCode = #{categoryCode}
+</select>
+
+<!-- 상품 소감(댓글) 작성 -->
+<insert id="registerGoodsReply">
+insert into tbl_goods_reply ( goodsNumber,userId,goodsReplyNumber,goodsReplyContent)
+values(#{goodsNumber},#{userId},tbl_goods_reply_seq.nextval,#{goodsReplyContent})
+</insert>
+
+<!-- 상품 소감(댓글) 리스트 -->
+<select id="goodsReplyList" resultType="edu.bit.hbly.vo.GoodsReplyListVO">
+select
+r.goodsNumber, r.userId, r.goodsReplyNumber, r.goodsReplyContent, r.goodsReplyRegidate , m.userNickname
+from tbl_goods_reply r
+inner join tbl_member m
+on r.userId = m.userId
+where goodsNumber = #{goodsNumber}
+</select>
+
+<!-- 상품 소감(댓글) 삭제 -->
+<delete id="deleteGoodsReply">
+delete tbl_goods_reply
+where goodsReplyNumber = #{goodsReplyNumber}
+and userId = #{userId}
+</delete>
+
+<!-- 상품 소감(댓글) 아이디 체크 -->
+<select id="checkGoodsReplyUserId" resultType="String">
+select userId from tbl_goods_reply
+where goodsReplyNumber = #{goodsReplyNumber}
+</select>
+
+<!-- 상품 소감(댓글) 수정 -->
+<update id="modifyGoodsReply">
+update tbl_goods_reply
+set
+goodsReplyContent = #{goodsReplyContent}
+where goodsReplyNumber = #{goodsReplyNumber}
+and userId = #{userId}
+</update>
+
+
+
+<!-- 장바구니 담기 -->
+<insert id="addCart">
+insert into tbl_cart 
+(cartNumber, userId, goodsNumber, cartStock)
+values 
+(tbl_cart_seq.nextval, #{userId} , #{goodsNumber}, #{cartStock})
+</insert>
+
+<!-- 장바구니 리스트 -->
+<select id="cartList" resultType="edu.bit.hbly.vo.CartListVO">
+select
+row_number() over(order by c.cartNumber desc) as num,
+c.cartNumber, c.userId, c.goodsNumber, c.cartStock, c.addDate,
+g.goodsName, g.goodsPrice, g.goodsThumbImage
+from tbl_cart c
+inner join tbl_goods g
+on c.goodsNumber = g.goodsNumber
+where c.userId = #{userId}
+
+</select>
+
+<!-- 장바구니 삭제 -->
+<delete id="deleteCart">
+delete tbl_cart
+where cartNumber = #{cartNumber}
+and userId = #{userId}
+</delete>
+
+
+<!-- 주문 정보 -->
+<insert id="orderInfo">
+insert into tbl_order(orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount)
+values (#{orderId}, #{userId}, #{orderRec}, #{userAddress1}, #{userAddress2}, #{userAddress3}, #{orderPhoneNumber}, #{amount})
+
+</insert>
+
+
+<!-- 주문 상세 정보 -->
+<insert id="orderInfo_Details">
+insert into tbl_order_details(orderDetailsNumber, orderId, goodsNumber, cartStock)
+select tbl_order_details_seq.nextval, #{orderId}, goodsNumber, cartStock
+from tbl_cart
+</insert>
+
+
+<!-- 카트 비우기 -->
+<delete id="cartAllDelete">
+delete tbl_cart
+where userId = #{userId}
+</delete>
+
+<!-- 주문목록 -->
+<select id="orderList" resultType="edu.bit.hbly.vo.OrderVO">
+select
+orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount, orderDate, delivery
+from tbl_order
+where userId = #{userId}
+
+</select>
+
+<!-- 특정 주문 목록 -->
+<select id="orderView" resultType="edu.bit.hbly.vo.OrderListVO">
+select
+o.orderId, o.userId, o.orderRec, o.userAddress1, o.userAddress2, o.userAddress3, o.orderPhoneNumber, o.amount, o.orderDate, o.delivery,
+d.orderDetailsNumber, d.goodsNumber, d.cartStock,
+g.goodsName, g.goodsThumbImage, g.goodsPrice
+from tbl_order o
+    inner join tbl_order_details d
+        on o.orderId = d.orderId
+    inner join tbl_goods g
+        on d.goodsNumber = g.goodsNumber
+where o.userId = #{userId}
+    and o.orderId = #{orderId}
+
+</select>
+</mapper>

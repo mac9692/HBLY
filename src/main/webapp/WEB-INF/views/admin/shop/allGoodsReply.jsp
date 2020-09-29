@@ -64,14 +64,24 @@
 		</style>	
 		
 		<style>
-		#container_box table { width: 900px; }
+		/*
+		#container_box table { width:900px; }
 		#container_box table th { font-size:20px; font-weight:bold;
-									text-align:center; padding:10px; border-bottom:2px solid #666; }
+		       text-align:center; padding:10px; border-bottom:2px solid #666; }
 		#container_box table tr:hover { background:#eee; }
 		#container_box table td { padding:10px; text-align:center; }
-		#container_box table img { width: 150px; height:auto; }
-
+		#container_box table img { width:150px; height:auto; }
+		*/
+		
+		#container_box ul li { margin-bottom:20px; border:10px solid #eee; }
+		.replyInfo { background:#eee; padding:10px; font-size:18px; }
+		.replyInfo span { font-size:20px; font-weight:bold; margin-right:20px; }
+		.replyContent { padding:10px; }
+		
+		.replyDelete {text-align:right; padding:10px; }
+		.replyDelete button { border:2px solid #999; background:#fff; }
 		</style>
+		
 		
 	</head>
 	
@@ -94,50 +104,37 @@
 	
 			<section id="container">
 				<aside>
-				 	<%@ include file="../include/aside.jsp" %>
+					<%@ include file="../include/aside.jsp" %>
 				</aside>
-			
-			
 				<div id="container_box">
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>이름</th>
-								<th>카테고리</th>
-								<th>가격</th>
-								<th>수량</th>
-								<th>등록날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list}" var="list">
-							<tr>
-								<td>
-									<img src="${list.goodsThumbImage}">
-								</td>
-								<td>
-									<a href="/admin/goods/view?n=${list.goodsNumber}">${list.goodsName}</a>
-								</td>
-								<td>
-								${list.categoryName}
-								</td>
-								<td>
-								<fmt:formatNumber value="${list.goodsPrice}" pattern="###,###,###"/>
-								</td>
-								<td>
-								${list.goodsStock}
-								</td>
-								<td>
-								<fmt:formatDate value="${list.goodsRegidate}" pattern="yyyy-MM-dd"/>
-								</td>
-							</tr>
-							</c:forEach>	
-						</tbody>
-					</table>
+					
+					<ul>
+						<c:forEach items="${goodsReply}" var="goodsReply">
+						<li>
+							<div class="replyInfo">
+								<p>
+									<span>작성자</span>${goodsReply.userNickname}(${goodsReply.userId})
+								</p>
+								<p>
+									<span>작성된 상품</span><a href="/shop/view?n=${goodsReply.goodsNumber}">바로가기</a>
+								</p>
+							</div>
+							<div class="replyContent">
+								${goodsReply.goodsReplyContent}
+							</div>
+							
+							<div class="replyDelete">
+								<form role="form" method="post">
+									<input type="hidden" name="goodsReplyNumber" value="${goodsReply.goodsReplyNumber}"/>
+									<button type="submit" class="delete_${goodsReply.goodsReplyNumber}_btn">삭제</button>
+								</form>
+								
+							</div>
+							</li>
+							</c:forEach>
+					</ul>
 					
 				</div>
-				
 			</section>
 			
 			<footer id="footer">

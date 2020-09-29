@@ -267,7 +267,17 @@
 				});
 			
 		</script>
+		<script>
+		var regExp = /[^0-9]/gi;
 		
+		$("#goodsPrice").keyup(function(){ numCheck($(this)); });
+		$("#goodsStock").keyup(function(){ numCheck($(this)); });
+		
+		function numCheck(selector) {
+		 var tempVal = selector.val();
+		 selector.val(tempVal.replace(regExp, ""));
+		}
+		</script>
 		
 	</body>
 </html>

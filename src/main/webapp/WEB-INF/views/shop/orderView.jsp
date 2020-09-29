@@ -1,9 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 	<head>
 		
-		<title>HBLY</title>
+		<title>HBLY Shop List</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<!-- 구글 -->
@@ -18,24 +20,7 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 				
-		<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous" style=""></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-		crossorigin="anonymous" style=""></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous" style=""></script>
-
+	
 		
 		
 		<style>
@@ -118,82 +103,92 @@
 		 
 		</style>
 		
+		
+		<style>
+		/*
+		 section#content ul li { display:inline-block; margin:10px; }
+		 section#content div.goodsThumb img { width:200px; height:200px; }
+		 section#content div.goodsName { padding:10px 0; text-align:center; }
+		 section#content div.goodsName a { color:#000; }
+		*/
+		 .orderInfo { border:5px solid #eee; padding:10px 20px; margin:20px 0;}
+		 .orderInfo span { font-size:20px; font-weight:bold; display:inline-block; width:90px; }
+		 
+		 .orderView li { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #999; }
+		 .orderView li::after { content:""; display:block; clear:both; }
+		 
+		 .thumb { float:left; width:200px; }
+		 .thumb img { width:200px; height:200px; }
+		 .gdsInfo { float:right; width:calc(100% - 220px); line-height:2; }
+		 .gdsInfo span { font-size:20px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
+		</style>
+		
 	</head>
 	<body>
 		<div id="root">
 			<header id="header">
 				<div id="header_box">
-					<%@ include file= "include/header.jsp" %>
+					<%@ include file= "../include/header.jsp" %>
 				</div>
 			</header>
 			
 			<nav id="nav">
 				<div id="nav_box">
-					<%@ include file= "include/nav.jsp" %>
+					<%@ include file= "../include/nav.jsp" %>
 				</div>
 			</nav>
 			
 			<section id="container">
 				<div id="container_box">
-				<aside id="aside">
-					 <%@ include file="include/aside.jsp" %>
-				</aside>
+						<section id="content">
+
+						 <div class="orderInfo">
+						  <c:forEach items="${orderView}" var="orderView" varStatus="status">
+						   
+						   <c:if test="${status.first}">
+						    <p><span>수령인</span>${orderView.orderRec}</p>
+						    <p><span>주소</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
+						    <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
+						    <p><span>상태</span>${orderView.delivery}</p>
+						   </c:if>
+						   
+						  </c:forEach>
+						 </div>
+						 
+						 <ul class="orderView">
+						  <c:forEach items="${orderView}" var="orderView">     
+						  <li>
+						   <div class="thumb">
+						    <img src="${orderView.goodsThumbImage}" />
+						   </div>
+						   <div class="gdsInfo">
+						    <p>
+						     <span>상품명</span>${orderView.goodsName}<br />
+						     <span>개당 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
+						     <span>구입 수량</span>${orderView.cartStock} 개<br />
+						     <span>최종 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
+						    </p>
+						   </div>
+						  </li>     
+						  </c:forEach>
+						 </ul>
+						</section>
+					
+					
+					
+					
+					
+						<aside id="aside">
+							 <%@ include file="../include/aside.jsp" %>
+						</aside>
 				</div>
 			</section>
 			
 			<footer id="foorter">
 				<div id="footer_box">
-					<%@ include file= "include/footer.jsp" %>
+					<%@ include file= "../include/footer.jsp" %>
 				</div>
 			</footer>
 		</div>
-		
-		<!-- 챗봇 -->
-<div id="frogue-container" class="position-right-bottom"
-      data-chatbot="6de51246-5130-49fc-abbd-cb9c4dde9ddb"
-      data-user="사용자ID"
-      data-init-key="value"
-      ></div>
-<!-- data-init-식별키=값 으로 셋팅하면 챗플로우에 파라미터와 연동가능. 식별키는 소문자만 가능 -->
-<script>
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https:\/\/danbee.ai/js/plugins/frogue-embed/frogue-embed.min.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'frogue-embed'));
-</script>
-
-<script>
-if (document.addEventListener) {
-// Mozilla, Opera, Webkit
-document.addEventListener("DOMContentLoaded", function () {
-document.removeEventListener("DOMContentLoaded", arguments.callee, false);
-htmlReady();
-}, false);
-} else if (document.attachEvent) {
-// Internet Explorer
-document.attachEvent("onreadystatechange", function () {
-if (document.readyState === "complete") {
-document.detachEvent("onreadystatechange", arguments.callee);
-htmlReady();
-}
-});
-}
-var htmlReadyTimer = null;
-//DOM이 모두 로드 되었을 때
-function htmlReady () {
-htmlReadyTimer = setTimeout(function() {
-if (frogueReadyFlag) {
-froguePushEvent('landingEvent', {event_name: '', event_value1: '', event_value2: ''});
-htmlReadyTimer = null;
-} else {
-htmlReady();
-}
-}, 500);
-}
-</script> 
-		
 	</body>
 </html>

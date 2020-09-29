@@ -22,16 +22,26 @@
      #{goodsImage},#{goodsThumbImage})
 </insert>
 
-<!-- 상품 목록 -->
-<select id="goodslist" resultType="edu.bit.hbly.vo.GoodsVO">
+<!-- 상품 목록 join 안하고 쓴 기존의 것-->
+<!-- <select id="goodslist" resultType="edu.bit.hbly.vo.GoodsVO">
 	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate
      from tbl_goods
      order by goodsNumber desc
+</select> -->
+
+<!--  상품 목록 -->
+<select id="goodslist" resultType="edu.bit.hbly.vo.GoodsViewVO">
+select
+     g.goodsNumber, g.goodsName, g.categoryCode, c.categoryCoderef, c.categoryName, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsRegidate,
+     g.goodsImage, g.goodsThumbImage
+         from tbl_goods g
+             inner join goods_category c
+                 on g.categoryCode = c.categoryCode
 </select>
 
 
 <!-- 
-상품 조회 기존에 쓰던 것 join 생각 안하고 쓴 것
+상품 조회 기존에 쓰던 것 join안하고 쓴 것
 <select id="goodsView" resultType="edu.bit.hbly.vo.GoodsVO">
 	select goodsNumber, goodsName, categoryCode, goodsPrice, goodsStock, goodsDescribe, goodsImage, goodsDate
 	from tbl_goods
@@ -69,6 +79,58 @@ where goodsNumber = ${goodsNumber}
 delete 
 tbl_goods 
 where goodsNumber = #{goodsNumber}
+</delete>
+
+
+<!-- 모든 유저의 주문 목록 -->
+<select id="orderList" resultType="edu.bit.hbly.vo.OrderVO">
+select orderId, userId, orderRec, userAddress1, userAddress2, userAddress3, orderPhoneNumber, amount, orderDate, delivery
+from tbl_order
+
+</select>
+
+<!-- 특정 주문 목록 -->
+<select id="orderView" resultType="edu.bit.hbly.vo.OrderListVO">
+select o.orderId, o.userId, o.orderRec, o.userAddress1, o.userAddress2, o.userAddress3, o.orderPhoneNumber, o.amount, o.orderDate, o.delivery,
+d.orderDetailsNumber, d.goodsNumber, d.cartStock,
+g.goodsName, g.goodsThumbImage, g.goodsPrice
+from tbl_order o
+    inner join tbl_order_details d
+        on o.orderId = d.orderId
+    inner join tbl_goods g
+        on d.goodsNumber = g.goodsNumber
+where o.orderId= #{orderId}
+</select>
+
+<!-- 배송상태 -->
+<update id="delivery">
+update tbl_order
+set delivery= #{delivery}
+where orderId = #{orderId}
+</update>
+
+
+<!-- 상품 수량 조절 -->
+<update id="changeStock">
+update tbl_goods
+set goodsStock = goodsStock - #{goodsStock}
+where goodsNumber = #{goodsNumber}
+</update>
+
+<!-- 모든 소감(댓글) 보기 -->
+<select id="allGoodsReply" resultType="edu.bit.hbly.vo.GoodsReplyListVO">
+select
+r.goodsNumber, r.userId, r.goodsReplyNumber, r.goodsReplyContent, r.goodsReplyRegidate,
+m.userNickname
+from tbl_goods_reply r
+    inner join tbl_member m
+        on r.userId = m.userId
+</select>
+
+<!-- 소감(댓글) 지우기 -->
+<delete id="deleteReply">
+delete tbl_goods_reply
+	where goodsReplyNumber = #{goodsReplyNumber}
 </delete>
 
 </mapper>

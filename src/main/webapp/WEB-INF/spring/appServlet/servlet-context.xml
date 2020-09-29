@@ -42,6 +42,10 @@
 	<resources mapping="/ckUpload/**" location="/resources/ckUpload/" />
 	
 	
+	<!-- 대체 이미지 경로 -->
+	<resources mapping="/images/**" location="/resources/images/" />
+	
+	
 	<!-- 비밀번호 암호화 인터셉트 설정  -->
 	<beans:bean id="AdminInterceptor" class="edu.bit.hbly.interceptor.AdminInterceptor" />
 

@@ -8,8 +8,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import edu.bit.hbly.vo.CategoryVO;
+import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsVO;
 import edu.bit.hbly.vo.GoodsViewVO;
+import edu.bit.hbly.vo.OrderListVO;
+import edu.bit.hbly.vo.OrderVO;
 
 
 
@@ -36,7 +39,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public List<GoodsVO> goodslist() throws Exception {
+	public List<GoodsViewVO> goodslist() throws Exception {
 		
 		return sql.selectList(namespace + ".goodslist");
 	}
@@ -57,6 +60,39 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public void goodsDelete(int goodsNumber) throws Exception {
 		sql.delete(namespace + ".goodsDelete",goodsNumber);
+		
+	}
+
+	@Override
+	public List<OrderVO> orderList() throws Exception {
+		return sql.selectList(namespace + ".orderList");
+	}
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception {
+		return sql.selectList(namespace + ".orderView", order);
+	}
+
+	@Override
+	public void delivery(OrderVO order) throws Exception {
+		sql.update(namespace + ".delivery", order);
+		
+	}
+
+	@Override
+	public void changeStock(GoodsVO goods) throws Exception {
+		sql.update(namespace + ".changeStock", goods);
+		
+	}
+
+	@Override
+	public List<GoodsReplyListVO> allGoodsReply() throws Exception {
+		return sql.selectList(namespace + ".allGoodsReply");
+	}
+
+	@Override
+	public void deleteGoodsReply(int goodsReplyNumber) throws Exception {
+		sql.delete(namespace + ".deleteReply", goodsReplyNumber);
 		
 	}
 }

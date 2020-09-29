@@ -64,14 +64,18 @@
 		</style>	
 		
 		<style>
-		#container_box table { width: 900px; }
+		/*
+		#container_box table { width:900px; }
 		#container_box table th { font-size:20px; font-weight:bold;
-									text-align:center; padding:10px; border-bottom:2px solid #666; }
+		       text-align:center; padding:10px; border-bottom:2px solid #666; }
 		#container_box table tr:hover { background:#eee; }
 		#container_box table td { padding:10px; text-align:center; }
-		#container_box table img { width: 150px; height:auto; }
-
+		#container_box table img { width:150px; height:auto; }
+		*/
+		 div#container_box ul li { border:5px solid #eee; padding:10px 20px; margin-bottom:20px; }
+		 div#container_box .orderList span { font-size:20px; font-weight:bold; display:inline-block; width:90px; margin-right:10px; }
 		</style>
+		
 		
 	</head>
 	
@@ -94,50 +98,26 @@
 	
 			<section id="container">
 				<aside>
-				 	<%@ include file="../include/aside.jsp" %>
+					<%@ include file="../include/aside.jsp" %>
 				</aside>
-			
-			
 				<div id="container_box">
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>이름</th>
-								<th>카테고리</th>
-								<th>가격</th>
-								<th>수량</th>
-								<th>등록날짜</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list}" var="list">
-							<tr>
-								<td>
-									<img src="${list.goodsThumbImage}">
-								</td>
-								<td>
-									<a href="/admin/goods/view?n=${list.goodsNumber}">${list.goodsName}</a>
-								</td>
-								<td>
-								${list.categoryName}
-								</td>
-								<td>
-								<fmt:formatNumber value="${list.goodsPrice}" pattern="###,###,###"/>
-								</td>
-								<td>
-								${list.goodsStock}
-								</td>
-								<td>
-								<fmt:formatDate value="${list.goodsRegidate}" pattern="yyyy-MM-dd"/>
-								</td>
-							</tr>
-							</c:forEach>	
-						</tbody>
-					</table>
-					
+					<section id ="content">
+						<ul class="orderList">
+						 <c:forEach items="${orderList}" var="orderList">
+						 <li>
+						 <div>
+						  <p><span>주문번호</span><a href="/admin/shop/orderView?n=${orderList.orderId}">${orderList.orderId}</a></p>
+						  <p><span>주문자</span>${orderList.userId}</p>
+						  <p><span>수령인</span>${orderList.orderRec}</p>
+						  <p><span>주소</span>(${orderList.userAddress1}) ${orderList.userAddress2} ${orderList.userAddress3}</p>
+						  <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderList.amount}" /> 원</p> 
+						  <p><span>상태</span>${orderList.delivery}</p>
+						 </div>
+						 </li>
+						 </c:forEach>
+						</ul>
+					</section>
 				</div>
-				
 			</section>
 			
 			<footer id="footer">
