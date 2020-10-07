@@ -13,9 +13,7 @@
       <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
       <org.aspectj-version>1.9.0</org.aspectj-version>
       <org.slf4j-version>1.7.25</org.slf4j-version>
-      <org.security-version>5.0.6.RELEASE</org.security-version>
-         
-      
+      <org.security-version>5.0.6.RELEASE</org.security-version>     
    </properties>
    
    <repositories>

@@ -32,13 +32,13 @@ public class MemberController {
 	@Inject
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	//È¸¿ø°¡ÀÔ GET
+	//íšŒì›ê°€ì… GET
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public void getSignup() throws Exception{
 		logger.info("get signup");
 	}
 	
-	//È¸¿ø°¡ÀÔ POST
+	//íšŒì›ê°€ì… POST
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String postSignup(MemberVO vo) throws Exception{
 		logger.info("post signup");
@@ -54,13 +54,13 @@ public class MemberController {
 		}
 		
 		
-		//·Î±×ÀÎ  get
+		//ï¿½Î±ï¿½ï¿½ï¿½  get
 		@RequestMapping(value = "/signin", method = RequestMethod.GET)
 		public void getSignin() throws Exception {
 		 logger.info("get signin");
 		}
 
-		//·Î±×ÀÎ post
+		//ï¿½Î±ï¿½ï¿½ï¿½ post
 		@RequestMapping(value = "/signin", method = RequestMethod.POST)
 		public String postSignin(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		 logger.info("post signin");
@@ -81,7 +81,7 @@ public class MemberController {
 		 return "redirect:/";
 		}
 		  
-		//·Î±×¾Æ¿ô
+		//ï¿½Î±×¾Æ¿ï¿½
 		@RequestMapping(value = "/signout", method = RequestMethod.GET)
 		public String signout(HttpSession session) throws Exception {
 		 logger.info("get logout");

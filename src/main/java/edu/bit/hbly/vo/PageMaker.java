@@ -75,11 +75,12 @@ public class PageMaker {
 		return uriComponents.toUriString();
 	}
 	
-	public String makeSearch(int page)
+	public String makeSearch(int page, String categoryCode)
 	{
 	  
 	 UriComponents uriComponents =
 	            UriComponentsBuilder.newInstance()
+	            .queryParam("categoryCode", categoryCode)
 	            .queryParam("page", page)
 	            .queryParam("perPageNum", cri.getPerPageNum())
 	            .queryParam("searchType", ((SearchCriteria)cri).getSearchType())

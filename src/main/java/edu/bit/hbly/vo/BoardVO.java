@@ -11,6 +11,7 @@ public class BoardVO {
 	private String userId;
 	private int boardHit;
 	
+	
 	public int getBoardHit() {
 		return boardHit;
 	}
@@ -47,6 +48,7 @@ public class BoardVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	
 	
 
 	

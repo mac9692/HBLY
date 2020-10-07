@@ -2,12 +2,14 @@ package edu.bit.hbly.vo;
 
 public class Criteria {
 	
+	private String categoryCode;
 	private int page;
 	private int perPageNum;
 	private int rowStart;
 	private int rowEnd;
 	
 	public Criteria() {
+		this.categoryCode = "1";
 		this.page = 1;
 		this.perPageNum = 10;
 	}
@@ -49,12 +51,21 @@ public class Criteria {
 		rowEnd = rowStart + perPageNum - 1;
 		return rowEnd;
 	}
+	
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
 
 	@Override
 	public String toString() {
 		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", rowStart=" + rowStart + ", rowEnd=" + rowEnd
 				+ "]";
 	}
+
 
 	
 

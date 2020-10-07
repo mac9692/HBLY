@@ -19,6 +19,7 @@
 		
 	</script>
 	
+	<body>
 	<div class="container">
 		 
 			<nav id="nav">
@@ -33,17 +34,32 @@
 						<tbody>
 							<tr>
 								<td>
-									<label for="boardTitle">제목</label><input type="text" id="boardTitle" name="boardTitle" required="required"/>
+									<label>게시판 카테고리</label>
+									<select class = boardCategory name="categoryCode">
+										<option value = "0">공지사항</option>
+										<option value = "1">자유게시판</option>
+										<option value = "2">문의게시판</option>
+										<option value = "3" >리뷰게시판</option>
+									</select>									
+									
 								</td>
 							</tr>	
 							<tr>
 								<td>
-									<label for="boardContent">내용</label><textarea id="boardContent" name="boardContent" required="required"></textarea>
+									<label for="boardTitle">제목</label>
+									<input type="text" id="boardTitle" name="boardTitle" required="required"/>
+								</td>
+							</tr>	
+							<tr>
+								<td>
+									<label for="boardContent">내용</label>
+									<textarea id="boardContent" name="boardContent" required="required"></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label for="userId">작성자</label><input type="text" id="userId" name="userId" required="required" />
+									<label for="userId">작성자</label>
+									<input type="text" id="userId" name="userId" required="required" />
 								</td>
 							<tr>
 								<td>						
