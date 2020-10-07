@@ -40,7 +40,7 @@
 						</div>
 						
 						<div class="input_area">
-						<label for="userNickame">닉네임</label>
+						<label for="userNickname">닉네임</label>
 						<input type="text" id="userNickname" name="userNickname" placeholder="닉네임을 입력해주세요." required="required"/>
 						</div>
 						

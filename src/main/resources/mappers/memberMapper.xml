@@ -6,14 +6,26 @@
 
 <!-- 회원 가입 -->
 <insert id="signup">
- insert into tbl_member(userId, userPassword, userName, userNickname, userPhoneNumber)
-  values(#{userId}, #{userPassword}, #{userName}, #{userNickname}, #{userPhoneNumber}) 
+	insert into tbl_member (userId,userPassword,userName,userBirth,userGender,userNickname,userPhoneNumber,userAddress1,userAddress2,userAddress3) 
+	values(#{userId},#{userPassword},#{userName},#{userBirth},#{userGender},#{userNickname},#{userPhoneNumber},#{userAddress1},#{userAddress2},#{userAddress3})
 </insert>
+
+<!-- 회원 가입 - 아이디(email) 중복 검사 -->
+<select id="checkId" parameterType="String" resultType="int">
+	select count(*) from tbl_member where userId = #{userId}
+</select>
+
+<!-- 회원 가입 - 별명 중복 검사 -->
+<select id="checkNickname" parameterType="String" resultType="int">
+	select count(*) from tbl_member where userNickname = #{userNickname}
+</select>
+
+
 
 <!-- 로그인 -->
 <select id="signin" resultType="edu.bit.hbly.vo.MemberVO">
  select
-     userId,userPassword,userName,userNickname,userPhoneNumber, userAddress1, userAddress2, userAddress3, userRegidate, verify
+     userId,userPassword,userName,userBirth,userGender,userNickname,userPhoneNumber,userAddress1,userAddress2,userAddress3, userRegidate, verify
  from
      tbl_member
  where userId = #{userId}

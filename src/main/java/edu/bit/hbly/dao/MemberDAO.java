@@ -4,10 +4,15 @@ import edu.bit.hbly.vo.MemberVO;
 
 public interface MemberDAO {
 	
-	//회원가입
+	//member sign up
 	public void signup(MemberVO vo) throws Exception;
+	//member sign up - id(email) check
+	public void checkId(String userId);
+	//member sign up - nickname check
+	public void checkNickname(String userNickname);
 	
-	
-	//로그인
+	//member sign in
 	public MemberVO signin(MemberVO vo) throws Exception;
+
+
 }
