@@ -6,7 +6,7 @@
   <li><a href="/admin/goods/list">상품 목록</a></li>
   <li><a href="/admin/shop/orderList">주문 목록</a></li>
   <li><a href="/admin/shop/allGoodsReply">상품 소감</a></li>
-  <li><a href="">상품 리뷰</a></li>
+  <li><a href="/admin/statistics/index">통계</a></li>
   <li><a href="">유저 목록</a></li>
 
  </ul>

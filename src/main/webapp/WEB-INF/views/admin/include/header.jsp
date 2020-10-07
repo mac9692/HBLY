@@ -3,4 +3,5 @@
 
     <h1 class="title">
     	<a href="/admin/index">HBLY ADMIN</a>
+    	<a href="/">HBLY MAIN</a>
     </h1>
