@@ -10,6 +10,11 @@
   values(#{userId}, #{userPassword}, #{userName}, #{userNickname}, #{userPhoneNumber}) 
 </insert>
 
+
+<insert id="getAuthorities">
+ insert into tbl_AUTHORITIES (userId,AUTHORITY) values(#{userId},'ROLE_USER')
+</insert>
+
 <!-- 로그인 -->
 <select id="signin" resultType="edu.bit.hbly.vo.MemberVO">
  select
@@ -19,5 +24,18 @@
  where userId = #{userId}
 </select>
 
+<!-- 회원정보 수정-->
+<update id="modify">
+ update tbl_member set 
+ userPassword=#{userPassword}, userName=#{userName}, userNickname=#{userNickname}, userPhoneNumber=#{userPhoneNumber} 
+ where userId=#{userId}
+</update>
+
+<!-- 회원 탈퇴 -->
+<delete id="withdrawal">
+ delete from tbl_member
+     where userId = #{userId}
+         and userPassword = #{userPassword}
+</delete>
 
 </mapper>
