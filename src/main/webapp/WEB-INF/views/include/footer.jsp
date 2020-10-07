@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="py-3">
+	<a href="/">입점/제휴문의</a>
+	<a href="/policy/terms">이용 약관</a>
+	<a href="/policy/privacy">개인정보 처리방침</a>
+	<a href="/policy/commercial">광고정책</a>
+	<a href="/policy/youth">청소년 보호정책</a>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-6 p-3">

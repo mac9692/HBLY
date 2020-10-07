@@ -24,17 +24,39 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	public String home(Model model) {
+		logger.info("home");
 		
 		return "home";
 	}
+	
+	@RequestMapping(value = "/policy/terms", method = RequestMethod.GET)
+	public String policyTerms(Model model) {
+		logger.info("policy Terms");
+		
+		return "policy/terms";
+	}
+	
+	@RequestMapping(value = "/policy/privacy", method = RequestMethod.GET)
+	public String policyPrivacy(Model model) {
+		logger.info("policy Privacy");
+		
+		return "policy/privacy";
+	}
+	
+	@RequestMapping(value = "/policy/commercial", method = RequestMethod.GET)
+	public String policyCommercial(Model model) {
+		logger.info("policy Commercial");
+		
+		return "policy/commercial";
+	}
+	
+	@RequestMapping(value = "/policy/youth", method = RequestMethod.GET)
+	public String policyYouth(Model model) {
+		logger.info("policy Youth");
+		
+		return "policy/youth";
+	}
+	
 
 }
