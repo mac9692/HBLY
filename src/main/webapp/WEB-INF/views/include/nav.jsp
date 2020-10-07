@@ -10,7 +10,13 @@
   <a href="/member/signin">로그인</a>
  </li>
  <li>
+  <a href="/member/signin2">로그인2</a>
+ </li>
+ <li>
   <a href="/member/signup">회원가입</a>
+ </li>
+  <li>
+  <a href="/member/signup2">회원가입2</a>
  </li>
  <li>
   <a href="/board/list">게시판</a>

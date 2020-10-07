@@ -271,18 +271,16 @@
 		    <artifactId>spring-tx</artifactId>
 		    <version>5.0.7.RELEASE</version>
 		</dependency>
-	<!-- 트랜젝션 END -->  
-	
-	
-	<!-- 검색엔진 -->
-	<!-- https://mvnrepository.com/artifact/org.apache.solr/solr-solrj -->
+
+	<!-- 트랜젝션 END -->
+	  
+	<!-- For SENS API / Base64 -->
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
-		    <groupId>org.apache.solr</groupId>
-		    <artifactId>solr-solrj</artifactId>
-		    <version>7.7.3</version>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
 		</dependency>
-	
-	
    </dependencies>
    
    <build>
