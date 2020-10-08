@@ -24,16 +24,11 @@
 	<body>
 	
 		<div id="root">
-			<header>
-				<h1> 게시판</h1>
-			</header>
-			<hr />
-			 
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
+			<header id="header">
+				<div id="header_box">
+					<%@ include file= "../include/header.jsp" %>
 				</div>
-			</nav>
+			</header>
 			<hr />
 			
 			<section id="container">

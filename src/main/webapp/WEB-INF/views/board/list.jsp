@@ -10,23 +10,24 @@
 	
 	<body>
 		<c:set var="categoryCode" value="${pageMaker.cri.categoryCode}" />
+		
 		<div class="container">
-			<header>
-				<h1> 게시판</h1>
-			</header>
-			<hr />
-			 
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
+		
+			<header id="header">
+				<div id="header_box">
+					<%@ include file= "../include/header.jsp" %>
 				</div>
-			</nav>
+			</header>
+			
+			<hr />		 
 				<div>
 					<a href="/board/list?categoryCode=0">공지사항</a>
 					<a href="/board/list?categoryCode=1">자유게시판</a>
 					<a href="/board/list?categoryCode=2">문의게시판</a>
 					<a href="/board/list?categoryCode=3">리뷰게시판</a>
 				</div>
+
+			 	
 			<section id="container">
 				<form role="form" method="get" >
 					<table>
@@ -55,45 +56,45 @@
 					</table>
 					
 					<div class="search">
-				    <select name="searchType">
-				      <option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
-				      <option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
-				      <option value="w"<c:out value="${scri.searchType eq 'w' ? 'selected' : ''}"/>>작성자</option>
-				      <option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : ''}"/>>제목+내용</option>
-				    </select>
-				
-				    <input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" />
-					
-				    <button id="searchBtn" type="button">검색</button>
-				    
+					    <select name="searchType">
+					      <option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+					      <option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+					      <option value="w"<c:out value="${scri.searchType eq 'w' ? 'selected' : ''}"/>>작성자</option>
+					      <option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : ''}"/>>제목+내용</option>
+					    </select>				
+				    <input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" />		
+				    <button id="searchBtn" type="button">검색</button>			   				    											    
 				    <script>
 				      $(function(){
 				        $('#searchBtn').click(function() {
-				          location.replace("/board/list?page=1&categoryCode=${categoryCode}&searchType=" + $("select option:selected").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val()));
+				          location.replace("/board/list?page=1&categoryCode=${categoryCode}& searchType=" + $("select option:selected").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val()));
 				        })
 				      });   
-				    </script>
-				
+				    </script>				    				  			
 				  </div>
 				  
-					<div>
-					  <ul>
-					    <c:if test="${pageMaker.prev}">
-					    	<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1, categoryCode)}">이전</a></li>
-					    </c:if> 
+				  <input type="button" value="글쓰기" onclick="location.href='/board/writeView'">	
+			
+				  	
+				<div>
+				  <ul>
+				    <c:if test="${pageMaker.prev}">
+				    	<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1, categoryCode)}">이전</a></li>
+				    </c:if> 
+				
+				    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+				    	<li><a href="list${pageMaker.makeSearch(idx, categoryCode)}">${idx}</a></li>
+				    </c:forEach>
+				
+				    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				    	<li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1, categoryCode)}">다음</a></li>
+				    </c:if> 
+				  </ul>
+				</div>
 					
-					    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-					    	<li><a href="list${pageMaker.makeSearch(idx, categoryCode)}">${idx}</a></li>
-					    </c:forEach>
-					
-					    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-					    	<li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1, categoryCode)}">다음</a></li>
-					    </c:if> 
-					  </ul>
-					</div>
-					
-				</form>
+				</form>								
 			</section>
 		</div>
+		
 	</body>
 </html>

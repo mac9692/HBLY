@@ -15,9 +15,6 @@
  <li>
   <a href="/board/list">게시판</a>
  </li>
-  <li>
-  <a href="/board/writeView">글쓰기</a>
- </li>
  
 
 </c:if>
@@ -38,6 +35,9 @@
 	</li>
 	<li>
 		<a href="/shop/orderList">주문 목록</a>
+	</li>
+	<li>
+		<a href="/board/list">게시판</a>
 	</li>
 	<li>
 		<a href="/member/signout">로그아웃</a>

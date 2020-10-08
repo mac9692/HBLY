@@ -1,3 +1,4 @@
+
 package edu.bit.hbly.vo;
 
 import java.util.Date;
@@ -10,8 +11,15 @@ public class BoardVO {
 	private Date boardRegidate;
 	private String userId;
 	private int boardHit;
+	private String categoryCode;
 	
 	
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
 	public int getBoardHit() {
 		return boardHit;
 	}

@@ -69,16 +69,12 @@
 	
 	<body>	
 		<div class="container">
-			<header>
-				<h1> 게시판</h1>
-			</header>			
-			<hr />		
-				 
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
+			<header id="header">
+				<div id="header_box">
+					<%@ include file= "../include/header.jsp" %>
 				</div>
-			</nav>			
+			</header>
+						
 			<hr />
 			
 			<section id="container">
@@ -151,13 +147,12 @@
 			<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
 					
 			<div>
-				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" /><br/>
 				<label for="boardReplyContent">댓글 내용</label><input type="text" id="boardReplyContent" name="boardReplyContent" />
-			</div>
-			<div>
-				 <button type="button" class="replyWriteBtn">작성</button>
+				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" />
+				<button type="button" class="replyWriteBtn">작성</button>
 			</div>
 		</form>
+		
 		</section>
 		<hr />
 		</div>

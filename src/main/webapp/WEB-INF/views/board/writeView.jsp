@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,28 +21,28 @@
 	</script>
 	
 	<body>
-	<div class="container">
-		 
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
+	
+		<header id="header">
+				<div id="header_box">
+					<%@ include file="../include/header.jsp" %>
 				</div>
-			</nav>
-			
+		</header>
+
+	<div class="container">		
 			<section id="container">
 				<form role="writeForm" method="post" action="/board/write">
 					<table>
 						<tbody>
 							<tr>
 								<td>
-									<label>게시판 카테고리</label>
-									<select class = boardCategory name="categoryCode">
-										<option value = "0">공지사항</option>
-										<option value = "1">자유게시판</option>
-										<option value = "2">문의게시판</option>
-										<option value = "3" >리뷰게시판</option>
-									</select>									
-									
+									<label>게시판 카테고리</label>									
+									<select class = "category" name="categoryCode">
+										<option value = "0" ${category.categoryCode=="0" ? "selected" : ""}>공지사항</option>																												
+										<option value = "1" ${category.categoryCode=="1" ? "selected" : ""}>자유게시판</option>
+										<option value = "2" ${category.categoryCode=="2" ? "selected" : ""}>문의게시판</option>
+										<option value = "3" ${category.categoryCode=="3" ? "selected" : ""}>리뷰게시판</option>
+									</select>
+																				
 								</td>
 							</tr>	
 							<tr>
