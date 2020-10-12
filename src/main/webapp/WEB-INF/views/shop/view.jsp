@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 
 <html>
 	<head>
@@ -203,9 +205,9 @@
 			<section id="container">
 				<div id="container_box">
 					 <section id="content">
-					 	<form role="form" method="post">
+					 	<form:form role="form" method="post">
 						 <input type="hidden" name="goodsNumber" value="${view.goodsNumber}" />
-						</form>
+						</form:form>
 						
 						<div class="goods">
 						 <div class="goodsImage">
@@ -260,9 +262,13 @@
 								</p>
 							  
 							  <p class="addToCart">
+							 
 							   <button type="button" class="addCart_btn">카트에 담기</button>
+							 
 							   <script>
-							   		$(".addCart_btn").click(function(){
+							  
+							   
+							   $(".addCart_btn").click(function(){
 							   			var goodsNumber = $("#goodsNumber").val();
 							   			var cartStock = $(".numBox").val();
 							   			
@@ -272,8 +278,12 @@
 							   			};
 							   			$.ajax({
 							   				url : "/shop/addCart",
-							   				type : "post",
+							   				type : "POST",
 							   				data : data,
+							   			 beforeSend : function(xhr)
+					                      {   
+					                          xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+					                      },
 							   				success : function(result){
 							   					console.log(result);
 							   					if(result==1){
@@ -290,6 +300,7 @@
 							   			});
 							   		});
 							   </script>
+							   
 							  </p>
 							  </c:if>
 							  <c:if test="${view.goodsStock ==0 }">
@@ -303,15 +314,15 @@
 							
 							<div id="reply">
 							
-								<c:if test="${member ==null }">
+								<c:if test="${pageContext.request.userPrincipal.name ==null }">
 									<p>소감을 남기시려면<a href="/member/signin">로그인</a>해주세요</p>
 								</c:if>
 								
-								<c:if test="${member != null}">
+								<c:if test="${pageContext.request.userPrincipal.name != null}">
 								
 								
 								<section class="replyForm">
-							  	<form role="form" method="post" autocomplete="off">
+							  	<form:form role="form" method="post" autocomplete="off">
 							  		<input type="hidden" name="goodsNumber" id="goodsNumber" value="${view.goodsNumber}">
 							   		
 							   		<div class="input_area">
@@ -348,7 +359,7 @@
 							   			
 							   			
 							   		</div>
-							  </form>
+							  </form:form>
 							 </section>
 								</c:if>
 							 
@@ -425,6 +436,7 @@
 							
 		
 					 </section>
+					 
 					<aside>
 						 <%@ include file="../include/aside.jsp" %>
 					</aside>
@@ -432,7 +444,6 @@
 				
 				
 			</section>
-			
 			
 			<footer id="foorter">
 				<div id="footer_box">

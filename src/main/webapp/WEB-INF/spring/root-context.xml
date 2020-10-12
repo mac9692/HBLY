@@ -42,6 +42,10 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     	<property name="dataSource" ref="dataSource"></property>
 	</bean>
+	
+	  <!-- Mapper Interface -->
+	<mybatis-spring:scan base-package = "edu.bit.mapper"/>
+    
 
     <tx:annotation-driven transaction-manager="transactionManager" />
     

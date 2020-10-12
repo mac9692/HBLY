@@ -4,15 +4,21 @@ import edu.bit.hbly.vo.MemberVO;
 
 public interface MemberDAO {
 	
-	//member sign up
+	//ȸ������
 	public void signup(MemberVO vo) throws Exception;
-	//member sign up - id(email) check
-	public void checkId(String userId);
-	//member sign up - nickname check
-	public void checkNickname(String userNickname);
 	
-	//member sign in
-	public MemberVO signin(MemberVO vo) throws Exception;
-
-
+	//�α���
+	public MemberVO signin(String userPassword) throws Exception;
+	
+	//ȸ����������
+	public void modify(MemberVO vo) throws Exception;
+	
+	//ȸ��Ż��
+	public void withdrawal(MemberVO vo) throws Exception;
+	
+	//member sign up - id(email) check
+	public int checkId(String userId) throws Exception;
+	
+	//member sign up - nickname check
+	public int checkNickname(String userNickname) throws Exception;
 }

@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
+
 <html>
 	<head>
 		
@@ -205,6 +208,10 @@
 							    url : "/shop/deleteCart",
 							    type : "post",
 							    data : { chbox : checkArr },
+							    beforeSend : function(xhr)
+			                      {   
+			                          xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+			                      },
 							    success : function(result){
 							    	if(result ==1){
 							    		location.href = "/shop/cartList";
@@ -267,6 +274,10 @@
 							    url : "/shop/deleteCart",
 							    type : "post",
 							    data : { chbox : checkArr },
+							    beforeSend : function(xhr)
+			                      {   
+			                          xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+			                      },
 							    success : function(result){
 							     if(result == 1) {            
 							      location.href = "/shop/cartList";
@@ -301,7 +312,7 @@
 						</script>
 												 
 						 <div class="orderInfo">
-						 <form role="form" method="post" autocomplete="off">
+						 <form:form role="form" method="post" autocomplete="off">
 						    
 						  <input type="hidden" name="amount" value="${sum}" />
 						    
@@ -409,7 +420,7 @@
 						   
 						  </div>
 						  
-						 </form> 
+						 </form:form> 
 						</div>
 						 
 						 

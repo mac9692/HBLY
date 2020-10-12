@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.http.HttpEntity;
@@ -19,31 +18,48 @@ import edu.bit.hbly.dao.MemberDAO;
 import edu.bit.hbly.vo.MemberVO;
 
 
-
 @Service
 public class MemberServiceImpl implements MemberService{
-
+	
 	@Inject
 	private MemberDAO dao;
-	
-	//1.sign up
-	
-	//member sign up
+
 	@Override
-	public void signup(MemberVO vo) throws Exception {
+	public void signUp(MemberVO vo) throws Exception{
+		
 		dao.signup(vo);
 	}
 
+	@Override
+	public MemberVO signin(String userPassword) throws Exception {
+		
+		return dao.signin(userPassword);
+	}
+
+	
+	@Override 
+	public void modify(MemberVO vo) throws Exception {
+	 
+		dao.modify(vo); 
+	
+	}
+
+	@Override
+	public void withdrawal(MemberVO vo) throws Exception {
+		
+		dao.withdrawal(vo);
+	}
+	
 	//member sign up - id(email) check
 	@Override
-	public void checkId(String userId) throws Exception {
-		dao.checkId(userId);
+	public int checkId(String userId) throws Exception {
+		return dao.checkId(userId);
 	}
 
 	//member sign up - nickname check
 	@Override
-	public void checkNickname(String userNickname) throws Exception {
-		dao.checkNickname(userNickname);
+	public int checkNickname(String userNickname) throws Exception {
+		return dao.checkNickname(userNickname);
 	}
 	
 	//member sign up - phonenumber check / certification cellphone -- 1
@@ -102,31 +118,6 @@ public class MemberServiceImpl implements MemberService{
 	  return map;
 	}
 	
-	
-	//2.sign in
-	
-	//member sign in
-	@Override
-	public MemberVO signin(MemberVO vo) throws Exception {
-		return dao.signin(vo);
-	}
-	//member sign out
-	@Override
-	public void signout(HttpSession session) throws Exception {
-		session.invalidate();
-		
-	}
-
-
-
-
-
-
-
-
-
-
-	
-
 
 }
+

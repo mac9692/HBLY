@@ -1,8 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 	<head>
 		<title>HBLY</title>
+		<!-- 구글 -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="root">
@@ -18,12 +24,17 @@
 				</div>
 			</nav>
 			
+			
+			
 			<section id="container">
 				<div id="container_box">
 					<h1>SignUp Page</h1>
 					
+					
 					<section id ="content">
-						<form role="form" method="post" autocomplete="off">
+					<c:url value="/member/signup" var="signupUrl"/>
+					<p>${signupUrl}</p>
+					<form:form role="form" action="${signupUrl}" method="POST" autocomplete="off">
 						<div class="input-area">
 						<label for="userId">아이디</label>
 						<input type="email" id="userId" name="userId" placeholder="example@email.com" required="required"/>
@@ -51,13 +62,12 @@
 						
 						<button type="submit" id="signup_btn" name="signup_btn">회원가입</button>
 						
-						</form>
+					</form:form>
 					</section>
-					
-					
+				
 				</div>
 			</section>
-			
+		
 			<footer id="foorter">
 				<div id="footer_box">
 					<%@ include file= "../include/footer.jsp" %>

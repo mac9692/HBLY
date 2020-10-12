@@ -5,10 +5,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,15 +19,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.bit.hbly.service.ShopService;
 import edu.bit.hbly.vo.CartListVO;
 import edu.bit.hbly.vo.CartVO;
+import edu.bit.hbly.vo.CustomUser;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
-import edu.bit.hbly.vo.MemberVO;
 import edu.bit.hbly.vo.OrderDetailsVO;
 import edu.bit.hbly.vo.OrderListVO;
 import edu.bit.hbly.vo.OrderVO;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Setter
+@Getter
 @Controller
 @RequestMapping("/shop/*")
 public class ShopController {
@@ -83,12 +86,12 @@ public class ShopController {
  
  @ResponseBody
  @RequestMapping(value = "/view/registerGoodsReply", method = RequestMethod.POST)
- public void registerGoodsReply(GoodsReplyVO goodsReply, HttpSession session) throws Exception {
+ public void registerGoodsReply(GoodsReplyVO goodsReply, Authentication authentication) throws Exception {
   logger.info("register GoodsReply");
   
-  MemberVO member = (MemberVO)session.getAttribute("member");
-  goodsReply.setUserId(member.getUserId());
+  CustomUser user = (CustomUser)authentication.getPrincipal();
   
+  goodsReply.setUserId(user.getMember().getUserId());
   service.registerGoodsReply(goodsReply);
  }
  
@@ -107,16 +110,17 @@ public class ShopController {
  // 상품 소감(댓글) 삭제
  @ResponseBody
  @RequestMapping(value = "/view/deleteGoodsReply", method = RequestMethod.POST)
- public String deleteGoodsReplyList(GoodsReplyVO goodsReply, HttpSession session) throws Exception {
+ public String deleteGoodsReplyList(GoodsReplyVO goodsReply, Authentication authentication) throws Exception {
   logger.info("post delete goodsReply");
   
   int result=0;
   
-  MemberVO member = (MemberVO)session.getAttribute("member");
+  CustomUser user = (CustomUser)authentication.getPrincipal();
+  
   String userId = service.checkGoodsReplyUserId(goodsReply.getGoodsReplyNumber());
   
-  if(member.getUserId().equals(userId)) {
-	  goodsReply.setUserId(member.getUserId());
+  if(user.getMember().getUserId().equals(userId)) {
+	  goodsReply.setUserId(user.getMember().getUserId());
 	  service.deleteGoodsReply(goodsReply);
 	  
 	  result=1;
@@ -129,16 +133,16 @@ public class ShopController {
 //상품 소감(댓글) 수정
 @ResponseBody
 @RequestMapping(value = "/view/modifyGoodsReply", method = RequestMethod.POST)
-public String modifyGoodsReplyList(GoodsReplyVO goodsReply, HttpSession session) throws Exception {
+public String modifyGoodsReplyList(GoodsReplyVO goodsReply, Authentication authentication) throws Exception {
 logger.info("modify goodsReply");
 
 int result=0;
 
-MemberVO member = (MemberVO)session.getAttribute("member");
-String userId = service.checkGoodsReplyUserId(goodsReply.getGoodsReplyNumber());
+CustomUser user = (CustomUser)authentication.getPrincipal();
+String userId= service.checkGoodsReplyUserId(goodsReply.getGoodsReplyNumber());
 
-if(member.getUserId().equals(userId)) {
-	  goodsReply.setUserId(member.getUserId());
+if(user.getMember().getUserId().equals(userId)) {
+	  goodsReply.setUserId(user.getMember().getUserId());
 	  service.modifyGoodsReply(goodsReply);
 	  
 	  result=1;
@@ -153,30 +157,34 @@ return String.valueOf(result);
 //카트 담기
 @ResponseBody
 @RequestMapping(value = "/addCart", method = RequestMethod.POST)
-public String addCart(CartListVO cart, HttpSession session) throws Exception {
+public String addCart(CartListVO cart, Authentication authentication) throws Exception {
 	logger.info("addCart");
 
 	int result = 0;
 
-	MemberVO member = (MemberVO)session.getAttribute("member");
+	CustomUser user = (CustomUser)authentication.getPrincipal();
 	
-	if(member != null) {
-		cart.setUserId(member.getUserId());
+	if(user.getMember() != null) {
+		cart.setUserId(user.getMember().getUserId());
 		service.addCart(cart);
 		result = 1;
 	}
 	
+	
+	
+	System.out.println(result);
 	return String.valueOf(result);
 
 	}
 
 //카트 목록
 @RequestMapping(value = "/cartList", method = RequestMethod.GET)
-public void getCartList(HttpSession session,Model model) throws Exception {
+public void getCartList(Authentication authentication, Model model) throws Exception {
 	logger.info("get cart list");
+	
+	CustomUser user = (CustomUser)authentication.getPrincipal();
+	String userId = user.getMember().getUserId();
 
-	MemberVO member = (MemberVO)session.getAttribute("member");
-	String userId = member.getUserId();
 	
 	List<CartListVO> cartList = service.cartList(userId);
 	
@@ -188,16 +196,16 @@ public void getCartList(HttpSession session,Model model) throws Exception {
 	//카트 삭제
 	@ResponseBody
 	@RequestMapping(value = "/deleteCart", method = RequestMethod.POST)
-	public String deleteCart(HttpSession session, @RequestParam(value ="chbox[]") List<String> chArr,CartVO cart) throws Exception {
+	public String deleteCart(Authentication authentication, @RequestParam(value ="chbox[]") List<String> chArr,CartVO cart) throws Exception {
 		logger.info("delete cart");
-	
-		MemberVO member = (MemberVO)session.getAttribute("member");
 		
+		CustomUser user = (CustomUser)authentication.getPrincipal();
+	
 		int result = 0;
 		int cartNumber = 0;
 		
-		if(member != null) {
-			cart.setUserId(member.getUserId());
+		if(user.getMember() != null) {
+			cart.setUserId(user.getMember().getUserId());
 	
 			for(String i : chArr) {
 				cartNumber = Integer.parseInt(i);
@@ -213,11 +221,12 @@ public void getCartList(HttpSession session,Model model) throws Exception {
 	//주문하기
 	
 	@RequestMapping(value = "/cartList", method = RequestMethod.POST)
-	public String order(HttpSession session, OrderVO order, OrderDetailsVO orderDetails) throws Exception {
+	public String order(Authentication authentication, OrderVO order, OrderDetailsVO orderDetails) throws Exception {
 		logger.info("order");
+		
+		CustomUser user = (CustomUser)authentication.getPrincipal();
+		String userId = user.getMember().getUserId();
 	
-		MemberVO member = (MemberVO)session.getAttribute("member");
-		String userId = member.getUserId();
 		
 		Calendar cal = Calendar.getInstance();
 		int year = cal.get(Calendar.YEAR);
@@ -245,11 +254,12 @@ public void getCartList(HttpSession session,Model model) throws Exception {
 	}
 
 	@RequestMapping(value = "/orderList", method = RequestMethod.GET)
-	public void getOrderList(HttpSession session, OrderVO order, Model model) throws Exception {
+	public void getOrderList(Authentication authentication, OrderVO order, Model model) throws Exception {
 		logger.info("get order list");
 	
-		MemberVO member = (MemberVO)session.getAttribute("member");
-		String userId = member.getUserId();
+		CustomUser user = (CustomUser)authentication.getPrincipal();
+		
+		String userId = user.getMember().getUserId();
 		
 		order.setUserId(userId);
 		
@@ -260,12 +270,12 @@ public void getCartList(HttpSession session,Model model) throws Exception {
 
 	
 	@RequestMapping(value = "/orderView", method = RequestMethod.GET)
-	public void getOrderList(HttpSession session, @RequestParam("n") String orderId,
+	public void getOrderList(Authentication authentication, @RequestParam("n") String orderId,
 			OrderVO order, Model model) throws Exception {
 		logger.info("get order view");
-	
-		MemberVO member = (MemberVO)session.getAttribute("member");
-		String userId = member.getUserId();
+		
+		CustomUser user = (CustomUser)authentication.getPrincipal();
+		String userId = user.getMember().getUserId();
 		
 		order.setUserId(userId);
 		order.setOrderId(orderId);

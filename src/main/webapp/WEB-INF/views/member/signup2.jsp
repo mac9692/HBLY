@@ -1,11 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	language="java"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	
 <html>
 
 <head>
 <meta charset="utf-8">
+
 <title>HBLY : 회원가입</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +42,7 @@
 					<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
 
 					<!-- form -->
-					<form method="post" class="text-left" action="/member/signup">									
+					<form:form method="post" class="text-left" action="/member/signup">									
 						
 						<!-- id -->
 						<div class="form-group">
@@ -120,7 +123,7 @@
 							</div>
 
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" onclick="execDaumPostcode()" required>
+								<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" required>
 							</div>
 						</div>
 						
@@ -182,7 +185,7 @@
 						<!-- button -->
 						<button type="submit" id="signup_btn" class="btn btn-primary">가입하기</button>
 						<a href="${pageContext.request.contextPath}" class="btn btn-primary">취소</a>
-					</form>
+					</form:form>
 
 				</div>
 
@@ -190,6 +193,13 @@
 
 		</div>
 	</div>
+	
+	
+	<footer id="foorter">
+		<div id="footer_box">
+			<%@ include file= "../include/footer.jsp" %>
+		</div>
+	</footer>
 
 </body>
 <!--우편번호/주소 API -->
@@ -274,14 +284,20 @@
 				url : "/member/sms",
 				dataType : "json",
 				data :  JSON.stringify(obj),
+				beforeSend : function(xhr)
+                 	{   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                     xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                 	},
 				contentType: "application/json",
 				success : function(data) {
 					if(data.statusName == "success"){
 						$('#certCheck').text("인증 번호가 전송되었습니다.");
 						$('#certCheck').css('color','blue');
+						$("#signup_btn").attr("disabled",true);
 					}else {
 						$('#certCheck').text("입력한 번호를 다시 확인해주세요.");
 						$('#certCheck').css('color','red');
+						$("#signup_btn").attr("disabled",true);
 					}
 				}
 			});
@@ -295,9 +311,11 @@
 		if(userVal == certVal){
 			$('#certCheck').text("인증이 완료되었습니다.");
 			$('#certCheck').css('color','blue');	
+			$("#signup_btn").attr("disabled",false);
 		}else{
 			$('#certCheck').text("인증번호를 다시 확인해주세요");
 			$('#certCheck').css('color','red');
+			$("#signup_btn").attr("disabled",true);
 		}
 	};
 </script>
@@ -335,6 +353,7 @@
 			type : 'get',
 			dataType : 'json',
 			success : function(data) {
+			console.log(data)
 			console.log("1 중복 / 0 사용가능 :"+data);
 				
 				if(data==1){
@@ -355,9 +374,9 @@
 					}
 				}
 				
-			}, error : function(error){
-				console.log("fail");
-			}
+			}, error : function(request,status,error){
+			    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			   }
 		})
 	});
 	
@@ -371,6 +390,8 @@
 			console.log('false');
 			$('#pwCheck').text('숫자 or 문자로만 4~12자리 입력해주세요.');
 			$('#pwCheck').css('color', 'red');
+			$('#signup_btn').attr("disabled",true);
+
 		}
 	})
 	
@@ -379,8 +400,11 @@
 		if ($('#userPassword').val() != $(this).val()) {
 			$('#pw2Check').text('비밀번호가 일치하지 않습니다.');
 			$('#pw2Check').css('color', 'red');
+			$('#signup_btn').attr("disabled",true);
+
 		} else {
 			$('#pw2Check').text('');
+			$("#signup_btn").attr("disabled",false);
 		}
 	});
 	
@@ -442,9 +466,12 @@
 		if(phoneJ.test($(this).val())){
 			console.log(phoneJ.test($(this).val()));
 			$("#phoneCheck").text('');
+			$("#signup_btn").attr("disabled",false);
 		} else {
 			$('#phoneCheck').text('휴대폰번호를 확인해주세요 ');
 			$('#phoneCheck').css('color', 'red');
+			$('#signup_btn').attr("disabled",true);
+
 		}
 	});
 	

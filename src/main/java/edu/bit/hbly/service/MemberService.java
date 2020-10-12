@@ -1,33 +1,32 @@
 package edu.bit.hbly.service;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
 
 import edu.bit.hbly.vo.MemberVO;
 
-
-
 public interface MemberService {
+
+	//ȸ������
+	public void signUp(MemberVO vo) throws Exception;
 	
-	//member sign up
-	public void signup(MemberVO vo) throws Exception;
-	//member sign up - id(email) check
-	public void checkId(String userId) throws Exception;
+	//�α���
+	public MemberVO signin(String userPassword) throws Exception;
+	
+	//ȸ������ ����
+	public void modify(MemberVO vo) throws Exception;
+	
+	//ȸ��Ż��
+	public void withdrawal(MemberVO vo) throws Exception;
+
+	//member sign up - id check
+	public int checkId(String userId) throws Exception;
+	
 	//member sign up - nickname check
-	public void checkNickname(String userNickname) throws Exception;
+	public int checkNickname(String userNickname) throws Exception;
+	
 	//member sign up - phonenumber check / certification cellphone
 	public ResponseEntity<String> certificationCellphone(String jsonData) throws Exception;
 	
-	
-	//member sign in
-	public MemberVO signin(MemberVO vo) throws Exception;
-	//member sign out
-	public void signout(HttpSession session) throws Exception;
 
-
-
-
-
-	
 }

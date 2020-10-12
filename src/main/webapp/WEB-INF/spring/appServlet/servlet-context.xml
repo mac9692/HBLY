@@ -46,14 +46,6 @@
 	<resources mapping="/images/**" location="/resources/images/" />
 	
 	
-	<!-- 비밀번호 암호화 인터셉트 설정  -->
-	<beans:bean id="AdminInterceptor" class="edu.bit.hbly.interceptor.AdminInterceptor" />
-
-	<interceptors>
-		 <interceptor>
-			  <mapping path="/admin/**" />
-			  <beans:ref bean="AdminInterceptor" />
-		 </interceptor>
-	</interceptors>
+	
 	
 </beans:beans>

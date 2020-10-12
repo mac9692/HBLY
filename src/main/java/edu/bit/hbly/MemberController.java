@@ -1,12 +1,13 @@
 package edu.bit.hbly;
 
+
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.bit.hbly.service.MemberService;
+import edu.bit.hbly.vo.CustomUser;
 import edu.bit.hbly.vo.MemberVO;
+import lombok.extern.log4j.Log4j;
 
+
+@Log4j
 @Controller
 @RequestMapping("/member/*")
 public class MemberController {
@@ -47,14 +52,10 @@ public class MemberController {
 
 	// member sign up POST
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String postSignup(MemberVO vo) throws Exception {
+	public String signUp(MemberVO vo)	throws Exception{
 		logger.info("post signup");
-
-		String inputPassword = vo.getUserPassword();
-		String password = bcryptPasswordEncoder.encode(inputPassword);
-		vo.setUserPassword(password);
-
-		service.signup(vo);
+		
+		service.signUp(vo);
 
 		return "redirect:/";
 	}
@@ -62,16 +63,19 @@ public class MemberController {
 	// member sign up GET - id(email) check (Ajax)
 	@RequestMapping(value = "/checkId", method = RequestMethod.GET)
 	@ResponseBody
-	public void checkId(@RequestParam("userId") String userId) throws Exception {
+	public int checkId(@RequestParam("userId") String userId) throws Exception {
 		logger.info("get checkId");
-		service.checkId(userId);
+			
+		return service.checkId(userId);
 	}
 
 	// member sign up GET - nickname check (Ajax)
 	@RequestMapping(value = "/checkNickname", method = RequestMethod.GET)
-	public void checkNickname(@RequestParam("userNickname") String userNickname) throws Exception {
+	@ResponseBody
+	public int checkNickname(@RequestParam("userNickname") String userNickname) throws Exception {
 		logger.info("get checkNickname");
-		service.checkNickname(userNickname);
+		
+		return service.checkNickname(userNickname);
 	}
 
 	// member sign up POST - phonenumber check / certification cellphone -- 1
@@ -82,6 +86,7 @@ public class MemberController {
 
 		ResponseEntity<String> responseEntity = service.certificationCellphone(jsonData);
 		
+
 		return responseEntity;
 	}
 
@@ -101,26 +106,6 @@ public class MemberController {
 		logger.info("get signin2");
 	}
 	
-	// �α��� post
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public String postSignin(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
-		logger.info("post signin");
-
-		MemberVO login = service.signin(vo);
-		HttpSession session = req.getSession();
-
-		boolean passwordMatch = bcryptPasswordEncoder.matches(vo.getUserPassword(), login.getUserPassword());
-
-		if (login != null && passwordMatch) {
-			session.setAttribute("member", login);
-		} else {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
-			return "redirect:/member/signin";
-		}
-
-		return "redirect:/";
-	}
 	
 	// member idInqury GET - daun
 	@RequestMapping(value = "/idInqury", method = RequestMethod.GET)
@@ -128,19 +113,56 @@ public class MemberController {
 		logger.info("get idInqury");
 	}
 	
+
 	// member pwInqury GET - daun
 	@RequestMapping(value = "/pwInqury", method = RequestMethod.GET)
 	public void pwInqury() throws Exception {
 		logger.info("get pwInqury");
 	}
-	// �α׾ƿ�
-	@RequestMapping(value = "/signout", method = RequestMethod.GET)
-	public String signout(HttpSession session) throws Exception {
-		logger.info("get logout");
 
-		service.signout(session);
-
+	
+	//ȸ������ ���� get
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void getModify() throws Exception{
+		logger.info("get modify");
+	}
+	
+	//ȸ������ ���� POST
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modify(MemberVO vo) throws Exception{
+		logger.info("post modify");
+		
+		service.modify(vo);
 		return "redirect:/";
+	}
+
+	//ȸ��Ż�� get
+	@RequestMapping(value= "/withdrawal", method = RequestMethod.GET)
+	public void getWithdrawal() throws Exception{
+		logger.info("get withdrawal");
+	}
+	
+	//ȸ��Ż�� post
+	@RequestMapping(value= "/withdrawal", method = RequestMethod.POST)
+	public String withdrawal(MemberVO vo, Authentication authentication, RedirectAttributes rttr)throws Exception{
+		logger.info("post withdrawal");
+		
+		
+		CustomUser user = (CustomUser)authentication.getPrincipal();
+		String userPassword = user.getMember().getUserPassword();
+		String voPassword = vo.getUserPassword();
+		
+
+		if(!(userPassword.equals(voPassword))) {
+			rttr.addFlashAttribute("msg", false);
+			System.out.println("����Ӵ�?");
+			return "redirect:/member/withdrawal";
+			
+		}
+		
+		service.withdrawal(vo);
+		return "redirect:/";
+
 	}
 
 }
