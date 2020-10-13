@@ -41,10 +41,8 @@
           <hr>
           <p class="text-info"><b>간편하게 시작하기</b></p>
           <div class="row mb-4 container d-flex justify-content-center">
-            <div class="mx-2">
-              <a class="btn text-white ml-3" href="#" style="background:#55acee" target="_blank"><i class="fa fa-twitter fa-fw fa-1x py-1"></i></a></div>
-            <div class="mx-2"><a class="btn text-white" href="#" style="background:#dd4b39" target="_blank"><i class="fa fa-google-plus fa-fw fa-1x py-1"></i></a></div>
-            <div class="mx-2"><a class="btn text-white" href="#" style="background:#3b5998" target="_blank"><i class="fa fa-facebook fa-fw fa-1x py-1"></i></a></div>
+            <a href ="https://kauth.kakao.com/oauth/authorize?client_id=5bde6ae9c71bf5f382a97fe4ea87eb67&redirect_uri=http://localhost:8282/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png"/></a>
+					  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
           </div>
         </div>
       </div>

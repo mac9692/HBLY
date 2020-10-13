@@ -24,5 +24,7 @@ public class CustomNoOpPasswordEncoder implements PasswordEncoder{
 		log.warn("matches: "+rawPassword.toString()+":"+encodedPassword);
 		return rawPassword.toString().equals(encodedPassword);
 	}
+	
+	
 
 }

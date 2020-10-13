@@ -59,6 +59,9 @@
 	<li>
 		<a href="/member/withdrawal">회원탈퇴</a>
 	</li>
+	<li>
+		<a href="/member/mypage">마이페이지</a>
+	</li>
 	
 	
 	

@@ -15,6 +15,10 @@ public interface MemberDAO {
 	
 	//ȸ��Ż��
 	public void withdrawal(MemberVO vo) throws Exception;
+
+	//kakao
+	public MemberVO getUserByIdAndLoginType(String userId, String login_Type);
+	
 	
 	//member sign up - id(email) check
 	public int checkId(String userId) throws Exception;

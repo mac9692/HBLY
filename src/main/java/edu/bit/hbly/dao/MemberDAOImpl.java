@@ -3,14 +3,18 @@ package edu.bit.hbly.dao;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import edu.bit.hbly.mapper.UserMapper;
 import edu.bit.hbly.vo.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
 	
+	@Inject
+	private UserMapper userMapper;
 	@Inject
 	private SqlSession sql;
 	
@@ -26,6 +30,11 @@ public class MemberDAOImpl implements MemberDAO{
 		String encode = passEncoder.encode(userPassword);
 		
 		vo.setUserPassword(encode);
+		
+		//social login
+		if(null==vo.getLogin_Type()) {
+			vo.setLogin_Type("NORMAL");
+		}
 		
 		sql.insert(namespace + ".signup",vo);
 		sql.insert(namespace + ".getAuthorities", vo);
@@ -45,17 +54,27 @@ public class MemberDAOImpl implements MemberDAO{
 		String encode = passEncoder.encode(userPassword);
 		
 		vo.setUserPassword(encode);
-		
-		sql.update(namespace +".modify", vo); 
-	}
+//		if(!(vo.getUserPassword()==null)) {
+			sql.update(namespace +".modify", vo); 
+		}
+	
 
 	
 	@Override
 	public void withdrawal(MemberVO vo) throws Exception {
 		
+		String userId = vo.getUserId();
+		String userPassword = vo.getUserPassword();
 		
+		sql.delete(namespace + ".withdrawalAuthority", userId);
 		sql.delete(namespace + ".withdrawal", vo);
 	}
+
+	@Override
+	public MemberVO getUserByIdAndLoginType(String userId,String login_Type) {
+		   System.out.println(userId+" : "+login_Type);
+	       return userMapper.readUserByIdAndLoginType(userId, login_Type);  
+	   }
 	 
 	@Override
 	public int checkId(String userId) {
@@ -67,7 +86,6 @@ public class MemberDAOImpl implements MemberDAO{
 	public int checkNickname(String userNickname) {
 		return sql.selectOne(namespace + ".checkNickname",userNickname);
 	}
-	
 	
 }
 
