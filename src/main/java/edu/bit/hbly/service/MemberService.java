@@ -15,5 +15,9 @@ public interface MemberService {
 	
 	//È¸¿øÅ»Åð
 	public void withdrawal(MemberVO vo) throws Exception;
+	
+	//kakao
+	public MemberVO getUserByIdAndLoginType(String userId, String login_Type);
+	
 
 }

@@ -4,6 +4,7 @@ package edu.bit.hbly;
 import java.security.Principal;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,17 +12,22 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import edu.bit.hbly.service.MemberService;
 import edu.bit.hbly.vo.CustomUser;
 import edu.bit.hbly.vo.MemberVO;
+import edu.bit.hbly.vo.ResponseVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -83,29 +89,47 @@ public class MemberController {
 	@RequestMapping(value= "/withdrawal", method = RequestMethod.GET)
 	public void getWithdrawal() throws Exception{
 		logger.info("get withdrawal");
+		
 	}
 	
 	//È¸¿øÅ»Åð post
 	@RequestMapping(value= "/withdrawal", method = RequestMethod.POST)
-	public String withdrawal(MemberVO vo, Authentication authentication, RedirectAttributes rttr)throws Exception{
+	public String withdrawal(MemberVO vo, Authentication authentication, HttpServletRequest request)throws Exception{
 		logger.info("post withdrawal");
 		
-		
-		CustomUser user = (CustomUser)authentication.getPrincipal();
-		String userPassword = user.getMember().getUserPassword();
-		String voPassword = vo.getUserPassword();
-		
+		 Gson gson = new Gson();
+         CustomUser user = (CustomUser) authentication.getPrincipal();
+         log.info("loginInfo:  "+user);
+         boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+         
+         
+        log.info("true & fail isValidPassword   :  "+isValidPassword);
+        log.info("login ID      :  "+user.getMember().getUserId());
+        log.info("login password   :  "+vo.getUserPassword());
+        log.info("login Encoding password   :  "+user.getMember().getUserPassword()); 
+        log.info(" true & fail   : "+isValidPassword+"  matches   :  "+vo.getUserPassword()+"     :     "+ user.getMember().getUserPassword()); //matches(1234,$2a$10$R4UGHuNESie7gjG2TQhp9OHHHlfxUdWDyMKhXAj5lP8tECLORmIgW)
+        
+         if (isValidPassword) {                 
+             vo.setUserId(user.getMember().getUserId());  
+             vo.setUserPassword(user.getMember().getUserPassword());
+             service.withdrawal(vo);
+             log.info("Delete success");
+             
+             request.getSession().invalidate();
+             log.info("logout success ");
+             gson.toJson(new ResponseVO<>(200, "success"));	
+             return "redirect:/";    
+         }
+         log.info("notValidPassword");
+         gson.toJson(new ResponseVO<>(400, "fail"));
+         return "/member/withdrawal";
 
-		if(!(userPassword.equals(voPassword))) {
-			rttr.addFlashAttribute("msg", false);
-			System.out.println("¿©±â¿Ó´Ï?");
-			return "redirect:/member/withdrawal";
-			
-		}
-		
-		service.withdrawal(vo);
-		return "redirect:/";
-		
 	}
-
+	//mypage GET
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public void getMypage()	{
+		logger.info("get mypage");
+	}
+	
 }
+

@@ -2,7 +2,9 @@ package edu.bit.hbly.vo;
 
 import java.util.Date;
 
+import lombok.Builder;
 
+@Builder
 public class MemberVO {
 
 	private String userId;
@@ -15,7 +17,9 @@ public class MemberVO {
 	private String userAddress3;
 	private Date userRegidate;
 	private int verify;
+	private String login_Type;
 	
+
 	public String getAuthorities() {
 		
 		String authorities = "ROLE_USER";
@@ -33,7 +37,7 @@ public class MemberVO {
 	
 	
 	public MemberVO(String userId, String userPassword, String userName, String userNickname, String userPhoneNumber,
-			String userAddress1, String userAddress2, String userAddress3, Date userRegidate, int verify) {
+			String userAddress1, String userAddress2, String userAddress3, Date userRegidate, int verify, String login_Type) {
 		super();
 		this.userId = userId;
 		this.userPassword = userPassword;
@@ -45,6 +49,7 @@ public class MemberVO {
 		this.userAddress3 = userAddress3;
 		this.userRegidate = userRegidate;
 		this.verify = verify;
+		this.login_Type = login_Type;
 	}
 
 
@@ -127,6 +132,14 @@ public class MemberVO {
 
 	public void setVerify(int verify) {
 		this.verify = verify;
+	}
+	
+	public String getLogin_Type() {
+		return login_Type;
+	}
+
+	public void setLogin_Type(String login_Type) {
+		this.login_Type = login_Type;
 	}
 
 

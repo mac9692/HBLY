@@ -6,8 +6,8 @@
 
 <!-- 회원 가입 -->
 <insert id="signup">
- insert into tbl_member(userId, userPassword, userName, userNickname, userPhoneNumber)
-  values(#{userId}, #{userPassword}, #{userName}, #{userNickname}, #{userPhoneNumber}) 
+ insert into tbl_member(userId, userPassword, userName, userNickname, userPhoneNumber, login_Type)
+  values(#{userId}, #{userPassword}, #{userName}, #{userNickname}, #{userPhoneNumber}, #{login_Type}) 
 </insert>
 
 
@@ -33,9 +33,12 @@
 
 <!-- 회원 탈퇴 -->
 <delete id="withdrawal">
- delete from tbl_member
-     where userId = #{userId}
-         and userPassword = #{userPassword}
+ delete from tbl_member where userId = #{userId} and userPassword = #{userPassword}
 </delete>
+
+<delete id="withdrawalAuthority">
+delete from tbl_authorities where userId = #{userId}
+</delete>
+
 
 </mapper>

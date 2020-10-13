@@ -39,6 +39,16 @@ public class MemberServiceImpl implements MemberService{
 		
 		dao.withdrawal(vo);
 	}
+
+	@Override
+	public MemberVO getUserByIdAndLoginType(String userId, String login_Type) {
+		
+		return dao.getUserByIdAndLoginType(userId, login_Type);
+	
+	}
+
+	
+	
 	
 
 	
