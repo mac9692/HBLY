@@ -79,22 +79,20 @@
               <div class="py-5">
                 <div class="container">
                   <div class="row">
-                    <div class="col-md-12">	
+                    <div class="col-md-12">
                       <div class="card">
-                      
                         <div class="card-header">
-                          <ul class="nav nav-tabs card-header-tabs">
+                          <ul class="nav nav-tabs card-header-tabs" style="">
                             <li class="nav-item">
-                              <a class="nav-link active"  href="/member/pwChk">개인정보</a>
+                              <a class="nav-link active" data-toggle="tab" data-target="#tabone"href="/member/pwChk">개인정보</a>
                             </li>
+                            
                           </ul>
                         </div>
-                        
                         <div class="card-body">
                           <div class="tab-content mt-2">
                           
-                            <div class="tab-pane fade active show" id="tabone" role="tabpanel">
-                            
+                            <div class="tab-pane fade active show" id="tabone" role="tabpanel" style="">
                               <!--1-->
                               <div class="container text-center">
                                 <div class="row">
@@ -105,11 +103,11 @@
                                   </div>
                                 </div>
                               </div>
-                              		
                             </div>
+                          
                           </div>
+                        </div>
                       </div>
-                      
                     </div>
                   </div>
                 </div>
@@ -120,9 +118,8 @@
       </div>
     </div>
   </div>
- </div>
+  
 </body>
-
 
 
 

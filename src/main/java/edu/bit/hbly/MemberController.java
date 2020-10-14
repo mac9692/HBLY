@@ -185,5 +185,12 @@ public class MemberController {
 		logger.info("get mypage");
 	}
 	
+	//pwChk GET
+	@RequestMapping(value= "/pwChk", method = RequestMethod.GET)
+	public void getPwChk() {
+		log.info("get pwChk");
+	}
+	
+	
 }
 
