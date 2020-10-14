@@ -36,7 +36,7 @@
 	
 	<sec:authorize access="isAuthenticated()">
     <li>
-		<sec:authentication property="principal.member.userName"/> 님, 환영합니다!
+		<sec:authentication property="principal.member.userNickname"/> 님, 환영합니다!
 	</li>
 	<li>
 	<sec:authorize access="isAuthenticated()">

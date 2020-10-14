@@ -39,7 +39,7 @@
 <!-- 회원정보 수정-->
 <update id="modify">
  update tbl_member set 
- userPassword=#{userPassword}, userName=#{userName}, userNickname=#{userNickname}, userPhoneNumber=#{userPhoneNumber} 
+ userPassword=#{userPassword}, userNickname=#{userNickname}, userAddress1=#{userAddress1}, userAddress2=#{userAddress2}, userAddress3=#{userAddress3} 
  where userId=#{userId}
 </update>
 

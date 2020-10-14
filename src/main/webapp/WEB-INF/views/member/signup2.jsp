@@ -184,7 +184,7 @@
 
 						<!-- button -->
 						<button type="submit" id="signup_btn" class="btn btn-primary">가입하기</button>
-						<a href="${pageContext.request.contextPath}" class="btn btn-primary">취소</a>
+						<button type="button" class="btn btn-primary" OnClick="javascript:history.back(-1)">취소</button>
 					</form:form>
 
 				</div>
