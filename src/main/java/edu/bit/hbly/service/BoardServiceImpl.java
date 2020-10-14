@@ -56,6 +56,15 @@ public class BoardServiceImpl implements BoardService {
 	public void delete(int boardNumber) throws Exception {
 		dao.delete(boardNumber);		
 	}
-	
+
+	@Override
+	public int updateLike(int boardNumber) throws Exception {
+		return dao.updateLike(boardNumber);
+	}
+
+	@Override
+	public int updateHate(int boardNumber) throws Exception {
+		return dao.updateHate(boardNumber);
+	}	
 
 }

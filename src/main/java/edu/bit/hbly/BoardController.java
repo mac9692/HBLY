@@ -3,12 +3,16 @@ package edu.bit.hbly;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -35,18 +39,27 @@ public class BoardController {
 	
 	// 게시판 글 작성 화면
 	@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
-	public void writeView() throws Exception{
-		logger.info("writeView");			
+	public void writeView(HttpServletRequest request, Model model) throws Exception{			
+		
+		logger.info("writeView : "   + request.getParameter("categoryCode"));
+		
+		String category =  request.getParameter("categoryCode");
+		
+		model.addAttribute("categoryCode", category);		
 	}
 		
 	// 게시판 글 작성
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
-	public String write(BoardVO boardVO) throws Exception{
-		logger.info("write");
+	public String write(BoardVO boardVO, HttpServletRequest request, Model model) throws Exception{
+		logger.info("write : "   + request.getParameter("categoryCode"));
 			
 		service.write(boardVO);
-			
-		return "redirect:/";
+		
+		String category =  request.getParameter("categoryCode");
+		
+		model.addAttribute("categoryCode", category);	
+		
+		return "redirect:/board/list?page=1&categoryCode=${categoryCode}";
 	}
 	
 	// 게시판 목록 조회
@@ -68,7 +81,9 @@ public class BoardController {
 		
 	// 게시판 조회
 	@RequestMapping(value = "/readView", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
+	public String read(BoardVO boardVO, HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
+		
+
 		logger.info("read");
 			
 		model.addAttribute("read", service.read(boardVO.getBoardNumber()));
@@ -76,7 +91,6 @@ public class BoardController {
 		
 		List<ReplyVO> replyList = replyService.readReply(boardVO.getBoardNumber());
 		model.addAttribute("replyList", replyList);
-		
 		
 		return "board/readView";
 	}
@@ -190,6 +204,22 @@ public class BoardController {
 		rttr.addAttribute("keyword", scri.getKeyword());
 			
 		return "redirect:/board/readView";
+	}
+	
+	@RequestMapping(value="/{boardNumber}", method={RequestMethod.PUT, RequestMethod.PATCH})
+	public ResponseEntity<String> updateLike(@PathVariable("boardNumber") int boardNumber){
+		
+		logger.info("\n호출 BoardController, updateLike() ");
+		ResponseEntity<String> entity=null;
+		
+		try {
+			service.updateLike(boardNumber);
+			entity=new ResponseEntity<String>("success", HttpStatus.OK);
+		}catch (Exception e) {
+			e.printStackTrace();
+			entity=new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 	
 }

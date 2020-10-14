@@ -1,3 +1,4 @@
+
 package edu.bit.hbly.vo;
 
 import java.util.Date;
@@ -10,7 +11,16 @@ public class BoardVO {
 	private Date boardRegidate;
 	private String userId;
 	private int boardHit;
-	
+	private String categoryCode;
+	private int boardLikeCount;
+	private int boardHateCount;
+		
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
 	public int getBoardHit() {
 		return boardHit;
 	}
@@ -47,8 +57,18 @@ public class BoardVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-
+	public int getBoardLikeCount() {
+		return boardLikeCount;
+	}
+	public void setBoardLikeCount(int boardLikeCount) {
+		this.boardLikeCount = boardLikeCount;
+	}
+	public int getBoardHateCount() {
+		return boardHateCount;
+	}
+	public void setBoardHateCount(int boardHateCount) {
+		this.boardHateCount = boardHateCount;
+	}
 	
 	
 }

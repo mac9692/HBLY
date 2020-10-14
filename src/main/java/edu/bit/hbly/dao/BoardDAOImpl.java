@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 import edu.bit.hbly.vo.BoardVO;
 import edu.bit.hbly.vo.Criteria;
 import edu.bit.hbly.vo.SearchCriteria;
@@ -58,4 +59,17 @@ public class BoardDAOImpl implements BoardDAO{
 	public void boardHit(int boardNumber) throws Exception {
 		sqlSession.update("boardMapper.boardHit", boardNumber);
 	}
+
+	@Override
+	public int updateLike(int boardNumber) throws Exception {
+		return sqlSession.update("boardMapper.updateLike", boardNumber);
+	}
+
+	@Override
+	public int updateHate(int boardNumber) throws Exception {
+		return sqlSession.update("boardMapper.updateHate", boardNumber);
+	}
+
+
+
 }

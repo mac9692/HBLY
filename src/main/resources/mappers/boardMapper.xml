@@ -9,22 +9,20 @@
 	   INSERT INTO tbl_board(   boardNumber 
 	   					      , boardTitle  
 	   					      , boardContent
-	   					      , userId  )
+	   					      , userId
+	   					      , categoryCode  )
 	                 VALUES(    tbl_board_seq.NEXTVAL 
 	                 		  , #{boardTitle}
 	                 		  , #{boardContent}
-	                 		  , #{userId}  )
+	                 		  , #{userId}
+	                 		  , #{categoryCode}  )
    
    </insert>
+
    
    <!-- 게시판 목록 조회 -->
    	<select id="listPage" resultType="edu.bit.hbly.vo.BoardVO" parameterType="edu.bit.hbly.vo.SearchCriteria">
-   		SELECT  boardNumber, 
-		        boardTitle, 
-		        boardContent,
-		        userId,
-		        boardRegiDate,
-		        boardHit
+   		SELECT  *
 		 FROM ( 
 		        SELECT boardNumber, 
 		               boardTitle, 
@@ -32,9 +30,10 @@
 		               userId, 
 		               boardRegidate, 
 		               boardHit,
-		               row_number() OVER(ORDER BY boardNumber DESC) AS rNum
+		         row_number() OVER(ORDER BY boardNumber DESC) AS rNum
 		         FROM tbl_board
-		         WHERE 1=1 
+		         WHERE 1=1 AND categoryCode=#{categoryCode}
+		         
 		         <include refid="search"></include>
 		                       ) MP
 		WHERE rNum BETWEEN #{rowStart} AND #{rowEnd}
@@ -44,7 +43,7 @@
    	<select id="listCount" parameterType="edu.bit.hbly.vo.SearchCriteria" resultType="int">
 		SELECT COUNT(boardNumber)
 		  FROM tbl_board
-		  WHERE 1=1
+		  WHERE 1=1 AND categoryCode=#{categoryCode}
 		  <include refid="search"></include>	
 		   AND boardNumber > 0
 	</select>
@@ -60,13 +59,9 @@
    	
    	<!-- 게시물 조회 -->
    	<select id="read" parameterType="int" resultType="edu.bit.hbly.vo.BoardVO">
-	SELECT	boardNumber
-		  , boardTitle
-		  , boardContent
-		  , boardRegidate
-		  , userId
+	SELECT	*
 	 FROM tbl_board
-	 WHERE boardNumber = #{boardNumber}
+	 WHERE boardNumber = #{boardNumber} 
 	</select>
 	
 	<!-- 게시물 수정 -->
@@ -86,9 +81,21 @@
 	
 	<!-- 게시판 조회수 -->
     <update id="boardHit" parameterType="int">
-    	UPDATE tbl_board SET
-    	boardHit = boardHit+1
+    	UPDATE tbl_board 
+    	SET boardHit = boardHit+1
     	WHERE boardNumber = #{boardNumber}
     </update>
+
+	<update id="updateLike" parameterType="int">
+		UPDATE tbl_board
+		SET boardLikeCount = boardLikeCount +1
+		WHERE boardNumber = #{boardNumber}
+	</update>
+	
+	<update id="updateHate" parameterType="int">
+		UPDATE tbl_board
+		SET boardHateCount = boardHateCount +1
+		WHERE boardNumber = #{boardNumber}
+	</update>
    
 </mapper>

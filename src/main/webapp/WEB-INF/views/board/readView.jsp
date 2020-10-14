@@ -9,6 +9,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
 			var formObj = $("form[name='readForm']");
 			
 			// 수정 
@@ -64,23 +65,88 @@
 					+ "&keyword=${scri.keyword}"
 					+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
 			});
+			
+			//수정 
+			$(".update_btn").on("click", function(){
+				formObj.attr("action", "/board/updateView");
+				formObj.attr("method", "get");
+				formObj.submit();				
+			});									
 		})
 	</script>
+	<script>
+		var cnt = '<c:out value="${read.boardLikeCount}"/>';
+		var alreadyClick=false;
+		
+		function updateLH(){
+			if(!alreadyClick){
+				cnt = parseInt(cnt)+1;
+				var upcnt = document.getElementById("likeBtn");
+				upcnt.innerHTML ="<i class=\"fas fa-thumbs-up\"></i>&nbsp;추천 &nbsp;"+cnt;
+				alreadyClick=true;
+			}else{
+				alert('이미 추천하신 글입니다');
+				return;
+			}
+		}
+		function updateLike(){
+			if(!alreadyLikeClick){
+				lcnt2=parseInt(lcnt)+1;
+				likeBtn.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>&nbsp;추천 $nbsp;"+lcnt2;
+				alreadyLikeClick=true;
+				alreadyHateClick=true;
+			}else{
+				if(hcnt != hcnt2){
+					alert('이미 비추천하신 글입니다');
+					return;
+				}else{
+					alert('이미 추천하신 글입니다');
+					return;
+				}
+			}
+		}
+		function updateHate(){
+			if(!alreadyHateClick){
+				hcnt2 = parseInt(hcnt)+1;
+				hateBnt.innerHTML = "<i class=\"fas fa-thumbs-down\"><\i> 비추천 &nlsp;"+hcnt2;
+				alreadyLikeClick=true;
+				alreadyLikeClick=true;
+			}else{
+				if(lcnt != lcnt2){
+					alert('이미 추천하신 글입니다.');
+					return;
+				}else{
+					alert('이미 비추천하신 글입니다');
+					return;
+				}
+			}
+		}
+	</script>
 	
-	<body>	
+	<body>				
 		<div class="container">
-			<header>
-				<h1> 게시판</h1>
-			</header>			
-			<hr />		
-				 
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
+			<header id="header">
+				<div id="header_box">
+					<%@ include file= "../include/header.jsp" %>
 				</div>
-			</nav>			
+			</header>						
 			<hr />
 			
+			<div class = "form-group row">
+			<div class="col-sm-5"></div>
+			<div class="col-sm-2">
+				<div class="btn-group mx-auto my-2" role="group" aria-label="Basic example">
+					<button type="button" id="likeBtn" class="btn btn-info" onclick="updateLH()">&nbsp;
+						<i class="fas fa-thumbs-up"></i>&nbsp;추천 &nbsp;<c:out value="${read.boardLikeCount}"/>
+					</button>
+					<button type="button" id="hateBtn" class="btn btn-secondary" onclick="">
+						<i class="fas fa-thumbs-down"></i>비추천 <c:out value="${read.boardHateCount}"/>
+					</button>
+				</div>
+				</div>
+				<div class="col-sm-5"></div>
+			</div>
+
 			<section id="container">
 				<form name="readForm" role="form" method="post">
 				  <input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
@@ -88,6 +154,7 @@
 				  <input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
 				  <input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
 				  <input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+				 
 				</form>
 					<table>
 						<tbody>	
@@ -122,7 +189,7 @@
 						<button type="submit" class="delete_btn">삭제</button>
 						<button type="submit" class="list_btn">목록</button>	
 					</div>
-					
+
 		<!-- 댓글 -->
 		<div id="reply">
 			<ol class="replyList">
@@ -151,15 +218,16 @@
 			<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
 					
 			<div>
-				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" /><br/>
 				<label for="boardReplyContent">댓글 내용</label><input type="text" id="boardReplyContent" name="boardReplyContent" />
-			</div>
-			<div>
-				 <button type="button" class="replyWriteBtn">작성</button>
+				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" />
+				<button type="button" class="replyWriteBtn">작성</button>
 			</div>
 		</form>
+		
 		</section>
 		<hr />
 		</div>
+		
+		
 	</body>
 </html>

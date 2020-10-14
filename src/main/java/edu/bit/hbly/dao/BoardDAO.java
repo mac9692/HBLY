@@ -29,4 +29,8 @@ public interface BoardDAO {
 	//게시판 조회수
 	public void boardHit(int boardNumber) throws Exception;
 	
+	public int updateLike(int boardNumber) throws Exception;
+	
+	public int updateHate(int boardNumber) throws Exception;
+	
 }
