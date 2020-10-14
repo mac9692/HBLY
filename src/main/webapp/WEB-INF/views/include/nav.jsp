@@ -62,6 +62,9 @@
 	<li>
 		<a href="/member/mypage">마이페이지</a>
 	</li>
+	<li>
+		<a href="/board/list">게시판</a>
+	</li>	
 	
 	
 	
