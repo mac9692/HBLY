@@ -1,6 +1,8 @@
 package edu.bit.hbly.service;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.crypto.Mac;
@@ -128,6 +130,26 @@ public class MemberServiceImpl implements MemberService{
 	  return map;
 	}
 	
+	//member idInqury - Name&PhoneNumber check(Ajax) 
+	@Override
+	public List<MemberVO> checkNamePhoneNumber(MemberVO memberVO) {
+		
+		
+		return dao.checkNamePhoneNumber(memberVO);
+	}
+	
+	@Override
+	public void pwInqurySuccess(MemberVO memberVO) {
+		int num = dao.pwInqurySuccess(memberVO);
+		if(num==1) {
+			System.out.println("pwInqury Success");
+		}else if(num==0) {
+			System.out.println("pwInqury fail");
+		}
+		
+	}
+	
 
+	
 }
 

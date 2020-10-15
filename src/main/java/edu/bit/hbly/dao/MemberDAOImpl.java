@@ -1,5 +1,7 @@
 package edu.bit.hbly.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -86,6 +88,19 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int checkNickname(String userNickname) {
 		return sql.selectOne(namespace + ".checkNickname",userNickname);
+	}
+
+	@Override
+	public List<MemberVO> checkNamePhoneNumber(MemberVO memberVO) {
+		return sql.selectList(namespace + ".checkNamePhoneNumber", memberVO);
+	}
+
+	@Override
+	public int pwInqurySuccess(MemberVO memberVO) {
+		String userPassword = memberVO.getUserPassword();
+		String encode = passEncoder.encode(userPassword);
+		memberVO.setUserPassword(encode);		
+		return sql.update(namespace +".pwInqurySuccess", memberVO); 
 	}
 	
 }
