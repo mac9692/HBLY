@@ -18,7 +18,14 @@
         <intercept-url pattern="/member/checkId" access="permitAll" />
         <intercept-url pattern="/member/checkNickname" access="permitAll" />
         <intercept-url pattern="/member/sms" access="permitAll" />
-        
+        <intercept-url pattern="/member/idInqury" access="permitAll" />
+        <intercept-url pattern="/member/idInquryList" access="permitAll" />
+        <intercept-url pattern="/member/checkNamePhoneNumber" access="permitAll" />
+        <intercept-url pattern="/member/pwInqury" access="permitAll" />
+        <intercept-url pattern="/member/pwInquryCheck" access="permitAll" />
+        <intercept-url pattern="/member/pwInquryModify" access="permitAll" />
+        <intercept-url pattern="/member/pwInqurySuccess" access="permitAll" />        
+         
         
         <intercept-url pattern="/" access="permitAll" />
         <intercept-url pattern="/member/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />

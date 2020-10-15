@@ -1,6 +1,8 @@
 package edu.bit.hbly;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -85,7 +88,6 @@ public class MemberController {
 		logger.info("post certificationCellphone");
 
 		ResponseEntity<String> responseEntity = service.certificationCellphone(jsonData);
-		
 
 		return responseEntity;
 	}
@@ -113,13 +115,61 @@ public class MemberController {
 		logger.info("get idInqury");
 	}
 	
-
+	// member idInqury POST - checkNamePhoneNumber(Ajax) - daun 
+	@RequestMapping(value = "/checkNamePhoneNumber", method = RequestMethod.POST)
+	@ResponseBody
+	public int checkNamePhoneNumber(@RequestBody MemberVO memberVO) throws Exception {
+		logger.info("POST checkNamePhoneNumber");
+		
+		List<MemberVO> idList = service.checkNamePhoneNumber(memberVO);
+		if(idList.size()==0) { //list가 비었을때, 일치하는 회원 없을때
+			return 0;
+		}
+		return 1;
+	}
+	
+	// member idInqury POST - daun
+	@RequestMapping(value = "/idInqury", method = RequestMethod.POST)
+	public String idInqury(MemberVO memberVO,Model model)	throws Exception{
+		logger.info("post idInqury");
+		
+		List<MemberVO> idList = service.checkNamePhoneNumber(memberVO);
+		model.addAttribute("idList", idList);	
+		
+		return "/member/idInquryList";
+	}
+	
 	// member pwInqury GET - daun
 	@RequestMapping(value = "/pwInqury", method = RequestMethod.GET)
-	public void pwInqury() throws Exception {
+	public void getPwInqury() throws Exception {
 		logger.info("get pwInqury");
 	}
 
+	// member pwInqury POST - daun
+	@RequestMapping(value = "/pwInquryCheck", method = RequestMethod.POST)
+	public void postPwInqury(@RequestParam("userId") String userId,HttpSession session ) throws Exception {
+		logger.info("POST pwInquryCheck");
+		System.out.println(userId);
+		session.setAttribute("userId",userId);
+		
+	}
+	
+	// member pwInqury POST - daun
+	@RequestMapping(value = "/pwInquryModify", method = RequestMethod.POST)
+	public void pwInquryModify() throws Exception {
+		logger.info("POST pwInquryCheck");
+	}	
+	
+	// member pwInqury POST - daun
+	@RequestMapping(value = "/pwInqurySuccess", method = RequestMethod.POST)
+	public String pwInqurySuccess(MemberVO memberVO,HttpSession session) throws Exception {
+		logger.info("POST pwInquryCheck");
+		
+		memberVO.setUserId((String) session.getAttribute("userId"));
+		session.removeAttribute("userId");		
+		service.pwInqurySuccess(memberVO);
+		return "redirect:/member/signin2";
+	}	
 	
 	//ȸ������ ���� get
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)

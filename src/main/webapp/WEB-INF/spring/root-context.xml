@@ -44,7 +44,7 @@
 	</bean>
 	
 	  <!-- Mapper Interface -->
-	<mybatis-spring:scan base-package = "edu.bit.mapper"/>
+	<!-- <mybatis-spring:scan base-package = "edu.bit.mapper"/> -->
     
 
     <tx:annotation-driven transaction-manager="transactionManager" />

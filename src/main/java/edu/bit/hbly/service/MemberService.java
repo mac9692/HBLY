@@ -1,6 +1,8 @@
 package edu.bit.hbly.service;
 
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 
 import edu.bit.hbly.vo.MemberVO;
@@ -27,6 +29,12 @@ public interface MemberService {
 	
 	//member sign up - phonenumber check / certification cellphone
 	public ResponseEntity<String> certificationCellphone(String jsonData) throws Exception;
+	
+	//member idInqury - Name&PhoneNumber check(Ajax) 
+	public List<MemberVO> checkNamePhoneNumber(MemberVO memberVO);
+	
+	//member pwInqury
+	public void pwInqurySuccess(MemberVO memberVO);
 	
 
 }

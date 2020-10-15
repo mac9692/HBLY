@@ -49,4 +49,20 @@
          and userPassword = #{userPassword}
 </delete>
 
+<!-- 로그인 - 아이디 찾기/비밀번호 찾기-->
+<select id="checkNamePhoneNumber" parameterType="String" resultType="edu.bit.hbly.vo.MemberVO">
+ select
+     userId, userRegidate
+ from
+     tbl_member
+ where userName = #{userName} and userPhoneNumber = #{userPhoneNumber}
+</select>
+
+<!-- 비밀번호 찾기 - 비밀번호 수정-->
+<update id="pwInqurySuccess" parameterType="String">
+ update tbl_member set 
+ userPassword=#{userPassword}
+ where userId=#{userId}
+</update>
+
 </mapper>
