@@ -38,6 +38,7 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		sql.insert(namespace + ".signup",vo);
 		sql.insert(namespace + ".getAuthorities", vo);
+		
 	}
 
 	@Override

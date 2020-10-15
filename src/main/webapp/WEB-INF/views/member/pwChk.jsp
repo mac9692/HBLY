@@ -14,13 +14,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
 </head>
 
+<script type="text/javascript">
+$(document).ready(function(){
+			
+		$("#pwChk_btn").on("click", function(){
+			if($("#userPassword").val()==""){
+				alert("비밀번호를 입력해주세요.");
+				$("#userPassword").focus();
+				return false;
+			}
+			
+ 			$.ajax({
+				url : "/member/pwChk",
+				async: true,
+				type : "POST",
+				dataType : "text json",
+				contentType: "application/json",
+				data : JSON.stringify({pw: $('#userPassword').val()}),
+				beforeSend : function(xhr)
+                {   
+                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                },
+				success: function(data) {
+					console.log(data);
+					const isSuccess = data.statusCode === 200;
+					if(isSuccess){
+						alert("비밀번호가 일치합니다");
+						
+					}else{
+						alert("비밀번호를 다시 입력해 주세요");
+					}
+				},
+				error: function(error) {
+					console.log(error);
+					alert("알수 없는 에러 발생");
+				}
+			})
+		});
 
+})
+
+</script>
 
 <body>
 <header id="header">
@@ -93,13 +133,18 @@
                           <div class="tab-content mt-2">
                           
                             <div class="tab-pane fade active show" id="tabone" role="tabpanel" style="">
+                            		  
                               <!--1-->
                               <div class="container text-center">
                                 <div class="row">
                                   <div class="mx-auto p-2 col-6">
                                     <p> 개인정보를 안전하게 보호하기 위하여 <br> HBLY 아이디 비밀번호를 한번 더 입력해주세요. </p>
-                                      <div class="form-group"> <input type="password" class="form-control" id="form29" placeholder="비밀번호 입력" required="required"> </div>
-                                      <a class="btn btn-primary w-100" href ="/member/modify">확인</a>
+                                   <c:url value="/member/pwChk" var="pwChkUrl"/>
+                        			<form:form role="form" action="${pwChkUrl}" method="POST" autocomplete="off">
+                                    
+                                    <div class="form-group"> <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="비밀번호 입력" > </div>
+                                      <button type="submit" class="btn btn-primary w-100" id="pwChk_btn" name="pwChk_btn">확인</button>
+                                     </form:form>
                                   </div>
                                 </div>
                               </div>
@@ -120,7 +165,4 @@
   </div>
   
 </body>
-
-
-
 </html>

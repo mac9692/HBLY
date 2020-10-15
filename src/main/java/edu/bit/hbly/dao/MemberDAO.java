@@ -25,4 +25,5 @@ public interface MemberDAO {
 	
 	//member sign up - nickname check
 	public int checkNickname(String userNickname) throws Exception;
+	
 }

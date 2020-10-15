@@ -191,6 +191,36 @@ public class MemberController {
 		log.info("get pwChk");
 	}
 	
+	//pwChk POST
+		@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
+		public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
+			log.info("post pwChk");
+			 
+			Gson gson = new Gson();
+	        CustomUser user = (CustomUser) authentication.getPrincipal();
+	         
+	        boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+	        System.out.println(isValidPassword+":"+vo.getUserPassword()+":"+user.getMember().getUserPassword()); 
+	       
+	        if (isValidPassword) {                 
+	            vo.setUserPassword(user.getMember().getUserPassword());
+	           // request.getSession().invalidate();
+	            gson.toJson(new ResponseVO<>(200, "success"));	
+	             
+	            return "/member/modify";    
+	        }
+	        
+	        gson.toJson(new ResponseVO<>(400, "fail"));
+	         
+	        return "redirect:/member/pwChk";
+
+	}
+		
+	//accessDenied GET
+	@RequestMapping(value= "/accessDenied", method = RequestMethod.GET)
+	public void getAccessDenied() {
+		log.info("get accessDenied");
+	}
 	
 }
 

@@ -27,7 +27,7 @@ public class HomeController {
 	public String home(Model model) {
 		logger.info("home");
 		
-		return "home";
+		return "mainpage";
 	}
 	
 	@RequestMapping(value = "/policy/terms", method = RequestMethod.GET)

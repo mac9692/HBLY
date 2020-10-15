@@ -23,11 +23,80 @@
 
 
 <body>
-<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
+<!-- nav & header -->
+	<div>
+		<!-- nav -->
+		<nav class="navbar navbar-expand-md navbar-light">
+			<div class="container">
+				<div class="collapse navbar-collapse" id="navbar4">
+					<ul class="navbar-nav ml-auto">
+						<%@ include file="../include/nav.jsp" %>
+					</ul>
 				</div>
-			</header>
+			</div>
+		</nav>
+		<file ..menu.jsp>
+		<!-- header -->
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container">
+				<div class="collapse navbar-collapse" id="navbar8">
+					<a class="navbar-brand text-primary" href="/"> <b class="">HBLY</b>
+					</a>
+					<div class="collapse navbar-collapse px-5" id="navbar5" style="">
+						<div class="input-group">
+							<input type="text" class="form-control" id="inlineFormInputGroup"
+								placeholder="Search">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<ul class="navbar-nav mr-3">
+						<li class="nav-item ml-2"><a class="nav-link" href="/member/mypage"> <i
+								class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+						</a></li>
+						<li class="nav-item ml-2"><a class="nav-link" href="/shop/cartList"> <i
+								class="fa fa-shopping-cart fa-3x"></i>
+						</a></li>
+						<li class="nav-item ml-2"><a class="nav-link" href="#"> <i
+								class="fa fa-bell fa-3x"></i>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- menu -->
+		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+			<div class="container justify-content-center">
+				<button class="navbar-toggler navbar-toggler-right border-0"
+					type="button" data-toggle="collapse" data-target="#navbar15"
+					aria-expanded="true">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div
+					class="navbar-collapse collapse show"
+					id="navbar15" style="">
+					<ul class="navbar-nav">
+						<li class="nav-item mx-2"><a
+							class="nav-link navbar-brand mr-0 text-white" href="/"><i
+								class="fa fa-comments-o" aria-hidden="true"></i> <b>커뮤니티</b></a></li>
+						<li class="nav-item mx-2"><a
+							class="nav-link navbar-brand mr-0 text-white" href="/market"><i
+								class="fa fa-shopping-basket" aria-hidden="true"></i> <b>마켓</b></a>
+						</li>
+						<li class="nav-item mx-2"><a
+							class="nav-link navbar-brand mr-0 text-white" href="#"><i
+								class="fa fa-handshake-o" aria-hidden="true"></i> <b>중고거래</b></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+	</div>
+	
 			
   <div class="py-5 text-white h-25" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
     <div class="text-center">
@@ -121,6 +190,8 @@
     </div>
   </div>
  </div>
+ 
+ <%@ include file= "../include/footer.jsp" %>
 </body>
 
 

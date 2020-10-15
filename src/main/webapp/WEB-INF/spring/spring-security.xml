@@ -8,16 +8,16 @@
     http://www.springframework.org/schema/security/spring-security.xsd">
       
    <!-- 검사 URL -->
-    <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/member/signin" access="permitAll" />
+    	<http auto-config="true" use-expressions="true">
+    	<intercept-url pattern="/member/signin" access="permitAll" />
         <intercept-url pattern="/member/signin2" access="permitAll" />
         <intercept-url pattern="/member/signup" access="permitAll" />
         <intercept-url pattern="/member/signup2" access="permitAll" />
-
-
-        <intercept-url pattern="/member/checkId" access="permitAll" />
+        
+		<intercept-url pattern="/member/checkId" access="permitAll" />
         <intercept-url pattern="/member/checkNickname" access="permitAll" />
         <intercept-url pattern="/member/sms" access="permitAll" />
+        <intercept-url pattern="/member/pwChk" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
         
         
         <intercept-url pattern="/" access="permitAll" />
@@ -25,27 +25,27 @@
         <intercept-url pattern="/shop/**" access="hasAnyRole('ADMIN','USER')" />
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         
-        
+
+        <intercept-url pattern="/board/writeView" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+        <intercept-url pattern="/board/write" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
         <intercept-url pattern="/board/**" access="permitAll" />
-        <intercept-url pattern="/board/write" access="hasRole('ROLE_USER')" />
-        
         
         <form-login login-page="/member/signin2"
                     default-target-url="/"
                     authentication-failure-url="/member/signin2?error"
                     username-parameter="userId"
-                    
                     password-parameter="userPassword" />
         
          <logout logout-url="/logout"
                 logout-success-url="/" /> 
                 
-       <!--  <access-denied-handler error-page="/member/accessDenied" /> -->
+      <access-denied-handler error-page="/member/accessDenied" />
          <csrf disabled="false"></csrf>
-    
+    	 
     </http>
     
-        
+     
+     
      <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
         <beans:property name="dataSource" ref="dataSource"/><!-- root.xml에 있는 커넥션풀에서 datasource를 받아오는것 -->
     </beans:bean> 

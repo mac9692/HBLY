@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 	<head>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -148,14 +151,14 @@
 			</div>
 
 			<section id="container">
-				<form name="readForm" role="form" method="post">
+				<form:form name="readForm" role="form" method="post">
 				  <input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
 				  <input type="hidden" id="page" name="page" value="${scri.page}"> 
 				  <input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
 				  <input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
 				  <input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
 				 
-				</form>
+				</form:form>
 					<table>
 						<tbody>	
 							<tr>
@@ -210,7 +213,7 @@
 			 </ol>
 		</div>
 					
-		<form name="replyForm" method="post">
+		<form:form name="replyForm" method="post">
 			<input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
 			<input type="hidden" id="page" name="page" value="${scri.page}"> 
 			<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
@@ -222,7 +225,7 @@
 				<label for="userId">댓글 작성자</label><input type="text" id="userId" name="userId" />
 				<button type="button" class="replyWriteBtn">작성</button>
 			</div>
-		</form>
+		</form:form>
 		
 		</section>
 		<hr />

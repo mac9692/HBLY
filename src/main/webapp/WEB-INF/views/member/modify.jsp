@@ -105,13 +105,14 @@
                                     <div>
                                    <c:url value="/member/modify" var="modifyUrl"/>
                                     <form:form role="form" action="${modifyUrl }" method="POST" autocomplemte="off">
-									<table class="table table-bordered ">
+                                     <sec:authentication var="principal" property="principal" />
+                                    <table class="table table-bordered ">
                                       <tbody class="my-0">
                                           <tr>
                                             <td class="table-info">아이디</td>
                                             <td>
                                               <div class="col-md-6 px-0">
-                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="hbly@hbly.com">
+                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="${principal.member.userId}">
                                               </div>
                                             </td>
                                           </tr>
@@ -137,7 +138,7 @@
                                             <td class="table-info">이름</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="김재욱"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="${principal.member.userName}"></li>
                                               </ul>
                                             </td>
                                           </tr>
@@ -145,7 +146,7 @@
                                             <td class="table-info">생년월일</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="19991212"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="${principal.member.userBirth}"></li>
                                               </ul>
                                             </td>
                                           </tr>
@@ -162,7 +163,7 @@
                                             <td class="table-info" rowspan="2">주소</td>
                                             <td>
                                               <ul class="list-inline pb-0">
-                                                <li class="list-inline-item"><input type="text" class="form-control" readonly="" value="12345" id="userAddress1" name="userAddress2"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress1}" id="userAddress1" name="userAddress2"></li>
                                                 <li class="list-inline-item"> <input type="button" class="btn btn-primary" value="우편번호 찾기"></li>
                                               </ul>
                                             </td>
@@ -170,8 +171,8 @@
                                           <tr>
                                             <td>
                                               <div class="row mb-2">
-                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="주소" id="userAddress2" name="userAddress2"></div>
-                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="상세주소" id="userAddress3" name="userAddress3"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress2}" id="userAddress2" name="userAddress2"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress3}" id="userAddress3" name="userAddress3"></div>
                                               </div>
                                             </td>
                                           </tr>
@@ -179,7 +180,7 @@
                                             <td class="table-info">휴대폰 번호</td>
                                             <td>
                                               <div class="col-md-6 px-0">
-                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="01012345678">
+                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="${principal.member.userPhoneNumber}">
                                               </div>
                                             </td>
                                           </tr>
@@ -418,7 +419,7 @@
 		}
 		
 		if(validAll){ // 유효성 모두 통과
-			alert('회원가입이 완료되었습니다.');
+			alert('회원정보 수정이 완료되었습니다.');
 		} else{
 			alert('입력한 정보들을 다시 한번 확인해주세요.')
 		}

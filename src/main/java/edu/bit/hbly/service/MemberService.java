@@ -32,5 +32,6 @@ public interface MemberService {
 	//member sign up - phonenumber check / certification cellphone
 	public ResponseEntity<String> certificationCellphone(String jsonData) throws Exception;
 	
+	
 
 }
