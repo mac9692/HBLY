@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import edu.bit.hbly.dao.ShopDAO;
 import edu.bit.hbly.vo.CartListVO;
 import edu.bit.hbly.vo.CartVO;
+import edu.bit.hbly.vo.CategoryVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
@@ -131,6 +132,12 @@ public class ShopServiceImpl implements ShopService{
 	public List<OrderListVO> orderView(OrderVO order) throws Exception {
 		
 		return dao.orderView(order);
+	}
+
+
+	@Override
+	public List<CategoryVO> getCategoryList() throws Exception {		
+		return dao.getCategoryList();
 	}
 	
 

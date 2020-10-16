@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.bit.hbly.vo.CartListVO;
 import edu.bit.hbly.vo.CartVO;
+import edu.bit.hbly.vo.CategoryVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
@@ -132,6 +133,12 @@ public class ShopDAOImpl implements ShopDAO {
 	public List<OrderListVO> orderView(OrderVO order) throws Exception {
 		
 		return sql.selectList(namespace + ".orderView", order);
+	}
+
+	@Override
+	public List<CategoryVO> getCategoryList() throws Exception {
+
+		return sql.selectList(namespace+".getCategoryList");
 	}
 	
 	

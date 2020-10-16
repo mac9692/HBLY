@@ -208,10 +208,7 @@
 							    url : "/shop/deleteCart",
 							    type : "post",
 							    data : { chbox : checkArr },
-							    beforeSend : function(xhr)
-			                      {   
-			                          xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-			                      },
+							    
 							    success : function(result){
 							    	if(result ==1){
 							    		location.href = "/shop/cartList";
@@ -274,10 +271,7 @@
 							    url : "/shop/deleteCart",
 							    type : "post",
 							    data : { chbox : checkArr },
-							    beforeSend : function(xhr)
-			                      {   
-			                          xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-			                      },
+							    
 							    success : function(result){
 							     if(result == 1) {            
 							      location.href = "/shop/cartList";

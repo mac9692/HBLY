@@ -20,11 +20,19 @@
 </head>
 
 <body>
-<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
-				</div>
-			</header>
+<!-- nav & header -->
+	<div>
+		<!-- nav -->
+		<%@ include file="../include/nav.jsp" %>
+		
+		<!-- header -->
+		<%@ include file="../include/header.jsp" %>
+		
+		<!-- menu -->
+		<%@ include file="../include/menu.jsp" %>
+		
+		
+	</div>
   <div class="py-5 text-white h-25" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
     <div class="text-center">
       <div class="container">
@@ -205,7 +213,7 @@
                                       <div class="container py-5 text-center">
                                         <div class="row">
                                           <div class="mx-auto col-lg-8 col-md-10">
-                                            <button type="button" id="modify_btn" name="modify_btn" class="btn btn-lg btn-primary mx-1">개인정보 수정</button> <a class="btn btn-lg mx-1 btn-outline-primary" href="/member/withdrawal">회원탈퇴</a>
+                                            <button type="submit" id="modify_btn" name="modify_btn" class="btn btn-lg btn-primary mx-1">개인정보 수정</button> <a class="btn btn-lg mx-1 btn-outline-primary" href="/member/withdrawal">회원탈퇴</a>
                                           </div>
                                         </div>
                                       </div>
@@ -230,6 +238,7 @@
       </div>
     </div>
   </div>
+  			<%@ include file= "../include/footer.jsp" %>
   
 </body>
 
@@ -320,7 +329,7 @@
 		}
 	});
 	
-	// 이름에 특수문자 들어가지 않도록 설정
+	/* // 이름에 특수문자 들어가지 않도록 설정
 	$("#userName").blur(function() {
 		if (nameJ.test($(this).val())) {
 				console.log(nameJ.test($(this).val()));
@@ -330,7 +339,7 @@
 			$('#nameCheck').css('color', 'red');
 			$("#modify_btn").attr("disabled",true);	
 		}
-	});
+	}); */
 	
 	// 닉네임 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#userNickname').blur(function () {

@@ -195,11 +195,8 @@
 	</div>
 	
 	
-	<footer id="foorter">
-		<div id="footer_box">
+	
 			<%@ include file= "../include/footer.jsp" %>
-		</div>
-	</footer>
 
 </body>
 <!--우편번호/주소 API -->
@@ -283,11 +280,7 @@
 				type : 'POST',
 				url : "/member/sms",
 				dataType : "json",
-				data :  JSON.stringify(obj),
-				beforeSend : function(xhr)
-                 	{   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-                     xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-                 	},
+				data :  JSON.stringify(obj),				
 				contentType: "application/json",
 				success : function(data) {
 					if(data.statusName == "success"){

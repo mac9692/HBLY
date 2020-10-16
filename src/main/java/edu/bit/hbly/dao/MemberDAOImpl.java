@@ -61,6 +61,7 @@ public class MemberDAOImpl implements MemberDAO{
 			sql.update(namespace +".modify", vo); 
 		}
 	
+	
 
 	
 	@Override

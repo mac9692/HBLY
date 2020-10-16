@@ -50,11 +50,6 @@ public class MemberController {
 		logger.info("get signup");
 	}
 
-	// member sign up2 GET - daun
-	@RequestMapping(value = "/signup2", method = RequestMethod.GET)
-	public void getSignup2() throws Exception {
-		logger.info("get signup2");
-	}
 
 	// member sign up POST
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -236,12 +231,6 @@ public class MemberController {
 		logger.info("get mypage");
 	}
 	
-	//pwChk GET
-	@RequestMapping(value= "/pwChk", method = RequestMethod.GET)
-	public void getPwChk() {
-		log.info("get pwChk");
-	}
-	
 	//pwChk POST
 		@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
 		public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
@@ -254,17 +243,20 @@ public class MemberController {
 	        System.out.println(isValidPassword+":"+vo.getUserPassword()+":"+user.getMember().getUserPassword()); 
 	       
 	        if (isValidPassword) {                 
-	            vo.setUserPassword(user.getMember().getUserPassword());
-	           // request.getSession().invalidate();
+				
+				  vo.setUserPassword(user.getMember().getUserPassword());
+				  request.getSession().invalidate();
+				  
 	            gson.toJson(new ResponseVO<>(200, "success"));	
 	             
-	            return "/member/modify";    
+				return "/member/modify";
 	        }
 	        
 	        gson.toJson(new ResponseVO<>(400, "fail"));
 	         
-	        return "redirect:/member/pwChk";
-
+			
+			 return "redirect:/member/mypage";
+			
 	}
 		
 	//accessDenied GET

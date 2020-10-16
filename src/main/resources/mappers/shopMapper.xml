@@ -142,4 +142,11 @@ where o.userId = #{userId}
     and o.orderId = #{orderId}
 
 </select>
+
+<!-- 카테고리 가져오기 -->
+<select id="getCategoryList" resultType="edu.bit.hbly.vo.CategoryVO">
+select
+*
+from goods_category
+</select>
 </mapper>

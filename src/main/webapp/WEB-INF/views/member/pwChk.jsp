@@ -14,9 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
 </head>
 
@@ -37,10 +37,6 @@ $(document).ready(function(){
 				dataType : "text json",
 				contentType: "application/json",
 				data : JSON.stringify({pw: $('#userPassword').val()}),
-				beforeSend : function(xhr)
-                {   
-                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-                },
 				success: function(data) {
 					console.log(data);
 					const isSuccess = data.statusCode === 200;
@@ -63,77 +59,7 @@ $(document).ready(function(){
 </script>
 
 <body>
-<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
-				</div>
-			</header>
-			
-  <div class="py-5 text-white h-25" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
-    <div class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2><b>마이블리</b></h2>
-            <h5>내 활동의 모든것을 한눈에 확인하는 마이블리 </h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-          
-            <div class="card-header text-center">
-              <div class="container my-2">
-                <div class="row text-right">
-                  <div class="col-md-3 border-right border-left">
-                    <dl><dt>게시글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt class="">댓글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>최근 방문일</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>포인트</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card-body">
-              <div class="py-5">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-header">
-                          <ul class="nav nav-tabs card-header-tabs" style="">
-                            <li class="nav-item">
-                              <a class="nav-link active" data-toggle="tab" data-target="#tabone"href="/member/pwChk">개인정보</a>
-                            </li>
-                            
-                          </ul>
-                        </div>
-                        <div class="card-body">
-                          <div class="tab-content mt-2">
-                          
-                            <div class="tab-pane fade active show" id="tabone" role="tabpanel" style="">
-                            		  
+               		  
                               <!--1-->
                               <div class="container text-center">
                                 <div class="row">
@@ -148,21 +74,7 @@ $(document).ready(function(){
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                           
   
 </body>
 </html>

@@ -34,7 +34,7 @@
             <div class="form-group mb-3">
 	            <input type="password" class="form-control" placeholder="Password" id="userPassword" name="userPassword" required="required">
 	            <small class="form-text text-muted text-right">
-	            <a href="/member/signup2">회원가입</a> | <a href="/member/idInqury">아이디</a> / <a href="/member/pwInqury"> 비밀번호 찾기</a>
+	            <a href="/member/signup">회원가입</a> | <a href="/member/idInqury">아이디</a> / <a href="/member/pwInqury"> 비밀번호 찾기</a>
 	            </small>
             </div>
             <button type="submit" class="btn btn-primary" id="signin_btn" name="signin_btn">로그인</button>
