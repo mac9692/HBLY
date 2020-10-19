@@ -227,35 +227,34 @@ public class MemberController {
 	}
 	//mypage GET
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public void getMypage()	{
+	public void getMypage() throws Exception{
 		logger.info("get mypage");
 	}
 	
 	//pwChk POST
-		@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
-		public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
-			log.info("post pwChk");
+	@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
+	public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
+		log.info("post pwChk");
 			 
-			Gson gson = new Gson();
-	        CustomUser user = (CustomUser) authentication.getPrincipal();
-	         
-	        boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
-	        System.out.println(isValidPassword+":"+vo.getUserPassword()+":"+user.getMember().getUserPassword()); 
+		Gson gson = new Gson();
+	    CustomUser user = (CustomUser) authentication.getPrincipal();
+	    boolean isValidPassword = false;
+	    
+	    try {
+	    	isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+	    }catch (Exception e) {	}
+  
 	       
-	        if (isValidPassword) {                 
-				
-				  vo.setUserPassword(user.getMember().getUserPassword());
-				  request.getSession().invalidate();
-				  
-	            gson.toJson(new ResponseVO<>(200, "success"));	
+	    if (isValidPassword) {                 
+	    		  
+	        gson.toJson(new ResponseVO<>(200, "success"));	
 	             
-				return "/member/modify";
-	        }
+			return "/member/modify";
+	    }
 	        
-	        gson.toJson(new ResponseVO<>(400, "fail"));
-	         
-			
-			 return "redirect:/member/mypage";
+	gson.toJson(new ResponseVO<>(400, "fail"));
+	return "redirect:/member/mypage";
+	
 			
 	}
 		
