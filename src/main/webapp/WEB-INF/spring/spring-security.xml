@@ -49,7 +49,7 @@
                 logout-success-url="/" /> 
                 
       <access-denied-handler error-page="/member/accessDenied" />
-         <csrf disabled="false"></csrf>
+         <csrf disabled="true"></csrf>
     	 
     </http>
     
