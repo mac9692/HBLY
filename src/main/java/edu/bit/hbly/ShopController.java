@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.bit.hbly.service.ShopService;
 import edu.bit.hbly.vo.CartListVO;
 import edu.bit.hbly.vo.CartVO;
+import edu.bit.hbly.vo.CategoryVO;
 import edu.bit.hbly.vo.CustomUser;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
@@ -51,6 +52,19 @@ public class ShopController {
  
   model.addAttribute("list", list);
   
+ }
+ // 카테고리 가져오기 - daun
+ @RequestMapping(value = "/listtest", method = RequestMethod.GET)
+ public String listtest(Model model) throws Exception {
+  logger.info("get listtest");
+  
+  List<CategoryVO> categoryList = service.getCategoryList();
+  model.addAttribute("categoryList",categoryList);
+  for(CategoryVO vo : categoryList) {
+	  System.out.println(vo.getCategoryName());
+  }
+  
+  return "/shop/list2"; 
  }
  
  

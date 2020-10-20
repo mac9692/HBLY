@@ -1,34 +1,5 @@
-<%@ page session="false"%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-		<!--카테고리 코드-->
-
-         <div class="col">
-          <div class="btn-group dropright btn-group-lg w-100">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Dropright </button>
-            <div class="dropdown-menu" x-placement="right-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 0px, 0px);" x-out-of-boundaries="">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-        </div>
-
-          <!--END-->
-          <%-- 
-          
-		<c:forEach items="${categoryList}" var="categoryList">
-			<c:set var="categoryCodeRef" value="${categoryList.categoryCodeRef}"/>
-			
-			<c:if test="${categoryCodeRef == null}">
-			<p>${categoryList.categoryName}</p>
-			</c:if>
-			
-			<c:if test="${categoryCodeRef != null}">
-			<p>${categoryList.categoryName}</p>
-			</c:if>
-		</c:forEach>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <h3>카테고리</h3>
 <aside>
@@ -183,6 +154,6 @@
 	  		<li><a href="/shop/list?c=1008&l=2">금연용품</a></li>
 	  	</ul>
 	  </li>
-	</ul
-</aside>> --%>
+	</ul>
+</aside>
 

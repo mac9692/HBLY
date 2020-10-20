@@ -12,8 +12,8 @@
  
 </head>
 <body>
-	
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	 <!-- nav1 -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="/">
         <b>HBLY</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
@@ -21,12 +21,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin2">로그인</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup2">회원가입</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin">로그인</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup">회원가입</a> </li>
         </ul>
       </div>
     </div>
   </nav>
+  
+  
   <nav class="navbar navbar-dark bg-primary">
     <div class="container d-flex justify-content-center">
       <div class="container px-5 mx-5">
@@ -78,6 +80,8 @@
       </div>
     </div>
     
-  </div>	
+  </div>
+  			<%@ include file= "../include/footer.jsp" %>
+  	
 </body>
 </html>

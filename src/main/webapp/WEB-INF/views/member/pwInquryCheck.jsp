@@ -19,8 +19,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin2">로그인</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup2">회원가입</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin">로그인</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup">회원가입</a> </li>
         </ul>
       </div>
     </div>
@@ -122,12 +122,9 @@
   </div>
   
   <!-- footer -->
-  <footer id="foorter">
-	<div id="footer_box">
-		<%@ include file= "../include/footer.jsp" %>
-	</div>
-  </footer>
   
+		<%@ include file= "../include/footer.jsp" %>
+	
 </body>
 	<!-- 유효성 검사 & 휴대폰 인증  -->
 	<script type="text/javascript">
@@ -177,11 +174,7 @@
 			url : "/member/checkNamePhoneNumber",
 			dataType : "json",
 			data : JSON.stringify(obj),
-			beforeSend : function(xhr)
-         	{   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-             xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-         	},
-         	contentType: "application/json",
+			contentType: "application/json",
 			success : function(data) {
 				// 일치하는 회원이 있으면 1, sms 전송/ 없으면 0
 				if(data == 0){
@@ -225,10 +218,6 @@
 				url : "/member/sms",
 				dataType : "json",
 				data :  JSON.stringify(obj),
-				beforeSend : function(xhr)
-                	{   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-                	},
 				contentType: "application/json",
 				success : function(data) {
 					if(data.statusName == "success"){

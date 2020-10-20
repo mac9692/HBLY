@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.bit.hbly.vo.CartListVO;
 import edu.bit.hbly.vo.CartVO;
+import edu.bit.hbly.vo.CategoryVO;
 import edu.bit.hbly.vo.GoodsReplyListVO;
 import edu.bit.hbly.vo.GoodsReplyVO;
 import edu.bit.hbly.vo.GoodsViewVO;
@@ -59,4 +60,7 @@ public interface ShopService {
 	
 	//특정 주문 목록
 	public List<OrderListVO> orderView(OrderVO order) throws Exception;
+
+	//카테고리 가져오기
+	public List<CategoryVO> getCategoryList() throws Exception;
 }

@@ -19,8 +19,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin2">로그인</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup2">회원가입</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signin">로그인</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/member/signup">회원가입</a> </li>
         </ul>
       </div>
     </div>

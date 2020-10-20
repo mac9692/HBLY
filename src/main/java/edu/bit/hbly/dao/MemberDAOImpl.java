@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
@@ -60,6 +59,7 @@ public class MemberDAOImpl implements MemberDAO{
 //		if(!(vo.getUserPassword()==null)) {
 			sql.update(namespace +".modify", vo); 
 		}
+	
 	
 
 	
