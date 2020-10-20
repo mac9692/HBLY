@@ -9,6 +9,9 @@
 	<head>
 		
 		<title>HBLY Shop List</title>
+		<!-- 아임포트		 -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+		<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 		
 	</head>
 	<body>
@@ -253,10 +256,52 @@
 							</script>
 						  </div>
 						  
+						   <div class="inputArea">
+						   <button type="button" id="order_btn" class="order_btn">결제</button>
+						   
+						  	<script>
+						    $("#order_btn").on("click", function(){
+						        var IMP = window.IMP; // 생략가능
+						        IMP.init('imp76199502'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+						        var msg;
+						  	
+						  	IMP.request_pay({
+						  	    pg : 'html5_inicis',
+						  	    pay_method : 'card',
+						  	    merchant_uid : 'merchant_' + new Date().getTime(),
+						  	    name : 'HBLY 상품결제',
+						  	    amount : ${sum},
+						  	    buyer_email : 'iamport@siot.do',
+						  	    buyer_name : '구매자이름',
+						  	    buyer_tel : '010-1234-5678',
+						  	    buyer_addr : '서울특별시 강남구 삼성동',
+						  	    buyer_postcode : '123-456'
+						  	}, function(rsp) {
+						  	    if ( rsp.success ) {
+						  	        var msg = '결제가 완료되었습니다.';
+						  	        msg += '고유ID : ' + rsp.imp_uid;
+						  	        msg += '상점 거래ID : ' + rsp.merchant_uid;
+						  	        msg += '결제 금액 : ' + rsp.paid_amount;
+						  	        msg += '카드 승인번호 : ' + rsp.apply_num;
+						  	    } else {
+						  	        var msg = '결제에 실패하였습니다.';
+						  	        msg += '에러내용 : ' + rsp.error_msg;
+						  	    }
+
+						  	    alert(msg);
+						  	});
+						  });	
+						    
+						  	</script>
+						  </div>
+						  
+						  
+						  
+						  
+						  
 						  <div class="inputArea">
 						   <button type="submit" class="order_btn">주문</button>
 						   <button type="button" class="cancel_btn">취소</button> 
-						   
 						   
 						   <script>
 							$(".cancel_btn").click(function(){

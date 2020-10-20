@@ -17,7 +17,7 @@
                                 <div class="topic-content">
                                     <h3>마켓</h3>
                                     <p>다양한 헬스 상품들을 한눈에 <br> 최신,인기상품들을 한눈에</p>
-                                    <a href="courses.html" class="border-btn">둘러보기</a>
+                                    <a href="/shop/list?c=000&l=1" class="border-btn">둘러보기</a>
                                 </div>
                             </div>
                         </div>
