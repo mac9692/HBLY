@@ -65,7 +65,6 @@
 			</header>
 			
 
-
 <main>
     <!--? slider Area Start-->
     <div class="slider-area position-relative">
