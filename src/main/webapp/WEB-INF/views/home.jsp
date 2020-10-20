@@ -78,7 +78,7 @@
                             <div class="hero__caption">
                                 <span data-animation="fadeInLeft" data-delay="0.1s">당신의 건강에 특별함을</span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.4s">HBLY</h1>
-                                <a href="courses.html" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">회원가입</a>
+                                <a href="member/signup" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">회원가입</a>
                             </div>
                         </div>
                     </div>

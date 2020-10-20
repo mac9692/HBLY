@@ -18,7 +18,8 @@
                                     <li><a href="/gym/about">ABOUT</a></li>
                                     <li><a href="courses.html">Courses</a></li>
                                     <li><a href="/gym/price">Pricing</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
+									<li><a href="gallery.html">Gallery</a></li>
+									<li><a href="/member/mypage">mypage</a></li>
                                     <li><a href="blog.html">Blog</a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">Blog</a></li>
@@ -32,7 +33,7 @@
                         </div>          
                         <!-- Header-btn -->
                         <div class="header-btns d-none d-lg-block f-right">
-                           <a href="contact.html" class="btn">로그인</a>
+                           <a href="/member/signin" class="btn">로그인</a>
                        </div>
                        <!-- Mobile Menu -->
                        <div class="col-12">

@@ -28,6 +28,7 @@ public class HomeController {
 		logger.info("home");
 		
 		return "home";
+
 	}
 	
 	@RequestMapping(value = "/policy/terms", method = RequestMethod.GET)
