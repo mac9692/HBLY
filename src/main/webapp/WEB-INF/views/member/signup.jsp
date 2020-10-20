@@ -3,201 +3,440 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-	
-<html>
 
+<!doctype html>
+<html class="no-js" lang="zxx">
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>HBLY | 회원가입</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-<title>HBLY : 회원가입</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-	type="text/css">
-
-<link rel="stylesheet"
-	href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/slicknav.css">
+	<link rel="stylesheet" href="/resources/assets/css/animate.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="/resources/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/themify-icons.css">
+	<link rel="stylesheet" href="/resources/assets/css/slick.css">
+	<link rel="stylesheet" href="/resources/assets/css/nice-select.css">
+	<link rel="stylesheet" href="/resources/assets/css/style.css">
 	
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script
+	<!-- pingendo -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous" style=""></script>
-
-</head>
-
-<body>
-
-	<!-- memberjoin -->
-	<div class="py-5 text-center">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-lg-6 col-10">
-					<h1>HBLY 회원가입</h1>
-					<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
-
-					<!-- form -->
-					<form:form method="post" class="text-left" action="/member/signup">									
-						
-						<!-- id -->
-						<div class="form-group">
-							<label for="userId">아이디</label>
-							<input type="email" class="form-control" id="userId" name="userId" placeholder="hbly@hbly.com" required>
-							<div id="idCheck"></div>
-						</div>
-
-						<!-- password -->
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="userPassword">비밀번호</label>
-								<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="password" required>
-								<div id="pwCheck"></div>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="userPasswordCheck">비밀번호 재확인</label>
-								<input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" placeholder="confirm Password" required>
-								<div id="pw2Check"></div>
-							</div>
-						</div>
-
-						<!-- name -->
-						<div class="form-group">
-							<label for="userName">이름</label>
-							<input type="text" class="form-control" id="userName" name="userName" placeholder="name" required>
-							<div id="nameCheck"></div>
-						</div>
-
-						<!-- birth -->
-						<div class="form-group">
-							<label for="userBirth">생년월일</label>
-							<input type="text" class="form-control" id="userBirth" name="userBirth" placeholder="ex)19991225" required>
-							<div id="birthCheck"></div>
-						</div>
 	
-						<!-- gender -->
-						<div class="form-group" >
-						    <label for="userGender">성별</label>
-						    <div class="row">
-						      <div class="col-md-6">
-						        <div class="custom-control custom-radio">
-						          <input id="man" name="userGender" type="radio" class="custom-control-input" checked required value="M"> <label class="custom-control-label" for="man">남자</label> </div>
-						      </div>
-						      <div class="col-md-6">
-						        <div class="custom-control custom-radio">
-						          <input id="female" name="userGender" type="radio" class="custom-control-input" required value="F"> <label class="custom-control-label" for="female">여자</label> </div>
-						      </div>
-						    </div>
-						</div>
-						
-						<!-- nickname -->
-						<div class="form-group">
-							<label for="userNickname">닉네임</label>
-							<input type="text" class="form-control" id="userNickname" name="userNickname" placeholder="nickname" required>
-							<div id="nicknameCheck"></div>
-						</div>
-						
-						<!-- address -->
-						<div class="form-group">
-							<label for="userAddress">주소</label>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="userAddress1" name="userAddress1" placeholder="우편번호" onclick="execDaumPostcode()" readonly required>
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" onclick="execDaumPostcode()"class="btn btn-primary">우편번호 찾기</button>
-							</div>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="userAddress2" name="userAddress2"placeholder="주소" onclick="execDaumPostcode()" readonly required>
-							</div>
-
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" required>
-							</div>
-						</div>
-						
-						<!-- phone number -->
-						<div class="form-group">
-							<label for="userPhoneNumber">휴대전화 ('-' 없이 번호만 입력해주세요) </label>
-						</div>
-
-						<div class="form-group">
-							<select class="form-control">
-								<option value="대한민국 +82">대한민국 +82</option>
-								<option value="미국/캐나다 +1">미국/캐나다 +1</option>
-							</select>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
-								<div id="phoneCheck"></div>
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" class="btn btn-primary" onclick="cert();">인증번호 받기</button>
-							</div>
-
-						</div>
-						
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="certification"  placeholder="인증번호를 입력해주세요" required>
-								<div class="form-group" id="certCheck"></div>	
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" class="btn btn-primary" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
-							</div>
-		
-						
-						</div>	
-														
-						<input type="hidden" id="randomVal" value=""/>	
-						
-						<!-- term -->
-						<div class="form-group">
-							<label for="form10">이용약관</label>
-						</div>
-						
-						<div class="form-group">
-							<textarea class="form-control" id="form10" rows="4"
-								placeholder="Your message" readonly="readonly"></textarea>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="form11"value="on">
-								<label class="form-check-label" for="form10">
-								I Agree with <a href="#">Term and Conditions</a> of the service
-								</label>
-							</div>
-						</div>
-
-						<!-- button -->
-						<button type="submit" id="signup_btn" class="btn btn-primary">가입하기</button>
-						<button type="button" class="btn btn-primary" OnClick="javascript:history.back(-1)">취소</button>
-					</form:form>
-
+<style>
+.hero-d{
+    background: #ff1313;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    padding: 27px 44px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 0px;
+    line-height: 1;
+    border: 2px solid #fff;
+    -moz-user-select: none;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+	<!--? Preloader Start -->
+	<div id="preloader-active">
+		<div class="preloader d-flex align-items-center justify-content-center">
+			<div class="preloader-inner position-relative">
+				<div class="preloader-circle"></div>
+				<div class="preloader-img pere-text">
+					<img src="/resources/assets/img/logo/loder.png" alt="">
 				</div>
-
 			</div>
-
 		</div>
 	</div>
+	<!-- Preloader Start -->
 	
+	<header>
+		<!-- Header Start -->
+		<div class="header-area header-transparent">
+			<div class="main-header header-sticky">
+				<div class="container-fluid">
+					<div class="menu-wrapper d-flex align-items-center justify-content-between">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="index.html"><img src="/resources/assets/img/logo/logo.png" alt=""></a>
+						</div>
+						<!-- Main-menu -->
+						<div class="main-menu f-right d-none d-lg-block">
+							<nav>
+								<ul id="navigation">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="courses.html">Courses</a></li>
+									<li><a href="pricing.html">Pricing</a></li>
+									<li><a href="gallery.html">Gallery</a></li>
+									<li><a href="blog.html">Blog</a>
+										<ul class="submenu">
+											<li><a href="blog.html">Blog</a></li>
+											<li><a href="blog_details.html">Blog Details</a></li>
+											<li><a href="elements.html">Elements</a></li>
+										</ul>
+									</li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</nav>
+						</div>          
+						<!-- Header-btn -->
+						<div class="header-btns d-none d-lg-block f-right">
+							<a href="contact.html" class="btn hero-d">Contact me</a>
+						</div>
+						<!-- Mobile Menu -->
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header End -->
+	</header>
 	
-	
-			<%@ include file= "../include/footer.jsp" %>
+	<main>
+		<!--? Hero Start -->
+		<div class="slider-area2">
+			<div class="slider-height2 d-flex align-items-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="hero-cap hero-cap2 pt-70">
+								<h2>Welcome to HBLY</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Hero End -->
+		
+		<!--? Start Align Area -->
+		<div class="whole-wrap">
+		<!-- memberjoin -->
+			<div class="py-5 text-center">
+				<div class="container">
+					<div class="row">
+						<div class="mx-auto">
+							<h1>HBLY 회원가입</h1>
+							<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
+		
+							<!-- form -->
+							<form:form method="post" class="text-left" action="/member/signup">									
+								
+								<!-- id -->
+								<div class="form-group">
+									<label for="userId">아이디</label>
+									<input type="email" class="form-control" id="userId" name="userId" placeholder="hbly@hbly.com" required>
+									<div id="idCheck"></div>
+								</div>
+		
+								<!-- password -->
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="userPassword">비밀번호</label>
+										<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="password" required>
+										<div id="pwCheck"></div>
+									</div>
+		
+									<div class="form-group col-md-6">
+										<label for="userPasswordCheck">비밀번호 재확인</label>
+										<input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" placeholder="confirm password" required>
+										<div id="pw2Check"></div>
+									</div>
+								</div>
+		
+								<!-- name -->
+								<div class="form-group">
+									<label for="userName">이름</label>
+									<input type="text" class="form-control" id="userName" name="userName" placeholder="name" required>
+									<div id="nameCheck"></div>
+								</div>
+		
+								<!-- birth -->
+								<div class="form-group">
+									<label for="userBirth">생년월일</label>
+									<input type="text" class="form-control" id="userBirth" name="userBirth" placeholder="ex)19991225" required>
+									<div id="birthCheck"></div>
+								</div>
+			
+								<!-- gender -->
+								<div class="form-group" >
+								    <label for="userGender">성별</label>
+								    <div class="row">
+								      <div class="col-md-6">
+								        <div class="custom-control custom-radio">
+								          <input id="man" name="userGender" type="radio" class="custom-control-input" checked required value="M"> <label class="custom-control-label" for="man">남자</label> </div>
+								      </div>
+								      <div class="col-md-6">
+								        <div class="custom-control custom-radio">
+								          <input id="female" name="userGender" type="radio" class="custom-control-input" required value="F"> <label class="custom-control-label" for="female">여자</label> </div>
+								      </div>
+								    </div>
+								</div>
+								
+								<!-- nickname -->
+								<div class="form-group">
+									<label for="userNickname">닉네임</label>
+									<input type="text" class="form-control" id="userNickname" name="userNickname" placeholder="nickname" required>
+									<div id="nicknameCheck"></div>
+								</div>
+								
+								<!-- address -->
+								<div class="form-group">
+									<label for="userAddress">주소</label>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="userAddress1" name="userAddress1" placeholder="우편번호" onclick="execDaumPostcode()" readonly required>
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" onclick="execDaumPostcode()"class="btn btn-danger">우편번호 찾기</button>
+									</div>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<input type="text" class="form-control" id="userAddress2" name="userAddress2"placeholder="주소" onclick="execDaumPostcode()" readonly required>
+									</div>
+		
+									<div class="form-group col-md-6">
+										<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" required>
+									</div>
+								</div>
+								
+								<!-- phone number -->
+								<div class="form-group">
+									<label for="userPhoneNumber">휴대전화 ('-' 없이 번호만 입력해주세요) </label>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
+										<div id="phoneCheck"></div>
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" class="btn btn-danger" onclick="cert();">인증번호 받기</button>
+									</div>
+		
+								</div>
+								
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="certification"  placeholder="인증번호를 입력해주세요" required>
+										<div class="form-group" id="certCheck"></div>	
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" class="btn btn-danger" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
+									</div>
+				
+								
+								</div>	
+																
+								<input type="hidden" id="randomVal" value=""/>	
+								
+								<!-- term -->
+								<div class="form-group">
+									<label for="form10">이용약관</label>
+								</div>
+								
+								<div class="form-group">
+									<textarea class="form-control" id="form10" rows="4"
+										placeholder="Your message" readonly="readonly"></textarea>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="form11"value="on">
+										<label class="form-check-label" for="form10">
+										I Agree with <a href="#">Term and Conditions</a> of the service
+										</label>
+									</div>
+								</div>
+		
+								<!-- button -->
+								<button type="submit" id="signup_btn" class="btn btn-danger">가입하기</button>
+								<button type="button" class="btn btn-danger" OnClick="javascript:history.back(-1)">취소</button>
+							</form:form>
+		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Align Area -->
+								
+		<!-- ? services-area -->
+		<section class="services-area">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+						<div class="single-services mb-40">
+							<div class="features-icon">
+								<img src="/resources/assets/img/icon/icon1.svg" alt="">
+							</div>
+							<div class="features-caption">
+								<h3>Location</h3>
+								<p>You’ll look at graphs and charts in Task One, how to approach </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="single-services mb-40">
+							<div class="features-icon">
+								<img src="/resources/assets/img/icon/icon2.svg" alt="">
+							</div>
+							<div class="features-caption">
+							<h3>Phone</h3>
+							<p>(90) 277 278 2566</p>
+							<p>  (78) 267 256 2578</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="single-services mb-40">
+							<div class="features-icon">
+								<img src="/resources/assets/img/icon/icon3.svg" alt="">
+							</div>
+							<div class="features-caption">
+								<h3>Email</h3>
+								<p>jacson767@gmail.com</p>
+								<p>contact56@zacsion.com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+							<footer>
+								<!--? Footer Start-->
+								<div class="footer-area black-bg">
+									<div class="container">
+										<div class="footer-top footer-padding">
+											<!-- Footer Menu -->
+											<div class="row">
+												<div class="col-xl-12">
+													<div class="single-footer-caption mb-50 text-center">
+														<!-- logo -->
+														<div class="footer-logo wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+															<a href="index.html"><img src="/resources/assets/img/logo/logo2_footer.png" alt=""></a>
+														</div>
+														<!-- Menu -->
+														<!-- Header Start -->
+														<div class="header-area main-header2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s">
+															<div class="main-header main-header2">
+																<div class="menu-wrapper menu-wrapper2">
+																	<!-- Main-menu -->
+																	<div class="main-menu main-menu2 text-center">
+																		<nav>
+																			<ul>
+																				<li><a href="index.html">Home</a></li>
+																				<li><a href="about.html">About</a></li>
+																				<li><a href="courses.html">Courses</a></li>
+																				<li><a href="pricing.html">Pricing</a></li>
+																				<li><a href="gallery.html">Gallery</a></li>
+																				<li><a href="contact.html">Contact</a></li>
+																			</ul>
+																		</nav>
+																	</div>   
+																</div>
+															</div>
+														</div>
+														<!-- Header End -->
+														<!-- social -->
+														<div class="footer-social mt-30 wow fadeInUp" data-wow-duration="3s" data-wow-delay=".8s">
+															<a href="#"><i class="fab fa-twitter"></i></a>
+															<a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+															<a href="#"><i class="fab fa-pinterest-p"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Footer Bottom -->
+										<div class="footer-bottom">
+											<div class="row d-flex align-items-center">
+												<div class="col-lg-12">
+													<div class="footer-copy-right text-center">
+														<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+															Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+															<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Footer End-->
+								</footer>
+								<!-- Scroll Up -->
+								<div id="back-top" >
+									<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+								</div>
 
+								<!-- JS here -->
+
+								<script src="/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+								<!-- Jquery, Popper, Bootstrap -->
+								<script src="/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
+								<script src="/resources/assets/js/popper.min.js"></script>
+								<script src="/resources/assets/js/bootstrap.min.js"></script>
+								<!-- Jquery Mobile Menu -->
+								<script src="/resources/assets/js/jquery.slicknav.min.js"></script>
+
+								<!-- Jquery Slick , Owl-Carousel Plugins -->
+								<script src="/resources/assets/js/owl.carousel.min.js"></script>
+								<script src="/resources/assets/js/slick.min.js"></script>
+								<!-- One Page, Animated-HeadLin -->
+								<script src="/resources/assets/js/wow.min.js"></script>
+								<script src="/resources/assets/js/animated.headline.js"></script>
+								<script src="/resources/assets/js/jquery.magnific-popup.js"></script>
+								
+								<!-- Nice-select, sticky -->
+								<script src="/resources/assets/js/jquery.nice-select.min.js"></script>
+								<script src="/resources/assets/js/jquery.sticky.js"></script>
+								
+								<!-- contact js -->
+								<script src="/resources/assets/js/contact.js"></script>
+								<script src="/resources/assets/js/jquery.form.js"></script>
+								<script src="/resources/assets/js/jquery.validate.min.js"></script>
+								<script src="/resources/assets/js/mail-script.js"></script>
+								<script src="/resources/assets/js/jquery.ajaxchimp.min.js"></script>
+								
+								<!-- Jquery Plugins, main Jquery -->	
+								<script src="/resources/assets/js/plugins.js"></script>
+								<script src="/resources/assets/js/main.js"></script>
+								
 </body>
 <!--우편번호/주소 API -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

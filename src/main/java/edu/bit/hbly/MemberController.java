@@ -50,6 +50,12 @@ public class MemberController {
 		logger.info("get signup");
 	}
 
+//	// member sign up GET
+//	@RequestMapping(value = "/signup2", method = RequestMethod.GET)
+//	public void getSignup2() throws Exception {
+//		logger.info("get signup2");
+//	}
+
 
 	// member sign up POST
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
