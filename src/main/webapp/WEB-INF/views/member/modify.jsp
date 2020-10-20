@@ -9,69 +9,137 @@
 <html>
 
 <head>
-  <title>HBLY : 마이블리</title>
+  <title>HBLY : 회원정보 수정</title>
+  
+  <meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/slicknav.css">
+	<link rel="stylesheet" href="/resources/assets/css/animate.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="/resources/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/themify-icons.css">
+	<link rel="stylesheet" href="/resources/assets/css/slick.css">
+	<link rel="stylesheet" href="/resources/assets/css/nice-select.css">
+	<link rel="stylesheet" href="/resources/assets/css/style.css">
+  	
+  	<!-- pingendo -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous" style=""></script>
+	
+  	
+  <style>
+.hero-j h5{
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 40px;
+    text-transform: uppercase;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    margin-bottom: 17px;
+}
+
+ </style>   
  
 </head>
 
 <body>
-<!-- nav & header -->
-	<div>
-		<!-- nav -->
-		<%@ include file="../include/nav.jsp" %>
-		
-		<!-- header -->
-		<%@ include file="../include/header.jsp" %>
-		
-		<!-- menu -->
-		<%@ include file="../include/menu.jsp" %>
-		
-		
-	</div>
-  <div class="py-5 text-white h-25" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
-    <div class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2><b>마이블리</b></h2>
-            <h5>내 활동의 모든것을 한눈에 확인하는 마이블리 </h5>
-          </div>
+	
+	<%@ include file= "../include/header.jsp" %>
+				
+ <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-j hero-cap hero-cap2 pt-70">
+                            <h2>마이블리</h2>
+                            <h5>내 활동의 모든것을 한눈에 확인하는 마이블리</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
   
+   <section class="services-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-services mb-40">
+                        <div class="features-icon">
+                            <img src="/resources/assets/img/icon/icon1.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <h3>게시글 수</h3>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-services mb-40">
+                        <div class="features-icon">
+                            <img src="/resources/assets/img/icon/icon2.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <h3>댓글 수</h3>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-services mb-40">
+                        <div class="features-icon">
+                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <h3>최근 방문일</h3>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-services mb-40">
+                        <div class="features-icon">
+                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <h3>포인트</h3>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>	
+    
   <div class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="card">
           
-            <div class="card-header text-center">
-              <div class="container my-2">
-                <div class="row text-right">
-                  <div class="col-md-3 border-right border-left">
-                    <dl><dt>게시글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt class="">댓글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>최근 방문일</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>포인트</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             
             <div class="card-body">
               <div class="py-5">
@@ -106,7 +174,7 @@
                                   <div class="col-md-12">
                                     <div>
                                    <c:url value="/member/modify" var="modifyUrl"/>
-                                    <form:form role="form" action="${modifyUrl }" method="POST" autocomplemte="off">
+                                    <form role="form" action="${modifyUrl }" method="POST" autocomplemte="off">
                                      <sec:authentication var="principal" property="principal" />
                                     <table class="table table-bordered ">
                                       <tbody class="my-0">
@@ -157,7 +225,7 @@
                                             <td>
                                               <ul class="list-inline">
                                                 <li class="list-inline-item"><input type="text" class="form-control" id="userNickname" name="userNickname"><div id="nicknameCheck"></div></li>
-                                                <li class="list-inline-item"> <input type="button" class="btn btn-primary" value="중복확인"></li>
+                                                <li class="list-inline-item"> <input type="button" class="btn btn-danger" value="중복확인"></li>
                                               </ul>
                                             </td>
                                           </tr>
@@ -165,16 +233,16 @@
                                             <td class="table-info" rowspan="2">주소</td>
                                             <td>
                                               <ul class="list-inline pb-0">
-                                                <li class="list-inline-item"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress1}" id="userAddress1" name="userAddress2"></li>
-                                                <li class="list-inline-item"> <input type="button" class="btn btn-primary" value="우편번호 찾기"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress1}" id="userAddress1" name="userAddress2" onclick="execDaumPostcode()"></li>
+                                                <li class="list-inline-item"> <input type="button" class="btn btn-danger" value="우편번호 찾기" onclick="execDaumPostcode()"></li>
                                               </ul>
                                             </td>
                                           </tr>
                                           <tr>
                                             <td>
                                               <div class="row mb-2">
-                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress2}" id="userAddress2" name="userAddress2"></div>
-                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress3}" id="userAddress3" name="userAddress3"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress2}" id="userAddress2" name="userAddress2" onclick="execDaumPostcode()"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" value="${principal.member.userAddress3}" id="userAddress3" name="userAddress3"></div>
                                               </div>
                                             </td>
                                           </tr>
@@ -203,11 +271,11 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                      </form:form>
+                                      </form>
                                       <div class="container py-5 text-center">
                                         <div class="row">
                                           <div class="mx-auto col-lg-8 col-md-10">
-                                            <button type="submit" id="modify_btn" name="modify_btn" class="btn btn-lg btn-primary mx-1">개인정보 수정</button> <a class="btn btn-lg mx-1 btn-outline-primary" href="/member/withdrawal">회원탈퇴</a>
+                                            <button type="button" id="modify_btn" name="modify_btn" class="btn btn-danger">개인정보 수정</button> <a class="btn btn-danger" href="/member/withdrawal">회원탈퇴</a>
                                           </div>
                                         </div>
                                       </div>
@@ -233,6 +301,41 @@
     </div>
   </div>
   			<%@ include file= "../include/footer.jsp" %>
+  			
+  			
+  <!-- JS here -->
+
+<script src="/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/resources/assets/js/popper.min.js"></script>
+<script src="/resources/assets/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/resources/assets/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/resources/assets/js/owl.carousel.min.js"></script>
+<script src="/resources/assets/js/slick.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="/resources/assets/js/wow.min.js"></script>
+<script src="/resources/assets/js/animated.headline.js"></script>
+<script src="/resources/assets/js/jquery.magnific-popup.js"></script>
+
+<!-- Nice-select, sticky -->
+<script src="/resources/assets/js/jquery.nice-select.min.js"></script>
+<script src="/resources/assets/js/jquery.sticky.js"></script>
+								
+<!-- contact js -->
+<script src="/resources/assets/js/contact.js"></script>
+<script src="/resources/assets/js/jquery.form.js"></script>
+<script src="/resources/assets/js/jquery.validate.min.js"></script>
+<script src="/resources/assets/js/mail-script.js"></script>
+<script src="/resources/assets/js/jquery.ajaxchimp.min.js"></script>
+								
+<!-- Jquery Plugins, main Jquery -->	
+<script src="/resources/assets/js/plugins.js"></script>
+<script src="/resources/assets/js/main.js"></script>
+											
   
 </body>
 
@@ -309,6 +412,20 @@
 	// 닉네임 정규식
 	var nickJ = /^[가-힣A-Za-z0-9]{2,6}$/;
 	
+	// 비밀번호 유효성 검사
+	// 1-1 정규식 체크
+	$('#userPassword').blur(function() {
+		if(pwJ.test($('#userPassword').val())){
+			console.log('true');
+			$('#pwCheck').text('');
+		}else{
+			console.log('false');
+			$('#pwCheck').text('숫자 or 문자로만 4~12자리 입력해주세요.');
+			$('#pwCheck').css('color', 'red');
+			$('#signup_btn').attr("disabled",true);
+
+		}
+	})
 	
 	// 1-2 패스워드 일치 확인
 	$('#userPasswordCheck').blur(function() {
@@ -323,17 +440,6 @@
 		}
 	});
 	
-	/* // 이름에 특수문자 들어가지 않도록 설정
-	$("#userName").blur(function() {
-		if (nameJ.test($(this).val())) {
-				console.log(nameJ.test($(this).val()));
-				$("#nameCheck").text('');
-		} else {
-			$('#nameCheck').text('이름을 확인해주세요');
-			$('#nameCheck').css('color', 'red');
-			$("#modify_btn").attr("disabled",true);	
-		}
-	}); */
 	
 	// 닉네임 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#userNickname').blur(function () {
@@ -376,7 +482,7 @@
 	});
 	
 	// 가입하기 실행 버튼 유효성 검사!
-	var inval_Arr = new Array(5).fill(false);
+ 	var inval_Arr = new Array(5).fill(false);
 	$('#modify_btn').click(function(){
 		// 비밀번호가 같은 경우 && 비밀번호 정규식
 		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
