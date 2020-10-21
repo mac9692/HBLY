@@ -9,19 +9,14 @@
 <html>
 
 <head>
-  <title>HBLY : 회원정보 수정</title>
   
   <meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	
+	  <title>HBLY : 회원정보 수정</title>
+		
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 
 	<!-- CSS here -->
@@ -40,10 +35,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	crossorigin="anonymous" style=""></script>
 	
   	
   <style>
@@ -173,8 +164,8 @@
                                   </div>
                                   <div class="col-md-12">
                                     <div>
-                                   <c:url value="/member/modify" var="modifyUrl"/>
-                                    <form role="form" action="${modifyUrl }" method="POST" autocomplemte="off">
+                                   
+                                    <form action="/member/modify" method="POST">
                                      <sec:authentication var="principal" property="principal" />
                                     <table class="table table-bordered ">
                                       <tbody class="my-0">
@@ -182,7 +173,7 @@
                                             <td class="table-info">아이디</td>
                                             <td>
                                               <div class="col-md-6 px-0">
-                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="${principal.member.userId}">
+                                                <input type="email" class="form-control mb-2" id="userId" name="userId" readonly value="${principal.member.userId}" >
                                               </div>
                                             </td>
                                           </tr>
@@ -190,7 +181,7 @@
                                             <td class="table-info">신규 비밀번호</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="password" class="form-control" id="userPassword" name="userPassword"><div id="pwCheck"></div></li>
+                                                <li class="list-inline-item"><input type="password" class="form-control" id="userPassword" name="userPassword" required="required"><div id="pwCheck"></div></li>
                                                 <li class="list-inline-item">숫자 or 문자로만 4~12자리 입력해주세요.</li>
                                               </ul>
                                             </td>
@@ -199,7 +190,7 @@
                                             <td class="table-info">신규 비밀번호 확인</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck"><div id="pw2Check"></div></li>
+                                                <li class="list-inline-item"><input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" required="required"><div id="pw2Check"></div></li>
                                                 <li class="list-inline-item">신규 비밀번호를 한번더 입력해주세요.</li>
                                               </ul>
                                             </td>
@@ -208,7 +199,7 @@
                                             <td class="table-info">이름</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="${principal.member.userName}"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" id="userName" name="userName" disabled="" readonly="" value="${principal.member.userName}"></li>
                                               </ul>
                                             </td>
                                           </tr>
@@ -216,7 +207,7 @@
                                             <td class="table-info">생년월일</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="text" class="form-control" disabled="" readonly="" value="${principal.member.userBirth}"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" id="userBirth" name="userBirth" disabled="disabled" readonly value="${principal.member.userBirth}"></li>
                                               </ul>
                                             </td>
                                           </tr>
@@ -224,7 +215,7 @@
                                             <td class="table-info">닉네임</td>
                                             <td>
                                               <ul class="list-inline">
-                                                <li class="list-inline-item"><input type="text" class="form-control" id="userNickname" name="userNickname"><div id="nicknameCheck"></div></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" id="userNickname" name="userNickname" required="required"><div id="nicknameCheck"></div></li>
                                                 <li class="list-inline-item"> <input type="button" class="btn btn-danger" value="중복확인"></li>
                                               </ul>
                                             </td>
@@ -233,7 +224,7 @@
                                             <td class="table-info" rowspan="2">주소</td>
                                             <td>
                                               <ul class="list-inline pb-0">
-                                                <li class="list-inline-item"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress1}" id="userAddress1" name="userAddress2" onclick="execDaumPostcode()"></li>
+                                                <li class="list-inline-item"><input type="text" class="form-control" readonly value="${principal.member.userAddress1}" id="userAddress1" name="userAddress1" onclick="execDaumPostcode()"></li>
                                                 <li class="list-inline-item"> <input type="button" class="btn btn-danger" value="우편번호 찾기" onclick="execDaumPostcode()"></li>
                                               </ul>
                                             </td>
@@ -241,8 +232,8 @@
                                           <tr>
                                             <td>
                                               <div class="row mb-2">
-                                                <div class="col-md-6"><input type="text" class="form-control" readonly="" value="${principal.member.userAddress2}" id="userAddress2" name="userAddress2" onclick="execDaumPostcode()"></div>
-                                                <div class="col-md-6"><input type="text" class="form-control" value="${principal.member.userAddress3}" id="userAddress3" name="userAddress3"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" readonly value="${principal.member.userAddress2}" id="userAddress2" name="userAddress2" onclick="execDaumPostcode()"></div>
+                                                <div class="col-md-6"><input type="text" class="form-control" value="${principal.member.userAddress3}" id="userAddress3" name="userAddress3" ></div>
                                               </div>
                                             </td>
                                           </tr>
@@ -250,7 +241,7 @@
                                             <td class="table-info">휴대폰 번호</td>
                                             <td>
                                               <div class="col-md-6 px-0">
-                                                <input type="text" class="form-control mb-2" disabled="" readonly="" value="${principal.member.userPhoneNumber}">
+                                                <input type="text" class="form-control mb-2" id="userPhoneNumber" name="userPhoneNumber"  disabled="" readonly="" value="${principal.member.userPhoneNumber}">
                                               </div>
                                             </td>
                                           </tr>
@@ -271,14 +262,14 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                      </form>
                                       <div class="container py-5 text-center">
                                         <div class="row">
                                           <div class="mx-auto col-lg-8 col-md-10">
-                                            <button type="button" id="modify_btn" name="modify_btn" class="btn btn-danger">개인정보 수정</button> <a class="btn btn-danger" href="/member/withdrawal">회원탈퇴</a>
+                                            <button type="submit" id="modify_btn" name="modify_btn" class="btn btn-danger" disabled="disabled">개인정보 수정</button> <a class="btn btn-danger" href="/member/withdrawal">회원탈퇴</a>
                                           </div>
                                         </div>
                                       </div>
+                                      </form>
                                     </div>
                                   </div>
                                 </div>
@@ -482,8 +473,9 @@
 	});
 	
 	// 가입하기 실행 버튼 유효성 검사!
- 	var inval_Arr = new Array(5).fill(false);
+ 	var inval_Arr = new Array(2).fill(false);
 	$('#modify_btn').click(function(){
+
 		// 비밀번호가 같은 경우 && 비밀번호 정규식
 		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
 				&& pwJ.test($('#userPassword').val())) {
@@ -491,32 +483,12 @@
 		} else {
 			inval_Arr[0] = false;
 		}
-		// 이름 정규식
-		if (nameJ.test($('#userName').val())) {
-			inval_Arr[1] = true;	
+
+		// 닉네임 정규식
+		if (nickJ.test($('#userNickname').val())) {
+			inval_Arr[1] = true;
 		} else {
 			inval_Arr[1] = false;
-		}
-		// 이메일 정규식
-		if (mailJ.test($('#userId').val())){
-			console.log(phoneJ.test($('#userId').val()));
-			inval_Arr[2] = true;
-		} else {
-			inval_Arr[2] = false;
-		}
-		// 휴대폰번호 정규식
-		if (phoneJ.test($('#userPhoneNumber').val())) {
-			console.log(phoneJ.test($('#userPhoneNumber').val()));
-			inval_Arr[3] = true;
-		} else {
-			inval_Arr[3] = false;
-		}
-		// 생년월일 정규식
-		if (birthJ) {
-			console.log(birthJ);
-			inval_Arr[4] = true;
-		} else {
-			inval_Arr[4] = false;
 		}
 		
 		var validAll = true;
@@ -527,10 +499,12 @@
 			}
 		}
 		
+		
 		if(validAll){ // 유효성 모두 통과
-			alert('회원정보 수정이 완료되었습니다.');
+			alert('회원정보 수정이 완료되었습니다. 변경된 비밀번호로 로그인해주세요.');
 		} else{
 			alert('입력한 정보들을 다시 한번 확인해주세요.')
+			return false;
 		}
 	});
 

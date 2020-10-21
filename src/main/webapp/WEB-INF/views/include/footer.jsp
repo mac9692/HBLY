@@ -14,7 +14,7 @@
 							<div class="footer-logo wow fadeInUp" data-wow-duration="1s"
 								data-wow-delay=".2s">
 								<a href="index.html"><img
-									src="resources/assets/img/logo/HBLYfooter.png" alt=""></a>
+									src="/resources/assets/img/logo/HBLYfooter.png" alt=""></a>
 							</div>
 							<!-- Menu -->
 							<!-- Header Start -->

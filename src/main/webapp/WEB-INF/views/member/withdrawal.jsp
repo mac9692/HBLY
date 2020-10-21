@@ -277,7 +277,7 @@ $(document).ready(function(){
 																								<div class="col-md-6">
 																									<button type="button"
 																										class="btn btn-danger btn-block"
-																										id="withdrawalCancel" name="withdrawalCancel" onclick="mypage()">취소하기</button>
+																										id="withdrawalCancel" name="withdrawalCancel" OnClick="javascript:history.back(-1)">취소하기</button>
 																								</div>
 																								<div class="col-md-6">
 																									<button type="submit"

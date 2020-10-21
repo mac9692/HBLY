@@ -731,58 +731,58 @@
 			}
 		}); //End of method /*
 		
-		// 가입하기 실행 버튼 유효성 검사!
-		var inval_Arr = new Array(5).fill(false);
-		$('#signup_btn').click(function(){
-			// 비밀번호가 같은 경우 && 비밀번호 정규식
-			if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
-					&& pwJ.test($('#userPassword').val())) {
-				inval_Arr[0] = true;
-			} else {
-				inval_Arr[0] = false;
-			}
-			// 이름 정규식
-			if (nameJ.test($('#userName').val())) {
-				inval_Arr[1] = true;	
-			} else {
-				inval_Arr[1] = false;
-			}
-			// 이메일 정규식
-			if (mailJ.test($('#userId').val())){
-				console.log(phoneJ.test($('#userId').val()));
-				inval_Arr[2] = true;
-			} else {
-				inval_Arr[2] = false;
-			}
-			// 휴대폰번호 정규식
-			if (phoneJ.test($('#userPhoneNumber').val())) {
-				console.log(phoneJ.test($('#userPhoneNumber').val()));
-				inval_Arr[3] = true;
-			} else {
-				inval_Arr[3] = false;
-			}
-			// 생년월일 정규식
-			if (birthJ) {
-				console.log(birthJ);
-				inval_Arr[4] = true;
-			} else {
-				inval_Arr[4] = false;
-			}
+	// 가입하기 실행 버튼 유효성 검사!
+	var inval_Arr = new Array(5).fill(false);
+	$('#signup_btn').click(function(){
+		// 비밀번호가 같은 경우 && 비밀번호 정규식
+		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
+				&& pwJ.test($('#userPassword').val())) {
+			inval_Arr[0] = true;
+		} else {
+			inval_Arr[0] = false;
+		}
+		// 이름 정규식
+		if (nameJ.test($('#userName').val())) {
+			inval_Arr[1] = true;	
+		} else {
+			inval_Arr[1] = false;
+		}
+		// 이메일 정규식
+		if (mailJ.test($('#userId').val())){
+			console.log(phoneJ.test($('#userId').val()));
+			inval_Arr[2] = true;
+		} else {
+			inval_Arr[2] = false;
+		}
+		// 휴대폰번호 정규식
+		if (phoneJ.test($('#userPhoneNumber').val())) {
+			console.log(phoneJ.test($('#userPhoneNumber').val()));
+			inval_Arr[3] = true;
+		} else {
+			inval_Arr[3] = false;
+		}
+		// 생년월일 정규식
+		if (birthJ) {
+			console.log(birthJ);
+			inval_Arr[4] = true;
+		} else {
+			inval_Arr[4] = false;
+		}
+		
+		var validAll = true;
+		for(var i = 0; i < inval_Arr.length; i++){
 			
-			var validAll = true;
-			for(var i = 0; i < inval_Arr.length; i++){
-				
-				if(inval_Arr[i] == false){
-					validAll = false;
-				}
+			if(inval_Arr[i] == false){
+				validAll = false;
 			}
-			
-			if(validAll){ // 유효성 모두 통과
-				alert('회원가입이 완료되었습니다.');
-			} else{
-				alert('입력한 정보들을 다시 한번 확인해주세요.')
-			}
-		});
+		}
+		
+		if(validAll){ // 유효성 모두 통과
+			alert('회원가입이 완료되었습니다.');
+		} else{
+			alert('입력한 정보들을 다시 한번 확인해주세요.')
+		}
+	});
 	
 </script>
 </html>

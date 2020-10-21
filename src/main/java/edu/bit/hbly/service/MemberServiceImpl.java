@@ -79,8 +79,8 @@ public class MemberServiceImpl implements MemberService{
 	public ResponseEntity<String> certificationCellphone(String jsonData) throws Exception {
 		Map<String,String> signature = makeSignature();
 		
-		//요청 URL HTTP : POST https://sens.apigw.ntruss.com/sms/v2/services/{serviceId}/messages
-		//{serviceId} : 프로젝트 등록 시 발급받은 서비스 아이디 : ncp:sms:kr:260797945287:hbly_sms
+		//�슂泥� URL HTTP : POST https://sens.apigw.ntruss.com/sms/v2/services/{serviceId}/messages
+		//{serviceId} : �봽濡쒖젥�듃 �벑濡� �떆 諛쒓툒諛쏆� �꽌鍮꾩뒪 �븘�씠�뵒 : ncp:sms:kr:260797945287:hbly_sms
 		String url = "https://sens.apigw.ntruss.com/sms/v2/services/ncp:sms:kr:260797945287:hbly_sms/messages";
 
 		HttpHeaders headers = new HttpHeaders();
