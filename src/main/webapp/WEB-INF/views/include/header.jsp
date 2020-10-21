@@ -7,9 +7,9 @@
         <div class="header-area header-transparent">
             <div class="main-header header-sticky">
                 <div class="container-fluid">
-                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                    <div class="hero-d menu-wrapper d-flex align-items-center justify-content-between">
                         <!-- Logo -->
-                        <a href="/">HBLY</a>
+                        <h1 data-animation="fadeInLeft" data-delay="0.4s" class="" style="animation-delay: 0.4s;"><a href="/">HBLY</a></h1>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
@@ -33,7 +33,7 @@
                         </div>          
                         <!-- Header-btn -->
                         <div class="header-btns d-none d-lg-block f-right">
-                           <a href="/member/signin" class="btn">로그인</a>
+                           <a href="/member/signin" class="btn header-btn">로그인</a>
                        </div>
                        <!-- Mobile Menu -->
                        <div class="col-12">

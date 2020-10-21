@@ -24,7 +24,7 @@
 		
 		
 			<!-- 근육질  -->
-		    <link rel="manifest" href="site.webmanifest">
+		   <!--  <link rel="manifest" href="site.webmanifest"> -->
 		    <link rel="shortcut icon" type="image/x-icon" href="resources/assets/img/favicon.ico">
 		
 		    <!-- CSS here -->
@@ -42,6 +42,7 @@
 		    <link rel="stylesheet" href="resources/assets/css/nice-select.css">
 		    <link rel="stylesheet" href="resources/assets/css/style.css">
 		    
+		    <link rel="stylesheet" href="resources/assets/css/daunstyle.css">
 	</head>
 	<body class="black-bg">
     <!-- ? Preloader Start -->

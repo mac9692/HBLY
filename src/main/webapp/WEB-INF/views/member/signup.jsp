@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -36,33 +35,8 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous" style=""></script>
 	
-<style>
-.hero-d{
-    background: #ff1313;
-    font-family: "Oswald", sans-serif;
-    text-transform: uppercase;
-    padding: 27px 44px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 0px;
-    line-height: 1;
-    border: 2px solid #fff;
-    -moz-user-select: none;
-    letter-spacing: 1px;
-    line-height: 0;
-    margin-bottom: 0;
-    margin: 10px;
-    cursor: pointer;
-    transition: color 0.4s linear;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    margin: 0;
-}
-</style>
+	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
+
 </head>
 <body>
 	<!--? Preloader Start -->
@@ -71,57 +45,15 @@
 			<div class="preloader-inner position-relative">
 				<div class="preloader-circle"></div>
 				<div class="preloader-img pere-text">
-					<img src="/resources/assets/img/logo/loder.png" alt="">
+					<img src="/resources/assets/img/logo/HBLY.png" alt="">
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Preloader Start -->
 	
-	<header>
-		<!-- Header Start -->
-		<div class="header-area header-transparent">
-			<div class="main-header header-sticky">
-				<div class="container-fluid">
-					<div class="menu-wrapper d-flex align-items-center justify-content-between">
-						<!-- Logo -->
-						<div class="logo">
-							<a href="index.html"><img src="/resources/assets/img/logo/logo.png" alt=""></a>
-						</div>
-						<!-- Main-menu -->
-						<div class="main-menu f-right d-none d-lg-block">
-							<nav>
-								<ul id="navigation">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="courses.html">Courses</a></li>
-									<li><a href="pricing.html">Pricing</a></li>
-									<li><a href="gallery.html">Gallery</a></li>
-									<li><a href="blog.html">Blog</a>
-										<ul class="submenu">
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog_details.html">Blog Details</a></li>
-											<li><a href="elements.html">Elements</a></li>
-										</ul>
-									</li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</nav>
-						</div>          
-						<!-- Header-btn -->
-						<div class="header-btns d-none d-lg-block f-right">
-							<a href="contact.html" class="btn hero-d">Contact me</a>
-						</div>
-						<!-- Mobile Menu -->
-						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Header End -->
-	</header>
+	<!--? Header Start -->
+	<%@ include file= "../include/header.jsp" %>
+	
 	
 	<main>
 		<!--? Hero Start -->
@@ -130,7 +62,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-12">
-							<div class="hero-cap hero-cap2 pt-70">
+							<div class="hero-capd hero-cap2 pt-70">
 								<h2>Welcome to HBLY</h2>
 							</div>
 						</div>
@@ -222,7 +154,7 @@
 									</div>
 		
 									<div class="form-group col-md-4">
-										<button type="button" onclick="execDaumPostcode()"class="btn btn-danger">우편번호 찾기</button>
+										<button type="button" onclick="execDaumPostcode()"class="genric-btn danger radius">우편번호 찾기</button>
 									</div>
 								</div>
 		
@@ -248,7 +180,7 @@
 									</div>
 		
 									<div class="form-group col-md-4">
-										<button type="button" class="btn btn-danger" onclick="cert();">인증번호 받기</button>
+										<button type="button" class="genric-btn danger radius" onclick="cert();">인증번호 받기</button>
 									</div>
 		
 								</div>
@@ -260,7 +192,7 @@
 									</div>
 		
 									<div class="form-group col-md-4">
-										<button type="button" class="btn btn-danger" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
+										<button type="button" class="genric-btn danger radius" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
 									</div>
 				
 								
@@ -285,8 +217,8 @@
 								</div>
 		
 								<!-- button -->
-								<button type="submit" id="signup_btn" class="btn btn-danger">가입하기</button>
-								<button type="button" class="btn btn-danger" OnClick="javascript:history.back(-1)">취소</button>
+								<button type="submit" id="signup_btn" class="genric-btn danger radius">가입하기</button>
+								<button type="button" class="genric-btn danger radius" OnClick="javascript:history.back(-1)">취소</button>
 							</form:form>
 		
 						</div>
@@ -297,113 +229,16 @@
 		<!-- End Align Area -->
 								
 		<!-- ? services-area -->
-		<section class="services-area">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
-						<div class="single-services mb-40">
-							<div class="features-icon">
-								<img src="/resources/assets/img/icon/icon1.svg" alt="">
-							</div>
-							<div class="features-caption">
-								<h3>Location</h3>
-								<p>You’ll look at graphs and charts in Task One, how to approach </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-						<div class="single-services mb-40">
-							<div class="features-icon">
-								<img src="/resources/assets/img/icon/icon2.svg" alt="">
-							</div>
-							<div class="features-caption">
-							<h3>Phone</h3>
-							<p>(90) 277 278 2566</p>
-							<p>  (78) 267 256 2578</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-						<div class="single-services mb-40">
-							<div class="features-icon">
-								<img src="/resources/assets/img/icon/icon3.svg" alt="">
-							</div>
-							<div class="features-caption">
-								<h3>Email</h3>
-								<p>jacson767@gmail.com</p>
-								<p>contact56@zacsion.com</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<%@ include file= "../include/gymService.jsp" %>					
 	</main>
-							<footer>
-								<!--? Footer Start-->
-								<div class="footer-area black-bg">
-									<div class="container">
-										<div class="footer-top footer-padding">
-											<!-- Footer Menu -->
-											<div class="row">
-												<div class="col-xl-12">
-													<div class="single-footer-caption mb-50 text-center">
-														<!-- logo -->
-														<div class="footer-logo wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-															<a href="index.html"><img src="/resources/assets/img/logo/logo2_footer.png" alt=""></a>
-														</div>
-														<!-- Menu -->
-														<!-- Header Start -->
-														<div class="header-area main-header2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s">
-															<div class="main-header main-header2">
-																<div class="menu-wrapper menu-wrapper2">
-																	<!-- Main-menu -->
-																	<div class="main-menu main-menu2 text-center">
-																		<nav>
-																			<ul>
-																				<li><a href="index.html">Home</a></li>
-																				<li><a href="about.html">About</a></li>
-																				<li><a href="courses.html">Courses</a></li>
-																				<li><a href="pricing.html">Pricing</a></li>
-																				<li><a href="gallery.html">Gallery</a></li>
-																				<li><a href="contact.html">Contact</a></li>
-																			</ul>
-																		</nav>
-																	</div>   
-																</div>
-															</div>
-														</div>
-														<!-- Header End -->
-														<!-- social -->
-														<div class="footer-social mt-30 wow fadeInUp" data-wow-duration="3s" data-wow-delay=".8s">
-															<a href="#"><i class="fab fa-twitter"></i></a>
-															<a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-															<a href="#"><i class="fab fa-pinterest-p"></i></a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- Footer Bottom -->
-										<div class="footer-bottom">
-											<div class="row d-flex align-items-center">
-												<div class="col-lg-12">
-													<div class="footer-copy-right text-center">
-														<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-															Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-															<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- Footer End-->
-								</footer>
-								<!-- Scroll Up -->
-								<div id="back-top" >
-									<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-								</div>
+	
+	<!-- Footer -->
+	<%@ include file= "../include/footer.jsp" %>
+	
+	<!-- Scroll Up -->
+	<div id="back-top" class="hero-d">
+		<p><a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a></p>
+	</div>
 
 								<!-- JS here -->
 
@@ -574,43 +409,45 @@
 	// 아이디 유효성 검사(1 = 중복 / 0 = 사용가능)
 	$('#userId').blur(function () {
 		var userId = $('#userId').val();
-		
+
 		if (userId=='') {
 			$('#idCheck').text('이메일을 입력해주세요.');
 			$('#idCheck').css('color','red');
 			$("#signup_btn").attr("disabled",true);		
+		}else{
+		
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/checkId?userId='+userId,
+				type : 'get',
+				dataType : 'json',
+				success : function(data) {
+				console.log(data)
+				console.log("1 중복 / 0 사용가능 :"+data);
+					
+					if(data==1){
+						// 1: 아이디(email) 중복
+						$('#idCheck').text('이미 가입된 이메일 입니다.');
+						$('#idCheck').css('color','red');
+						$("#signup_btn").attr("disabled",true);								
+					}else{
+						// 0: 아이디(email) 사용가능
+						if(mailJ.test($('#userId').val())){
+							console.log(mailJ.test($('#userId').val()));
+							$('#idCheck').text('');
+							$("#signup_btn").attr("disabled",false);
+						}else{
+							$('#idCheck').text('이메일을 확인해주세요.');
+							$('#idCheck').css('color','red');
+							$('#signup_btn').attr("disabled",true);
+						}
+					}
+					
+				}, error : function(request,status,error){
+				    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				   }
+			})
 		}
 		
-		$.ajax({
-			url : '${pageContext.request.contextPath}/member/checkId?userId='+userId,
-			type : 'get',
-			dataType : 'json',
-			success : function(data) {
-			console.log(data)
-			console.log("1 중복 / 0 사용가능 :"+data);
-				
-				if(data==1){
-					// 1: 아이디(email) 중복
-					$('#idCheck').text('이미 가입된 이메일 입니다.');
-					$('#idCheck').css('color','red');
-					$("#signup_btn").attr("disabled",true);								
-				}else{
-					// 0: 아이디(email) 사용가능
-					if(mailJ.test($('#userId').val())){
-						console.log(mailJ.test($('#userId').val()));
-						$('#idCheck').text('');
-						$("#signup_btn").attr("disabled",false);
-					}else{
-						$('#idCheck').text('이메일을 확인해주세요.');
-						$('#idCheck').css('color','red');
-						$('#signup_btn').attr("disabled",true);
-					}
-				}
-				
-			}, error : function(request,status,error){
-			    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			   }
-		})
 	});
 	
 	// 비밀번호 유효성 검사
