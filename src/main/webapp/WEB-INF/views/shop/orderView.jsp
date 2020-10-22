@@ -7,6 +7,8 @@
 		
 		<title>HBLY Shop List</title>
 		
+		
+		
 	</head>
 	<body>
 		<div id="root">

@@ -6,26 +6,60 @@
 	uri="http://www.springframework.org/security/tags"%>
 
     <header>
+    	    <!--로딩시 로고 시작 -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="${pageContext.request.contextPath}/resources/assets/img/logo/HBLY.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Preloader Start -->
+    
+    
+    
         <div class="header-area header-transparent">
             <div class="main-header header-sticky">
                 <div class="container-fluid">
                     <div class="menu-wrapper d-flex align-items-center justify-content-between">
-                        <!-- Logo -->
+                        <!-- 로고(사진이었으나 글로 변경) -->
                         <a href="/">HBLY</a>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="/">HBLY</a></li>
-                                    <li><a href="courses.html">Courses</a></li>
-									<li><a href="gallery.html">Gallery</a></li>
-									
-									
-                                    <li><a href="/">BOARD</a>
+                                    
+                                    
+                                    <li><a href="/">SHOP</a>
+                                    	<ul class="submenu">
+                                    		<li><a href="/shop/list?c=000&l=1">헬스보충식품</a></li>
+                                    		<li><a href="/shop/list?c=100&l=1">비타민/미네랄</a>
+                                    		<li><a href="/shop/list?c=200&l=1">영양제</a>
+                                    		<li><a href="/shop/list?c=300&l=1">허브/자연추출물</a>
+                                    		<li><a href="/shop/list?c=400&l=1">홍삼/인삼</a>
+                                    		<li><a href="/shop/list?c=500&l=1">건강즙</a>
+                                    		<li><a href="/shop/list?c=600&l=1">다이어트 식품</a>
+                                    		<li><a href="/shop/list?c=700&l=1">헬스/요가용품</a>
+                                    		<li><a href="/shop/list?c=800&l=1">건강가전</a>
+                                    		<li><a href="/shop/list?c=900&l=1">건강도서</a>
+                                    		<li><a href="/shop/list?c=1000&l=1">건강/의료용품</a>
+                                    	</ul>
+                                    </li>
+                                    
+                                    
+                                    
+                                    <li><a href="/board/list">BOARD</a>
                                         <ul class="submenu">
-                                            <li><a href="/">A</a></li>
-                                            <li><a href="/">B</a></li>
-                                            <li><a href="/">C</a></li>
+                                            <li><a href="/board/list?categoryCode=0">공지사항</a></li>
+                                            <li><a href="/board/list?categoryCode=1">자유게시판</a></li>
+                                            <li><a href="/board/list?categoryCode=2">문의게시판</a></li>
+                                            <li><a href="/board/list?categoryCode=3">리뷰게시판</a></li>
                                         </ul>
                                     </li>
 									
@@ -35,6 +69,8 @@
                                             <li><a href="/gym/price">PRICE</a></li>
                                             <li><a href="blog_details.html">Blog Details</a></li>
                                             <li><a href="elements.html">Elements</a></li>
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="gallery.html">Gallery</a></li>
                                         </ul>
                                     </li>
                                     
@@ -78,17 +114,15 @@
 													<li><a href="/">다른 관리페이지</a></li>
 												</ul>
 											</li>	
-									</c:if>
+										</c:if>
 										
 										
 										<li><sec:authorize access="isAuthenticated()">
 												<form:form action="/logout" method="POST">
 													<input type="submit" class="btn navbar-btn ml-md-2 btn-light" value="Logout">
 												</form:form>
-											</sec:authorize></li>
-									
-									
-				
+											</sec:authorize>
+										</li>
 									</ul>
 				
 								</c:if>
