@@ -638,6 +638,103 @@ hr {
   margin: 0;
 }
 
+
+.cancel_btn {
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid #fff;
+  color: #fff;
+  background: none;
+  border-radius: 0px;
+  text-transform: uppercase;
+  padding: 14px 43px;
+  -moz-user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  position: relative;
+  transition: color 0.4s linear;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+.order_btn {
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid #fff;
+  color: #fff;
+  background: none;
+  border-radius: 0px;
+  text-transform: uppercase;
+  padding: 14px 43px;
+  -moz-user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  position: relative;
+  transition: color 0.4s linear;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+
+/* line 371, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_common.scss */
+.order_btn::before {
+  border: 1px solid transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 101%;
+  height: 101%;
+  background: #FF0000;
+  z-index: -1;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform: scaleY(0);
+  border-radius: 0;
+}
+
+/* line 390, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_common.scss */
+.order_btn:hover::before {
+  transform: scaleY(1);
+  border: 1px solid transparent;
+}
+
+/* line 371, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_common.scss */
+.cancel_btn::before {
+  border: 1px solid transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 101%;
+  height: 101%;
+  background: #FF0000;
+  z-index: -1;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform: scaleY(0);
+  border-radius: 0;
+}
+
+/* line 390, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_common.scss */
+.cancel_btn:hover::before {
+  transform: scaleY(1);
+  border: 1px solid transparent;
+}
+
+
+
 /* line 371, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_common.scss */
 .border-btn::before {
   border: 1px solid transparent;
@@ -3856,8 +3953,8 @@ hr {
 
 /* line 22, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_pricing.scss */
 .pricing-area .properties__caption P {
-  color: #FF0000;
-  font-size: 30px;
+  color: #fff;
+  font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -3865,7 +3962,7 @@ hr {
 /* line 27, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_pricing.scss */
 .pricing-area .properties__caption P > span {
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -7908,4 +8005,3 @@ del {
 
 
 /* //# sourceMappingURL=style.css.map */
-

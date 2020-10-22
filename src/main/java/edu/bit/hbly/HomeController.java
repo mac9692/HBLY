@@ -59,5 +59,11 @@ public class HomeController {
 		return "policy/youth";
 	}
 	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Model model) {
+		logger.info("home");
+		
+		return "index";
 
+	}
 }

@@ -3,6 +3,11 @@ package edu.bit.hbly.vo;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class BoardVO {
 	
 	private int boardNumber;
@@ -14,7 +19,8 @@ public class BoardVO {
 	private String categoryCode;
 	private int boardLikeCount;
 	private int boardHateCount;
-		
+	
+	
 	public String getCategoryCode() {
 		return categoryCode;
 	}
