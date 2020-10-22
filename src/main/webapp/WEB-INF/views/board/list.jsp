@@ -2,14 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-	<head>
-	 	<title>게시판</title>
-	 	<!-- 구글 -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	</head>
-	
 
-	
 	<body>
 		<c:set var="categoryCode" value="${pageMaker.cri.categoryCode}" />
 		
@@ -22,6 +15,31 @@
 					<a href="/board/list?categoryCode=2">문의게시판</a>
 					<a href="/board/list?categoryCode=3">리뷰게시판</a>
 				</div>
+
+   <head>
+       <title>게시판</title>
+    
+   </head>
+   
+   <body>
+      <c:set var="categoryCode" value="${pageMaker.cri.categoryCode}" />
+      
+      <div class="container">
+      
+         <header id="header">
+            <div id="header_box">
+               <%@ include file= "../include/header.jsp" %>
+            </div>
+         </header>
+         
+         <hr />       
+            <div>
+               <a href="/board/list?categoryCode=0">공지사항</a>
+               <a href="/board/list?categoryCode=1">자유게시판</a>
+               <a href="/board/list?categoryCode=2">문의게시판</a>
+               <a href="/board/list?categoryCode=3">리뷰게시판</a>
+            </div>
+
 
 			 	
 			<section id="container">

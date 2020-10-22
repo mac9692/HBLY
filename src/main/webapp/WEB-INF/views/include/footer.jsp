@@ -1,64 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<div class="py-3">	
+	pageEncoding="UTF-8"%>
+
+<footer>
+	<!--? Footer Start-->
+	<div class="footer-area black-bg">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6 p-3">
-					<h5>
-						<b>Main</b>
-					</h5>
-					<ul class="list-unstyled">
-						<li><a href="/">Home</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Pricing</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-6 p-3">
-					<h5>
-						<b>POLICY</b>
-					</h5>
-					<ul class="list-unstyled">
-						<li><a href="/">입점/제휴문의</a></li>
-						<li><a href="/policy/terms">이용 약관</a></li>
-						<li><a href="/policy/privacy">개인정보 처리방침</a></li>
-						<li><a href="/policy/commercial">광고정책</a></li>
-						<li><a href="/policy/youth">청소년 보호정책</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-6 p-3">
-					<h5>
-						<b>About</b>
-					</h5>
-					<p class="mb-0">헬블리<br>대표 : 한남규<br>김재욱 박진성 오수연 정다운</p>
-				</div>
-				<div class="col-lg-3 col-md-6 p-3">
-					<h5>
-						<b>Follow us</b>
-					</h5>
-					<div class="row">
-						<div
-							class="col-md-12 d-flex align-items-center justify-content-between my-2">
-							<a href="#"> <i
-								class="d-block fa fa-facebook-official text-muted fa-lg mr-2"></i>
-							</a> <a href="#"> <i
-								class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
-							</a> <a href="#"> <i
-								class="d-block fa fa-google-plus-official text-muted fa-lg mx-2"></i>
-							</a> <a href="#"> <i
-								class="d-block fa fa-pinterest-p text-muted fa-lg mx-2"></i>
-							</a> <a href="#"> <i
-								class="d-block fa fa-reddit text-muted fa-lg mx-2"></i>
-							</a> <a href="#"> <i
-								class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
-							</a>
+			<div class="footer-top footer-padding">
+				<!-- Footer Menu -->
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="single-footer-caption mb-50 text-center">
+							<!-- logo -->
+							<div class="footer-logo wow fadeInUp" data-wow-duration="1s"
+								data-wow-delay=".2s">
+								<a href="index.html"><img src="${pageContext.request.contextPath}/resources/assets/img/logo/HBLYfooter.png" alt=""></a>
+
+
+							</div>
+							<!-- Menu -->
+							<!-- Header Start -->
+							<div class="header-area main-header2 wow fadeInUp"
+								data-wow-duration="2s" data-wow-delay=".4s">
+								<div class="main-header main-header2">
+									<div class="menu-wrapper menu-wrapper2">
+										<!-- Main-menu -->
+										<div class="main-menu main-menu2 text-center">
+											<nav>
+												<ul>
+													<li><a href="/">Home</a></li>
+													<li><a href="about.html">About</a></li>
+													<li><a href="courses.html">Courses</a></li>
+													<li><a href="pricing.html">Pricing</a></li>
+													<li><a href="gallery.html">Gallery</a></li>
+													<li><a href="contact.html">Contact</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Header End -->
+							<!-- social -->
+							<div class="footer-social mt-30 wow fadeInUp"
+								data-wow-duration="3s" data-wow-delay=".8s">
+								<a href="#"><i class="fab fa-twitter"></i></a> <a
+									href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+								<a href="#"><i class="fab fa-pinterest-p"></i></a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<p class="mb-0 mt-2">© 2020 HBLY. All rights reserved</p>
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-12">
+						<div class="footer-copy-right text-center">
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
+								All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i>
+								 by <a href="https://colorlib.com" target="_blank">HBLY</a>
+							</p>
+							
+						</div>
+						
+						<div class="footer text-center">
+							<p>
+								<a href="/">입점/제휴문의</a> <a href="/policy/terms">이용 약관</a> 
+								<a href="/policy/privacy">개인정보 처리방침</a> <a href="/policy/commercial">광고정책</a>
+								<a href="/policy/youth">청소년 보호정책</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div >
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-12">
+						<div class="hero-d footer-copy-right text-center">
+							<p><a href="/">입점/제휴문의</a> | <a href="/policy/terms">이용 약관</a> | <a
+		href="/policy/privacy">개인정보 처리방침</a> | <a href="/policy/commercial">광고정책</a> |
+	<a href="/policy/youth">청소년 보호정책</a></p>	
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Footer End-->
+</footer>

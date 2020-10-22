@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,12 @@ public class MemberController {
 	public void getSignup() throws Exception {
 		logger.info("get signup");
 	}
+
+//	// member sign up GET
+//	@RequestMapping(value = "/signup2", method = RequestMethod.GET)
+//	public void getSignup2() throws Exception {
+//		logger.info("get signup2");
+//	}
 
 
 	// member sign up POST
@@ -160,27 +167,31 @@ public class MemberController {
 	
 	// member pwInqury POST - daun
 	@RequestMapping(value = "/pwInqurySuccess", method = RequestMethod.POST)
+	@Transactional
 	public String pwInqurySuccess(MemberVO memberVO,HttpSession session) throws Exception {
-		logger.info("POST pwInquryCheck");
+		logger.info("POST pwInqurySuccess");
 		
 		memberVO.setUserId((String) session.getAttribute("userId"));
 		session.removeAttribute("userId");		
 		service.pwInqurySuccess(memberVO);
-		return "redirect:/member/signin2";
+		return "redirect:/member/signin";
 	}	
 	
 	//modify get
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void getModify() throws Exception{
+	public void getModify() throws Exception {
 		logger.info("get modify");
 	}
 	
 	//modify POST
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modify(MemberVO vo) throws Exception{
+	public String modify(MemberVO vo, HttpServletRequest request) throws Exception{
 		logger.info("post modify");
-		
+
+		System.out.println(vo.getUserId()+":"+vo.getUserPassword()+":"+vo.getUserAddress1()+":"+vo.getUserNickname());
+
 		service.modify(vo);
+		request.getSession().invalidate();
 		return "redirect:/";
 	}
 
@@ -227,35 +238,38 @@ public class MemberController {
 	}
 	//mypage GET
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public void getMypage()	{
+	public void getMypage() throws Exception{
 		logger.info("get mypage");
 	}
 	
 	//pwChk POST
-		@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
-		public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
-			log.info("post pwChk");
-			 
-			Gson gson = new Gson();
-	        CustomUser user = (CustomUser) authentication.getPrincipal();
-	         
-	        boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
-	        System.out.println(isValidPassword+":"+vo.getUserPassword()+":"+user.getMember().getUserPassword()); 
+	@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
+	public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
+		log.info("post pwChk");
+         
+		Gson gson = new Gson();
+	    CustomUser user = (CustomUser) authentication.getPrincipal();
+//	    boolean isValidPassword = false;
+	   
+	    boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+	    
+
+//	    try {
+//	    	isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+//	    }catch (Exception e) {System.out.println("아니요..에러나요: "+e.getMessage());}
+//  
 	       
-	        if (isValidPassword) {                 
-				
-				  vo.setUserPassword(user.getMember().getUserPassword());
-				  request.getSession().invalidate();
-				  
-	            gson.toJson(new ResponseVO<>(200, "success"));	
-	             
-				return "/member/modify";
-	        }
+	    if (isValidPassword) {                 
+	    		  
+	        gson.toJson(new ResponseVO<>(200, "success"));	
 	        
-	        gson.toJson(new ResponseVO<>(400, "fail"));
-	         
-			
-			 return "redirect:/member/mypage";
+	        System.out.println(isValidPassword+"여기왔냥?");
+			return "redirect:/member/modify";
+	    }
+	        
+	gson.toJson(new ResponseVO<>(400, "fail"));
+	return "redirect:/member/mypage";
+	
 			
 	}
 		

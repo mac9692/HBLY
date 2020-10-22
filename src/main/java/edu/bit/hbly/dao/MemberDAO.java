@@ -4,6 +4,8 @@ import java.util.List;
 
 import edu.bit.hbly.vo.MemberVO;
 
+
+
 public interface MemberDAO {
 	
 	//ȸ������

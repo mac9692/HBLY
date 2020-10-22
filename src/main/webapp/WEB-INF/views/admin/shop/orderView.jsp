@@ -2,44 +2,30 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
     
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
 		<title>HBLY 관리자 페이지</title>
-		
-		
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<!-- 구글 -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+			
 		<!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	
+			
 		<!-- 부가적인 테마 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
+			
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-			
 		
-		<link rel="stylesheet" href="/resources/bootstrap/bootstrap.min.css">
-		<link rel="stylesheet" href="/resources/bootstrap/bootstrap-theme.min.css">
-		<script src="/resources/bootstrap/bootstrap.min.js"></script>
+		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
-		
-		
-				
-				
-				
-				
-				
-				
 		<style>
 		 body { font-family:'맑은 고딕', verdana; padding:0; margin:0; }
-		 ul { padding:0; margin:0; list-style:none;  }
+		 ul { padding:0; margin:0; list-style:none;  }
 		
 		 div#root { width:90%; margin:0 auto; }
 		 
@@ -49,19 +35,20 @@
 		 nav#nav { padding:10px; text-align:right; }
 		 nav#nav ul li { display:inline-block; margin-left:10px; }
 		
-		   section#container { padding:20px 0; border-top:2px solid #eee; border-bottom:2px solid #eee; }
+		   section#container { padding:20px 0; border-top:2px solid #eee; border-bottom:2px solid #eee; }
 		 section#container::after { content:""; display:block; clear:both; }
 		 aside { float:left; width:200px; }
 		 div#container_box { float:right; width:calc(100% - 200px - 20px); }
 		 
 		 aside ul li { text-align:center; margin-bottom:10px; }
-		 
 		 aside ul li a { display:block; width:100%; padding:10px 0;}
 		 aside ul li a:hover { background:#eee; }
 		 
+		 
 		 footer#footer { background:#f9f9f9; padding:20px; }
 		 footer#footer ul li { display:inline-block; margin-right:10px; }
-		</style>	
+		</style>
+		
 		
 		<style>
 		/*
@@ -82,12 +69,13 @@
 		 .thumb img { width:200px; height:200px; }
 		 .gdsInfo { float:right; width:calc(100% - 220px); line-height:2; }
 		 .gdsInfo span { font-size:20px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
-		.deliveryChange { text-align:right; }
+		 
+		 .deliveryChange { text-align:right; }
 		.delivery1_btn,
 		.delivery2_btn { font-size:16px; background:#fff; border:1px solid #999; margin-left:10px; }
-		
-		
+				 
 		</style>
+		
 	</head>
 	
 	

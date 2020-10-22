@@ -1,203 +1,266 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-	
-<html>
 
+<!doctype html>
+<html class="no-js" lang="zxx">
 <head>
-<meta charset="utf-8">
 
-<title>HBLY : 회원가입</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>HBLY | 회원가입</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-	type="text/css">
-
-<link rel="stylesheet"
-	href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/slicknav.css">
+	<link rel="stylesheet" href="/resources/assets/css/animate.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="/resources/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/themify-icons.css">
+	<link rel="stylesheet" href="/resources/assets/css/slick.css">
+	<link rel="stylesheet" href="/resources/assets/css/nice-select.css">
+	<link rel="stylesheet" href="/resources/assets/css/style.css">
 	
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script
+	<!-- pingendo -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous" style=""></script>
+	
+	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
 
 </head>
-
 <body>
 
-	<!-- memberjoin -->
-	<div class="py-5 text-center">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-lg-6 col-10">
-					<h1>HBLY 회원가입</h1>
-					<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
-
-					<!-- form -->
-					<form:form method="post" class="text-left" action="/member/signup">									
-						
-						<!-- id -->
-						<div class="form-group">
-							<label for="userId">아이디</label>
-							<input type="email" class="form-control" id="userId" name="userId" placeholder="hbly@hbly.com" required>
-							<div id="idCheck"></div>
-						</div>
-
-						<!-- password -->
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="userPassword">비밀번호</label>
-								<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="password" required>
-								<div id="pwCheck"></div>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="userPasswordCheck">비밀번호 재확인</label>
-								<input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" placeholder="confirm Password" required>
-								<div id="pw2Check"></div>
-							</div>
-						</div>
-
-						<!-- name -->
-						<div class="form-group">
-							<label for="userName">이름</label>
-							<input type="text" class="form-control" id="userName" name="userName" placeholder="name" required>
-							<div id="nameCheck"></div>
-						</div>
-
-						<!-- birth -->
-						<div class="form-group">
-							<label for="userBirth">생년월일</label>
-							<input type="text" class="form-control" id="userBirth" name="userBirth" placeholder="ex)19991225" required>
-							<div id="birthCheck"></div>
-						</div>
+	<!--? Header Start -->
+	<%@ include file= "../include/header.jsp" %>
 	
-						<!-- gender -->
-						<div class="form-group" >
-						    <label for="userGender">성별</label>
-						    <div class="row">
-						      <div class="col-md-6">
-						        <div class="custom-control custom-radio">
-						          <input id="man" name="userGender" type="radio" class="custom-control-input" checked required value="M"> <label class="custom-control-label" for="man">남자</label> </div>
-						      </div>
-						      <div class="col-md-6">
-						        <div class="custom-control custom-radio">
-						          <input id="female" name="userGender" type="radio" class="custom-control-input" required value="F"> <label class="custom-control-label" for="female">여자</label> </div>
-						      </div>
-						    </div>
-						</div>
-						
-						<!-- nickname -->
-						<div class="form-group">
-							<label for="userNickname">닉네임</label>
-							<input type="text" class="form-control" id="userNickname" name="userNickname" placeholder="nickname" required>
-							<div id="nicknameCheck"></div>
-						</div>
-						
-						<!-- address -->
-						<div class="form-group">
-							<label for="userAddress">주소</label>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="userAddress1" name="userAddress1" placeholder="우편번호" onclick="execDaumPostcode()" readonly required>
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" onclick="execDaumPostcode()"class="btn btn-primary">우편번호 찾기</button>
+	<main>
+		<!--? Hero Start -->
+		<div class="slider-area2">
+			<div class="slider-height2 d-flex align-items-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="hero-capd hero-cap2 pt-70">
+								<h2>Welcome to HBLY</h2>
 							</div>
 						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="userAddress2" name="userAddress2"placeholder="주소" onclick="execDaumPostcode()" readonly required>
-							</div>
-
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" required>
-							</div>
-						</div>
-						
-						<!-- phone number -->
-						<div class="form-group">
-							<label for="userPhoneNumber">휴대전화 ('-' 없이 번호만 입력해주세요) </label>
-						</div>
-
-						<div class="form-group">
-							<select class="form-control">
-								<option value="대한민국 +82">대한민국 +82</option>
-								<option value="미국/캐나다 +1">미국/캐나다 +1</option>
-							</select>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
-								<div id="phoneCheck"></div>
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" class="btn btn-primary" onclick="cert();">인증번호 받기</button>
-							</div>
-
-						</div>
-						
-						<div class="form-row">
-							<div class="form-group col-md-8">
-								<input type="text" class="form-control" id="certification"  placeholder="인증번호를 입력해주세요" required>
-								<div class="form-group" id="certCheck"></div>	
-							</div>
-
-							<div class="form-group col-md-4">
-								<button type="button" class="btn btn-primary" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
-							</div>
-		
-						
-						</div>	
-														
-						<input type="hidden" id="randomVal" value=""/>	
-						
-						<!-- term -->
-						<div class="form-group">
-							<label for="form10">이용약관</label>
-						</div>
-						
-						<div class="form-group">
-							<textarea class="form-control" id="form10" rows="4"
-								placeholder="Your message" readonly="readonly"></textarea>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="form11"value="on">
-								<label class="form-check-label" for="form10">
-								I Agree with <a href="#">Term and Conditions</a> of the service
-								</label>
-							</div>
-						</div>
-
-						<!-- button -->
-						<button type="submit" id="signup_btn" class="btn btn-primary">가입하기</button>
-						<button type="button" class="btn btn-primary" OnClick="javascript:history.back(-1)">취소</button>
-					</form:form>
-
+					</div>
 				</div>
-
 			</div>
-
 		</div>
-	</div>
-	
-	
-	
-			<%@ include file= "../include/footer.jsp" %>
+		<!-- Hero End -->
+		
+		<!--? Start Align Area -->
+		<div class="whole-wrap">
+		<!-- memberjoin -->
+			<div class="py-5 text-center">
+				<div class="container">
+					<div class="row">
+						<div class="mx-auto">
+							<h1>HBLY 회원가입</h1>
+							<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
+		
+							<!-- form -->
+							<form method="post" class="text-left" action="/member/signup">									
+								
+								<!-- id -->
+								<div class="form-group">
+									<label for="userId">아이디</label>
+									<input type="email" class="form-control" id="userId" name="userId" placeholder="hbly@hbly.com" required>
+									<div id="idCheck"></div>
+								</div>
+		
+								<!-- password -->
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="userPassword">비밀번호</label>
+										<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="password" required>
+										<div id="pwCheck"></div>
+									</div>
+		
+									<div class="form-group col-md-6">
+										<label for="userPasswordCheck">비밀번호 재확인</label>
+										<input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" placeholder="confirm password" required>
+										<div id="pw2Check"></div>
+									</div>
+								</div>
+		
+								<!-- name -->
+								<div class="form-group">
+									<label for="userName">이름</label>
+									<input type="text" class="form-control" id="userName" name="userName" placeholder="name" required>
+									<div id="nameCheck"></div>
+								</div>
+		
+								<!-- birth -->
+								<div class="form-group">
+									<label for="userBirth">생년월일</label>
+									<input type="text" class="form-control" id="userBirth" name="userBirth" placeholder="ex)19991225" required>
+									<div id="birthCheck"></div>
+								</div>
+			
+								<!-- gender -->
+								<div class="form-group" >
+								    <label for="userGender">성별</label>
+								    <div class="row">
+								      <div class="col-md-6">
+								        <div class="custom-control custom-radio">
+								          <input id="man" name="userGender" type="radio" class="custom-control-input" checked required value="M"> <label class="custom-control-label" for="man">남자</label> </div>
+								      </div>
+								      <div class="col-md-6">
+								        <div class="custom-control custom-radio">
+								          <input id="female" name="userGender" type="radio" class="custom-control-input" required value="F"> <label class="custom-control-label" for="female">여자</label> </div>
+								      </div>
+								    </div>
+								</div>
+								
+								<!-- nickname -->
+								<div class="form-group">
+									<label for="userNickname">닉네임</label>
+									<input type="text" class="form-control" id="userNickname" name="userNickname" placeholder="nickname" required>
+									<div id="nicknameCheck"></div>
+								</div>
+								
+								<!-- address -->
+								<div class="form-group">
+									<label for="userAddress">주소</label>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="userAddress1" name="userAddress1" placeholder="우편번호" onclick="execDaumPostcode()" readonly required>
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" onclick="execDaumPostcode()"class="genric-btn danger radius">우편번호 찾기</button>
+									</div>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<input type="text" class="form-control" id="userAddress2" name="userAddress2"placeholder="주소" onclick="execDaumPostcode()" readonly required>
+									</div>
+		
+									<div class="form-group col-md-6">
+										<input type="text" class="form-control" id="userAddress3" name="userAddress3"placeholder="상세주소" required>
+									</div>
+								</div>
+								
+								<!-- phone number -->
+								<div class="form-group">
+									<label for="userPhoneNumber">휴대전화 ('-' 없이 번호만 입력해주세요) </label>
+								</div>
+		
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
+										<div id="phoneCheck"></div>
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" class="genric-btn danger radius" onclick="cert();">인증번호 받기</button>
+									</div>
+		
+								</div>
+								
+								<div class="form-row">
+									<div class="form-group col-md-8">
+										<input type="text" class="form-control" id="certification"  placeholder="인증번호를 입력해주세요" required>
+										<div class="form-group" id="certCheck"></div>	
+									</div>
+		
+									<div class="form-group col-md-4">
+										<button type="button" class="genric-btn danger radius" id="sms_AuthBtn" onclick="smsAuthBtn();">확인</button>
+									</div>
+				
+								
+								</div>	
+																
+								<input type="hidden" id="randomVal" value=""/>	
+								
+								<!-- term -->
+								<div class="form-group">
+									<label for="form10">이용약관</label>
+								</div>
+								
+								<div class="form-group">
+									<textarea class="form-control" id="form10" rows="4"
+										placeholder="Your message" readonly="readonly"></textarea>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="form11"value="on">
+										<label class="form-check-label" for="form10">
+										I Agree with <a href="#">Term and Conditions</a> of the service
+										</label>
+									</div>
+								</div>
+		
 
+								<button type="submit" id="signup_btn" class="genric-btn danger radius">가입하기</button>
+								<button type="button" class="genric-btn danger radius" OnClick="javascript:history.back(-1)">취소</button>
+							</form>
+		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Align Area -->
+								
+		<!-- ? services-area -->
+		<%@ include file= "../include/gymService.jsp" %>					
+	</main>
+	
+	<!-- Footer -->
+	<%@ include file= "../include/footer.jsp" %>
+	
+	<!-- Scroll Up -->
+	<div id="back-top" class="hero-d">
+		<p><a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a></p>
+	</div>
+
+								<!-- JS here -->
+
+								<script src="/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+								<!-- Jquery, Popper, Bootstrap -->
+								<script src="/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
+								<script src="/resources/assets/js/popper.min.js"></script>
+								<script src="/resources/assets/js/bootstrap.min.js"></script>
+								<!-- Jquery Mobile Menu -->
+								<script src="/resources/assets/js/jquery.slicknav.min.js"></script>
+
+								<!-- Jquery Slick , Owl-Carousel Plugins -->
+								<script src="/resources/assets/js/owl.carousel.min.js"></script>
+								<script src="/resources/assets/js/slick.min.js"></script>
+								<!-- One Page, Animated-HeadLin -->
+								<script src="/resources/assets/js/wow.min.js"></script>
+								<script src="/resources/assets/js/animated.headline.js"></script>
+								<script src="/resources/assets/js/jquery.magnific-popup.js"></script>
+								
+								<!-- Nice-select, sticky -->
+								<script src="/resources/assets/js/jquery.nice-select.min.js"></script>
+								<script src="/resources/assets/js/jquery.sticky.js"></script>
+								
+								<!-- contact js -->
+								<script src="/resources/assets/js/contact.js"></script>
+								<script src="/resources/assets/js/jquery.form.js"></script>
+								<script src="/resources/assets/js/jquery.validate.min.js"></script>
+								<script src="/resources/assets/js/mail-script.js"></script>
+								<script src="/resources/assets/js/jquery.ajaxchimp.min.js"></script>
+								
+								<!-- Jquery Plugins, main Jquery -->	
+								<script src="/resources/assets/js/plugins.js"></script>
+								<script src="/resources/assets/js/main.js"></script>
+								
 </body>
 <!--우편번호/주소 API -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -334,43 +397,45 @@
 	// 아이디 유효성 검사(1 = 중복 / 0 = 사용가능)
 	$('#userId').blur(function () {
 		var userId = $('#userId').val();
-		
+
 		if (userId=='') {
 			$('#idCheck').text('이메일을 입력해주세요.');
 			$('#idCheck').css('color','red');
 			$("#signup_btn").attr("disabled",true);		
+		}else{
+		
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/checkId?userId='+userId,
+				type : 'get',
+				dataType : 'json',
+				success : function(data) {
+				console.log(data)
+				console.log("1 중복 / 0 사용가능 :"+data);
+					
+					if(data==1){
+						// 1: 아이디(email) 중복
+						$('#idCheck').text('이미 가입된 이메일 입니다.');
+						$('#idCheck').css('color','red');
+						$("#signup_btn").attr("disabled",true);								
+					}else{
+						// 0: 아이디(email) 사용가능
+						if(mailJ.test($('#userId').val())){
+							console.log(mailJ.test($('#userId').val()));
+							$('#idCheck').text('');
+							$("#signup_btn").attr("disabled",false);
+						}else{
+							$('#idCheck').text('이메일을 확인해주세요.');
+							$('#idCheck').css('color','red');
+							$('#signup_btn').attr("disabled",true);
+						}
+					}
+					
+				}, error : function(request,status,error){
+				    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				   }
+			})
 		}
 		
-		$.ajax({
-			url : '${pageContext.request.contextPath}/member/checkId?userId='+userId,
-			type : 'get',
-			dataType : 'json',
-			success : function(data) {
-			console.log(data)
-			console.log("1 중복 / 0 사용가능 :"+data);
-				
-				if(data==1){
-					// 1: 아이디(email) 중복
-					$('#idCheck').text('이미 가입된 이메일 입니다.');
-					$('#idCheck').css('color','red');
-					$("#signup_btn").attr("disabled",true);								
-				}else{
-					// 0: 아이디(email) 사용가능
-					if(mailJ.test($('#userId').val())){
-						console.log(mailJ.test($('#userId').val()));
-						$('#idCheck').text('');
-						$("#signup_btn").attr("disabled",false);
-					}else{
-						$('#idCheck').text('이메일을 확인해주세요.');
-						$('#idCheck').css('color','red');
-						$('#signup_btn').attr("disabled",true);
-					}
-				}
-				
-			}, error : function(request,status,error){
-			    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			   }
-		})
 	});
 	
 	// 비밀번호 유효성 검사
@@ -529,58 +594,58 @@
 			}
 		}); //End of method /*
 		
-		// 가입하기 실행 버튼 유효성 검사!
-		var inval_Arr = new Array(5).fill(false);
-		$('#signup_btn').click(function(){
-			// 비밀번호가 같은 경우 && 비밀번호 정규식
-			if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
-					&& pwJ.test($('#userPassword').val())) {
-				inval_Arr[0] = true;
-			} else {
-				inval_Arr[0] = false;
-			}
-			// 이름 정규식
-			if (nameJ.test($('#userName').val())) {
-				inval_Arr[1] = true;	
-			} else {
-				inval_Arr[1] = false;
-			}
-			// 이메일 정규식
-			if (mailJ.test($('#userId').val())){
-				console.log(phoneJ.test($('#userId').val()));
-				inval_Arr[2] = true;
-			} else {
-				inval_Arr[2] = false;
-			}
-			// 휴대폰번호 정규식
-			if (phoneJ.test($('#userPhoneNumber').val())) {
-				console.log(phoneJ.test($('#userPhoneNumber').val()));
-				inval_Arr[3] = true;
-			} else {
-				inval_Arr[3] = false;
-			}
-			// 생년월일 정규식
-			if (birthJ) {
-				console.log(birthJ);
-				inval_Arr[4] = true;
-			} else {
-				inval_Arr[4] = false;
-			}
+	// 가입하기 실행 버튼 유효성 검사!
+	var inval_Arr = new Array(5).fill(false);
+	$('#signup_btn').click(function(){
+		// 비밀번호가 같은 경우 && 비밀번호 정규식
+		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
+				&& pwJ.test($('#userPassword').val())) {
+			inval_Arr[0] = true;
+		} else {
+			inval_Arr[0] = false;
+		}
+		// 이름 정규식
+		if (nameJ.test($('#userName').val())) {
+			inval_Arr[1] = true;	
+		} else {
+			inval_Arr[1] = false;
+		}
+		// 이메일 정규식
+		if (mailJ.test($('#userId').val())){
+			console.log(phoneJ.test($('#userId').val()));
+			inval_Arr[2] = true;
+		} else {
+			inval_Arr[2] = false;
+		}
+		// 휴대폰번호 정규식
+		if (phoneJ.test($('#userPhoneNumber').val())) {
+			console.log(phoneJ.test($('#userPhoneNumber').val()));
+			inval_Arr[3] = true;
+		} else {
+			inval_Arr[3] = false;
+		}
+		// 생년월일 정규식
+		if (birthJ) {
+			console.log(birthJ);
+			inval_Arr[4] = true;
+		} else {
+			inval_Arr[4] = false;
+		}
+		
+		var validAll = true;
+		for(var i = 0; i < inval_Arr.length; i++){
 			
-			var validAll = true;
-			for(var i = 0; i < inval_Arr.length; i++){
-				
-				if(inval_Arr[i] == false){
-					validAll = false;
-				}
+			if(inval_Arr[i] == false){
+				validAll = false;
 			}
-			
-			if(validAll){ // 유효성 모두 통과
-				alert('회원가입이 완료되었습니다.');
-			} else{
-				alert('입력한 정보들을 다시 한번 확인해주세요.')
-			}
-		});
+		}
+		
+		if(validAll){ // 유효성 모두 통과
+			alert('회원가입이 완료되었습니다.');
+		} else{
+			alert('입력한 정보들을 다시 한번 확인해주세요.')
+		}
+	});
 	
 </script>
 </html>

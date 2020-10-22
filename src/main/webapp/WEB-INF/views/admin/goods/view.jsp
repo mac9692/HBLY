@@ -1,151 +1,147 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>HBLY 관리자 페이지</title>
-		
-		
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<!-- 구글 -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		
-		<!-- 합쳐지고 최소화된 최신 CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	
-		<!-- 부가적인 테마 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
-		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-			
-		
-		<link rel="stylesheet" href="/resources/bootstrap/bootstrap.min.css">
-		<link rel="stylesheet" href="/resources/bootstrap/bootstrap-theme.min.css">
-		<script src="/resources/bootstrap/bootstrap.min.js"></script>
-		
-		
-		
-				
-				
-				
-				
-				
-				
-		<style>
-		 body { font-family:'맑은 고딕', verdana; padding:0; margin:0; }
-		 ul { padding:0; margin:0; list-style:none;  }
-		
-		 div#root { width:90%; margin:0 auto; }
-		 
-		 header#header { font-size:60px; padding:20px 0; }
-		 header#header h1 a { color:#000; font-weight:bold; }
-		 
-		 nav#nav { padding:10px; text-align:right; }
-		 nav#nav ul li { display:inline-block; margin-left:10px; }
-		
-		   section#container { padding:20px 0; border-top:2px solid #eee; border-bottom:2px solid #eee; }
-		 section#container::after { content:""; display:block; clear:both; }
-		 aside { float:left; width:200px; }
-		 div#container_box { float:right; width:calc(100% - 200px - 20px); }
-		 
-		 aside ul li { text-align:center; margin-bottom:10px; }
-		 
-		 aside ul li a { display:block; width:100%; padding:10px 0;}
-		 aside ul li a:hover { background:#eee; }
-		 
-		 footer#footer { background:#f9f9f9; padding:20px; }
-		 footer#footer ul li { display:inline-block; margin-right:10px; }
-		</style>	
-		
-		<style>
-		.inputArea { margin:10px 0; }
-		select { width:100px; }
-		label { display:inline-block; width:70px; padding:5px; }
-		label[for='goodsDescribe'] { display:block; }
-		input { width:150px; }
-		textarea#goodsDescribe { width:400px; height:180px; }
-		
-		.oriImg{ width:500px; height:auto; }
-		.thumbImg{}
-		.goodsDescribe img { max-width:600px; height:auto; }
-		</style>	
-		
+
+		<meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HBLY | Admin</title>
+        <link href="/resources/sb/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 	</head>
 	
 	
-	<body>
-		<div id="root">
-			<header id="header">
-				<div id="header_box">
-					<%@ include file="../include/header.jsp" %>
-				</div>
-			</header>
-			
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file="../include/nav.jsp" %>
-				</div>
-			</nav>
-			
-			
 	
-			<section id="container">
-				<aside>
-				 	<%@ include file="../include/aside.jsp" %>
-				</aside>
-			
-			
-				<div id="container_box">
-					<h2>상품 조회</h2>
-					<form role="form" method="post" autocomplete="off">
-					<input type="hidden" name="n" value="${goods.goodsNumber}"/>
-						 <label>1차 분류</label>
-						 <span class="category1">${goods.categoryCodeRef}</span>
-						
-						 <label>2차 분류</label>
-						 <span class="category2">${goods.categoryCode}</span>
-						  
-						 
-						 
-						<div class="inputArea">
-						 <label for="goodsName">상품명</label>
-						 <span>${goods.goodsName}</span>
-						</div>
-						
-						<div class="inputArea">
-						 <label for="goodsPrice">상품가격</label>
-						 <span><fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###,###"/></span>
-						</div>
-						
-						<div class="inputArea">
-						 <label for="goodsStock">상품수량</label>
-						 <span>${goods.goodsStock}</span>
-						</div>
-						
-						<div class="inputArea">
-						 <label for="goodsDescribe">상품소개</label>
-						 <%-- <span>${goods.goodsDescribe}</span> --%>
-						 <div class="goodsDescribe">${goods.goodsDescribe}</div>
-						</div>
-						
-						<div class="inputArea">
-						 <label for="goodsImage">이미지</label>
-						 <p>원본 이미지</p>
-						 <img src="${goods.goodsImage}" class="oriImg"/>
-						 
-						 <p>썸네일</p>
-						 <img src="${goods.goodsThumbImage}" class="thumbImg"/>
-						</div>
-						
-						
-						
-						
-						<div class="inputArea">
-							<button type="button" id="modify_Btn" class="btn btn-warning">수정</button>
+<body class="sb-nav-fixed">
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="/admin/index">HBLY Admin</a> | <a class="navbar-brand" href="/">HBLY Main</a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <sec:authorize access="isAuthenticated()">
+						<form action="/logout" method="POST">
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                         </form>
+    					</sec:authorize> 
+                    </div>
+                </li>
+            </ul>
+        </nav>
+         <div id="layoutSidenav">
+        
+		<%@ include file= "../include/layoutSidenav.jsp"%>
+		
+        <div id="layoutSidenav_content">       
+			<main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">상품 조회</h1>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                                        상품 조회
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+									<form role="form" method="post" autocomplete="off">
+									<input type="hidden" name="n" value="${goods.goodsNumber}"/>
+									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <tbody>
+											<tr>
+												<td class="thead-light">
+													<label>1차 분류</label>
+												</td>
+												<td>
+													<span class="category1">${goods.categoryCodeRef}</span>
+												</td>
+												<td class="thead-light">
+												<label>2차 분류</label>
+												</td>
+												<td>
+												 <span class="category2">${goods.categoryCode}</span>
+												</td>
+												
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsName">상품명</label>
+												</td>
+												<td colspan="3">
+												 <span>${goods.goodsName}</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsPrice">상품가격</label>
+												</td>
+												<td colspan="3">
+												 <span><fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###,###"/></span>
+												</td>
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsStock">상품수량</label>
+												</td>
+												<td colspan="3">
+												<span>${goods.goodsStock}</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsDescribe">상품소개</label>
+												</td>
+												<td colspan="3">
+												<div class="goodsDescribe">${goods.goodsDescribe}</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsImage">원본 이미지</label>
+												</td>
+												<td colspan="3">
+												 <img src="${goods.goodsImage}" class="oriImg"/>
+												</td>
+											</tr>
+											<tr>
+												<td class="thead-light">
+												<label for="goodsThumbImagee">썸네일</label>
+												</td>
+												<td colspan="3">
+												 <img src="${goods.goodsThumbImage}" class="thumbImg"/>
+												</td>
+											</tr>
+                                        </tbody>
+                                    </table>
+						 			<div class="float-right">
+                                    <button type="button" id="modify_Btn" class="btn btn-warning">수정</button>
 						 	<button type="button" id="delete_Btn" class="btn btn-danger">삭제</button>
 						 	
 						 	<script>
@@ -169,28 +165,21 @@
 						 		
 						 		
 						 	</script>
-						 	
-						</div>
-						
-					</form>
-					
-					
-					
-					
-					
-					
-					
-					
-				</div>
-			</section>
+                                     </div>
 			
-			<footer id="footer">
-				<div id="footer_box">
-					<%@ include file="../include/footer.jsp" %>
-				</div>
-			</footer>
-		</div>
+					</form>
+				     </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+			<%@ include file="../include/footer.jsp" %>
+            </div>
 		
+					
+					
+
+		</div>						
 		
 		<script>
 			// 컨트롤러에서 데이터 받기

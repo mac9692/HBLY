@@ -27,7 +27,8 @@ public class HomeController {
 	public String home(Model model) {
 		logger.info("home");
 		
-		return "mainpage";
+		return "home";
+
 	}
 	
 	@RequestMapping(value = "/policy/terms", method = RequestMethod.GET)
@@ -58,5 +59,11 @@ public class HomeController {
 		return "policy/youth";
 	}
 	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Model model) {
+		logger.info("home");
+		
+		return "index";
 
+	}
 }

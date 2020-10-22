@@ -23,20 +23,6 @@
 <body>
 
 	<!-- nav & header -->
-	<div>
-		<!-- nav -->
-		<%@ include file="include/nav.jsp" %>
-
-		
-		<!-- header -->
-		<%@ include file="include/header.jsp" %>
-		
-		
-		<!-- menu -->
-		<%@ include file="include/menu.jsp" %>
-		
-		
-	</div>
 
 	<!-- img -->
 	<div class="container my-3">
@@ -249,7 +235,6 @@
 	</div>
 
 	<!-- footer -->
-	<%@ include file= "include/footer.jsp" %>
 
 
 

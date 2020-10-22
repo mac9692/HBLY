@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+/* signin _ jsp */
+.hero-capd h1{
+	color:black;
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.hero-capd h2{
+	color: #fff;
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1;
+}
+}
+.hero-capd h3{
+	color:black;
+    font-size: 20px;
+    font-weight:400;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.header-btn{
+    background: #ff1313;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    padding: 27px 44px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 0px;
+    line-height: 1;
+    border: 2px solid #fff;
+    -moz-user-select: none;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0;
+}
+
+.hero-capd a:hover{
+ color: black;
+ text-decoration: none;	
+}
+
+/* header_jsp / home_jsp - logo */
+
+.hero-d h1 {
+ font-size: 60px;
+ font-weight: 700;
+ margin-bottom: 14px;
+ color: #fff;
+ line-height: 1.2;
+ font-family: "Oswald", sans-serif;
+ text-transform: uppercase;
+}
+
+.hero-d h1 > a,p>a{
+ color: #fff;	
+}
+.hero-d h1 > a:hover,p>a:hover{
+ color: #fff;
+ text-decoration: none;
+}
+
+/*id/pw*/
+.daun a {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
