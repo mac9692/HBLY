@@ -46,6 +46,10 @@
 </head>
 
 <body>
+
+<%@include file="../include/header.jsp" %>
+
+
 <div class="slider-area2">
         <div class="slider-height2 d-flex align-items-center">
             <div class="container">
@@ -112,101 +116,16 @@
         </div>
     </section>	
 	
-			  <div class="py-5 text-white h-25" background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
-    <div class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2><b>마이블리</b></h2>
-            <h5>내 활동의 모든것을 한눈에 확인하는 마이블리 </h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			 
   
   <div class="py-5">
     <div class="container">
-    <section class="services-area">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon1.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>게시글 수</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon2.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>댓글 수</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>최근 방문일</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>포인트</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
       <div class="row">
         <div class="col-md-12">
           <div class="card">
           
-            <div class="card-header text-center ">
-              <div class="container my-2">
-                <div class="row text-right">
-                  <div class="col-md-3 border-right border-left">
-                    <dl><dt>게시글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt class="">댓글 수</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>최근 방문일</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                  <div class="col-md-3 border-right">
-                    <dl><dt>포인트</dt>
-                      <dd>0</dd>
-                    </dl>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             
             <div class="card-body">
               <div class="py-5">

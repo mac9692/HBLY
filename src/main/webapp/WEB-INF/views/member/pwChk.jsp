@@ -60,11 +60,11 @@ $(document).ready(function(){
                                   <div class="mx-auto p-2 col-6">
                                     <p> 개인정보를 안전하게 보호하기 위하여 <br> HBLY 아이디 비밀번호를 한번 더 입력해주세요. </p>
                                    <c:url value="/member/pwChk" var="pwChkUrl"/>
-                        			<form:form role="form" action="${pwChkUrl}" method="POST" autocomplete="off" id="pwChkForm">
+                        			<form role="form" action="${pwChkUrl}" method="POST" autocomplete="off" id="pwChkForm">
                                     
                                     <div class="form-group"> <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="비밀번호 입력" > </div>
-                                      <button type="submit" class="btn btn-primary w-100" id="pwChk_btn" name="pwChk_btn">확인</button>
-                                     </form:form>
+                                      <button type="submit" class="btn w-100" id="pwChk_btn" name="pwChk_btn">확인</button>
+                                     </form>
                                   </div>
                                 </div>
                               </div>

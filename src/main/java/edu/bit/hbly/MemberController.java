@@ -177,16 +177,19 @@ public class MemberController {
 	
 	//modify get
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void getModify() throws Exception{
+	public void getModify() throws Exception {
 		logger.info("get modify");
 	}
 	
 	//modify POST
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modify(MemberVO vo) throws Exception{
+	public String modify(MemberVO vo, HttpServletRequest request) throws Exception{
 		logger.info("post modify");
-		
+
+		System.out.println(vo.getUserId()+":"+vo.getUserPassword()+":"+vo.getUserAddress1()+":"+vo.getUserNickname());
+
 		service.modify(vo);
+		request.getSession().invalidate();
 		return "redirect:/";
 	}
 
@@ -241,21 +244,25 @@ public class MemberController {
 	@RequestMapping(value= "/pwChk", method = RequestMethod.POST)
 	public String PwChk(MemberVO vo, Authentication authentication, HttpServletRequest request) throws Exception{
 		log.info("post pwChk");
-			 
+         
 		Gson gson = new Gson();
 	    CustomUser user = (CustomUser) authentication.getPrincipal();
-	    boolean isValidPassword = false;
+//	    boolean isValidPassword = false;
+	   
+	    boolean isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
 	    
-	    try {
-	    	isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
-	    }catch (Exception e) {	}
-  
+
+//	    try {
+//	    	isValidPassword = passEncoder.matches(vo.getUserPassword(), user.getMember().getUserPassword());
+//	    }catch (Exception e) {System.out.println("아니요..에러나요: "+e.getMessage());}
+//  
 	       
 	    if (isValidPassword) {                 
 	    		  
 	        gson.toJson(new ResponseVO<>(200, "success"));	
-	             
-			return "/member/modify";
+	        
+	        System.out.println(isValidPassword+"여기왔냥?");
+			return "redirect:/member/modify";
 	    }
 	        
 	gson.toJson(new ResponseVO<>(400, "fail"));

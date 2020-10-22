@@ -65,63 +65,25 @@
 </style>
 </head>
 <body>
-	<!--? Preloader Start -->
-	<div id="preloader-active">
-		<div class="preloader d-flex align-items-center justify-content-center">
-			<div class="preloader-inner position-relative">
-				<div class="preloader-circle"></div>
-				<div class="preloader-img pere-text">
-					<img src="/resources/assets/img/logo/loder.png" alt="">
+	<!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="resources/assets/img/logo/HBLY.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Preloader Start -->
+    		<header id="header">
+				<div class="header_box text-center">
+					<%@ include file= "../include/header.jsp" %>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Preloader Start -->
-	
-	<header>
-		<!-- Header Start -->
-		<div class="header-area header-transparent">
-			<div class="main-header header-sticky">
-				<div class="container-fluid">
-					<div class="menu-wrapper d-flex align-items-center justify-content-between">
-						<!-- Logo -->
-						<div class="logo">
-							<a href="index.html"><img src="/resources/assets/img/logo/logo.png" alt=""></a>
-						</div>
-						<!-- Main-menu -->
-						<div class="main-menu f-right d-none d-lg-block">
-							<nav>
-								<ul id="navigation">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="courses.html">Courses</a></li>
-									<li><a href="pricing.html">Pricing</a></li>
-									<li><a href="gallery.html">Gallery</a></li>
-									<li><a href="blog.html">Blog</a>
-										<ul class="submenu">
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog_details.html">Blog Details</a></li>
-											<li><a href="elements.html">Elements</a></li>
-										</ul>
-									</li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</nav>
-						</div>          
-						<!-- Header-btn -->
-						<div class="header-btns d-none d-lg-block f-right">
-							<a href="contact.html" class="btn hero-d">Contact me</a>
-						</div>
-						<!-- Mobile Menu -->
-						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Header End -->
-	</header>
+			</header>
 	
 	<main>
 		<!--? Hero Start -->
@@ -151,7 +113,7 @@
 							<p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
 		
 							<!-- form -->
-							<form:form method="post" class="text-left" action="/member/signup">									
+							<form method="post" class="text-left" action="/member/signup">									
 								
 								<!-- id -->
 								<div class="form-group">
@@ -287,7 +249,7 @@
 								<!-- button -->
 								<button type="submit" id="signup_btn" class="btn btn-danger">가입하기</button>
 								<button type="button" class="btn btn-danger" OnClick="javascript:history.back(-1)">취소</button>
-							</form:form>
+							</form>
 		
 						</div>
 					</div>
@@ -769,58 +731,58 @@
 			}
 		}); //End of method /*
 		
-		// 가입하기 실행 버튼 유효성 검사!
-		var inval_Arr = new Array(5).fill(false);
-		$('#signup_btn').click(function(){
-			// 비밀번호가 같은 경우 && 비밀번호 정규식
-			if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
-					&& pwJ.test($('#userPassword').val())) {
-				inval_Arr[0] = true;
-			} else {
-				inval_Arr[0] = false;
-			}
-			// 이름 정규식
-			if (nameJ.test($('#userName').val())) {
-				inval_Arr[1] = true;	
-			} else {
-				inval_Arr[1] = false;
-			}
-			// 이메일 정규식
-			if (mailJ.test($('#userId').val())){
-				console.log(phoneJ.test($('#userId').val()));
-				inval_Arr[2] = true;
-			} else {
-				inval_Arr[2] = false;
-			}
-			// 휴대폰번호 정규식
-			if (phoneJ.test($('#userPhoneNumber').val())) {
-				console.log(phoneJ.test($('#userPhoneNumber').val()));
-				inval_Arr[3] = true;
-			} else {
-				inval_Arr[3] = false;
-			}
-			// 생년월일 정규식
-			if (birthJ) {
-				console.log(birthJ);
-				inval_Arr[4] = true;
-			} else {
-				inval_Arr[4] = false;
-			}
+	// 가입하기 실행 버튼 유효성 검사!
+	var inval_Arr = new Array(5).fill(false);
+	$('#signup_btn').click(function(){
+		// 비밀번호가 같은 경우 && 비밀번호 정규식
+		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
+				&& pwJ.test($('#userPassword').val())) {
+			inval_Arr[0] = true;
+		} else {
+			inval_Arr[0] = false;
+		}
+		// 이름 정규식
+		if (nameJ.test($('#userName').val())) {
+			inval_Arr[1] = true;	
+		} else {
+			inval_Arr[1] = false;
+		}
+		// 이메일 정규식
+		if (mailJ.test($('#userId').val())){
+			console.log(phoneJ.test($('#userId').val()));
+			inval_Arr[2] = true;
+		} else {
+			inval_Arr[2] = false;
+		}
+		// 휴대폰번호 정규식
+		if (phoneJ.test($('#userPhoneNumber').val())) {
+			console.log(phoneJ.test($('#userPhoneNumber').val()));
+			inval_Arr[3] = true;
+		} else {
+			inval_Arr[3] = false;
+		}
+		// 생년월일 정규식
+		if (birthJ) {
+			console.log(birthJ);
+			inval_Arr[4] = true;
+		} else {
+			inval_Arr[4] = false;
+		}
+		
+		var validAll = true;
+		for(var i = 0; i < inval_Arr.length; i++){
 			
-			var validAll = true;
-			for(var i = 0; i < inval_Arr.length; i++){
-				
-				if(inval_Arr[i] == false){
-					validAll = false;
-				}
+			if(inval_Arr[i] == false){
+				validAll = false;
 			}
-			
-			if(validAll){ // 유효성 모두 통과
-				alert('회원가입이 완료되었습니다.');
-			} else{
-				alert('입력한 정보들을 다시 한번 확인해주세요.')
-			}
-		});
+		}
+		
+		if(validAll){ // 유효성 모두 통과
+			alert('회원가입이 완료되었습니다.');
+		} else{
+			alert('입력한 정보들을 다시 한번 확인해주세요.')
+		}
+	});
 	
 </script>
 </html>
