@@ -67,7 +67,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-plus"></i></div>
                                	통계
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/index">
                                 <div class="sb-nav-link-icon"><i class="fa fa-user-circle"></i></div>
                                	유저목록
                             </a>

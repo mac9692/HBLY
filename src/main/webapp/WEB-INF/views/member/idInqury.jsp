@@ -26,11 +26,7 @@
 	<link rel="stylesheet" href="/resources/assets/css/style.css">
 	
 	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
-	
-<style>
 
-
-</style>
 </head>
 
 <body>
@@ -149,8 +145,6 @@
 		<%@ include file= "../include/gymService.jsp" %>
 	</main>
 	
-	
-	<!-- Footer -->
 	<!-- Footer -->
 	<footer>
 	<!--? Footer Start-->

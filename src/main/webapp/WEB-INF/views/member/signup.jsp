@@ -192,14 +192,11 @@
 								<div class="form-group">
 									<label for="form10">이용약관</label>
 								</div>
-								
 								<div class="form-group">
-									<textarea class="form-control" id="form10" rows="4"
-										placeholder="Your message" readonly="readonly"></textarea>
 									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="form11"value="on">
+										<input class="form-check-input primary-checkbox" type="checkbox" name="policy" id="policy"value="on" required="required">
 										<label class="form-check-label" for="form10">
-										I Agree with <a href="#">Term and Conditions</a> of the service
+										헬블리 <a href="/policy/terms" target="_blank">이용약관, 개인정보 수집 및 이용</a>에 모두 동의합니다.
 										</label>
 									</div>
 								</div>
@@ -595,7 +592,7 @@
 		}); //End of method /*
 		
 	// 가입하기 실행 버튼 유효성 검사!
-	var inval_Arr = new Array(5).fill(false);
+	var inval_Arr = new Array(6).fill(false);
 	$('#signup_btn').click(function(){
 		// 비밀번호가 같은 경우 && 비밀번호 정규식
 		if (($('#userPassword').val() == ($('#userPasswordCheck').val()))
@@ -631,6 +628,16 @@
 		} else {
 			inval_Arr[4] = false;
 		}
+		
+		//약관 동의 여부
+		if ($("input:[name=policy]:checked").val()=="on") {
+			inval_Arr[5] = true;
+			alert(inval_Arr[5]);
+		} else {
+			inval_Arr[5] = false;
+			alert(inval_Arr[5]);
+		}
+		
 		
 		var validAll = true;
 		for(var i = 0; i < inval_Arr.length; i++){
