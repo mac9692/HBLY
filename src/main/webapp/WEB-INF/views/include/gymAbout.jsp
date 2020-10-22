@@ -104,8 +104,8 @@
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery1.png);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                                <h3>Health food </h3>
+                                <a href="/shop/list?c=000&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
                     <div class="box snake mb-30">
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery2.png);"></div>
                         <div class="overlay">
-                            <div class="overlay-content">WW
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                            <div class="overlay-content">
+                                <h3>vitamin </h3>
+                                <a href="/shop/list?c=100&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -126,8 +126,8 @@
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery3.png);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                                <h3>Nutrients </h3>
+                                <a href="/shop/list?c=200&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -137,8 +137,8 @@
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery4.png);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                                <h3>Herb </h3>
+                                <a href="/shop/list?c=300&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -148,8 +148,8 @@
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery5.png);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                                <h3>Health juice </h3>
+                                <a href="/shop/list?c=500&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -159,8 +159,8 @@
                         <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery6.png);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Muscle gaining </h3>
-                                <a href="gallery.html"><i class="ti-plus"></i></a>
+                                <h3>Diet food </h3>
+                                <a href="/shop/list?c=600&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
