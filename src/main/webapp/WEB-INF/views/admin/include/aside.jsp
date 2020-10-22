@@ -8,6 +8,7 @@
   <li><a href="/admin/shop/allGoodsReply">상품 소감</a></li>
   <li><a href="/admin/statistics/index">통계</a></li>
   <li><a href="">유저 목록</a></li>
+  <li><a href="/board/writeView?category=0">공지사항 등록</a></li>
 
  </ul>
 </aside>

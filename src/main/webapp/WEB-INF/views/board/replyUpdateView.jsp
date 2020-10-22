@@ -27,13 +27,7 @@
 	<body>
 	
 		<div id="root">
-			<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
-				</div>
-			</header>
-			<hr />
-			
+
 			<section id="container">
 				<form:form name="updateForm" role="form" method="post" action="/board/replyUpdate">
 					<input type="hidden" name="boardNumber" value="${replyUpdate.boardNumber}" readonly="readonly"/>
@@ -46,7 +40,11 @@
 						<tbody>
 							<tr>
 								<td>
-									<label for="boardReplyContent">댓글 내용</label><input type="text" id="boardReplyContent" name="boardReplyContent" value="${replyUpdate.boardReplyContent}"/>
+									<label for="boardReplyContent">댓글 내용</label>
+									<input type="text" id="boardReplyContent" name="boardReplyContent" value="${replyUpdate.boardReplyContent}"/>
+									
+									<label for="boardReplyUserId">댓글 작성자</label>
+									<input type="text" id="boardReplyUserId" name="boardReplyUserId" value="${replyUpdate.userId} "/>
 								</td>
 							</tr>	
 							

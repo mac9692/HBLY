@@ -24,9 +24,11 @@ public interface BoardService {
 	public void update(BoardVO boardVO) throws Exception;
 		
 	// 게시물 삭제
-	public void delete(int boardNumber) throws Exception;
+	//public void delete(int boardNumber) throws Exception;
+	public void delete(BoardVO boardVO) throws Exception;
 	
-	public int updateLike(int boardNumber) throws Exception;
+	//게시판 아이디 체크
+	public String boardIdCheck(int boardNumber) throws Exception;
 	
-	public int updateHate(int boardNumber) throws Exception;
+
 }

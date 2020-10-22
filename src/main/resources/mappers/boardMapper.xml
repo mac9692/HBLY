@@ -69,15 +69,22 @@
 		UPDATE tbl_board
 		   SET boardTitle    =   #{boardTitle},
 		   	   boardContent  =   #{boardContent}
-		 WHERE boardNumber = #{boardNumber} 
+		 WHERE boardNumber = #{boardNumber} AND userId=#{userId}
 	</update>
 	
 	<!-- 게시물 삭제 -->
-	<delete id="delete" parameterType="int">
+	<delete id="delete" >
 		DELETE 
 		  FROM tbl_board
-		 WHERE boardNumber = #{boardNumber}
+		 WHERE boardNumber = #{boardNumber} AND userId=#{userId}
 	</delete>
+	
+	<!-- 게시판 아이디 체크 -->
+	<select id="boardIdCheck" resultType="String">
+	 SELECT	userId
+	 FROM tbl_board
+	 WHERE boardNumber = #{boardNumber} 
+	</select>
 	
 	<!-- 게시판 조회수 -->
     <update id="boardHit" parameterType="int">
@@ -86,16 +93,5 @@
     	WHERE boardNumber = #{boardNumber}
     </update>
 
-	<update id="updateLike" parameterType="int">
-		UPDATE tbl_board
-		SET boardLikeCount = boardLikeCount +1
-		WHERE boardNumber = #{boardNumber}
-	</update>
-	
-	<update id="updateHate" parameterType="int">
-		UPDATE tbl_board
-		SET boardHateCount = boardHateCount +1
-		WHERE boardNumber = #{boardNumber}
-	</update>
    
 </mapper>

@@ -44,5 +44,11 @@ public class ReplyServiceImpl implements ReplyService {
 	public ReplyVO selectReply(int boardReplyNumber) throws Exception {
 		return dao.selectReply(boardReplyNumber);
 	}
+	
+	//게시판 ID 체크
+	@Override
+	public String replyIdCheck(int boardReplyNumber) throws Exception {
+		return dao.replyIdCheck(boardReplyNumber);
+	}	
 
 }

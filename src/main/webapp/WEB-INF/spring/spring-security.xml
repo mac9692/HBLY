@@ -32,7 +32,7 @@
         
 
         <intercept-url pattern="/board/writeView" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
-        <intercept-url pattern="/board/write" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+        <intercept-url pattern="/board/write" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />        
         <intercept-url pattern="/board/**" access="permitAll" />
         
         <form-login login-page="/member/signin"

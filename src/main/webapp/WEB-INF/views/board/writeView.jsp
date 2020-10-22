@@ -22,17 +22,12 @@
 		
 	</script>
 	
-	<body>
+	<body>	
+	<sec:authentication var="principal" property="principal" />
 	
-		<header id="header">
-				<div id="header_box">
-					<%@ include file="../include/header.jsp" %>
-				</div>
-		</header>
-
 	<div class="container">		
 			<section id="container">
-				<form:form role="writeForm" method="post" action="/board/write">
+				<form role="writeForm" method="post" action="/board/write">
 					<table>
 						<tbody>
 							<tr>
@@ -40,7 +35,9 @@
 									<label>게시판 카테고리</label>
 																		
 									<select class = "category" name="categoryCode">
-										<option value = "0" ${categoryCode=="0" ? "selected" : ""}>공지사항</option>																												
+										<c:if test="${principal.member.verify == 9}">
+										<option value = "0" ${categoryCode=="0" ? "selected" : ""}>공지사항</option>	
+										</c:if>																											
 										<option value = "1" ${categoryCode=="1" ? "selected" : ""}>자유게시판</option>
 										<option value = "2" ${categoryCode=="2" ? "selected" : ""}>문의게시판</option>
 										<option value = "3" ${categoryCode=="3" ? "selected" : ""}>리뷰게시판</option>
@@ -59,20 +56,21 @@
 									<label for="boardContent">내용</label>
 									<textarea id="boardContent" name="boardContent" required="required"></textarea>
 								</td>
-							</tr>
+							</tr>						
 							<tr>
 								<td>
 									<label for="userId">작성자</label>
-									<input type="text" id="userId" name="userId" required="required" />
+									<input type="text" id="userId" name="userId" value="${principal.member.userId}"/>
+									
 								</td>
-							<tr>
+							<tr>							
 								<td>						
 									<button class="write_btn" type="submit">작성</button>	
 								</td>
 							</tr>			
 						</tbody>			
 					</table>
-				</form:form>
+				</form>
 			</section>
 			<hr />
 		</div>

@@ -53,18 +53,17 @@ public class BoardServiceImpl implements BoardService {
 
 	//게시물 삭제
 	@Override
-	public void delete(int boardNumber) throws Exception {
-		dao.delete(boardNumber);		
+	public void delete(BoardVO boardVO) throws Exception {
+		dao.delete(boardVO);		
 	}
-
+	
+	//게시판 ID 체크
 	@Override
-	public int updateLike(int boardNumber) throws Exception {
-		return dao.updateLike(boardNumber);
-	}
-
-	@Override
-	public int updateHate(int boardNumber) throws Exception {
-		return dao.updateHate(boardNumber);
+	public String boardIdCheck(int boardNumber) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.boardIdCheck(boardNumber);
 	}	
+
+
 
 }

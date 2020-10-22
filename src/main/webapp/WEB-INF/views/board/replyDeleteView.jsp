@@ -35,7 +35,7 @@
 			<hr />
 			
 			<section id="container">
-				<form:form name="updateForm" role="form" method="post" action="/board/replyDelete">
+				<form name="updateForm" role="form" method="post" action="/board/replyDelete">
 					<input type="hidden" name="boardNumber" value="${replyDelete.boardNumber}" readonly="readonly"/>
 					<input type="hidden" id="boardReplyNumber" name="boardReplyNumber" value="${replyDelete.boardReplyNumber}" />
 					<input type="hidden" id="page" name="page" value="${scri.page}"> 
@@ -48,7 +48,7 @@
 						<button type="submit" class="delete_btn">예 삭제합니다.</button>
 						<button type="button" class="cancel_btn">아니오. 삭제하지 않습니다.</button>
 					</div>
-				</form:form>
+				</form>
 			</section>
 			<hr />
 		</div>

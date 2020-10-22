@@ -27,14 +27,21 @@
 	<!-- 댓글 수정 -->
 	<update id="updateReply" parameterType="edu.bit.hbly.vo.ReplyVO">
 		UPDATE tbl_board_reply SET boardReplyContent = #{boardReplyContent}
-		WHERE boardReplyNumber = #{boardReplyNumber}
+		WHERE boardReplyNumber = #{boardReplyNumber} AND userId=#{userId}
 	</update>
 
 	<!-- 댓글 삭제 -->
 	<delete id="deleteReply" parameterType="edu.bit.hbly.vo.ReplyVO">
 		DELETE FROM tbl_board_reply
-		WHERE boardReplyNumber = #{boardReplyNumber}
+		WHERE boardReplyNumber = #{boardReplyNumber} AND userId=#{userId}
 	</delete>
+	
+		<!-- 게시판 아이디 체크 -->
+	<select id="replyIdCheck" resultType="String">
+	 SELECT	userId
+	 FROM tbl_board_reply
+	 WHERE boardReplyNumber = #{boardReplyNumber} 
+	</select>
 	
 	<!-- 선택된 댓글 조회 -->
 	<select id="selectReply" resultType="edu.bit.hbly.vo.ReplyVO">
@@ -46,6 +53,7 @@
 			  , boardReplyRegidate
 		  FROM tbl_board_reply
 		 WHERE boardReplyNumber = #{boardReplyNumber}
-	</select>
+	</select>	
+
 
 </mapper>

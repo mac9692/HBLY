@@ -12,9 +12,7 @@ public class BoardVO {
 	private String userId;
 	private int boardHit;
 	private String categoryCode;
-	private int boardLikeCount;
-	private int boardHateCount;
-		
+
 	public String getCategoryCode() {
 		return categoryCode;
 	}
@@ -57,18 +55,7 @@ public class BoardVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public int getBoardLikeCount() {
-		return boardLikeCount;
-	}
-	public void setBoardLikeCount(int boardLikeCount) {
-		this.boardLikeCount = boardLikeCount;
-	}
-	public int getBoardHateCount() {
-		return boardHateCount;
-	}
-	public void setBoardHateCount(int boardHateCount) {
-		this.boardHateCount = boardHateCount;
-	}
+
 	
 	
 }

@@ -50,8 +50,8 @@ public class BoardDAOImpl implements BoardDAO{
 
 	//게시물 삭제
 	@Override
-	public void delete(int boardNumber) throws Exception {
-		sqlSession.delete("boardMapper.delete",boardNumber);		
+	public void delete(BoardVO boardVO) throws Exception {
+		sqlSession.delete("boardMapper.delete",boardVO);		
 	}
 
 	//게시판 조회수
@@ -60,14 +60,10 @@ public class BoardDAOImpl implements BoardDAO{
 		sqlSession.update("boardMapper.boardHit", boardNumber);
 	}
 
+	//게시판 아이디 체크
 	@Override
-	public int updateLike(int boardNumber) throws Exception {
-		return sqlSession.update("boardMapper.updateLike", boardNumber);
-	}
-
-	@Override
-	public int updateHate(int boardNumber) throws Exception {
-		return sqlSession.update("boardMapper.updateHate", boardNumber);
+	public String boardIdCheck(int boardNumber) throws Exception {		
+		return sqlSession.selectOne("boardMapper.boardIdCheck", boardNumber);
 	}
 
 

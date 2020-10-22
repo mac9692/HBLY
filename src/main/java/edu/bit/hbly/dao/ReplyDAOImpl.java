@@ -44,5 +44,11 @@ public class ReplyDAOImpl implements ReplyDAO {
 	public ReplyVO selectReply(int boardReplyNumber) throws Exception {
 		return sql.selectOne("replyMapper.selectReply", boardReplyNumber);
 	}
+	
+	//댓글 아이디 체크
+	@Override
+	public String replyIdCheck(int boardReplyNumber) throws Exception {		
+		return sql.selectOne("replyMapper.replyIdCheck", boardReplyNumber);
+	}
 
 }

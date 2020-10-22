@@ -28,6 +28,7 @@
 				if(fn_valiChk()){
 					return false;
 				}
+				
 				formObj.attr("action", "/board/update");
 				formObj.attr("method", "post");
 				formObj.submit();
@@ -37,16 +38,9 @@
 	</script>
 	
 	<body>
-		<div class="container">
-			<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
-				</div>
-			</header>
-			<hr />
 			
 			<section id="container">
-				<form:form name="updateForm" role="form" method="post" action="/board/update">
+				<form name="updateForm" role="form" method="post" action="/board/update">
 					<input type="hidden" name="boardNumber" value="${update.boardNumber}" readonly="readonly"/>
 					<table>
 						<tbody>
@@ -77,7 +71,7 @@
 						<button type="submit" class="update_btn">저장</button>
 						<button type="submit" class="cancel_btn">취소</button>
 					</div>
-				</form:form>
+				</form>
 			</section>
 			<hr />
 		</div>

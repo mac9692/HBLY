@@ -9,7 +9,7 @@ public class Criteria {
    private int rowEnd;
    
    public Criteria() {
-      this.categoryCode = "";
+      this.categoryCode = "1";
       this.page = 1;
       this.perPageNum = 10;
    }

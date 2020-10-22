@@ -20,5 +20,8 @@ public interface ReplyDAO {
 	
 	//선택된 댓글 조회
 	public ReplyVO selectReply(int boardReplyNumber) throws Exception;
+	
+	//댓글 아이디 체크
+	public String replyIdCheck(int boardReplyNumber) throws Exception;
 
 }
