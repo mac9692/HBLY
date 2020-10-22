@@ -139,8 +139,8 @@
                         <c:if test="${pageContext.request.userPrincipal.name == null}">
                         
                         <div class="header-btns d-none d-lg-block f-right">
-							<a href="/member/signup" class="btn">회원가입</a>					
-                            <a href="/member/signin" class="btn">로그인</a>
+							<a href="/member/signup" class="header-btn btn">회원가입</a>					
+                            <a href="/member/signin" class="header-btn btn">로그인</a>
                        	</div>
                        	</c:if>
                        
