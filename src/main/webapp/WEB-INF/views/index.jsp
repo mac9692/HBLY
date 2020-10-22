@@ -46,13 +46,29 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" href="/admin/goods/list">
+                                <div class="sb-nav-link-icon"><i class="fa fa-list-ol"></i></div>
                                	상품목록
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" href="/admin/goods/register">
+                                <div class="sb-nav-link-icon"><i class="fa fa-registered"></i></div>
                                	상품등록
+                            </a>
+                            <a class="nav-link" href="/admin/shop/orderList">
+                                <div class="sb-nav-link-icon"><i class="fa fa-cart-plus"></i></div>
+                               	주문목록
+                            </a>
+                            <a class="nav-link" href="/admin/shop/allGoodsReply">
+                                <div class="sb-nav-link-icon"><i class="fa fa-comments"></i></div>
+                               	상품소감
+                            </a>
+                            <a class="nav-link" href="/admin/statistics/index">
+                                <div class="sb-nav-link-icon"><i class="fa fa-plus"></i></div>
+                               	통계
+                            </a>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fa fa-user-circle"></i></div>
+                               	유저목록
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
