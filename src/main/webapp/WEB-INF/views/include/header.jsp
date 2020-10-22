@@ -26,9 +26,10 @@
         <div class="header-area header-transparent">
             <div class="main-header header-sticky">
                 <div class="container-fluid">
-                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
-                        <!-- 로고(사진이었으나 글로 변경) -->
-                        <a href="/">HBLY</a>
+
+                    <div class="hero-d menu-wrapper d-flex align-items-center justify-content-between">
+                        <!-- Logo -->
+                        <h1 data-animation="fadeInLeft" data-delay="0.4s" class="" style="animation-delay: 0.4s;"><a href="/">HBLY</a></h1>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
@@ -144,6 +145,7 @@
                        	</c:if>
                        
                        
+
                        <!-- Mobile Menu -->
                        <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
