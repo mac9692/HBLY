@@ -266,8 +266,7 @@ public class BoardController {
 		 String username = ((UserDetails)principal).getUsername();
 		 String userId = replyService.replyIdCheck(replyVO.getBoardReplyNumber());
 		 
-		 String rbn = request.getParameter("boardReplyNumber");
-		 
+		 String rbn = request.getParameter("boardReplyNumber");		 
 		 
 		 logger.info("======="+rbn);
 		 logger.info("======="+replyVO.getBoardReplyNumber());
@@ -289,34 +288,105 @@ public class BoardController {
 	      return String.valueOf(result);
 	   }
 	   
-		//댓글 수정 GET
-		@RequestMapping(value="/replyUpdateView", method = RequestMethod.GET)
-		public String replyUpdateView(ReplyVO ReplyVO, SearchCriteria scri, Model model) throws Exception {
-			logger.info("reply Write");
+	   		//댓글 수정 check
+	   		@ResponseBody
+	 		@RequestMapping(value="/replyUpdateCheck", method = RequestMethod.POST)
+	 		public String replyUpdate(ReplyVO replyVO, HttpServletRequest request) throws Exception {
+	 			
+	 		 int result = 0;
+	 			 
+ 			 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+ 			 String username = ((UserDetails)principal).getUsername();
+ 			 String userId = replyService.replyIdCheck(replyVO.getBoardReplyNumber());
+ 			 
+ 			 String rbn = request.getParameter("boardReplyNumber"); 			 
+ 			 
+ 			 logger.info("======="+rbn);
+ 			 logger.info("======="+replyVO.getBoardReplyNumber());
+ 			 
+ 			 logger.info("username:" + username);
+ 			 logger.info("userid:" + userId);
+ 			
+ 		     if(username.equals(userId)) {
+ 		          
+ 		         result = 1;
+ 		          
+ 		     }
+ 		     	logger.info("=====result="+result);
+ 		      return String.valueOf(result);
+	 		}
+	   		
+	   		// 댓글 수정뷰
+			@RequestMapping(value = "/replyUpdateView", method = RequestMethod.GET)
+			public String replyUpdateView(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
+				logger.info("replyUpdateView");
 				
-			model.addAttribute("replyUpdate", replyService.selectReply(ReplyVO.getBoardReplyNumber()));
-			model.addAttribute("scri", scri);
+				Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+				String username = ((UserDetails)principal).getUsername();
+				String userId = replyService.replyIdCheck(replyVO.getBoardReplyNumber());
 				
-			return "board/replyUpdateView";
-		}
+				logger.info("username:" + username);
+	 			logger.info("userid:" + userId);
+				
+				if(!username.equals(userId)) {
+					return "board/list";
+				}
+				
+				model.addAttribute("update", replyService.selectReply(replyVO.getBoardReplyNumber()));
+				model.addAttribute("scri", scri);
+				
+				return "board/replyUpdateView";
+			}
 			
-		//댓글 수정 POST
-		@RequestMapping(value="/replyUpdate", method = RequestMethod.POST)
-		public String replyUpdate(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
-			logger.info("reply Write");
+			// 댓글 수정
+			@RequestMapping(value = "/replyUpdate", method = RequestMethod.POST)
+			public String replyUpdate(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model,RedirectAttributes rttr) throws Exception{
+				logger.info("replyUpdate");
 				
-			replyService.updateReply(ReplyVO);
+				logger.info("********************************************");
 				
-			rttr.addAttribute("boardNumber", ReplyVO.getBoardNumber());
-			rttr.addAttribute("userId", ReplyVO.getUserId());
-			rttr.addAttribute("page", scri.getPage());
-			rttr.addAttribute("perPageNum", scri.getPerPageNum());
-			rttr.addAttribute("searchType", scri.getSearchType());
-			rttr.addAttribute("keyword", scri.getKeyword());
+				replyService.updateReply(replyVO);
 				
-			return "redirect:/board/readView";
-		}
+				rttr.addAttribute("page", scri.getPage());
+				rttr.addAttribute("perPageNum", scri.getPerPageNum());
+				rttr.addAttribute("searchType", scri.getSearchType());
+				rttr.addAttribute("keyword", scri.getKeyword());
+					
+				return "redirect:/board/list";
+			}
+	 		
 	   
+			/*
+			 * //댓글 수정 GET
+			 * 
+			 * @RequestMapping(value="/replyUpdateView", method = RequestMethod.GET) public
+			 * String replyUpdateView(ReplyVO ReplyVO, SearchCriteria scri, Model model)
+			 * throws Exception { logger.info("reply Write");
+			 * 
+			 * model.addAttribute("replyUpdate",
+			 * replyService.selectReply(ReplyVO.getBoardReplyNumber()));
+			 * model.addAttribute("scri", scri);
+			 * 
+			 * return "board/replyUpdateView"; }
+			 * 
+			 * //댓글 수정 POST
+			 * 
+			 * @RequestMapping(value="/replyUpdate", method = RequestMethod.POST) public
+			 * String replyUpdate(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes
+			 * rttr) throws Exception { logger.info("reply Write");
+			 * 
+			 * replyService.updateReply(ReplyVO);
+			 * 
+			 * rttr.addAttribute("boardNumber", ReplyVO.getBoardNumber());
+			 * rttr.addAttribute("userId", ReplyVO.getUserId()); rttr.addAttribute("page",
+			 * scri.getPage()); rttr.addAttribute("perPageNum", scri.getPerPageNum());
+			 * rttr.addAttribute("searchType", scri.getSearchType());
+			 * rttr.addAttribute("keyword", scri.getKeyword());
+			 * 
+			 * return "redirect:/board/readView"; }
+			 */
 		/*
 		 * //댓글 삭제
 		 * 

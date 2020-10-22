@@ -88,11 +88,12 @@
 			//댓글 쓰기
 			$(".replyWriteBtn").on("click", function(){
 				  var formObj = $("form[name='replyForm']");
-				  formObj.attr("&userId=${principal.member.userId}")
-				  
+				  formObj.attr("${principal.member.userId}");				 
 				  formObj.attr("action", "/board/replyWrite");
 				  formObj.submit();
 			}); 
+			
+			//	"&userId=${principal.member.userId}"
 
 /* 			//댓글 쓰기
 			$(".replyWriteBtn").on("click", function(){
@@ -135,7 +136,7 @@
 				var deleteYN = confirm("정말로 삭제하시겠습니까?");				
 				
 				if(deleteYN == true ){
-					var data = {BaordReplyNumber : $(this).attr("data-boardReplyNumber")};
+					var data = {boardReplyNumber : $(this).attr("data-boardReplyNumber")};
 					
 					$.ajax({
 						type : 'POST',
@@ -152,16 +153,46 @@
 								location.href = "/board/list";
 							}
 						},
-						error : function( request, status) {
-						alert("code:"+request.status);	
-						alert("message:"+request.responseText);
-	
+						error : function() {
+							alert('로그인이 필요합니다')
+							location.href="/member/signin";	
 						}
 					});					
 				}				
 			})			
 			
 			//댓글 수정 View
+			$(".replyUpdateBtn").on("click", function(){
+				
+				var bn = $(this).attr("data-boardReplyNumber");
+				var rbn = {boardReplyNumber : bn};
+				
+				$.ajax({
+					type : 'POST',
+					dataType : 'json',
+					url : "/board/replyUpdateCheck",
+					data : rbn,
+					success : function(result){
+						if(result == 0){
+							alert("작성자 본인만 수정할 수 있습니다")
+						}
+						if(result==1){							
+							location.href="/board/replyUpdateView?boardReplyNumber="+bn;
+						}
+					},
+					error : function(){
+						alert('로그인이 필요합니다')
+						location.href="/member/signin";	
+					}
+					
+				})
+		
+			});
+			 
+			
+			 						
+			 
+	/* 		//댓글 수정 View
 			$(".replyUpdateBtn").on("click", function(){
 				location.href = "/board/replyUpdateView?boardNumber=${read.boardNumber}"
 								+ "&page=${scri.page}"
@@ -170,7 +201,7 @@
 								+ "&keyword=${scri.keyword}"
 								+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
 			});
-						
+				 */		
 			
 		})
 	
@@ -253,24 +284,28 @@
 			 </ol>
 		</div>			
 			<form name="replyForm" method="post">
-			<input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
-			<input type="hidden" id="userId" name="userId" value="${read.userId}" />
-			<input type="hidden" id="page" name="page" value="${scri.page}"> 
-			<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
-			<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
-			<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
-					
-			<div>							
-				<sec:authorize access="isAuthenticated()"> 
-					<sec:authentication var="principal" property="principal"/>
-					<label for="boardReplyContent">댓글 내용</label>
-				   <input type="text" id="boardReplyContent" name="boardReplyContent" />	
-					<label for="userId">댓글 작성자</label>					
-	                <a class="mypage-a">${principal.member.userId}님</a>
-	                <button class="replyWriteBtn"  type="submit"  >작성 </button>                
-           		</sec:authorize>			
-			</div>
-			
+				
+						
+				<div>							
+					<sec:authorize access="isAuthenticated()"> 
+						<sec:authentication var="principal" property="principal"/>
+						
+						<input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
+						<input type="hidden" id="userId" name="userId" value="${principal.member.userId}" />
+						<input type="hidden" id="page" name="page" value="${scri.page}"> 
+						<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+						<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+						<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+						
+						<label for="boardReplyContent">댓글 내용</label>
+					    <input type="text" id="boardReplyContent" name="boardReplyContent" />	
+					   
+						<label for="userId">댓글 작성자</label>			
+		                <a class="mypage-a">${principal.member.userId}</a>
+		                
+		                <button class="replyWriteBtn"  type="submit"  >작성 </button>                
+	           		</sec:authorize>			
+				</div>			
 			</form>
 		
 		</section>

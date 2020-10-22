@@ -40,7 +40,7 @@
 	<select id="replyIdCheck" resultType="String">
 	 SELECT	userId
 	 FROM tbl_board_reply
-	 WHERE boardReplyNumber = #{boardReplyNumber} 
+	 WHERE boardReplyNumber = #{boardReplyNumber}
 	</select>
 	
 	<!-- 선택된 댓글 조회 -->
