@@ -14,7 +14,7 @@
 						<li class="nav-item"><a class="nav-link"
 							href="/member/signup">회원가입</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
+						<li class="nav-item"><a class="nav-link" href="/board/list?categoryCode=0">공지사항</a></li>
 						<li><a class="btn navbar-btn ml-md-2 btn-light"
 							href="/member/signin">로그인</a></li>
 					</ul>

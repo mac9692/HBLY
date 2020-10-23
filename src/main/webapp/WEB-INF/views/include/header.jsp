@@ -76,10 +76,10 @@
                                     </li>
                                     
                                     
-                                    <li><a href="/">HELP</a>
+                                    <li><a href="/board/list">HELP</a>
                                         <ul class="submenu">
                                             <li><a href="/">고객센터</a></li>
-                                            <li><a href="/">공지사항</a></li>
+                                            <li><a href="/board/list?categoryCode=0"">공지사항</a></li>
                                             <li><a href="elements.html">Elements</a></li>
                                         </ul>
                                     </li>

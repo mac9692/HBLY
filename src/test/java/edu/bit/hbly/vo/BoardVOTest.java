@@ -17,7 +17,7 @@ public class BoardVOTest {
 	}
 	
 	public void testBoardVOAllArgs() {
-		BoardVO boardVO = new BoardVO(1,"Çïºí¸®","±Â",new Date(),"qkseh1802@naver.com",10,"4",5,1);
+		BoardVO boardVO = new BoardVO(1,"Çïºí¸®","±Â",new Date(),"qkseh1802@naver.com",10,"4");
 		
 		System.out.println(boardVO);
 		assertNotNull(boardVO);
