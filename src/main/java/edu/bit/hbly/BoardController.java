@@ -36,8 +36,8 @@ public class BoardController {
 	
 	@Inject
 	ReplyService replyService;
-	
-	// 게시판 글 작성 화면
+	 
+	// 寃뚯떆�뙋 湲� �옉�꽦 �솕硫�
 	@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
 	public void writeView(HttpServletRequest request, Model model) throws Exception{			
 		
@@ -48,7 +48,7 @@ public class BoardController {
 		model.addAttribute("categoryCode", category);		
 	}
 		
-	// 게시판 글 작성
+	// 寃뚯떆�뙋 湲� �옉�꽦
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
 	public String write(BoardVO boardVO, HttpServletRequest request, Model model) throws Exception{
 		logger.info("write : "   + request.getParameter("categoryCode"));
@@ -62,7 +62,7 @@ public class BoardController {
 		return "redirect:/board/list?page=1&categoryCode=${categoryCode}";
 	}
 	
-	// 게시판 목록 조회
+	// 寃뚯떆�뙋 紐⑸줉 議고쉶
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception{
 		logger.info("list");
@@ -79,7 +79,7 @@ public class BoardController {
 			
 	}
 		
-	// 게시판 조회
+	// 寃뚯떆�뙋 議고쉶
 	@RequestMapping(value = "/readView", method = RequestMethod.GET)
 	public String read(BoardVO boardVO, HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 		
@@ -95,7 +95,7 @@ public class BoardController {
 		return "board/readView";
 	}
 		
-	// 게시판 수정뷰
+	// 寃뚯떆�뙋 �닔�젙酉�
 	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
 	public String updateView(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 		logger.info("updateView");
@@ -106,7 +106,7 @@ public class BoardController {
 		return "board/updateView";
 	}
 	
-	// 게시판 수정
+	// 寃뚯떆�뙋 �닔�젙
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
 		logger.info("update");
@@ -121,7 +121,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	// 게시판 삭제
+	// 寃뚯떆�뙋 �궘�젣
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
 		logger.info("delete");
@@ -136,7 +136,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	//댓글 작성
+	//�뙎湲� �옉�꽦
 	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		logger.info("reply Write");
@@ -152,7 +152,7 @@ public class BoardController {
 		return "redirect:/board/readView";
 	}
 	
-	//댓글 수정 GET
+	//�뙎湲� �닔�젙 GET
 	@RequestMapping(value="/replyUpdateView", method = RequestMethod.GET)
 	public String replyUpdateView(ReplyVO ReplyVO, SearchCriteria scri, Model model) throws Exception {
 		logger.info("reply Write");
@@ -163,7 +163,7 @@ public class BoardController {
 		return "board/replyUpdateView";
 	}
 		
-	//댓글 수정 POST
+	//�뙎湲� �닔�젙 POST
 	@RequestMapping(value="/replyUpdate", method = RequestMethod.POST)
 	public String replyUpdate(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		logger.info("reply Write");
@@ -179,7 +179,7 @@ public class BoardController {
 		return "redirect:/board/readView";
 	}
 		
-	//댓글 삭제 GET
+	//�뙎湲� �궘�젣 GET
 	@RequestMapping(value="/replyDeleteView", method = RequestMethod.GET)
 	public String replyDeleteView(ReplyVO ReplyVO, SearchCriteria scri, Model model) throws Exception {
 		logger.info("reply Write");
@@ -190,7 +190,7 @@ public class BoardController {
 		return "board/replyDeleteView";
 	}
 		
-	//댓글 삭제
+	//�뙎湲� �궘�젣
 	@RequestMapping(value="/replyDelete", method = RequestMethod.POST)
 	public String replyDelete(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		logger.info("reply Write");
@@ -206,20 +206,6 @@ public class BoardController {
 		return "redirect:/board/readView";
 	}
 	
-	@RequestMapping(value="/{boardNumber}", method={RequestMethod.PUT, RequestMethod.PATCH})
-	public ResponseEntity<String> updateLike(@PathVariable("boardNumber") int boardNumber){
-		
-		logger.info("\n호출 BoardController, updateLike() ");
-		ResponseEntity<String> entity=null;
-		
-		try {
-			service.updateLike(boardNumber);
-			entity=new ResponseEntity<String>("success", HttpStatus.OK);
-		}catch (Exception e) {
-			e.printStackTrace();
-			entity=new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
+	
 	
 }
