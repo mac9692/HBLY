@@ -95,9 +95,9 @@
 										
 										<li><a href="/member/mypage">MYPAGE</a>
                                         <ul class="submenu">
-                                        	<li><a href="/shop/cartList">장바구니</a>
-                                            <li><a href="/shop/orderList">주문 목록</a></li>
-                                            <li><a href="/board/list">게시판</a></li>
+                                        	<li><a href="/member/mypage">개인정보 수정</a>
+                                            <li><a href="/shop/cartList">장바구니</a></li>
+                                            <li><a href="/shop/orderList">주문목록</a></li>
                                         </ul>
                                     	</li>
 										
