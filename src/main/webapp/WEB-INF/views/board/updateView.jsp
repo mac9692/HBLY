@@ -166,23 +166,129 @@
 	        text-align:center;
 	    }		
 	    
-	     table, th, td {
-		    margin-top: 1rem;
+
+		  table {
+	        margin-top: 1rem;
 		    font-size: 20px;
 		    text-align: center;
-		  }
-		  table {
 		    width: 100%;
-		    border: 1px solid #bcbcbc;
+		    border: 3px solid #bcbcbc;
+		    margin: auto;
+		    width: 90%;
+		    border-color: #D9042B;
 		  }	
 		  
+		  .button1{
+			display: flex;
+			margin-left: 30%;
+   			padding-left: 15%;
+			margin-top: 1rem;
+		  }
+		  
 		  .update_btn{
-		   color=black;
+		  	color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 30px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+			     -moz-user-select: none;
+			      -ms-user-select: none;
+			          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
 		  }
+		  
 		  .cancel_btn{
-		  	color=black;
+		  	 color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 30px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  white-space: nowrap;
+			  width: auto;  
 		  }
-	    
+		  
+		  	#boardTitle{
+ 	   text-align: center;
+       margin-left: 10%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+	}
+	
+	#userId{
+	   text-align: center;
+       margin-left: 7%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+	}
+
+
+			#boardContent{
+		       margin-left: 10%;
+				margin-right: 10%;
+			    margin-top: 2%;
+		    	margin-bottom: 2%;
+		    	height: 446px;
+		    	border-color: #D9042B;
+			}
+
+		#t1{
+			background-color:#C93343;
+			border-color: #D9042B;
+			padding-top: 1%;
+  			  padding-bottom: 1%;
+			
+			}
+			
+			#t2{
+			background-color:#B62837;
+			border-color: #D9042B;
+			padding-top: 1%;
+    		padding-bottom: 1%;
+		
+			}
+			
+			#t3{
+		    display: grid;
+		    border-color: #D9042B;
+			}
+			
+			#t4{
+			border-color: #D9042B;
+			}
+			
 </style>
 		
 	<script type="text/javascript">
@@ -244,29 +350,32 @@
 			<table>
 				<tbody>
 					<tr>
-						<td>
-							<label for="boardTitle">제목</label><input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}" class="chk" title="제목을 입력하세요"/>
+						<td id="t1">
+							<label for="boardTitle">제목</label>
+							<input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}" class="chk" title="제목을 입력하세요"/>
 						</td>
 					</tr>	
 					<tr>
-						<td>
-							<label for="boardContent">내용</label><textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea>
+					<td id="t2">
+						<label for="userId">작성자</label>
+						<input type="text" id="userId" name="userId" value="${update.userId}" readonly="readonly"/>
+					</td>
+					</tr>
+					<tr>
+						<td id="t3">
+							<label for="boardContent">내용</label>
+							<textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<label for="userId">작성자</label><input type="text" id="userId" name="userId" value="${update.userId}" readonly="readonly"/>
-						</td>
-					</tr>
-					<tr>
-						<td>
+						<td id="t4">
 							<label for="boardRegidate">작성날짜</label>
 							<fmt:formatDate value="${update.boardRegidate}" pattern="yyyy-MM-dd"/>					
 						</td>
 					</tr>		
 				</tbody>			
 			</table>
-			<div>
+			<div class="button1">
 				<button type="submit" class="update_btn">저장</button>
 				<button type="submit" class="cancel_btn">취소</button>
 			</div>

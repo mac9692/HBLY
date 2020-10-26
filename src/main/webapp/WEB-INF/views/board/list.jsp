@@ -5,8 +5,16 @@
 <head>
 		
 		<title>HBLY Board List</title>
+		
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+		
+		
 		<!-- jQuery -->
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 			
 		<!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -36,7 +44,8 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/slick.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/nice-select.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/style.css">
-			
+		<link href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap" rel="stylesheet">
+
 	<style>	
 		.goodsName a {
   		color: #000;
@@ -133,10 +142,7 @@
 	
 	<!-- 우측 사이드배너 스타일 -->
 	<style type="text/css">
-	.category1{
-		text-align: center;
-		font-size:30px;
-	}
+
 	.table{
 		width:90%;
 		margin-left: 5%;
@@ -144,7 +150,9 @@
 	}
 	a{
 		color:black;
+		margin-left: 10%;
 	}
+	
 	th,td{
 		text-align:center;
 	}
@@ -152,41 +160,11 @@
 		margin-left: 40%;
 	}	
 	
-	ul,li{
+	ul{
 		text-align:center;
 		display: inline-block;
 	}
-	
-	.page{
-		 -webkit-tap-highlight-color: transparent;
-		 background-color: #fff;
-		 border-radius: 5px;
-		 border: solid 1px #e8e8e8;
-		 box-sizing: border-box;
-		 clear: both;
-		 cursor: pointer;
-		 display: block;
-		 margin-left: 89%;
-		 font-family: inherit;
-		 font-size: 14px;
-		 font-weight: normal;
-		 height: 42px;
-		 line-height: 40px;
-		 outline: none;
-		 padding-left: 30px;
-		 padding-right: 30px;
-		 position: relative;
-		 text-align: left !important;
-		 -webkit-transition: all 0.2s ease-in-out;
-		 transition: all 0.2s ease-in-out;
-		 -webkit-user-select: none;
-		    -moz-user-select: none;
-		     -ms-user-select: none;
-		         user-select: none;
-		 white-space: nowrap;
-		 width: auto; 
-	} 
-	
+
 	
 	#searchBtn{
 	  color : black;
@@ -220,6 +198,7 @@
 		         user-select: none;
 		 white-space: nowrap;
 		 width: auto; 
+		 bottom: 43;
 	}
 	
 	 #searchBtn{
@@ -280,7 +259,19 @@
 		 white-space: nowrap;
 		 width: auto; 
 	}
+
+	div.page{
+		text-align:center;
+		font-size: 14px;
+		line-height: 20px;
+	}
 	
+	.pagination{
+		text-align:center;
+		font-size: 14px;
+		line-height: 20px;
+		display: -webkit-inline-box;
+	}	
 	
 		.banner {
 	        float:left;
@@ -309,6 +300,39 @@
 	        font-weight:bold;
 	        text-align:center;
 	    }		
+	    
+	    #tabletop{
+	    background-color:#EEE8E9;
+	    height: 50px;
+  		font-size: 25px;
+  		font-family: "Oswald", sans-serif;
+  		color: #443E3F;
+	    }
+	    
+	    .cate1{
+        text-align: center;
+	    height: 50px;
+  		font-size: 25px;
+  		font-family: "Oswald", sans-serif;
+  		margin-bottom: 1%;
+	    background-color: #CB0B2B;
+	    }
+	    
+	    
+/* 	    .navbar-nav{
+	    text-align:center;
+	    padding-left: 30%;
+        margin-top: 1rem;
+   		margin-bottom: 1rem;
+	    }
+
+		.nav-link{
+		color:black;
+		}
+		.nav-item{
+		color:black;
+		} */
+		
 		</style>
 			
 <script type="text/javascript">
@@ -356,18 +380,39 @@
    	</div>
 	</div>
 	<!-- Hero End -->
-	<div class="category1">
+	
+<%-- <nav class="navbar navbar-expand-sm bg-light navbar-light" id="cate1">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<c:set var="categoryCode" value="${pageMaker.cri.categoryCode}" />		
+				<a class="nav-link" href="/board/list?categoryCode=0">공지사항 </a>		
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"  href="/board/list?categoryCode=1">자유게시판 </a>	
+			</li>	
+			<li class="nav-item">
+				<a class="nav-link" href="/board/list?categoryCode=2">문의게시판 </a>
+			</li>		
+			<li class="nav-item">
+				<a class="nav-link" href="/board/list?categoryCode=3">리뷰게시판</a>
+			</li>
+		</ul>
+	</nav>  --%>
+	
+<div class="cate1">
 	<c:set var="categoryCode" value="${pageMaker.cri.categoryCode}" />		
 		<a href="/board/list?categoryCode=0">공지사항 </a>		
-		<a href="/board/list?categoryCode=1">자유게시판 </a>		
-		<a href="/board/list?categoryCode=2">문의게시판 </a>		
-		<a href="/board/list?categoryCode=3">리뷰게시판</a>
-	</div>
+		<a  href="/board/list?categoryCode=1">자유게시판 </a> 			
+		<a  href="/board/list?categoryCode=2">문의게시판 </a>				
+		<a  href="/board/list?categoryCode=3">리뷰게시판</a>
+	</div>  
+
  	
 <section id="listcontainer">
 	<form role="form" method="get" >
 		<table class="table">
-			<tr><th>글 번호</th>
+			<tr id="tabletop">
+				<th>글 번호</th>
 				<th>제목</th>
 				<th>작성자</th>
 				<th>등록일</th>
@@ -406,7 +451,7 @@
 
 	  	
 	<div class="page">
-	  <ul>
+	  <ul class="pagination">
 	    <c:if test="${pageMaker.prev}">
 	    	<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1, categoryCode)}">이전</a></li>
 	    </c:if> 

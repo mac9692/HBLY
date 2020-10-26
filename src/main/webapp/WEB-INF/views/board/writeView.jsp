@@ -170,22 +170,102 @@
 	    	color:black;
 	    }
 	    
-	/* 	.table{
-			width: 90%;
-		    margin-left: 10%;
-		    margin-right: 30%;
-		    border: 1px solid #bcbcbc;
-		} */
-		
-		  table, th, td {
+/* 		  table, th, td, tr {
 		    margin-top: 1rem;
 		    font-size: 20px;
 		    text-align: center;
-		  }
-		  table {
-		    width: 100%;
-		    border: 1px solid #bcbcbc;
+		  } */
+		  
+	  .t1 {
+	    margin-bottom: 1%;
+	    background-color: transparent;
+	    margin-top: 1%;
+	    font-size: 20px;
+	    text-align: center;
+	    width: 100%;
+	    border: 2px solid #bcbcbc;
+
+	    border-color: #D9042B;
 		  }		  
+	
+		.write_btn{
+		-webkit-tap-highlight-color: transparent;
+		 background-color: #fff;
+		 border-radius: 5px;
+		 border: solid 1px #e8e8e8;
+		 box-sizing: border-box;
+		 clear: both;
+		 cursor: pointer;
+		 display: block;
+		 margin-left: 89%;
+		 font-family: inherit;
+		 font-size: 14px;
+		 font-weight: normal;
+		 height: 42px;
+		 line-height: 40px;
+		 outline: none;
+		 padding-left: 30px;
+		 padding-right: 30px;	
+		 -webkit-transition: all 0.2s ease-in-out;
+		 transition: all 0.2s ease-in-out;
+		 -webkit-user-select: none;
+		    -moz-user-select: none;
+		     -ms-user-select: none;
+		         user-select: none;
+		 white-space: nowrap;
+
+		 color: black;
+		 margin-top: 1%;
+   		 margin-bottom: 1%;
+	}
+	
+	.category{
+		display: center;
+	}
+	
+	#t2{
+	   display: grid;
+	}
+	#t3{
+	   display: grid;
+       margin-top: 1%;
+	}
+	#t4{
+	   display: grid;
+	}
+	#t5{
+	   display: grid;
+	}
+	
+	#t6{
+	display: -webkit-box;
+	}
+	
+	#boardTitle{
+ 	   text-align: center;
+       margin-left: 10%;
+		margin-right: 10%;
+    	margin-bottom: 2%;
+   	    border-color: #D9042B;
+	}
+	
+	#boardContent{
+       margin-left: 10%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+    	height: 446px;
+    	border-color: #D9042B;
+	}
+
+	#userId{
+	   text-align: center;
+       margin-left: 7%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+   	    border-color: #D9042B;
+	}
 	    
 		</style>
 		
@@ -252,11 +332,11 @@
 	<div class="container">		
 			<section id="container">
 				<form role="writeForm" method="post" action="/board/write">
-					<table class="table">
+					<table class="t1">
 						<tbody>
 							<tr>
-								<td>																	
-									<select class = "category" name="categoryCode">
+								<td id="t2">																	
+									<select class = "category" name="categoryCode" >
 										<c:if test="${principal.member.verify == 9}">
 										<option value = "0" ${categoryCode=="0" ? "selected" : ""}>공지사항</option>	
 										</c:if>																											
@@ -268,25 +348,25 @@
 								</td>
 							</tr>	
 							<tr>
-								<td>
+								<td id="t3">
 									<label for="boardTitle">제목</label>
 									<input type="text" id="boardTitle" name="boardTitle" required="required"/>
 								</td>
 							</tr>	
 							<tr>
-								<td>
+								<td id="t4">
 									<label for="boardContent">내용</label>
 									<textarea id="boardContent" name="boardContent" required="required"></textarea>
 								</td>
 							</tr>						
 							<tr>
-								<td>
+								<td id="t5">
 									<label for="userId">작성자</label>
 									<input type="text" id="userId" name="userId" value="${principal.member.userId}"/>
 									
 								</td>
 							<tr>							
-								<td>						
+								<td id="t6">						
 									<button class="write_btn" type="submit">작성</button>	
 								</td>
 							</tr>			

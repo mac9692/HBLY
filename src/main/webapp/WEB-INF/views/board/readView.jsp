@@ -77,9 +77,6 @@
 			border-color:#fff;
 			background-color:#fff;
 		}
-		.sideMenu {
-		
-		}
 		
 		.goodsThumbImage img {
 			position: absolute;
@@ -134,7 +131,145 @@
 			bottom: 0;
 			max-width: 100%;
 			height: auto;
-		}				
+		}	
+		
+		#buttonBoxes{
+			display: flex;
+			margin-left: 25%;
+   			padding-left: 15%;
+			color: black;
+			margin-top: 1rem;
+		    margin-bottom: 5rem;
+			}
+			
+		.login-a,.list_btn{
+			color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+			     -moz-user-select: none;
+			      -ms-user-select: none;
+			          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+  		}
+  		
+  		.update_btn{
+  			color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+  		}
+  		.delete_btn{
+  			color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+  		}
+  		
+  		.replyWriteBtn{
+  			color:black;
+			-webkit-tap-highlight-color: transparent;
+			background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: inline-block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: 80px;
+			  margin-top: 2%; 
+		      margin-left: 45%;
+  		}
+	
+		.replybox{
+		    margin-top: 1rem;
+		    font-size: 20px;
+		    text-align: center;
+		    width: 100%;
+		    margin: 3%;
+		    margin-left:9%;
+		    width: 80%;
+		    display: grid;
+		    padding-top: 10px;
+		}
+				
 	</style>		
 	
 		<!-- 우측 사이드배너 스타일 -->
@@ -165,18 +300,163 @@
 	        color:#FFFFFF;
 	        font-weight:bold;
 	        text-align:center;
+	        
 	    }		
 	    
-	    .container1, table{
+	    .table{
 	    	margin-top: 1rem;
 		    font-size: 20px;
 		    text-align: center;
 		    width: 100%;
-		    border: 1px solid #bcbcbc;
+	        border: 3px solid #bcbcbc;
+		    margin: auto;
+		    width: 90%;
+	        border-color:#D9042B;
+
 	    }
 	    
+	    .replyBtn{
+	   		display: flex;
+			margin-left: 25%;
+ 			padding-left: 15%;
+			color: black;
+			margin-top: 1rem;	    
+	    }
 	    
-		</style>
+	    .replyUpdateBtn{	    
+	   		 color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: inline-block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto;
+			  margin-top: 1%; 	    
+	    }
+	    
+	    .replyDeleteBtn{
+	    	color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: inline-block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 18px;
+			  padding-right: 20px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+	    }
+	    
+	    #reply{
+	  		margin-top: 1rem;
+		    font-size: 20px;
+		    text-align: center;
+		    width: 100%;
+	        margin: 3%;
+		    width: 90%;
+	    }
+
+	#boardTitle{
+ 	   text-align: center;
+       margin-left: 10%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+	}
+	
+	#userId{
+	   text-align: center;
+       margin-left: 7%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+	}
+	
+	#boardContent{
+       margin-left: 10%;
+		margin-right: 10%;
+	    margin-top: 2%;
+    	margin-bottom: 2%;
+    	height: 446px;
+    	border-color: #D9042B;
+	}
+	
+	#boardReplyContent{
+	 border: solid 1px #e8e8e8;
+	border-color: #D9042B;
+	height: 100px;
+	border-radius: 5px;
+	}
+
+
+	#t1{
+	background-color:#C93343;
+	border-color: #D9042B;
+	
+	}
+	
+	#t2{
+	background-color:#B62837;
+	border-color: #D9042B;
+
+	}
+	
+	#t3{
+    display: grid;
+    border-color: #D9042B;
+	}
+	
+	#t4{
+	border-color: #D9042B;
+	}
+	
+	.re2{
+	height: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    display: grid;
+    border-color: #D9042B;
+    height: 200px;
+    margin-top: 5%;
+	}
+	    
+</style>
 		
 	<script type="text/javascript">
 		jQuery(window).scroll(function() {		
@@ -281,43 +561,8 @@
 				  formObj.submit();
 			}); 
 			
-			//	"&userId=${principal.member.userId}"
 
-/* 			//댓글 쓰기
-			$(".replyWriteBtn").on("click", function(){
-				
-				var boardNum = $(this).attr("data-boardNumber");
-				var userId = $(this).attr("data-userId");
-				
-				console.log(boardNum) ;
-				console.log(userId);
-				
-				  $.ajax({
-					  type : 'POST',
-					  dataType : 'json',
-					  url : "/board/replyWrite",
-					  data : {"boardNumber" : boardNum,
-						  	  "userId" : userId},
-					  success : function(data){
-					  	location.href = "/board/replyWrite";
-					  },
-					  error : function(error){
-						  alert(error);
-					  }
-				  })
-			});
-			 */
-					
-		/* 	//댓글 삭제 View
-			$(".replyDeleteBtn").on("click", function(){
-				location.href = "/board/replyDeleteView?boardNumber=${read.boardNumber}"
-					+ "&page=${scri.page}"
-					+ "&perPageNum=${scri.perPageNum}"
-					+ "&searchType=${scri.searchType}"
-					+ "&keyword=${scri.keyword}"
-					+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
-			});
-			 */
+
 			 
 			// 댓글삭제
 			$(".replyDeleteBtn").on("click", function(){
@@ -422,8 +667,8 @@
     <!-- Hero End -->		   
                             
       <sec:authentication var="principal" property="principal" />
-		<div class="container1">							
-			<section id="container">
+		<div class="container">							
+			<section id="container1">
 				<form name="readForm" role="form" method="post">
 				  <input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
 				  <input type="hidden" id="page" name="page" value="${scri.page}"> 
@@ -435,45 +680,43 @@
 				<table class="table">
 					<tbody>	
 						<tr>
-							<td>
+							<td id="t1">
 								<label for="boardTitle">제목</label>
 								<input type="text" id="boardTitle" name="boardTitle" value="${read.boardTitle}" readonly="readonly"/>
 							</td>
 						</tr>	
 						<tr>
-							<td>
-								<label for="boardContent">내용</label>
-								<textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td>
+							<td id="t2">
 								<label for="userId">작성자</label>
 								<input type="text" id="userId" name="userId" value="${read.userId}" readonly="readonly" />
 							</td>
 						</tr>
 						<tr>
-							<td>
+							<td id="t3">
+								<label  for="boardContent">내용</label>
+								<textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td id="t4">
 								<label for="boardRegidate">작성 날짜</label>
 								<fmt:formatDate value="${read.boardRegidate}" pattern="yyyy-MM-dd"/>					
 							</td>
 						</tr>		
 					</tbody>			
 				</table>
-				
-				<div>					
+			
+				<div id="buttonBoxes">					
 					<sec:authorize access="isAnonymous()">
 						<c:url value="/member/signin" var="signinForm" />
 						<a class="login-a" href="${signinForm}">로그인</a>										
 					</sec:authorize>
-				
 					<sec:authorize access="isAuthenticated()"> 
 					<button type="button"class="update_btn" data-boardNumber="${read.boardNumber}">수정</button>
 					<!-- <button type="submit" class="update_btn">수정</button> -->							
 					<button type="button"class="delete_btn" data-boardNumber="${read.boardNumber}">삭제</button>									
 					<!-- <button type="submit" class="delete_btn">삭제</button>-->	
-					</sec:authorize>														
-																	
+					</sec:authorize>																															
 					<button type="submit" class="list_btn">목록</button>	
 				</div>
 
@@ -482,10 +725,10 @@
 			<ol class="replyList">
 				<c:forEach items="${replyList}" var="replyList">
 					 <li>					    
-			        <p> 작성 내용 : ${replyList.boardReplyContent}</p>
+			        <p class="re2"> ${replyList.boardReplyContent}</p>
 						작성자 : ${replyList.userId}<br />
 						작성 날짜 : <fmt:formatDate value="${replyList.boardReplyRegidate}" pattern="yyyy-MM-dd" />				
-				<div>
+				<div class="reply_btn">
 					<sec:authorize access="isAuthenticated()"> 
 					<button type="button" class="replyUpdateBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">수정</button>
 					<button type="button" class="replyDeleteBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">삭제</button>
@@ -494,9 +737,10 @@
 					</li>
 				</c:forEach>   
 			 </ol>
-		</div>			
+		</div>	
+				
 			<form name="replyForm" method="post">										
-				<div>							
+				<div class="replybox">							
 					<sec:authorize access="isAuthenticated()"> 
 						<sec:authentication var="principal" property="principal"/>						
 						<input type="hidden" id="boardNumber" name="boardNumber" value="${read.boardNumber}" />
@@ -506,8 +750,9 @@
 						<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
 						<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 						
 						<label for="boardReplyContent">댓글 내용</label>
-					    <input type="text" id="boardReplyContent" name="boardReplyContent" />						   
-						<label for="userId">댓글 작성자</label>			
+					    <input type="text" id="boardReplyContent" name="boardReplyContent" />	
+					    					&nbsp;&nbsp;&nbsp;&nbsp;
+						<label for="userId">댓글 작성자</label>		
 		                <a class="mypage-a">${principal.member.userId}</a>
 		                
 		                <button class="replyWriteBtn"  type="submit">작성 </button>                
@@ -516,14 +761,15 @@
 			</form>
 		
 		</section>
+		</div>
 		<hr />
-		</div>			
+				
 	
 		<section id="service">
 		<div class="service_box">
 			<%@ include file= "../include/gymService.jsp" %>
 		</div>
-	</section>
+		</section>
 	
 	<footer id="footer">
 		<div id="footer_box">

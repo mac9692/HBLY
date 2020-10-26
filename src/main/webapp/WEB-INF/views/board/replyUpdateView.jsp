@@ -164,7 +164,143 @@
 	        color:#FFFFFF;
 	        font-weight:bold;
 	        text-align:center;
-	    }		
+	    }	
+	    
+	    .button{
+	    	display: flex;
+			margin-left: 30%;
+ 			padding-left: 15%;
+			color: black;
+			margin-top: 1rem;	
+	    }	
+	    
+	    .update_btn{
+	    color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: inline-block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 40px;
+			  outline: none;
+			  padding-left: 25px;
+			  padding-right: 30px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+	    }
+	    
+	    .cancel_btn{
+	    color:black;
+			-webkit-tap-highlight-color: transparent;
+			  background-color: #fff;
+			  border-radius: 5px;
+			  border: solid 1px #e8e8e8;
+			  box-sizing: border-box;
+			  clear: both;
+			  cursor: pointer;
+			  display: inline-block;
+			  font-family: inherit;
+			  font-size: 14px;
+			  font-weight: normal;
+			  height: 42px;
+			  line-height: 15px;
+			  outline: none;
+			  padding-left: 20px;
+			  padding-right: 25px;
+			  text-align: left !important;
+			  -webkit-transition: all 0.2s ease-in-out;
+			  transition: all 0.2s ease-in-out;
+			  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+			  white-space: nowrap;
+			  width: auto; 
+	    }	 
+
+	    .re{
+	    	border: solid 1px #e8e8e8;
+	    	height: 42px;
+	    }
+	    
+	    .t0{
+	   	margin-top: 1%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+   	    margin-bottom: 1%;
+	    font-size: 20px;
+	    text-align: center;
+	    width: 100%;
+
+	    width: 90%;
+
+	    }
+	    
+	    .t{
+       	margin-top: 1%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+   	    margin-bottom: 1%;
+	    }
+	    
+	    #t1{
+    	margin-top: 1%;
+	    font-size: 20px;
+	    text-align: center;
+	    }
+	    
+	    #t2{
+	    margin-top: 1%;
+	    font-size: 20px;
+	    text-align: center;
+	    width: 100%;
+	    }
+	    
+	    #boardReplyContent{
+     	margin-top: 1%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+   	    margin-bottom: 1%;
+   	    height: 300px;
+	    width: 90%;
+	    border: 1px solid #bcbcbc;
+	    border-color: #D9042B;
+	    }
+	    
+	    #boardReplyUserId{
+	    margin-top: 1%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+   	    margin-bottom: 1%;
+ 	    height: 40px;
+	    width: 20%;
+	    text-align: center;
+	    border: 1px solid #bcbcbc;
+	    border-color: #D9042B;
+	    }
+	    
+	    #re1{
+	    display:grid;
+	    }
+	    #re2{
+	    display:grid;
+	    margin-top: 5%;
+	    }
+	    
 		</style>
 	
 	<script type="text/javascript">
@@ -242,21 +378,23 @@
 				<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
 				<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
 				<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
-				<table>
-					<tbody>
-						<tr>
-							<td>
-								<label for="boardReplyContent">댓글 내용</label>
-								<input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/>
-								
-								<label for="boardReplyUserId">댓글 작성자</label>
-								<input type="text" id="boardReplyUserId" name="userId" value="${principal.member.userId}"/>
-							</td>
-						</tr>	
-						
+				<table class="t0">
+					<tbody class="t">
+					<tr>
+						<td id="t1">
+							<label id="re1" for="boardReplyContent">댓글 내용</label>
+							<input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/>
+						</td>
+					</tr>
+					<tr>
+						<td id="t2">
+							<label id="re2" for="boardReplyUserId">댓글 작성자</label>
+							<input type="text" id="boardReplyUserId" name="userId" value="${principal.member.userId}"/>							
+						</td>	
+					</tr>						
 					</tbody>			
 				</table>
-				<div>
+				<div class="button">
 					<button type="submit" class="update_btn">저장</button>
 					<button type="button" class="cancel_btn">취소</button>
 				</div>

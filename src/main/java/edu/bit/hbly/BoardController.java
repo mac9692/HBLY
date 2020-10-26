@@ -43,7 +43,7 @@ public class BoardController {
 	@Inject
 	ReplyService replyService;
 	
-	// 게시판 글 작성 화면
+	// 寃뚯떆�뙋 湲� �옉�꽦 �솕硫�
 	@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
 	public void writeView(HttpServletRequest request, Model model) throws Exception{			
 		
@@ -56,7 +56,7 @@ public class BoardController {
 		model.addAttribute("userId", userId);
 	}
 		
-	// 게시판 글 작성
+	// 寃뚯떆�뙋 湲� �옉�꽦
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
 	public String write(BoardVO boardVO, HttpServletRequest request, Model model) throws Exception{
 		logger.info("write : "   + request.getParameter("categoryCode"));
@@ -70,7 +70,7 @@ public class BoardController {
 		return "redirect:/board/list?page=1&categoryCode="+category;
 	}
 	
-	// 게시판 목록 조회
+	// 寃뚯떆�뙋 紐⑸줉 議고쉶
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception{
 		logger.info("list");
@@ -88,38 +88,7 @@ public class BoardController {
 			
 	}
 
-//	// 게시판 수정
-//	@RequestMapping(value = "/update", method = RequestMethod.POST)
-//	public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
-//		logger.info("update");
-//			
-//		service.update(boardVO);
-//		
-//		rttr.addAttribute("page", scri.getPage());
-//		rttr.addAttribute("perPageNum", scri.getPerPageNum());
-//		rttr.addAttribute("searchType", scri.getSearchType());
-//		rttr.addAttribute("keyword", scri.getKeyword());
-//			
-//		return "redirect:/board/list";
-//	}
-//	
-//	// 게시판 삭제
-//	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-//	public String delete(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
-//		logger.info("delete");
-//		
-//		//service.delete(boardVO.getBoardNumber());			      	
-//		
-//		rttr.addAttribute("page", scri.getPage());
-//		rttr.addAttribute("perPageNum", scri.getPerPageNum());
-//		rttr.addAttribute("searchType", scri.getSearchType());
-//		rttr.addAttribute("keyword", scri.getKeyword());
-//			
-//		//return String.valueOf(result);
-//		return "redirect:/board/list";
-//	}
-	
-	   //게시판 삭제
+	   //寃뚯떆�뙋 �궘�젣
 	   @ResponseBody
 	   @RequestMapping(value = "/delete", method = RequestMethod.POST) 
 	   public String Delete(BoardVO boardVO, HttpServletRequest request) throws Exception {
@@ -146,7 +115,7 @@ public class BoardController {
 	           
 	          result = 1;
 	          
-	          logger.info("삭제 성공");
+	          logger.info("�궘�젣 �꽦怨�");
 	          System.out.println(result);
 	      }
 
@@ -155,7 +124,7 @@ public class BoardController {
       return String.valueOf(result);
 	   }
 	   
-	   //게시판 수정
+	   //寃뚯떆�뙋 �닔�젙
 	   @ResponseBody
 	   @RequestMapping(value = "/updateCheck", method = RequestMethod.POST) 
 	   public String updateCheck(BoardVO boardVO, HttpServletRequest request) throws Exception {
@@ -186,7 +155,7 @@ public class BoardController {
       return String.valueOf(result);
 	   }
 	   
-		// 게시판 수정뷰
+		// 寃뚯떆�뙋 �닔�젙酉�
 		@RequestMapping(value = "/updateView", method = RequestMethod.GET)
 		public String updateView(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 			logger.info("updateView");
@@ -206,7 +175,7 @@ public class BoardController {
 			return "board/updateView";
 		}
 		
-		// 게시판 수정
+		// 寃뚯떆�뙋 �닔�젙
 		@RequestMapping(value = "/update", method = RequestMethod.POST)
 		public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model,RedirectAttributes rttr) throws Exception{
 			logger.info("update");
@@ -221,7 +190,7 @@ public class BoardController {
 			return "redirect:/board/list";
 		}
 		
-	// 게시판 조회
+	// 寃뚯떆�뙋 議고쉶
 	@RequestMapping(value = "/readView", method = RequestMethod.GET)
 	public String read(BoardVO boardVO, HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{		
 
@@ -236,7 +205,7 @@ public class BoardController {
 		return "board/readView";
 	}
 	
-	//댓글 작성
+	//�뙎湲� �옉�꽦
 	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		
@@ -254,7 +223,7 @@ public class BoardController {
 		return "redirect:/board/readView";
 	}
 		
-		//댓글 삭제
+		//�뙎湲� �궘�젣
 	   @ResponseBody
 	   @RequestMapping(value = "/replyDelete", method = RequestMethod.POST) 
 	   public String replyDelete(ReplyVO replyVO, HttpServletRequest request) throws Exception {
@@ -281,14 +250,14 @@ public class BoardController {
 	           
 	          result = 1;
 	          
-	          logger.info("삭제 성공");
+	          logger.info("�궘�젣 �꽦怨�");
 	          System.out.println(result);
 	      }
   
 	      return String.valueOf(result);
 	   }
 	   
-	   		//댓글 수정 check
+	   		//�뙎湲� �닔�젙 check
 	   		@ResponseBody
 	 		@RequestMapping(value="/replyUpdateCheck", method = RequestMethod.POST)
 	 		public String replyUpdate(ReplyVO replyVO, HttpServletRequest request) throws Exception {
@@ -317,7 +286,7 @@ public class BoardController {
  		      return String.valueOf(result);
 	 		}
 	   		
-	   		// 댓글 수정뷰
+	   		// �뙎湲� �닔�젙酉�
 			@RequestMapping(value = "/replyUpdateView", method = RequestMethod.GET)
 			public String replyUpdateView(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 				logger.info("replyUpdateView");
@@ -340,7 +309,7 @@ public class BoardController {
 				return "board/replyUpdateView";
 			}
 			
-			// 댓글 수정
+			// �뙎湲� �닔�젙
 			@RequestMapping(value = "/replyUpdate", method = RequestMethod.POST)
 			public String replyUpdate(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model,RedirectAttributes rttr) throws Exception{
 				logger.info("replyUpdate");
@@ -356,68 +325,7 @@ public class BoardController {
 					
 				return "redirect:/board/list";
 			}
-	 		
-	   
-			/*
-			 * //댓글 수정 GET
-			 * 
-			 * @RequestMapping(value="/replyUpdateView", method = RequestMethod.GET) public
-			 * String replyUpdateView(ReplyVO ReplyVO, SearchCriteria scri, Model model)
-			 * throws Exception { logger.info("reply Write");
-			 * 
-			 * model.addAttribute("replyUpdate",
-			 * replyService.selectReply(ReplyVO.getBoardReplyNumber()));
-			 * model.addAttribute("scri", scri);
-			 * 
-			 * return "board/replyUpdateView"; }
-			 * 
-			 * //댓글 수정 POST
-			 * 
-			 * @RequestMapping(value="/replyUpdate", method = RequestMethod.POST) public
-			 * String replyUpdate(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes
-			 * rttr) throws Exception { logger.info("reply Write");
-			 * 
-			 * replyService.updateReply(ReplyVO);
-			 * 
-			 * rttr.addAttribute("boardNumber", ReplyVO.getBoardNumber());
-			 * rttr.addAttribute("userId", ReplyVO.getUserId()); rttr.addAttribute("page",
-			 * scri.getPage()); rttr.addAttribute("perPageNum", scri.getPerPageNum());
-			 * rttr.addAttribute("searchType", scri.getSearchType());
-			 * rttr.addAttribute("keyword", scri.getKeyword());
-			 * 
-			 * return "redirect:/board/readView"; }
-			 */
-		/*
-		 * //댓글 삭제
-		 * 
-		 * @RequestMapping(value="/replyDelete", method = RequestMethod.POST) public
-		 * String replyDelete(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes
-		 * rttr) throws Exception { logger.info("reply Write");
-		 * 
-		 * replyService.deleteReply(ReplyVO);
-		 * 
-		 * rttr.addAttribute("boardNumber", ReplyVO.getBoardNumber());
-		 * rttr.addAttribute("page", scri.getPage()); rttr.addAttribute("perPageNum",
-		 * scri.getPerPageNum()); rttr.addAttribute("searchType", scri.getSearchType());
-		 * rttr.addAttribute("keyword", scri.getKeyword());
-		 * 
-		 * return "redirect:/board/readView"; }
-		 */
-	   
-		
-		/*
-		 * //댓글 삭제 GET
-		 * 
-		 * @RequestMapping(value="/replyDeleteView", method = RequestMethod.GET) public
-		 * String replyDeleteView(ReplyVO ReplyVO, SearchCriteria scri, Model model)
-		 * throws Exception { logger.info("reply Write");
-		 * 
-		 * model.addAttribute("replyDelete",
-		 * replyService.selectReply(ReplyVO.getBoardReplyNumber()));
-		 * model.addAttribute("scri", scri);
-		 * 
-		 * return "board/replyDeleteView"; }
-		 */
+
 
 
 }
