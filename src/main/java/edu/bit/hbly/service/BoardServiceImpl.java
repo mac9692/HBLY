@@ -19,25 +19,25 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO dao;
 	
-	//게시글 작성
+	//寃뚯떆湲� �옉�꽦
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		dao.write(boardVO);		
 	}
 
-	//게시물 목록 조회
+	//寃뚯떆臾� 紐⑸줉 議고쉶
 	@Override
 	public List<BoardVO> list(SearchCriteria scri) throws Exception {
 		return dao.list(scri);
 	}
 	
-	//게시물 총 갯수
+	//寃뚯떆臾� 珥� 媛��닔
 	@Override
 	public int listCount(SearchCriteria scri) throws Exception{
 		return dao.listCount(scri);
 	}
 
-	//게시물 조회
+	//寃뚯떆臾� 議고쉶
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(int boardNumber) throws Exception {
@@ -45,26 +45,18 @@ public class BoardServiceImpl implements BoardService {
 		return dao.read(boardNumber);
 	}
 
-	//게시물 수정
+	//寃뚯떆臾� �닔�젙
 	@Override
 	public void update(BoardVO boardVO) throws Exception {
 		dao.update(boardVO);		
 	}
 
-	//게시물 삭제
+	//寃뚯떆臾� �궘�젣
 	@Override
 	public void delete(int boardNumber) throws Exception {
 		dao.delete(boardNumber);		
 	}
 
-	@Override
-	public int updateLike(int boardNumber) throws Exception {
-		return dao.updateLike(boardNumber);
-	}
-
-	@Override
-	public int updateHate(int boardNumber) throws Exception {
-		return dao.updateHate(boardNumber);
-	}	
+	
 
 }

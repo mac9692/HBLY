@@ -167,14 +167,17 @@
 										
 										<li><a href="/member/mypage">MYPAGE</a>
                                         <ul class="submenu">
-                                        	<li><a href="/shop/cartList">장바구니</a>
-                                            <li><a href="/shop/orderList">주문 목록</a></li>
+											<li><a href="/member/mypage">개인정보 수정</a>
+                                            <li><a href="/shop/cartList">장바구니</a></li>
+                                            <li><a href="/shop/orderList">주문목록</a></li>
                                         </ul>
                                     	</li>
 										
 										<sec:authentication var="principal" property="principal" />
-												<li><a href="/">${principal.member.userNickname}님,환영합니다!</a>
-															</sec:authorize></li>
+												<li>
+												<a href="/">${principal.member.userNickname}님,환영합니다!</a>
+												</li>	
+										</sec:authorize>
 										
 										
 										<!-- 관리자 메뉴 -->
@@ -195,13 +198,12 @@
 												</form:form>
 											</sec:authorize>
 										</li>
-									</ul>
-				
 								</c:if>
                                     
+									</ul>
+				
                                     
                                     
-                                </ul>
                             </nav>
                         </div>
                         

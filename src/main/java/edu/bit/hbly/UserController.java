@@ -145,7 +145,7 @@ public class UserController {
 	    			.userName(kakaoProfile.getProperties().getNickname())
 	    			.userBirth(" ")
 	    			.userGender(" ")
-	    			.userNickname(" ")
+	    			.userNickname(kakaoProfile.getProperties().getNickname())
 	    			.userPhoneNumber(" ")
 	    			.userAddress1(" ")
 	    			.userAddress2(" ")
@@ -175,7 +175,10 @@ public class UserController {
         securityContext.setAuthentication(authentication);
         HttpSession session = request.getSession();
         // 시큐리티 로그인 세션을 생성
+        
         session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
+    	
+        
 
         return "redirect:/";  // 여기서 홈으로 리다리엑트 하면 됨
     }
