@@ -105,6 +105,7 @@
 		            <a href ="https://kauth.kakao.com/oauth/authorize?client_id=5bde6ae9c71bf5f382a97fe4ea87eb67&redirect_uri=http://localhost:8282/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png"/></a>
 							  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		          </div>
+		           
 		        </div>
 		      </div>
 		    </div>
