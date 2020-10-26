@@ -145,17 +145,10 @@
 						  <c:forEach items="${orderView}" var="orderView" varStatus="status">
 						   
 						   <c:if test="${status.first}">
-<<<<<<< HEAD
-						    <p><span>수령인: </span>${orderView.orderRec}</p>
-						    <p><span>주소: </span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
-						    <p><span>가격: </span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
-						    <p><span>상태: </span>${orderView.delivery}</p>
-=======
 						    <p><span>수령인&nbsp;&nbsp;</span>${orderView.orderRec}</p>
 						    <p><span>주소&nbsp;&nbsp;</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
 						    <p style="color:red;"><span>가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
 						    <p style="color:orange;"><span>상태&nbsp;&nbsp;</span>${orderView.delivery}</p>
->>>>>>> feature/pay
 						   </c:if>
 						   
 						  </c:forEach>
@@ -169,17 +162,10 @@
 						   </div>
 						   <div class="gdsInfo" id="gdsInfo">
 						    <p>
-<<<<<<< HEAD
-						     <span>상품명: </span>${orderView.goodsName}<br />
-						     <span>개당 가격: </span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
-						     <span>구입 수량: </span>${orderView.cartStock} 개<br />
-						     <span>최종 가격: </span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
-=======
 						     <span>상품명&nbsp;&nbsp;</span>${orderView.goodsName}<br />
 						     <span>개당 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
 						     <span>구입 수량&nbsp;&nbsp;</span>${orderView.cartStock} 개<br />
 						     <span>최종 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
->>>>>>> feature/pay
 						    </p>
 						   </div>
 						  </li>     
