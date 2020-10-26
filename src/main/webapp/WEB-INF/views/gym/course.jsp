@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 pt-70">
-                            <h2>Course</h2>
+                            <h2>Enrollment</h2>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <p>승리는 가장 끈기있는 자에게 돌아간다.</p>
                         <br>
                         <br>
-                        <a href="/gym/course" class="border-btn">My Courses</a>
+                        <a href="/gym/course" class="border-btn">Enrollment</a>
                     </div>
                 </div>
             </div>

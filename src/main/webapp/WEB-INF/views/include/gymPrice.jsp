@@ -20,7 +20,7 @@
                             </div>
                             <div class="properties__caption">
                                 <span class="month">3 개월</span>
-                                <p class="mb-25">30,000원/m  <span>(Single class)</span></p>
+                                <p class="mb-25">30,000원/m  <span>(gold class)</span></p>
                                 <div class="single-features">
                                     <div class="features-icon">
                                         <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="properties__caption">
                                 <span class="month">6 개월</span>
-                                <p class="mb-25">60,000원/m  <span>(Single class)</span></p>
+                                <p class="mb-25">60,000원/m  <span>(platinum class)</span></p>
                                 <div class="single-features">
                                     <div class="features-icon">
                                         <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
@@ -106,7 +106,7 @@
                             </div>
                             <div class="properties__caption">
                                 <span class="month">12 개월</span>
-                                <p class="mb-25">100,000원/m  <span>(Single class)</span></p>
+                                <p class="mb-25">100,000원/m  <span>(Diamond class)</span></p>
                                 <div class="single-features">
                                     <div class="features-icon">
                                         <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
