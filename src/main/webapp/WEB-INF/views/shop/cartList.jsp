@@ -47,6 +47,23 @@
 
 
     <style>
+    	
+    	div.container2 {
+    		
+    	
+    	
+    	 }
+    	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         div.allCheck {
             color: #000000;
             font-size: 20px;
@@ -220,8 +237,8 @@
         
         section#back{background-color: #ffffff; text-color: #000000; }
         
-        
-        div#mainMenu{background-color: #ffffff; border: 2px solid #000; }
+        /* 메인 주문목록 구역 */
+        div#mainMenu{background-color: #ffffff; border: 2px solid #000; align: center; }
         section#back{font-size: 100px;}
         
         
@@ -355,7 +372,7 @@
           <!-- Courses area start -->
     <section class="pricing-area section-padding30 fix" id="back">
         <div class="container2">
-        <div class="mainMenu col-lg-11 col-md-11 col-sm-11 col-xs-11" id="mainMenu"> 
+        <div class="mainMenu col-lg-12 col-md-12 col-sm-12 col-xs-12" id="mainMenu"> 
             <div class="row">
                 <div class="col-xl-12">
                     <div class="text-center mb-55">

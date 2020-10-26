@@ -44,8 +44,18 @@
 		section#container { padding:20px 0; border-top:2px solid #eee; border-bottom:2px solid #eee; }
 		section#container::after { content:""; display:block; clear:both; }
 	
-		section#container {}
-		section#content { float:left; width:800px;}
+		section#container {
+		 /* position:absolute; */
+     /* top:50%; left:50%;  */
+   /*  margin-top:-100px; */ margin-left:550px; 
+   		/* max-width: 100%; */ 
+       /* height: auto; */ 	
+     
+    /* width:200px; height:200px;  */
+		
+		
+		}
+		section#content { float:left; width:800px; }
 	
 		section#content ul li { border:5px solid #404040; padding:10px 20px; margin-bottom:20px; }
 		section#content .orderList span { font-size:20px; font-weight:bold; display:inline-block; width:90px; margin-right:10px; }

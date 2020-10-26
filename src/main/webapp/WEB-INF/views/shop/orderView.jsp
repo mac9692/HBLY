@@ -54,10 +54,10 @@
 	 	.btn a {}
 		.orderList p { color:#ffffff; font-size: 20px; }
 	
-		section#container {background-color: #ffffff;}
+		section#container {background-color: #ffffff; margin-left:550px;}
 		div#container_box {background-color: #000000;}
 		
-		div#orderInfo p {color:#000000; font-size: 20px;}
+		div#orderInfo p {color:#000000; font-size: 30px;}
 		div#gdsInfo p {color:#000000; font-size: 20px;}
 		
 		
