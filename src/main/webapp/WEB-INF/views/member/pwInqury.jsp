@@ -53,7 +53,7 @@
 		<!-- nav2 -->
 		<nav class="navbar navbar-dark black-bg">
 		    <div class="container d-flex justify-content-center">
-		      <div class="container px-5 mx-5">
+		      <div class="container px-5 mx-5 text-center">
 		        <div class="row">
 		          <div class="col-md-6 daun">
 		          <a class="navbar-brand" href="/member/idInqury">아이디 찾기</a>

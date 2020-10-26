@@ -184,7 +184,7 @@
 									<c:if test="${pageContext.request.userPrincipal.name != null}">
 										<sec:authentication var="principal" property="principal" />
 										<c:if test="${principal.member.verify == 9}">
-											<li><a href="/admin/index">관리자화면</a>
+											<li><a href="/admin/goods/list">관리자화면</a>
 												<ul class="submenu">
 													<li><a href="/">다른 관리페이지</a></li>
 												</ul>

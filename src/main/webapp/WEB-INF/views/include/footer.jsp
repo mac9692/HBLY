@@ -72,18 +72,6 @@
 					</div>
 				</div>
 			</div>
-			<div >
-				<div class="row d-flex align-items-center">
-					<div class="col-lg-12">
-						<div class="hero-d footer-copy-right text-center">
-							<p><a href="/">입점/제휴문의</a> | <a href="/policy/terms">이용 약관</a> | <a
-		href="/policy/privacy">개인정보 처리방침</a> | <a href="/policy/commercial">광고정책</a> |
-	<a href="/policy/youth">청소년 보호정책</a></p>	
-							
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 	<!-- Footer End-->

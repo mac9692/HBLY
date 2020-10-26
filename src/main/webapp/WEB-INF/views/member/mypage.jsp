@@ -29,9 +29,11 @@
     <link rel="stylesheet" href="/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="/resources/assets/css/style.css">
     
+
     
 	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
     
+
  <style>
 .hero-j h5{
     color: #ffffff;

@@ -27,33 +27,9 @@
 	
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="/admin/index">HBLY Admin</a> | <a class="navbar-brand" href="/">HBLY Main</a>
+            <a class="navbar-brand" href="/admin/goods/list">HBLY Admin</a> | <a class="navbar-brand" href="/">HBLY Main</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <sec:authorize access="isAuthenticated()">
-						<form action="/logout" method="POST">
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                         </form>
-    					</sec:authorize> 
-                    </div>
-                </li>
-            </ul>
+
         </nav>
          <div id="layoutSidenav">
         
@@ -76,13 +52,15 @@
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <tbody>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active" style="width:30%;">
 													<label>1차 분류</label>
 												</td>
 												<td>
 													<span class="category1">${goods.categoryCodeRef}</span>
 												</td>
-												<td class="thead-light">
+											</tr>
+											<tr>
+												<td class="table-active">
 												<label>2차 분류</label>
 												</td>
 												<td>
@@ -91,50 +69,52 @@
 												
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active">
 												<label for="goodsName">상품명</label>
 												</td>
-												<td colspan="3">
+												<td>
 												 <span>${goods.goodsName}</span>
 												</td>
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active">
 												<label for="goodsPrice">상품가격</label>
 												</td>
-												<td colspan="3">
+												<td >
 												 <span><fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###,###"/></span>
 												</td>
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active">
 												<label for="goodsStock">상품수량</label>
 												</td>
-												<td colspan="3">
+												<td>
 												<span>${goods.goodsStock}</span>
 												</td>
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td colspan="2"class="table-active">
 												<label for="goodsDescribe">상품소개</label>
 												</td>
-												<td colspan="3">
+											</tr>
+											<tr>
+												<td colspan="2">
 												<div class="goodsDescribe">${goods.goodsDescribe}</div>
 												</td>
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active">
 												<label for="goodsImage">원본 이미지</label>
 												</td>
-												<td colspan="3">
+												<td >
 												 <img src="${goods.goodsImage}" class="oriImg"/>
 												</td>
 											</tr>
 											<tr>
-												<td class="thead-light">
+												<td class="table-active">
 												<label for="goodsThumbImagee">썸네일</label>
 												</td>
-												<td colspan="3">
+												<td >
 												 <img src="${goods.goodsThumbImage}" class="thumbImg"/>
 												</td>
 											</tr>
@@ -180,6 +160,17 @@
 					
 
 		</div>						
+		
+			 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../../resources/sb/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../../resources/sb/assets/demo/chart-area-demo.js"></script>
+        <script src="../../resources/sb/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="../../resources/sb/assets/demo/datatables-demo.js"></script>	
+		
 		
 		<script>
 			// 컨트롤러에서 데이터 받기
