@@ -29,4 +29,25 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		
 		return "/gym/about";
 	}
+	
+	@RequestMapping(value = "/course", method = RequestMethod.GET)
+	public String gymCourse(Model model) {
+		logger.info("gym course");
+		
+		return "/gym/course";
+	}
+	
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
+	public String gymContact(Model model) {
+		logger.info("gym contact");
+		
+		return "/gym/contact";
+	}
+	
+	@RequestMapping(value = "/gallery", method = RequestMethod.GET)
+	public String gymGallery(Model model) {
+		logger.info("gym gallery");
+		
+		return "/gym/gallery";
+	}
 }

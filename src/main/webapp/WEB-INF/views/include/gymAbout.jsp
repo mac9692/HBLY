@@ -31,7 +31,7 @@
                                 <div class="topic-content">
                                     <h3>커뮤니티</h3>
                                     <p>최신 헬스뉴스, 건강정보들을 한눈에 <br> 대한민국 최대 헬스 커뮤니티에서 경험해보세요!</p>
-                                    <a href="courses.html" class="btn">둘러보기</a>
+                                    <a href="/board/list?categoryCode=1" class="btn">둘러보기</a>
                                 </div>
                             </div>
                         </div>
@@ -47,44 +47,75 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section-tittle text-center mb-55 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <h2 >인기 셀러</h2>
+                        <h2 >BEST TRAINER</h2>
                     </div>
                 </div>
             </div>
 		   <!--? Team -->
+		   
+		   
+		   
+		   
+		       <!--? About Area-2 Start -->
+    <section class="about-area2 fix pb-padding pt-50 pb-80">
+        <div class="support-wrapper align-items-center">
+            <div class="right-content2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" >
+                <!-- img -->
+                <div class="right-img">
+                    <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/trainer4.jpeg" alt="">
+                </div>
+            </div>
+            <div class="left-content2">
+                <!-- section tittle -->
+                <div class="section-tittle2 mb-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                    <div class="front-text">
+                        <h2 class="">양치승</h2>
+                        <p>계속 노력해야 해요. 지름길은 없어요.</p>
+                        <p>간단하다. 흔들리면 그건 지방이다.</p>
+                        <p>포기하지 마세요. 시작은 언제나 힘든 법입니다.</p>
+                        <p>패션의 완성은 몸매.</p>
+                        <p>승리는 가장 끈기있는 자에게 돌아간다.</p>
+                        <br>
+                        <br>
+                        <a href="/gym/course" class="border-btn">My Courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="team-area pt-80">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-cat text-center mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" >
                         <div class="cat-icon">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/team1.png" alt="">
+                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/trainer1.jpg" style="width:362px; height:360px;" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">쾌걸근육맨</a></h5>
-                            <p>대한민국 최대 헬스용품 취급</p>
+                            <h5><a href="/gym/course">마동석</a></h5>
+                            <p>신촌점 책임 트레이너</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-cat text-center mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="cat-icon">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/team2.png" alt="">
+                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/trainer2.jpg" style="width:362px; height:360px;" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">프로틴 빌런</a></h5>
-                            <p>당신의 헬스보조제는 프로틴빌런에서</p>
+                            <h5><a href="/gym/course">권상우</a></h5>
+                            <p>강남점 책임 트레이너</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-cat text-center mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
                         <div class="cat-icon">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/team3.png" alt="">
+                            <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/trainer3.jpg" style="width:362px; height:360px;" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">헬스앤뷰티</a></h5>
-                            <p>건강과 아름다움을 동시에 관리해드립니다. </p>
+                            <h5><a href="/gym/course">박재범</a></h5>
+                            <p>종로점 책임 트레이너</p>
                         </div>
                     </div>
                 </div>
@@ -101,10 +132,10 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                     <div class="box snake mb-30">
-                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery1.png);"></div>
+                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/homeMenu1.jpg);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Health food </h3>
+                                <h3>Protein </h3>
                                 <a href="/shop/list?c=000&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
@@ -123,7 +154,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                     <div class="box snake mb-30">
-                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery3.png);"></div>
+                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/homeMenu3.jpg);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
                                 <h3>Nutrients </h3>
@@ -134,11 +165,11 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                     <div class="box snake mb-30">
-                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/gallery4.png);"></div>
+                        <div class="gallery-img big-img" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gallery/homeMenu4.jpg);"></div>
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>Herb </h3>
-                                <a href="/shop/list?c=300&l=1"><i class="ti-plus"></i></a>
+                                <h3>Equipment </h3>
+                                <a href="/shop/list?c=700&l=1"><i class="ti-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -171,31 +202,7 @@
     <!-- Gallery Area End -->
     
     
-    <!--? About Area-2 Start -->
-    <section class="about-area2 fix pb-padding pt-50 pb-80">
-        <div class="support-wrapper align-items-center">
-            <div class="right-content2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" >
-                <!-- img -->
-                <div class="right-img">
-                    <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/about.png" alt="">
-                </div>
-            </div>
-            <div class="left-content2">
-                <!-- section tittle -->
-                <div class="section-tittle2 mb-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                    <div class="front-text">
-                        <h2 class="">HBLY</h2>
-                        <p>You’ll look at graphs and charts in Task One, how to approach the task and the language needed 
-                            for a successful answer. You’ll examine Task Two questions and learn how to plan, write and 
-                        check academic essays.</p>
-                        <p class="mb-40">Task One, how to approach the task and the language needed for a successful answer. You’ll 
-                        examine Task Two questions and learn how to plan, write and check academic essays.</p>
-                        <a href="courses.html" class="border-btn">My Courses</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- About Area End -->
     <!--? Blog Area Start -->
     <section class="home-blog-area pt-10 pb-50">
@@ -213,11 +220,11 @@
                     <div class="home-blog-single mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         <div class="blog-img-cap">
                             <div class="blog-img">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/blog1.png" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/user1.jpg" style="width:555px; height:376.95px;" alt="">
                             </div>
                             <div class="blog-cap">
                                 <span>김계란</span>
-                                <h3><a href="blog_details.html">최고의 헬스 커뮤니티 사이트</a></h3>
+                                <h3><a href="/">최고의 헬스 커뮤니티 사이트</a></h3>
                             </div>
                         </div>
                     </div>
@@ -226,11 +233,11 @@
                     <div class="home-blog-single mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="blog-img-cap">
                             <div class="blog-img">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/blog2.png" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/user2.jpg" style="width:555px; height:376.95px;" alt="">
                             </div>
                             <div class="blog-cap">
-                                <span>김사랑</span>
-                                <h3><a href="blog_details.html">이런 형태의 헬스 서비스는 처음</a></h3>
+                                <span>수지</span>
+                                <h3><a href="/">이런 형태의 헬스 서비스는 처음</a></h3>
                             </div>
                         </div>
                     </div>

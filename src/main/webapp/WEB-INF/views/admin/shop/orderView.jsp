@@ -21,7 +21,6 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
-		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
 		<style>
 		 body { font-family:'맑은 고딕', verdana; padding:0; margin:0; }

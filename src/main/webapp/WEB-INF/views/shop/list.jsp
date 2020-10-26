@@ -122,7 +122,7 @@
 		
 		
 		
-		<!-- 상단 배너 스타일 -->
+		/* 상단 배너 스타일 */
 		
 		.topBanner-wrapper{
 			width: 100%;
@@ -147,7 +147,24 @@
 		
 		</style>
 		
+		<style>
+		/* 왼쪽 사이드메뉴 스타일 시작 */
 		
+		.sideMenu {
+			background-color: #f2f9f9;
+		}
+		
+		.panel-info {
+			background-color: #e3fafa;
+			font-weight:bold;
+		}
+		
+		.list-group {
+			background-color: #f2f9f9;
+		}
+		
+		/* 왼쪽 사이드메뉴 스타일 끝 */
+		</style>
 		
 		<!-- 우측 사이드배너 스타일 -->
 		<style type="text/css">
@@ -497,7 +514,7 @@
 			
       			<!-- 상품 리스트 forEach 시작 -->
       			<c:forEach items="${list}" var="list">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"style="height:130px; height:260px;">
                     <div class="properties mb-30">
                         <div class="properties__card">
                             
@@ -532,7 +549,7 @@
       			<div class="banner col-lg-2 col-md-2 col-sm-2 col-xs-2">
       				<div id="chase">
       					<img src= "${pageContext.request.contextPath}/resources/images/sideBanner.jpg"/>
-      					<div id="chaseBar">프로젝트 화이팅</div>
+      					<div id="chaseBar">HBLY 이벤트</div>
       				</div>
       			</div>
       			<!-- 우측 스크롤 배너 끝 -->

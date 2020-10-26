@@ -178,10 +178,6 @@
 		
 		
 		
-		<!-- 상단이 옮겨야될 스타일들 =============================================================================-->
-		
-		
-		
 		<!-- 상품 리스트 스타일 -->
 		<style>
 		 div.goods div.goodsImage { float:left; width:350px; }
@@ -189,14 +185,20 @@
 		 
 		 div.goods div.goodsInfo { float:right; width:330px; font-size:22px; }
 		 div.goods div.goodsInfo p { margin:0 0 20px 0; }
-		 div.goods div.goodsInfo p span { display:inline-block; width:100px; margin-right:15px; }
+		 div.goods div.goodsInfo p span { display:inline-block; width:100px; margin-right:15px; font-weight:bold; }
 		 
 		 div.goods div.goodsInfo p.cartStock input { font-size:22px; width:50px; padding:5px; margin:0; border:1px solid #eee; }
 		 div.goods div.goodsInfo p.cartStock button { color:#000; font-size:26px; border:none; background:none; }
 		 
 		 
 		 div.goods div.goodsInfo p.addToCart { text-align:right; }
-		 div.goods div.goodsDescribe { font-size:18px; clear:both; padding-top:30px; }
+		 div.goods div.goodsDescribe { font-size:18px; clear:both; padding-top:30px;
+		 padding: 20px 20px;
+		 background-color: #f2f9f9; }
+		
+		.goodsDescribe hr {
+			border-bottom: 1px solid #ccc;
+		}
 		
 		</style>
 		
@@ -237,9 +239,25 @@
 			border-color:#fff;
 			background-color:#fff;
 		}
-		.sideMenu {
 		
+		
+		/* 왼쪽 사이드메뉴 스타일 시작 */
+		
+		.sideMenu {
+			background-color: #f2f9f9;
 		}
+		
+		.panel-info {
+			background-color: #e3fafa;
+			font-weight:bold;
+		}
+		
+		.list-group {
+			background-color: #f2f9f9;
+		}
+		
+		/* 왼쪽 사이드메뉴 스타일 끝 */
+		
 		
 		.goodsThumbImage img {
 			position: absolute;
@@ -861,6 +879,10 @@
 					</div>
 							 
 					<div class="goodsDescribe">
+						<h1 style="font-weight:bold;">제품 상세설명</h1>
+						<hr>
+						<br>
+					
 						${view.goodsDescribe}
 					</div>
 			<!-- 상품 상세 설명 끝 -->

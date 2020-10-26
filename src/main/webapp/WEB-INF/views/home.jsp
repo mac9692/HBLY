@@ -63,7 +63,9 @@
                             <div class="hero__caption">
                                 <span data-animation="fadeInLeft" data-delay="0.1s">당신의 건강에 특별함을</span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.4s">HBLY</h1>
+                                <c:if test="${pageContext.request.userPrincipal.name == null}">
                                 <a href="member/signup" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">회원가입</a>
+                                </c:if>
                             </div>
                         </div>
                     </div>

@@ -28,11 +28,11 @@
 											<nav>
 												<ul>
 													<li><a href="/">Home</a></li>
-													<li><a href="about.html">About</a></li>
-													<li><a href="courses.html">Courses</a></li>
-													<li><a href="pricing.html">Pricing</a></li>
-													<li><a href="gallery.html">Gallery</a></li>
-													<li><a href="contact.html">Contact</a></li>
+													<li><a href="/gym/about">About</a></li>
+													<li><a href="/gym/course">Courses</a></li>
+													<li><a href="/gym/price">Pricing</a></li>
+													<li><a href="/gym/gallery">Gallery</a></li>
+													<li><a href="/gym/contact">Contact</a></li>
 												</ul>
 											</nav>
 										</div>
@@ -44,7 +44,7 @@
 							<div class="footer-social mt-30 wow fadeInUp"
 								data-wow-duration="3s" data-wow-delay=".8s">
 								<a href="#"><i class="fab fa-twitter"></i></a> <a
-									href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+									href="#"><i class="fab fa-facebook-f"></i></a>
 								<a href="#"><i class="fab fa-pinterest-p"></i></a>
 							</div>
 						</div>
@@ -68,13 +68,7 @@
 							
 						</div>
 						
-						<div class="footer text-center">
-							<p>
-								<a href="/">입점/제휴문의</a> <a href="/policy/terms">이용 약관</a> 
-								<a href="/policy/privacy">개인정보 처리방침</a> <a href="/policy/commercial">광고정책</a>
-								<a href="/policy/youth">청소년 보호정책</a>
-							</p>
-						</div>
+						
 					</div>
 				</div>
 			</div>
