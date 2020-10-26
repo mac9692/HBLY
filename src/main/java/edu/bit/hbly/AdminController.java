@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,50 +49,50 @@ public class AdminController {
 	AdminService adminService;
 	
 	
-	//Servlet-context¿¡¼­ ¼³Á¤ÇÑ uploadPath
+	//Servlet-contextï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ uploadPath
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
-	//°ü¸®ÀÚÆäÀÌÁö ¸ŞÀÎ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public void getIndex() throws Exception{
 		logger.info("get index");
 	}
 	
 	
-	//ck ¿¡µğÅÍ¿¡¼­ ÆÄÀÏ ¾÷·Îµå
+	//ck ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½
 		@RequestMapping(value = "/goods/ckUpload", method = RequestMethod.POST)
 		public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload ) throws Exception{
 			logger.info("post CKEditor img upload");
 			
 			
-			//·£´ı ¹®ÀÚ »ı¼º
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			 UUID uid = UUID.randomUUID();
 			 
 			 OutputStream out = null;
 			 PrintWriter printWriter = null;
 			   
-			 //ÀÎÄÚµù
+			 //ï¿½ï¿½ï¿½Úµï¿½
 			 res.setCharacterEncoding("utf-8");
 			 res.setContentType("text/html;charset=utf-8");
 			 
 			 try {
 			  
-			  String fileName = upload.getOriginalFilename();  //ÆÄÀÏ ÀÌ¸§ °¡Á®¿À±â
+			  String fileName = upload.getOriginalFilename();  //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			  byte[] bytes = upload.getBytes();
 			  
-			  //¾÷·Îµå °æ·Î
+			  //ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½
 			  String ckUploadPath = uploadPath + File.separator + "ckUpload" + File.separator + uid + "_" + fileName;
 			  
 			  out = new FileOutputStream(new File(ckUploadPath));
 			  out.write(bytes);
-			  out.flush();  // out¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ°í ÃÊ±âÈ­
+			  out.flush();  // outï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ê±ï¿½È­
 			  
 			  String callback = req.getParameter("CKEditorFuncNum");
 			  printWriter = res.getWriter();
-			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  //ÀÛ¼ºÈ­¸é
+			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  //ï¿½Û¼ï¿½È­ï¿½ï¿½
 			  
-			  // ¾÷·Îµå½Ã ¸Ş½ÃÁö Ãâ·Â
+			  // ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			  JsonObject json = new JsonObject();
 			  json.addProperty("uploaded", 1);
 			  json.addProperty("fileName", fileName);
@@ -112,7 +113,7 @@ public class AdminController {
 		
 	
 	
-	//»óÇ° µî·Ï GET
+	//ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ GET
 	@RequestMapping(value = "/goods/register", method = RequestMethod.GET)
 	public void getGoodsRegister(Model model) throws Exception {
 	 logger.info("get goods register");
@@ -122,27 +123,27 @@ public class AdminController {
 	 model.addAttribute("category", JSONArray.fromObject(category));
 	}
 	
-	// »óÇ° µî·Ï
+	// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/goods/register", method = RequestMethod.POST)
 	public String postGoodsRegister(GoodsVO vo, MultipartFile file) throws Exception {
 	 
-	 String imgUploadPath = uploadPath + File.separator + "imgUpload"; // ÀÌ¹ÌÁö¸¦ ¾÷·ÎµåÇÒ Æú´õ¸¦ ¼³Á¤ = /uploadPath/imgUpload
-	 String ymdPath = UploadFileUtils.calcPath(imgUploadPath);// À§ÀÇ Æú´õ¸¦ ±âÁØÀ¸·Î ¿¬¿ùÀÏ Æú´õ¸¦ »ı¼º
-	 String fileName = null; // ±âº» °æ·Î¿Í º°°³·Î ÀÛ¼ºµÇ´Â °æ·Î + ÆÄÀÏÀÌ¸§
+	 String imgUploadPath = uploadPath + File.separator + "imgUpload"; // ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ = /uploadPath/imgUpload
+	 String ymdPath = UploadFileUtils.calcPath(imgUploadPath);// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	 String fileName = null; // ï¿½âº» ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 	   
 	 if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-	  // ÆÄÀÏ ÀÎÇ²¹Ú½º¿¡ Ã·ºÎµÈ ÆÄÀÏÀÌ ¾ø´Ù¸é(=Ã·ºÎµÈ ÆÄÀÏÀÌ ÀÌ¸§ÀÌ ¾ø´Ù¸é)
+	  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç²ï¿½Ú½ï¿½ï¿½ï¿½ Ã·ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½(=Ã·ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½)
 	  
 	  fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
 
-	  // gdsImg¿¡ ¿øº» ÆÄÀÏ °æ·Î + ÆÄÀÏ¸í ÀúÀå
+	  // gdsImgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	  vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-	  // gdsThumbImg¿¡ ½æ³×ÀÏ ÆÄÀÏ °æ·Î + ½æ³×ÀÏ ÆÄÀÏ¸í ÀúÀå
+	  // gdsThumbImgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	  vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 	  
-	 } else { // Ã·ºÎµÈ ÆÄÀÏÀÌ ¾øÀ¸¸é
+	 } else { // Ã·ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  fileName = File.separator + "images" + File.separator + "none.png";
-	  // ¹Ì¸® ÁØºñµÈ none.pngÆÄÀÏÀ» ´ë½Å Ãâ·ÂÇÔ
+	  // ï¿½Ì¸ï¿½ ï¿½Øºï¿½ï¿½ none.pngï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	  
 	  vo.setGoodsImage(fileName);
 	  vo.setGoodsThumbImage(fileName);
@@ -158,7 +159,7 @@ public class AdminController {
 	
 	
 	
-	//?ƒ?’ˆ ëª©ë¡
+	//?ï¿½ï¿½?ï¿½ï¿½ ëª©ë¡
 	@RequestMapping(value = "/goods/list", method = RequestMethod.GET)
 	public void getGoodsList(Model model) throws Exception{
 		logger.info("get goods list");
@@ -167,7 +168,7 @@ public class AdminController {
 		model.addAttribute("list", list);
 	}
 	
-	//?ƒ?’ˆ ì¡°íšŒ
+	//?ï¿½ï¿½?ï¿½ï¿½ ì¡°íšŒ
 	@RequestMapping(value = "/goods/view", method = RequestMethod.GET)
 	public void getGoodsview(@RequestParam("n") int goodsNumber, Model model) throws Exception{
 		logger.info("get goods view");
@@ -177,7 +178,7 @@ public class AdminController {
 		model.addAttribute("goods",goods);
 	}
 	
-	    //?ƒ?’ˆ ?ˆ˜? •GET
+	    //?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½GET
 		@RequestMapping(value = "/goods/modify", method = RequestMethod.GET)
 		public void getGoodsModify(@RequestParam("n") int goodsNumber, Model model) throws Exception {
 		 logger.info("get goods modify");
@@ -190,18 +191,18 @@ public class AdminController {
 		 model.addAttribute("category", JSONArray.fromObject(category));
 		}
 		
-		// ?ƒ?’ˆ ?ˆ˜? •POST
+		// ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½POST
 		@RequestMapping(value = "/goods/modify", method = RequestMethod.POST)
 		public String postGoodsModify(GoodsVO vo, MultipartFile file, HttpServletRequest req) throws Exception {
 		 logger.info("post goods modify");
 		 
-		// ?ƒˆë¡œìš´ ?ŒŒ?¼?´ ?“±ë¡ë˜?—ˆ?Š”ì§? ?™•?¸
+		// ?ï¿½ï¿½ë¡œìš´ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ë¡ë˜?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
 		 if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-		  // ê¸°ì¡´ ?ŒŒ?¼?„ ?‚­? œ
+		  // ê¸°ì¡´ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½
 		  new File(uploadPath + req.getParameter("goodsImage")).delete();
 		  new File(uploadPath + req.getParameter("goodsThumbImage")).delete();
 		  
-		  // ?ƒˆë¡? ì²¨ë??•œ ?ŒŒ?¼?„ ?“±ë¡?
+		  // ?ï¿½ï¿½ï¿½? ì²¨ï¿½??ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ï¿½?
 		  String imgUploadPath = uploadPath + File.separator + "imgUpload";
 		  String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		  String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
@@ -209,8 +210,8 @@ public class AdminController {
 		  vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 		  vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		  
-		 } else {  // ?ƒˆë¡œìš´ ?ŒŒ?¼?´ ?“±ë¡ë˜ì§? ?•Š?•˜?‹¤ë©?
-		  // ê¸°ì¡´ ?´ë¯¸ì?ë¥? ê·¸ë?ë¡? ?‚¬?š©
+		 } else {  // ?ï¿½ï¿½ë¡œìš´ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ë¡ë˜ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½?
+		  // ê¸°ì¡´ ?ï¿½ï¿½ë¯¸ï¿½?ï¿½? ê·¸ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
 		  vo.setGoodsImage(req.getParameter("goodsImage"));
 		  vo.setGoodsThumbImage(req.getParameter("goodsThumbImage"));
 		  
@@ -222,7 +223,7 @@ public class AdminController {
 		 return "redirect:/admin/index";
 		}
 		
-		// ?ƒ?’ˆ ?‚­? œPOST
+		// ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½POST
 		@RequestMapping(value = "/goods/delete", method = RequestMethod.POST)
 		public String postGoodsDelete(@RequestParam("n") int goodsNumber) throws Exception {
 		logger.info("post goods delete");
@@ -232,7 +233,7 @@ public class AdminController {
 		return "redirect:/admin/index";
 		}
 		
-		//ÁÖ¹® ¸ñ·Ï
+		//ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½
 		@RequestMapping(value = "/shop/orderList", method = RequestMethod.GET)
 		public void getOrderList(Model model) throws Exception {
 		logger.info("get order list");
@@ -241,7 +242,7 @@ public class AdminController {
 		
 		model.addAttribute("orderList", orderList);
 		}
-		//ÁÖ¹® »ó¼¼ ¸ñ·Ï
+		//ï¿½Ö¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 		@RequestMapping(value = "/shop/orderView", method = RequestMethod.GET)
 		public void getOrderList(@RequestParam("n") String orderId, OrderVO order, Model model) throws Exception {
 			
@@ -253,7 +254,7 @@ public class AdminController {
 		model.addAttribute("orderView", orderView);
 		}
 		
-		//ÁÖ¹® »ó¼¼ ¸ñ·Ï - »óÅÂ º¯°æ
+		//ï¿½Ö¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping(value = "/shop/orderView", method = RequestMethod.POST)
 		public String delivery(OrderVO order) throws Exception {
 		logger.info("post order view");
@@ -272,7 +273,7 @@ public class AdminController {
 		return "redirect:/admin/shop/orderView?n=" + order.getOrderId();
 		}
 		
-		//¸ğµç ¼Ò°¨(´ñ±Û)
+		//ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½(ï¿½ï¿½ï¿½)
 		@RequestMapping(value = "/shop/allGoodsReply", method= RequestMethod.GET)
 		public void getAllGoodsReply(Model model) throws Exception{
 			logger.info("get all reply");
@@ -282,7 +283,7 @@ public class AdminController {
 			model.addAttribute("goodsReply", goodsReply);
 		}
 		
-		// ¸ğµç ¼Ò°¨(´ñ±Û) POST
+		// ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½(ï¿½ï¿½ï¿½) POST
 		@RequestMapping(value = "/shop/allGoodsReply", method = RequestMethod.POST)
 		public String postAllReply(GoodsReplyVO goodsReply) throws Exception {
 			logger.info("post all reply");

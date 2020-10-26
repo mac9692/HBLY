@@ -202,7 +202,35 @@
     <!-- Gallery Area End -->
     
     
+<<<<<<< HEAD
 
+=======
+    <!--? About Area-2 Start -->
+    <section class="about-area2 fix pb-padding pt-50 pb-80">
+        <div class="support-wrapper align-items-center">
+            <div class="right-content2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" >
+                <!-- img -->
+                <div class="right-img">
+                    <img src="${pageContext.request.contextPath}/resources/assets/img/gallery/about.png" alt="">
+                </div>
+            </div>
+            <div class="left-content2">
+                <!-- section tittle -->
+                <div class="section-tittle2 mb-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                    <div class="front-text">
+                        <h2 class="">HBLY의 시작</h2>
+                        <p>이 세상에는 참 다양한 건강정보와 헬스식품이 있습니다 하지만 우리와 꼭 맞는 마음을 가지고 있는 헬스커뮤니티 및 마켓을 찾기란 쉽지
+                        않았습니다 '그렇다면 우리가 직접 만들어보면 어떨까? 2020년 HBLY는 그렇게 시작되었습니다.</p>
+                        <p class="mb-40">비싼 헬스장과 PT, 비싼 보충제만이 좋은 수단이라고 막연하게 생각하고 있는 소비자에게는 진짜가 뭔지 소개해
+                        드리고 싶었고, 뚝심 하나로 착한 헬스장을 운영하는 사장님, 정말 건강한 건강식품을 판매하는 셀러들에게 안정적인 판매 활로를 찾아 드리고 싶었습니다.
+                        헬스인들과 더불어 사장님, 판매자까지 모두 행복하고 건강한 삶을 살 수 있도록 HBLY는 오늘도 열심히 Do it!</p>
+                        <a href="courses.html" class="border-btn">Do it Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+>>>>>>> feature/pay
     <!-- About Area End -->
     <!--? Blog Area Start -->
     <section class="home-blog-area pt-10 pb-50">
