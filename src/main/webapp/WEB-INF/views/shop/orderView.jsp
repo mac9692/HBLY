@@ -54,14 +54,42 @@
 	 	.btn a {}
 		.orderList p { color:#ffffff; font-size: 20px; }
 	
-		section#container {background-color: #ffffff; margin-left:550px;}
+		section#container {background-color: #ffffff; margin-left:150px;}
 		div#container_box {background-color: #000000;}
 		
 		div#orderInfo p {color:#000000; font-size: 30px;}
 		div#gdsInfo p {color:#000000; font-size: 20px;}
 		
-		
-		
+		/* 사이드 배너 부분 */
+		#chase {
+	        width:250px;
+	        overflow:hidden;
+	        margin-top:10px;
+	        margin-left:10px;
+	        margin-right:10px;
+	        margin-bottom:10px;
+	    }
+	
+	    #chase Img {
+	        width:100%;
+	        height:500px;
+	    }
+	
+	    #chaseBar {
+	        width:100%;
+	        background-color:#000000;
+	        color:#FFFFFF;
+	        font-weight:bold;
+	        text-align:center;
+	        font-size: 30px;
+	    }  
+	
+		 /* 상품주문 상단 */
+        h2 {
+        font-size: 60px;
+        padding: 10px;
+        }
+	
     </style>
 	</head>
 	<body>
@@ -88,8 +116,28 @@
             </div>
         </div>
         <!-- Hero End -->	
+        
+         <!-- 주문정보 시작   --> 
+     <section class="pricing-area section-padding30 fix" id="back">
+        <div class="container2">
+        <div class="container-fluid">
+        <!-- <div class="mainMenu col-lg-12 col-md-12 col-sm-12 col-xs-12" id="mainMenu">  -->
+            <div class="row">
+                 <div class="col-xl-12">
+                    <div class="text-center mb-55">
+                        <h2 style="color:black;">주문 상세 목록</h2>
+                    </div>
+                </div>
+            </div>
+    <!-- 주문정보 끝   --> 
+        
+         <!-- 사이드 메뉴 바 시작 -->
+			<div class="sideMenu col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			</div>
+            <!-- 사이드 바 메뉴 끝 -->
+        
 		
-			<section id="container">
+			<%-- <section id="container"> --%>
 				<div id="container_box">
 						<section id="content">
 
@@ -97,10 +145,10 @@
 						  <c:forEach items="${orderView}" var="orderView" varStatus="status">
 						   
 						   <c:if test="${status.first}">
-						    <p><span>수령인</span>${orderView.orderRec}</p>
-						    <p><span>주소</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
-						    <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
-						    <p><span>상태</span>${orderView.delivery}</p>
+						    <p><span>수령인&nbsp;&nbsp;</span>${orderView.orderRec}</p>
+						    <p><span>주소&nbsp;&nbsp;</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
+						    <p style="color:red;"><span>가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
+						    <p style="color:orange;"><span>상태&nbsp;&nbsp;</span>${orderView.delivery}</p>
 						   </c:if>
 						   
 						  </c:forEach>
@@ -114,18 +162,29 @@
 						   </div>
 						   <div class="gdsInfo" id="gdsInfo">
 						    <p>
-						     <span>상품명</span>${orderView.goodsName}<br />
-						     <span>개당 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
-						     <span>구입 수량</span>${orderView.cartStock} 개<br />
-						     <span>최종 가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
+						     <span>상품명&nbsp;&nbsp;</span>${orderView.goodsName}<br />
+						     <span>개당 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
+						     <span>구입 수량&nbsp;&nbsp;</span>${orderView.cartStock} 개<br />
+						     <span>최종 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
 						    </p>
 						   </div>
 						  </li>     
 						  </c:forEach>
 						 </ul>
 						</section>	
-					</div>
-			</section>
+						
+						<!-- 우측 스크롤 배너 -->
+      			<div class="banner col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      				<div id="chase">
+      					<img src= "${pageContext.request.contextPath}/resources/images/deliveryGuide.jpg"/>
+      					<div id="chaseBar">빠른배송!</div>
+      				</div>
+      			</div>
+      			<!-- 우측 스크롤 배너 끝 -->
+			</div>
+		</div>
+	</div>
+</section>
 			
 			 <section id="service">
             <div class="service_box">

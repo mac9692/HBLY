@@ -47,7 +47,7 @@
 		section#container {
 		 /* position:absolute; */
      /* top:50%; left:50%;  */
-   /*  margin-top:-100px; */ margin-left:550px; 
+   /*  margin-top:-100px; */ /* margin-left:550px;  */
    		/* max-width: 100%; */ 
        /* height: auto; */ 	
      
@@ -67,8 +67,35 @@
 		section#container {background-color: #ffffff;}
 		div#container_box {background-color: #000000;}
 		
-		
+		/* 사이드 배너 부분 */
+		#chase {
+	        width:250px;
+	        overflow:hidden;
+	        margin-top:10px;
+	        margin-left:10px;
+	        margin-right:10px;
+	        margin-bottom:10px;
+	    }
 	
+	    #chase Img {
+	        width:100%;
+	        height:500px;
+	    }
+	
+	    #chaseBar {
+	        width:100%;
+	        background-color:#000000;
+	        color:#FFFFFF;
+	        font-weight:bold;
+	        text-align:center;
+	        font-size: 30px;
+	    }  
+	
+		 /* 상품주문 상단 */
+        h2 {
+        font-size: 70px;
+        padding: 10px;
+        }	
 	
     </style>
 		
@@ -96,7 +123,28 @@
             </div>
         </div>
         <!-- Hero End -->
-	<section id="container">
+        
+    <!-- 주문정보 시작   --> 
+     <section class="pricing-area section-padding30 fix" id="back">
+        <div class="container2">
+        <div class="container-fluid">
+        <!-- <div class="mainMenu col-lg-12 col-md-12 col-sm-12 col-xs-12" id="mainMenu">  -->
+            <div class="row">
+                 <div class="col-xl-12">
+                    <div class="text-center mb-55">
+                        <h2 style="color:black;">주문 완료 목록</h2>
+                    </div>
+                </div>
+            </div>
+    <!-- 주문정보 끝   -->         
+    
+    		 <!-- 사이드 메뉴 바 시작 -->
+			<div class="sideMenu col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			</div>
+            <!-- 사이드 바 메뉴 끝 -->
+    
+    
+	
 		<div id="container_box">
 			<section id="content">
 				<ul class="orderList">
@@ -112,11 +160,19 @@
 					  </li>
 					  </c:forEach>
 					 </ul>
-					
 					</section>
-				</div>
-			</section>	
-			
+					<!-- 우측 스크롤 배너 -->
+      			<div class="banner col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      				<div id="chase">
+      					<img src= "${pageContext.request.contextPath}/resources/images/deliveryGuide.jpg"/>
+      					<div id="chaseBar">빠른배송!</div>
+      				</div>
+      			</div>
+      			<!-- 우측 스크롤 배너 끝 -->
+			</div>
+		</div>
+	</div>
+</section>	
 					
 					 <section id="service">
             <div class="service_box">
