@@ -11,7 +11,6 @@
 	<title>HBLY | 아이디 찾기</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
@@ -26,7 +25,11 @@
 	<link rel="stylesheet" href="/resources/assets/css/style.css">
 	
 	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
-
+	<style type="text/css">
+	.dauntable{
+	width:100%;
+	}
+	</style>
 </head>
 
 <body>
@@ -56,7 +59,7 @@
 		<!-- nav2 -->
 		<nav class="navbar navbar-dark black-bg">
 		    <div class="container d-flex justify-content-center">
-		      <div class="container px-5 mx-5">
+		      <div class="container px-5 mx-5 text-center">
 		        <div class="row">
 		          <div class="col-md-6 daun">
 		          <a class="navbar-brand" href="/member/idInqury">아이디 찾기</a>
@@ -73,7 +76,7 @@
   		<div class="container box_1170">
   		<!-- form start -->
   		 <!-- form -->
-       	<form:form method="post" action="/member/idInqury">
+       	<form method="post" action="/member/idInqury">
   		<div class="section-top-border">
 			<div class="form-group"><h3 class="mb-30"><b>회원정보에 등록한 휴대전화로 인증</b></h3><p>회원정보에 등록한 휴대전화 번호와 입력한 휴대전화 번호가 같아야, 인증번호를 받을 수 있습니다.</p>
               
@@ -83,51 +86,51 @@
 						<blockquote class="generic-blockquote">
 						
 							<div class="form-group row">
-				              <label for="userName" class="col-lg-2 col-md-2 col-sm-2 col-form-label">이름</label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
-				                  <input type="text" class="form-control" id="userName" name="userName"placeholder="이름" required>
+				              <label for="userName" class="col-lg-2 col-md-3 col-sm-12 col-form-label">이름</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
+				                  <input type="text" class="form-control" id="userName" name="userName"placeholder="이름">
 				                </div>
 				                                  
 				              </div>
 				              
 				              <div class="form-group row">
-				              	<div class="col-lg-2 col-md-2 col-sm-2"></div>
-				                <div class="col-lg-8 col-md-8 col-sm-8"> <div id="nameCheck"></div></div> 
+				              	<div class="col-lg-2 col-md-3 col-sm-12"></div>
+				                <div class="col-lg-7 col-md-5 col-sm-12"> <div id="nameCheck"></div></div> 
 				              </div>
 				              
 				              <div class="form-group row">
-				              <label for="userPhoneNumber" class="col-lg-2 col-md-2 col-sm-2 col-form-label">휴대전화</label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
-				                  <input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
+				              <label for="userPhoneNumber" class="col-lg-2 col-md-3 col-sm-12 col-form-label">휴대전화</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
+				                  <input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678">
 				                  
-				                 </div>
-				               <div class="col-lg-3 col-md-3 col-sm-3"><button type="button" class="genric-btn danger radius" onclick="ckeck1();">인증번호 받기</button></div>   
+				                 </div>	
+				               <div class="col-lg-3 col-md-4 col-sm-12"><button type="button" class="genric-btn danger radius dauntable" onclick="ckeck1();">인증번호 받기</button></div>   
 				                
 				              </div>
 				              
 				              <div class="form-group row">
-				              	<div class="col-lg-2 col-md-2 col-sm-2"></div>
-				                <div class="col-lg-8 col-md-8 col-sm-8"><div id="phoneCheck"></div></div> 
+				              	<div class="col-lg-2 col-md-3 col-sm-12"></div>
+				                <div class="col-lg-8 col-md-8 col-sm-12"><div id="phoneCheck"></div></div> 
 				              </div>
 				              
-				              <div class="form-group row"> <label for="certification" class="col-lg-2 col-md-2 col-sm-2 col-form-label"></label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
+				              <div class="form-group row"> <label for="certification" class="col-lg-2 col-md-3 col-sm-12 col-form-label">인증번호</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
 				                  <input type="text" class="form-control" id="certification" name="certification"placeholder="인증번호 숫자 입력">
 				                </div>
 				                
-				                 <div class="col-lg-3 col-md-3 col-sm-3"><button type="button" class="genric-btn danger radius" onclick="smsAuthBtn();">인증번호 확인</button></div>
+				                 <div class="col-lg-3 col-md-4 col-sm-12"><button type="button" class="genric-btn danger radius dauntable" onclick="smsAuthBtn();">인증번호 확인</button></div>
 				              </div>
 				              
 				              <input type="hidden" id="randomVal" value=""/>	
 				              
 				          	
 				             <div class="form-group row">
-				                <div class="col-lg-2 col-md-2 col-sm-2"></div>
-				                <div class="col-lg-8 col-md-8 col-sm-8"><div id="certCheck"></div></div> 
+				                <div class="col-lg-2 col-md-3 col-sm-12"></div>
+				                <div class="col-lg-7 col-md-5 col-sm-12"><div id="certCheck"></div></div> 
 				             </div>
 				              
 				        <div class="container text-center">
-				          <button type="submit" class="genric-btn danger radius" id="idInqury_btn">다음</button>
+				          <button type="submit" class="genric-btn danger radius" id="idInqury_btn" disabled="disabled">다음</button>
 				        </div>
         
 						</blockquote>
@@ -136,7 +139,7 @@
 				
 			</div>
 		</div>
-		</form:form>
+		</form>
 		<!-- form end -->
   		</div>
   		</div>
@@ -400,6 +403,7 @@
 			$('#certCheck').text("인증번호를 다시 확인해주세요");
 			$('#certCheck').css('color','red');
 			$("#idInqury_btn").attr("disabled",true);
+			return false;
 		}
 	};
 		

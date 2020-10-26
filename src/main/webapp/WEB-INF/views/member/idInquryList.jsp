@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,7 @@
 		<!-- nav2 -->
 		<nav class="navbar navbar-dark black-bg">
 		    <div class="container d-flex justify-content-center">
-		      <div class="container px-5 mx-5">
+		      <div class="container px-5 mx-5 text-center">
 		        <div class="row">
 		          <div class="col-md-6 daun">
 		          <a class="navbar-brand" href="/member/idInqury">아이디 찾기</a>
@@ -69,7 +70,7 @@
 		  <div class="py-5">
 		    <div class="container">
 		      <div class="container">
-		        <p> 고객님의 정보와 일치하는 아이디 목록입니다. </p>
+		        <b> 고객님의 정보와 일치하는 아이디 목록입니다. </b>
 		      </div>
 		      <div class="row">
 		        <div class="col-md-12 border my-2 p-3">
@@ -82,7 +83,7 @@
 							<c:forEach items="${idList}" var="idList">
 		              		<tr>
 		              			<td style="padding:10px;"><b>${idList.userId}</b></td>
-		              			<td style="padding:10px;">가입일 : ${idList.userRegidate }</td>
+		              			<td style="padding:10px;">가입일 : <fmt:formatDate value="${idList.userRegidate}" pattern="yyyy-MM-dd"/></td>
 		              		</tr>
 		              		</c:forEach>
 		              	</table>
@@ -198,7 +199,7 @@
 	<div id="back-top" class="hero-d">
 		<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 	</div>
-	
+	:
 	
 	
 	<!-- JS here -->
