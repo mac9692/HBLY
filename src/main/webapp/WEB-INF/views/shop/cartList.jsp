@@ -51,7 +51,7 @@
         div.allCheck {
             color: #000000;
             font-size: 20px;			
-			margin: auto; width: 50%;
+			/* margin: auto; width: 50%; */
         }
         
         .checkBox {
@@ -61,25 +61,34 @@
             
         }
 
-		.selectDelete_btn {
-            color: tomato;
-            font-size: 16px;
-           
+		button {
+            margin: 5px;
+        }
+
+
+		.genric-btn danger radius {
+            /* color: tomato; */
+            font-size: 50px;
+            color: #fff;
+    		background: #f44a40;
+   			border: 1px solid transparent;
+           	margin-top: 20px;
             
         }
+        
         
         .gdsInfo {
  			border: 1px solid #000000;
   			padding: 5px;
   			color: #000000;
-  			margin: auto; width: 50%;
+  			/* margin: auto; */ width: 50%;
         }
         
         #delete {
-            color: tomato;
-            font-size: 16px;
-            outline: medium none;
-            
+            font-size: 10px;
+            color: #fff;
+    		background: #f44a40;
+   			border: 1px solid transparent;
             
         }
 
@@ -103,7 +112,7 @@
             outline: medium none;
         }  
         
-        #order_btn1 {
+       /*  #order_btn1 {
             color: orange;
             font-size: 20px;
             outline: medium none;
@@ -111,9 +120,9 @@
             box-shadow: 3px 3px 3px grey;
             margin: 10px;
             background-color: #ffffff;
-        }
+        } */
        
-        #order_btn2 {
+        /* #order_btn2 {
             color: blue;
             font-size: 20px;
             outline: medium none;
@@ -121,9 +130,9 @@
             box-shadow: 3px 3px 3px grey;
             margin: 10px;
             background-color: #ffffff;
-        }
+        } */
         
-        #cancel_btn {
+       /*  #cancel_btn {
             color: MediumSeaGreen;
             font-size: 20px;
             outline: medium none;
@@ -131,7 +140,7 @@
             box-shadow: 3px 3px 3px grey;
             margin: 10px;
             background-color: #ffffff;
-        }
+        } */
         
         .goodsPrice {
             color: #800000;
@@ -204,7 +213,7 @@
         section#back{background-color: #ffffff; text-color: #000000; }
         
         /* 메인 주문목록 구역 */
-        div#mainMenu{background-color: #ffffff; border: 2px solid #000; align: center; }
+        div#mainMenu{background-color: #ffffff; border: 2px solid #000; /* align: center; */ }
         section#back{font-size: 100px;}
         
         
@@ -313,11 +322,11 @@
             
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                    <div class="properties mb-30" style="border:2px solid; text-align: center;"> <!-- margin-left:100px; -->
+                    <div class="properties mb-30" style="border:2px solid;"> <!-- margin-left:100px; -->
                         <div class="properties__card">
-                            <div class="about-icon">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/icon/price.svg" alt="">
-                            </div>
+                            <%-- <div class="about-icon">
+                               <img src="${pageContext.request.contextPath}/resources/assets/img/icon/price.svg" alt="">
+                            </div> --%>
                             <div class="properties__caption">
                             
                             
@@ -341,9 +350,9 @@
                             
                             
                              <div class="delBtn">
-                                <button type="button" class="selectDelete_btn">선택 삭제</button>
+                                <button type="button" class="genric-btn danger radius" style="font-size: 17px;">선택 삭제</button>
                                 <script>
-                                    $(".selectDelete_btn").click(function() {
+                                    $(".delBtn").click(function() {
                                         var confirm_val = confirm("정말 삭제하시겠습니까?");
 
                                         if (confirm_val) {
@@ -393,11 +402,11 @@
                                 </div>
                                 <div class="gdsInfo">
                                     <p style="color:black;">
-                                        <span style="color:black;">상품명=</span>${cartList.goodsName}<br />
-                                        <span style="color:black;">개당 가격=</span>
+                                        <span style="color:black;">상품명&nbsp;:&nbsp;</span>${cartList.goodsName}<br />
+                                        <span style="color:black;">개당 가격&nbsp;:&nbsp;</span>
                                         <fmt:formatNumber pattern="###,###,###" value="${cartList.goodsPrice}" /> 원<br />
-                                        <span style="color:black;">구입 수량=</span>${cartList.cartStock} 개<br />
-                                        <span style="color:black;">최종 가격=</span>
+                                        <span style="color:black;">구입 수량&nbsp;:&nbsp;</span>${cartList.cartStock} 개<br />
+                                        <span style="color:black;">최종 가격&nbsp;:&nbsp;</span>
                                         <fmt:formatNumber pattern="###,###,###" value="${cartList.goodsPrice * cartList.cartStock}" /> 원
                                     </p>
 
@@ -444,11 +453,11 @@
                         </div>
 
                         <div class="orderOpne">
-                            <button type="button" class="orderOpne_bnt">주문 정보 입력</button>
+                            <button type="button" class="genric-btn danger radius" style="font-size: 20px;">주문 정보 입력</button>
                         </div>
 
                         <script>
-                            $(".orderOpne_bnt").click(function() {
+                            $(".orderOpne").click(function() {
                                 $(".orderInfo").slideDown();
                                 $(".orderOpne_bnt").slideUp();
                             });
@@ -472,7 +481,7 @@
                             	 <div class="inputArea" id="postArea">
                                     <p>
                                         <input type="text" id="sample6_postcode" placeholder="우편번호">
-                                        <input type="button" id="post_bt" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                                        <input type="button" id="post_bt" class="genric-btn danger radius" style="color: #fff;" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                                     </p>
                                     <p>
                                         <input type="text" name="userAddress1" id="sample6_address" placeholder="주소"><br>
@@ -576,7 +585,7 @@
                                <!--  <a href="#" class="border-btn border-btn2">Join Now</a> -->
            
                                 <div class="inputArea">
-                                    <button type="button" id="order_btn1" class="order_btn">결제</button>
+                                    <button type="button" id="order_btn1" class="genric-btn danger radius" style="font-size: 20px;">결제</button>
 
                                     <script>
                                         $("#order_btn1").on("click", function() {
@@ -614,11 +623,11 @@
                                 </div>
 
                                 <div class="inputArea">
-                                    <button type="submit" class="order_btn" id="order_btn2">주문</button>
-                                    <button type="button" class="cancel_btn" id="cancel_btn">취소</button>
+                                    <button type="submit" class="genric-btn danger radius" id="order_btn2" style="font-size: 20px;">주문</button>
+                                    <button type="button" class="genric-btn danger radius" id="cancel_btn" style="font-size: 20px;">취소</button>
 
                                     <script>
-                                        $(".cancel_btn").click(function() {
+                                        $("#cancel_btn").click(function() {
                                             $(".orderInfo").slideUp();
                                             $(".orderOpne_bnt").slideDown();
                                         });

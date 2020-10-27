@@ -145,10 +145,10 @@
 						  <c:forEach items="${orderView}" var="orderView" varStatus="status">
 						   
 						   <c:if test="${status.first}">
-						    <p><span>수령인&nbsp;&nbsp;</span>${orderView.orderRec}</p>
-						    <p><span>주소&nbsp;&nbsp;</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
-						    <p style="color:red;"><span>가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
-						    <p style="color:orange;"><span>상태&nbsp;&nbsp;</span>${orderView.delivery}</p>
+						    <p><span>수령인&nbsp;:&nbsp;</span>${orderView.orderRec}</p>
+						    <p><span>주소&nbsp;:&nbsp;</span>(${orderView.userAddress1}) ${orderView.userAddress2} ${orderView.userAddress3}</p>
+						    <p style="color:red;"><span>가격&nbsp;:&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount}" /> 원</p>
+						    <p style="color:orange;"><span>상태&nbsp;:&nbsp;</span>${orderView.delivery}</p>
 						   </c:if>
 						   
 						  </c:forEach>
@@ -162,10 +162,10 @@
 						   </div>
 						   <div class="gdsInfo" id="gdsInfo">
 						    <p>
-						     <span>상품명&nbsp;&nbsp;</span>${orderView.goodsName}<br />
-						     <span>개당 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
-						     <span>구입 수량&nbsp;&nbsp;</span>${orderView.cartStock} 개<br />
-						     <span>최종 가격&nbsp;&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
+						     <span>상품명&nbsp;:&nbsp;</span>${orderView.goodsName}<br />
+						     <span>개당 가격&nbsp;:&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice}" /> 원<br />
+						     <span>구입 수량&nbsp;:&nbsp;</span>${orderView.cartStock} 개<br />
+						     <span>최종 가격&nbsp;:&nbsp;</span><fmt:formatNumber pattern="###,###,###" value="${orderView.goodsPrice * orderView.cartStock}" /> 원                  
 						    </p>
 						   </div>
 						  </li>     
