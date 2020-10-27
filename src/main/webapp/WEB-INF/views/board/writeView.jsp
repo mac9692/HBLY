@@ -177,15 +177,12 @@
 		  } */
 		  
 	  .t1 {
-	    margin-bottom: 1%;
 	    background-color: transparent;
-	    margin-top: 1%;
 	    font-size: 20px;
 	    text-align: center;
-	    width: 100%;
-	    border: 2px solid #bcbcbc;
-
-	    border-color: #D9042B;
+	    width: 90%;
+	    border: 1px solid #7A7276;
+	    margin: 1%;
 		  }		  
 	
 		.write_btn{
@@ -219,13 +216,14 @@
    		 margin-bottom: 1%;
 	}
 	
-	.category{
-		display: center;
-	}
+	 .category{
+		margin: 1%;
+	} 
 	
-	#t2{
+	/* #t2{
 	   display: grid;
 	}
+	
 	#t3{
 	   display: grid;
        margin-top: 1%;
@@ -235,37 +233,47 @@
 	}
 	#t5{
 	   display: grid;
-	}
+	} */
 	
 	#t6{
 	display: -webkit-box;
 	}
 	
+	.t2{
+	background-color: #EEE8E9;
+    border: 1px solid #7A7276;
+    text-align: center;
+    border: 1px solid #7A7276;
+	}
+	
+	.t3{
+	 border: 1px solid #7A7276;
+    text-align: center;
+    border: 1px solid #7A7276;
+	}
+	
 	#boardTitle{
  	   text-align: center;
-       margin-left: 10%;
-		margin-right: 10%;
-    	margin-bottom: 2%;
-   	    border-color: #D9042B;
+       width: 90%;
+	    margin-top: 1%;
+	    margin-bottom: 1%;
+
 	}
 	
 	#boardContent{
-       margin-left: 10%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
-    	height: 446px;
-    	border-color: #D9042B;
+	    margin-top: 1%;
+        height: 446px;
+   		width: 90%;
+
 	}
 
 	#userId{
 	   text-align: center;
-       margin-left: 7%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
-   	    border-color: #D9042B;
-	}
+      margin-top: 1%;
+    margin-bottom: 1%;
+    width: 90%;
+
+	} 
 	    
 		</style>
 		
@@ -329,59 +337,36 @@
     
     <sec:authentication var="principal" property="principal" />
 	
-	
-      			<!-- 우측 스크롤 배너 -->
-      			<div class="banner col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      				<div id="chase">
-      					<img src= "${pageContext.request.contextPath}/resources/images/sideBanner.jpg"/>
-      					<div id="chaseBar">프로젝트 화이팅</div>
-      				</div>
-      			</div>
-      			<!-- 우측 스크롤 배너 끝 -->
-	
 	<div class="container">		
 			<section id="container">
 				<form role="writeForm" method="post" action="/board/write">
+																
+						<select class = "category" name="categoryCode" >
+							<c:if test="${principal.member.verify == 9}">
+							<option value = "0" ${categoryCode=="0" ? "selected" : ""}>공지사항</option>	
+							</c:if>																											
+							<option value = "1" ${categoryCode=="1" ? "selected" : ""}>자유게시판</option>
+							<option value = "2" ${categoryCode=="2" ? "selected" : ""}>문의게시판</option>
+							<option value = "3" ${categoryCode=="3" ? "selected" : ""}>리뷰게시판</option>
+						</select>											
+
+
 					<table class="t1">
-						<tbody>
+						<tbody>	
 							<tr>
-								<td id="t2">																	
-									<select class = "category" name="categoryCode" >
-										<c:if test="${principal.member.verify == 9}">
-										<option value = "0" ${categoryCode=="0" ? "selected" : ""}>공지사항</option>	
-										</c:if>																											
-										<option value = "1" ${categoryCode=="1" ? "selected" : ""}>자유게시판</option>
-										<option value = "2" ${categoryCode=="2" ? "selected" : ""}>문의게시판</option>
-										<option value = "3" ${categoryCode=="3" ? "selected" : ""}>리뷰게시판</option>
-									</select>
-																				
-								</td>
+								<td class="t2">제목</td>
+								<td class="t3"><input type="text" id="boardTitle" name="boardTitle" required="required"/></td>
 							</tr>	
 							<tr>
-								<td id="t3">
-									<label for="boardTitle">제목</label>
-									<input type="text" id="boardTitle" name="boardTitle" required="required"/>
-								</td>
-							</tr>	
-							<tr>
-								<td id="t4">
-									<label for="boardContent">내용</label>
-									<textarea id="boardContent" name="boardContent" required="required"></textarea>
-								</td>
+								<td class="t2">내용</td>
+								<td class="t3"><textarea id="boardContent" name="boardContent" required="required"></textarea></td>
 							</tr>						
 							<tr>
-								<td id="t5">
-									<label for="userId">작성자</label>
-									<input type="text" id="userId" name="userId" value="${principal.member.userId}"/>
-									
-								</td>
-							<tr>							
-								<td id="t6">						
-									<button class="write_btn" type="submit">작성</button>	
-								</td>
-							</tr>			
+								<td class="t2">작성자</td>
+								<td class="t3"><input type="text" id="userId" name="userId" value="${principal.member.userId}"/></td>		
 						</tbody>			
-					</table>
+					</table>				
+						<button class="write_btn" type="submit">작성</button>	
 				</form>
 			</section>
 			<hr />

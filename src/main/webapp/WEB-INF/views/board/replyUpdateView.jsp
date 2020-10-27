@@ -290,7 +290,7 @@
    	    margin-bottom: 1%;
  	    height: 40px;
  		width: 90%;
-	    text-align: center;
+	    text-align: left;
 	    border: 1px solid #7A7276;
 	    }
 	    

@@ -72,9 +72,10 @@ public class BoardController {
 	
 	// 寃뚯떆�뙋 紐⑸줉 議고쉶
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception{
+	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri,HttpServletRequest request) throws Exception{
 		logger.info("list");
 		logger.info("======="+scri);
+		logger.info(request.getParameter("categoryCode"));
 		
 		model.addAttribute("list",service.list(scri));
 		
@@ -84,7 +85,7 @@ public class BoardController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 					
-	return "board/list";
+		return "board/list";
 			
 	}
 
