@@ -123,6 +123,7 @@
 			position: relative;
 			padding-top: 20%;
 			overflow: hidden;
+			margin-left: 25%;
 		}		
 		
 		.topBanner img {
@@ -244,42 +245,43 @@
    	    margin-bottom: 1%;
 	    font-size: 20px;
 	    text-align: center;
-	    width: 100%;
-
+	    border: 1px solid #7A7276;
 	    width: 90%;
 
 	    }
 	    
-	    .t{
+	/*     .t{
        	margin-top: 1%;
 	    margin-left: 5%;
 	    margin-right: 5%;
    	    margin-bottom: 1%;
-	    }
+	    } */
 	    
-	    #t1{
+	    .t1{
     	margin-top: 1%;
 	    font-size: 20px;
+	    background-color: #EEE8E9;
+	    border: 1px solid #7A7276;
 	    text-align: center;
 	    }
 	    
-	    #t2{
-	    margin-top: 1%;
+	    .t2{
+    	margin-top: 1%;
 	    font-size: 20px;
+	    border: 1px solid #7A7276;
 	    text-align: center;
-	    width: 100%;
+	    width: 80%;
+	    
 	    }
 	    
-	    #boardReplyContent{
+		#boardReplyContent{
      	margin-top: 1%;
-	    margin-left: 5%;
-	    margin-right: 5%;
    	    margin-bottom: 1%;
    	    height: 300px;
 	    width: 90%;
-	    border: 1px solid #bcbcbc;
-	    border-color: #D9042B;
-	    }
+	    border: 1px solid #7A7276;
+	    text-align: left;
+	    } 
 	    
 	    #boardReplyUserId{
 	    margin-top: 1%;
@@ -287,19 +289,18 @@
 	    margin-right: 5%;
    	    margin-bottom: 1%;
  	    height: 40px;
-	    width: 20%;
+ 		width: 90%;
 	    text-align: center;
-	    border: 1px solid #bcbcbc;
-	    border-color: #D9042B;
+	    border: 1px solid #7A7276;
 	    }
 	    
-	    #re1{
+	/*     #re1{
 	    display:grid;
 	    }
 	    #re2{
 	    display:grid;
 	    margin-top: 5%;
-	    }
+	    } */
 	    
 		</style>
 	
@@ -367,6 +368,7 @@
     </div>
     <!-- Hero End -->
     
+    
   	<sec:authentication var="principal" property="principal"/>
 		<div id="root">
 
@@ -379,18 +381,14 @@
 				<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
 				<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
 				<table class="t0">
-					<tbody class="t">
+					<tbody >
 					<tr>
-						<td id="t1">
-							<label id="re1" for="boardReplyContent">댓글 내용</label>
-							<input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/>
-						</td>
+						<td class="t1">댓글 내용</td>
+						<td class="t2"><input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/></td>
 					</tr>
 					<tr>
-						<td id="t2">
-							<label id="re2" for="boardReplyUserId">댓글 작성자</label>
-							<input type="text" id="boardReplyUserId" name="userId" value="${principal.member.userId}"/>							
-						</td>	
+						<td class="t1">댓글 작성자</td>
+						<td class="t2"><input type="text" id="boardReplyUserId" name="userId" value="${principal.member.userId}"/></td>	
 					</tr>						
 					</tbody>			
 				</table>
@@ -402,6 +400,16 @@
 		</section>
 		<hr />
 	</div>	
+	
+	<!--  상단 배너 시작 -->
+		<div class="topBanner-wrapper">
+			<div class="topBanner">
+				
+					<img src= "${pageContext.request.contextPath}/resources/images/topBanner.jpg"/>
+				
+			</div>
+			</div>			
+	<!-- 상단 배너 끝 -->
 		
 	<section id="service">
 		<div class="service_box">

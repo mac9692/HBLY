@@ -329,6 +329,16 @@
     
     <sec:authentication var="principal" property="principal" />
 	
+	
+      			<!-- 우측 스크롤 배너 -->
+      			<div class="banner col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      				<div id="chase">
+      					<img src= "${pageContext.request.contextPath}/resources/images/sideBanner.jpg"/>
+      					<div id="chaseBar">프로젝트 화이팅</div>
+      				</div>
+      			</div>
+      			<!-- 우측 스크롤 배너 끝 -->
+	
 	<div class="container">		
 			<section id="container">
 				<form role="writeForm" method="post" action="/board/write">

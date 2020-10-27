@@ -406,7 +406,6 @@
 		<a  href="/board/list?categoryCode=2">문의게시판 </a>				
 		<a  href="/board/list?categoryCode=3">리뷰게시판</a>
 	</div>  
-
  	
 <section id="listcontainer">
 	<form role="form" method="get" >

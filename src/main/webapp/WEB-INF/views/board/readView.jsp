@@ -136,7 +136,7 @@
 		#buttonBoxes{
 			display: flex;
 			margin-left: 25%;
-   			padding-left: 15%;
+   			padding-left: 25%;
 			color: black;
 			margin-top: 1rem;
 		    margin-bottom: 5rem;
@@ -198,6 +198,7 @@
 		          user-select: none;
 			  white-space: nowrap;
 			  width: auto; 
+			      margin-right: 2px;
   		}
   		.delete_btn{
   			color:black;
@@ -226,6 +227,7 @@
 		          user-select: none;
 			  white-space: nowrap;
 			  width: auto; 
+			  margin-right: 2px;
   		}
   		
   		.replyWriteBtn{
@@ -308,12 +310,21 @@
 		    font-size: 20px;
 		    text-align: center;
 		    width: 100%;
-	        border: 3px solid #bcbcbc;
+            border: 1px solid #7A7276;
 		    margin: auto;
 		    width: 90%;
-	        border-color:#D9042B;
-
 	    }
+	    
+/* 	    .table2{
+	    	margin-top: 1rem;
+		    font-size: 20px;
+		    text-align: center;
+		    width: 100%;
+            border: 1px solid #7A7276;
+		    margin: auto;
+		    width: 90%;
+
+	    } */
 	    
 	    .replyBtn{
 	   		display: flex;
@@ -383,37 +394,36 @@
 	    }
 	    
 	    #reply{
-	  		margin-top: 1rem;
+	  		margin-top: 1%;
+		    margin-right: 5%;
+		    margin-left: 5%;
+		    margin-bottom: 5%;
+		    padding-right: 5%;
 		    font-size: 20px;
-		    text-align: center;
-		    width: 100%;
-	        margin: 3%;
+		    text-align: left;
 		    width: 90%;
+	        border: 1px solid #7A7276;
+	        border-radius: 5px;
 	    }
 
 	#boardTitle{
  	   text-align: center;
-       margin-left: 10%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
+       width: 90%;
+    	margin: 2%;
 	}
 	
 	#userId{
 	   text-align: center;
-       margin-left: 7%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
+        width: 90%;
+    	margin: 2%;
 	}
 	
 	#boardContent{
-       margin-left: 10%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
+       width: 90%;
+  	  margin: 2%;
     	height: 446px;
-    	border-color: #D9042B;
+   	    border: 1px solid #7A7276;
+   	    text-align: center;
 	}
 	
 	#boardReplyContent{
@@ -424,36 +434,57 @@
 	}
 
 
-	#t1{
-	background-color:#C93343;
-	border-color: #D9042B;
+ 	.t1{
+	background-color:#EEE8E9;
+    border: 1px solid #7A7276;
+    text-align:center;
+    margin:center;
+    padding-top: 8%;
 	
 	}
 	
-	#t2{
-	background-color:#B62837;
-	border-color: #D9042B;
-
-	}
 	
-	#t3{
-    display: grid;
-    border-color: #D9042B;
-	}
-	
-	#t4{
-	border-color: #D9042B;
-	}
-	
-	.re2{
-	height: 200px;
-    background-color: #fff;
+	.table2{
     border-radius: 5px;
-    border: solid 1px #e8e8e8;
-    display: grid;
-    border-color: #D9042B;
-    height: 200px;
-    margin-top: 5%;
+    border: 1px solid #7A7276;
+    border-bottom: 1px solid #7A7276;
+    margin: 2%;
+    width: 90%;
+    font-size: 15px;
+    text-align: center;
+	}
+	
+	#container1{
+	margin-top:5%;
+	}
+	
+	.rt1{
+	background-color: #EEE8E9;
+    border: 1px solid #7A7276;
+    text-align: center;
+	height: 50px;
+    font-size: 20px;
+	}
+	
+	.rt11{
+	border: 1px solid #7A7276;
+    text-align: center;
+	height: 50px;
+    font-size: 20px;
+	}
+	
+	.rt2, .rt3{
+	background-color: #EEE8E9;
+    border: 1px solid #7A7276;
+    text-align: center;
+	}
+	
+	.rt22, .rt33{
+	border: 1px solid #7A7276;
+	}
+	
+	.reply_btn{
+    margin-left: 77%;
 	}
 	    
 </style>
@@ -621,20 +652,8 @@
 				})
 		
 			});
-			 
+			 			 						
 			
-			 						
-			 
-	/* 		//댓글 수정 View
-			$(".replyUpdateBtn").on("click", function(){
-				location.href = "/board/replyUpdateView?boardNumber=${read.boardNumber}"
-								+ "&page=${scri.page}"
-								+ "&perPageNum=${scri.perPageNum}"
-								+ "&searchType=${scri.searchType}"
-								+ "&keyword=${scri.keyword}"
-								+ "&boardReplyNumber="+$(this).attr("data-boardReplyNumber");
-			});
-				 */		
 			
 		})
 	
@@ -665,6 +684,7 @@
         </div>
     </div>
     <!-- Hero End -->		   
+
                             
       <sec:authentication var="principal" property="principal" />
 		<div class="container">							
@@ -680,31 +700,40 @@
 				<table class="table">
 					<tbody>	
 						<tr>
-							<td id="t1">
+							<td class="t1" style="padding-top:3.5%; border:1px solid #7A7276;">
 								<label for="boardTitle">제목</label>
+							</td>
+							<td style="border:1px solid #7A7276;">
 								<input type="text" id="boardTitle" name="boardTitle" value="${read.boardTitle}" readonly="readonly"/>
 							</td>
 						</tr>	
 						<tr>
-							<td id="t2">
+							<td class="t1" style="padding-top:3.5%;">
 								<label for="userId">작성자</label>
+							</td>
+							<td>
 								<input type="text" id="userId" name="userId" value="${read.userId}" readonly="readonly" />
 							</td>
 						</tr>
 						<tr>
-							<td id="t3">
+							<td class="t1" style="padding-top: 20%;">
 								<label  for="boardContent">내용</label>
+								</td>
+							<td style="border:1px solid #7A7276;">
 								<textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
 							</td>
 						</tr>
 						<tr>
-							<td id="t4">
+							<td class="t1" style="padding-top:3.5%;">
 								<label for="boardRegidate">작성 날짜</label>
+							</td>
+							<td >	
 								<fmt:formatDate value="${read.boardRegidate}" pattern="yyyy-MM-dd"/>					
 							</td>
 						</tr>		
 					</tbody>			
 				</table>
+								
 			
 				<div id="buttonBoxes">					
 					<sec:authorize access="isAnonymous()">
@@ -720,26 +749,8 @@
 					<button type="submit" class="list_btn">목록</button>	
 				</div>
 
-		<!-- 댓글 -->
-		<div id="reply">
-			<ol class="replyList">
-				<c:forEach items="${replyList}" var="replyList">
-					 <li>					    
-			        <p class="re2"> ${replyList.boardReplyContent}</p>
-						작성자 : ${replyList.userId}<br />
-						작성 날짜 : <fmt:formatDate value="${replyList.boardReplyRegidate}" pattern="yyyy-MM-dd" />				
-				<div class="reply_btn">
-					<sec:authorize access="isAuthenticated()"> 
-					<button type="button" class="replyUpdateBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">수정</button>
-					<button type="button" class="replyDeleteBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">삭제</button>
-					</sec:authorize>	
-				</div>
-					</li>
-				</c:forEach>   
-			 </ol>
-		</div>	
-				
-			<form name="replyForm" method="post">										
+
+		<form name="replyForm" method="post">										
 				<div class="replybox">							
 					<sec:authorize access="isAuthenticated()"> 
 						<sec:authentication var="principal" property="principal"/>						
@@ -748,21 +759,55 @@
 						<input type="hidden" id="page" name="page" value="${scri.page}"> 
 						<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
 						<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
-						<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 						
+						<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 								
 						<label for="boardReplyContent">댓글 내용</label>
-					    <input type="text" id="boardReplyContent" name="boardReplyContent" />	
-					    					&nbsp;&nbsp;&nbsp;&nbsp;
+					    <input type="text" id="boardReplyContent" name="boardReplyContent" />						    				
+						<br>
 						<label for="userId">댓글 작성자</label>		
 		                <a class="mypage-a">${principal.member.userId}</a>
-		                
-		                <button class="replyWriteBtn"  type="submit">작성 </button>                
+     					<button class="replyWriteBtn"  type="submit">작성 </button>  
+		                              
 	           		</sec:authorize>			
 				</div>			
 			</form>
+
+		<!-- 댓글 -->
+		<h1 style="margin-left:5%;font-weight:bold;color:#332424">댓글</h1>
+		<div id="reply">
+			<ol class="replyList">
+				<c:forEach items="${replyList}" var="replyList">
+					<table class="table2">
+						<tbody>
+							<tr> 
+								<td class="rt1">댓글내용</td> 
+								<td class="rt11"> ${replyList.boardReplyContent}</td>
+							</tr>
+							<tr> 
+								<td class="rt2" >작성자</td>
+								<td class="rt22">${replyList.userId}</td>
+							</tr>
+							<tr > 
+								<td class="rt3">작성 날짜</td>
+								<td class="rt33"><fmt:formatDate value="${replyList.boardReplyRegidate}" pattern="yyyy-MM-dd" /></td>
+							</tr>							
+						</tbody>
+					</table> 
+				    
+			 	
+	
+				<div class="reply_btn">
+					<sec:authorize access="isAuthenticated()"> 
+					<button type="button" class="replyUpdateBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">수정</button>
+					<button type="button" class="replyDeleteBtn" data-boardReplyNumber="${replyList.boardReplyNumber}">삭제</button>
+					</sec:authorize>	
+				</div>
+
+				</c:forEach>   
+			 </ol>
+		</div>	
 		
 		</section>
 		</div>
-		<hr />
 				
 	
 		<section id="service">

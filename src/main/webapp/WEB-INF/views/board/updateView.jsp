@@ -167,15 +167,14 @@
 	    }		
 	    
 
-		  table {
+		  .table {
 	        margin-top: 1rem;
 		    font-size: 20px;
 		    text-align: center;
 		    width: 100%;
-		    border: 3px solid #bcbcbc;
 		    margin: auto;
 		    width: 90%;
-		    border-color: #D9042B;
+ 			border: 1px solid #7A7276;
 		  }	
 		  
 		  .button1{
@@ -201,8 +200,9 @@
 			  height: 42px;
 			  line-height: 40px;
 			  outline: none;
-			  padding-left: 18px;
-			  padding-right: 30px;
+		      padding-left: 20px;
+			    padding-right: 20px;
+			    margin: 2px;
 			  text-align: left !important;
 			  -webkit-transition: all 0.2s ease-in-out;
 			  transition: all 0.2s ease-in-out;
@@ -215,78 +215,78 @@
 		  }
 		  
 		  .cancel_btn{
-		  	 color:black;
-			-webkit-tap-highlight-color: transparent;
-			  background-color: #fff;
-			  border-radius: 5px;
-			  border: solid 1px #e8e8e8;
-			  box-sizing: border-box;
-			  clear: both;
-			  cursor: pointer;
-			  display: block;
-			  font-family: inherit;
-			  font-size: 14px;
-			  font-weight: normal;
-			  height: 42px;
-			  outline: none;
-			  padding-left: 18px;
-			  padding-right: 30px;
-			  text-align: left !important;
-			  -webkit-transition: all 0.2s ease-in-out;
-			  transition: all 0.2s ease-in-out;
-			  white-space: nowrap;
-			  width: auto;  
+		  	 align-content: center;
+		    color: black;
+		    -webkit-tap-highlight-color: transparent;
+		    background-color: #fff;
+		    border-radius: 5px;
+		    border: solid 1px #e8e8e8;
+		    box-sizing: border-box;
+		    clear: both;
+		    cursor: pointer;
+		    display: block;
+		    font-family: inherit;
+		    font-size: 14px;
+		    font-weight: normal;
+		    height: 42px;
+		    outline: none;
+		    padding-left: 20px;
+		    padding-right: 20px;
+		    margin: 2px;
+		    text-align: center !important;
+		    -webkit-transition: all 0.2s ease-in-out;
+		    transition: all 0.2s ease-in-out;
+		    white-space: nowrap;
+		    width: auto;
+		    padding: 10px 13px;
+		    width: 70px;
 		  }
 		  
-		  	#boardTitle{
- 	   text-align: center;
-       margin-left: 10%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
+  	#boardTitle{
+      text-align: center;
+  	  width: 90%;
 	}
 	
 	#userId{
-	   text-align: center;
-       margin-left: 7%;
-		margin-right: 10%;
-	    margin-top: 2%;
-    	margin-bottom: 2%;
+	 text-align: center;
+  	  width: 90%;
 	}
 
 
-			#boardContent{
-		       margin-left: 10%;
-				margin-right: 10%;
-			    margin-top: 2%;
-		    	margin-bottom: 2%;
-		    	height: 446px;
-		    	border-color: #D9042B;
-			}
+		#boardContent{
+           text-align: center;
+		   width: 90%;
+           height: 446px;
+		}
 
-		#t1{
-			background-color:#C93343;
-			border-color: #D9042B;
+			.t1{
+			background-color:#EEE8E9;
 			padding-top: 1%;
-  			  padding-bottom: 1%;
+  			padding-bottom: 1%;
+  			border: 1px solid #7A7276;
 			
 			}
 			
-			#t2{
-			background-color:#B62837;
-			border-color: #D9042B;
+		/* 	#t2{
+			background-color:#EEE8E9;
 			padding-top: 1%;
     		padding-bottom: 1%;
+    		border: 1px solid #7A7276;
 		
 			}
 			
 			#t3{
 		    display: grid;
-		    border-color: #D9042B;
+		    border: 1px solid #7A7276;
 			}
 			
 			#t4{
-			border-color: #D9042B;
+			border: 1px solid #7A7276;
+			} */
+			
+			#container1{
+			margin:10%;
+			margin-top:1%;
 			}
 			
 </style>
@@ -343,38 +343,33 @@
         </div>
     </div>
     <!-- Hero End -->
+    
+
     		
-	<section id="container">
+	<section id="container1">
 		<form name="updateForm" role="form" method="post" action="/board/update">
 			<input type="hidden" name="boardNumber" value="${update.boardNumber}" readonly="readonly"/>
-			<table>
+			<table class="table">
 				<tbody>
 					<tr>
-						<td id="t1">
-							<label for="boardTitle">제목</label>
-							<input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}" class="chk" title="제목을 입력하세요"/>
-						</td>
+						<td class="t1">제목</td>
+						<td><input type="text" id="boardTitle" name="boardTitle" value="${update.boardTitle}" class="chk" title="제목을 입력하세요"/></td>
 					</tr>	
 					<tr>
-					<td id="t2">
-						<label for="userId">작성자</label>
-						<input type="text" id="userId" name="userId" value="${update.userId}" readonly="readonly"/>
-					</td>
+						<td class="t1">작성자</td>
+						<td><input type="text" id="userId" name="userId" value="${update.userId}" readonly="readonly"/></td>
 					</tr>
 					<tr>
-						<td id="t3">
-							<label for="boardContent">내용</label>
-							<textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea>
-						</td>
+						<td class="t1">내용</td>
+						<td><textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea></td>
 					</tr>
 					<tr>
-						<td id="t4">
-							<label for="boardRegidate">작성날짜</label>
-							<fmt:formatDate value="${update.boardRegidate}" pattern="yyyy-MM-dd"/>					
-						</td>
+						<td class="t1">작성날짜</td>
+						<td><fmt:formatDate value="${update.boardRegidate}" pattern="yyyy-MM-dd"/></td>		
 					</tr>		
 				</tbody>			
 			</table>
+			
 			<div class="button1">
 				<button type="submit" class="update_btn">저장</button>
 				<button type="submit" class="cancel_btn">취소</button>
