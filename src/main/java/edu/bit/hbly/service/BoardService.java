@@ -8,26 +8,24 @@ import edu.bit.hbly.vo.SearchCriteria;
 
 public interface BoardService {
 	
-	//게시글 작성
+	//野껊슣�뻻疫뀐옙 占쎌삂占쎄쉐
 	public void write(BoardVO boardVO) throws Exception;
 	
-	// 게시물 목록 조회
+	// 野껊슣�뻻�눧占� 筌뤴뫖以� 鈺곌퀬�돳
 	public List<BoardVO> list(SearchCriteria scri) throws Exception;
 	
-	//게시물 총 갯수
+	//野껊슣�뻻�눧占� �룯占� 揶쏉옙占쎈땾
 	public int listCount(SearchCriteria scri) throws Exception;
 	
-	// 게시물 목록 조회
+	// 野껊슣�뻻�눧占� 筌뤴뫖以� 鈺곌퀬�돳
 	public BoardVO read(int boardNumber) throws Exception;
 
-	// 게시물 수정
+	// 野껊슣�뻻�눧占� 占쎈땾占쎌젟
 	public void update(BoardVO boardVO) throws Exception;
 		
-	// 게시물 삭제
-	//public void delete(int boardNumber) throws Exception;
 	public void delete(BoardVO boardVO) throws Exception;
 	
-	//게시판 아이디 체크
+	//寃뚯떆�뙋 �븘�씠�뵒 泥댄겕
 	public String boardIdCheck(int boardNumber) throws Exception;
 	
 

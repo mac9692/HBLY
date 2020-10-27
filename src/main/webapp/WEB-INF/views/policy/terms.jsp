@@ -1,60 +1,87 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
-	<head>
-		
-		<title>HBLY</title>
+<head>
+  
+  	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>HBLY | 약관 및 정책</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/slicknav.css">
+	<link rel="stylesheet" href="/resources/assets/css/animate.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="/resources/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/resources/assets/css/themify-icons.css">
+	<link rel="stylesheet" href="/resources/assets/css/slick.css">
+	<link rel="stylesheet" href="/resources/assets/css/nice-select.css">
+	<link rel="stylesheet" href="/resources/assets/css/style.css">
 	
-		
-	</head>
+	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
+
+</head>
 	<body>
-		<div id="root">
-			<header id="header">
-				<div id="header_box">
-					<%@ include file= "../include/header.jsp" %>
+	<!--? Header Start -->
+	<%@ include file= "../include/header.jsp" %>
+	
+	<main>
+		<!--? Hero Start -->
+		<div class="slider-area2">
+			<div class="slider-height2 d-flex align-items-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="hero-capd hero-cap2 pt-70 policy-title">
+								<h2>약관 및 정책</h2>
+							</div>
+						</div>
+					</div>
 				</div>
-			</header>
-			
-			<nav id="nav">
-				<div id="nav_box">
-					<%@ include file= "../include/nav.jsp" %>
-				</div>
-			</nav>
-			
-			<section id="container">
+			</div>
+		</div>
+		<!-- Hero End -->
+	
+ 		<!-- nav2 -->
+		<nav class="navbar navbar-dark mt-30 mb-30">
+		    <div class="container d-flex justify-content-center">
+		      <div class="container">
+		        <div class="row policy-menu">
+		          	<div class="policy-menu">
+						<a class="genric-btn primary e-large" href="/policy/terms">HBLY 이용 약관</a>
+						<a class="genric-btn primary-border e-large" href="/policy/privacy">개인정보 처리방침</a>
+						<a class="genric-btn primary-border e-large" href="/policy/commercial">HBLY 광고 정책</a>
+						<a class="genric-btn primary-border e-large" href="/policy/youth">청소년 보호정책</a>
+					</div>
+		      </div>
+		      </div>
+		    </div>
+		</nav>
+		
+			<div class="whole-wrap mb-100">
+  		<div class="container box_1170">
+						<div class="row">
+					<div class="col-lg-12">
+					
+						
+						<blockquote class="generic-blockquote">
+					<section id="container">
 				<div id="container_box">
-					<div class="content-header">
-						<h3 class="policy-title">
-							<strong>약관 및 정책</strong>
-						</h3>
-						<p>
-							<a href="/">홈</a>
-							>
-							<a href="/">고객센터</a>
-							>
-							<a href="/policy/terms">약관 및 정책</a>
-						</p>
-					</div>
-					
-					
-					<div class="policy-menu">
-						<a href="/policy/terms">HBLY 이용 약관</a>
-						<a href="/policy/privacy">개인정보 처리방침</a>
-						<a href="/policy/commercial">HBLY 광고 정책</a>
-						<a href="/policy/youth">청소년 보호정책</a>
-					</div>
-					
-					
-					<div class="policy terms" style="display: block;">
-						<h1 style="text-align: center;">
+					<div class="policy terms" style="display: block;">				
+						<h1 style="text-align: center; margin-bottom:20px;">
 							<strong>[HBLY 이용약관]</strong>
-						</h1>
+						</h1>	
+						<div>
+							<br>
+						</div>
 						
 						<p>
 						<br>
 						<br>
 						</p>
-						
 						<h2 style="text-align: center;">
 							<strong>제1장 총칙</strong>
 						</h2>
@@ -326,64 +353,154 @@
 						<p>
 						<br>
 						<br>
-						</p>
-						
-						<h1 style="text-align: center;">
-							<strong>제2장 전자상거래 서비스</strong>
-						</h1>
-						
-				
-				
-				
-				
-				
-				
-				
+						</p>					
+										
 					</div>
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<aside id="aside">
-					 <%@ include file="../include/aside.jsp" %>
-				</aside>
 				</div>
-			</section>
-			
-			<footer id="foorter">
-				<div id="footer_box">
-					<%@ include file= "../include/footer.jsp" %>
+				</section>
+				</blockquote>
 				</div>
-			</footer>
+				</div>
+				</div>
+				</div>
+		
+		
+		
+		  
+  		<!-- ? services-area -->
+		<%@ include file= "../include/gymService.jsp" %>
+	</main>
+	
+	
+	<!-- Footer -->
+	<footer>
+	<!--? Footer Start-->
+	<div class="footer-area black-bg">
+		<div class="container">
+			<div class="footer-top footer-padding">
+				<!-- Footer Menu -->
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="single-footer-caption mb-50 text-center">
+							<!-- logo -->
+							<div class="footer-logo wow fadeInUp" data-wow-duration="1s"
+								data-wow-delay=".2s">
+								<a href=""><img
+									src="../resources/assets/img/logo/HBLYfooter.png" alt=""></a>
+							</div>
+							<!-- Menu -->
+							<!-- Header Start -->
+							<div class="header-area main-header2 wow fadeInUp"
+								data-wow-duration="2s" data-wow-delay=".4s">
+								<div class="main-header main-header2">
+									<div class="menu-wrapper menu-wrapper2">
+										<!-- Main-menu -->
+										<div class="main-menu main-menu2 text-center">
+											<nav>
+												<ul>
+													<li><a href="/">Home</a></li>
+													<li><a href="about.html">About</a></li>
+													<li><a href="courses.html">Courses</a></li>
+													<li><a href="pricing.html">Pricing</a></li>
+													<li><a href="gallery.html">Gallery</a></li>
+													<li><a href="contact.html">Contact</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Header End -->
+							<!-- social -->
+							<div class="footer-social mt-30 wow fadeInUp"
+								data-wow-duration="3s" data-wow-delay=".8s">
+								<a href="#"><i class="fab fa-twitter"></i></a> <a
+									href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+								<a href="#"><i class="fab fa-pinterest-p"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-12">
+						<div class="footer-copy-right text-center">
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
+								All rights reserved | This template is made with <i
+									class="fa fa-heart" aria-hidden="true"></i> by <a
+									href="https://colorlib.com" target="_blank">HBLY</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div >
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-12">
+						<div class="hero-d footer-copy-right text-center">
+							<p><a href="/">입점/제휴문의</a> | <a href="/policy/terms">이용 약관</a> | <a
+		href="/policy/privacy">개인정보 처리방침</a> | <a href="/policy/commercial">광고정책</a> |
+	<a href="/policy/youth">청소년 보호정책</a></p>	
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	</div>
+	<!-- Footer End-->
+	</footer>
+	
+	<!-- Scroll Up -->
+	<div id="back-top" class="hero-d">
+		<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+	</div>
+	
+	
+	
+	<!-- JS here -->
+	
+	<script src="/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	<!-- Jquery, Popper, Bootstrap -->
+	<script src="/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="/resources/assets/js/popper.min.js"></script>
+	<script src="/resources/assets/js/bootstrap.min.js"></script>
+	<!-- Jquery Mobile Menu -->
+	<script src="/resources/assets/js/jquery.slicknav.min.js"></script>
+	
+	<!-- Jquery Slick , Owl-Carousel Plugins -->
+	<script src="/resources/assets/js/owl.carousel.min.js"></script>
+	<script src="/resources/assets/js/slick.min.js"></script>
+	<!-- One Page, Animated-HeadLin -->
+	<script src="/resources/assets/js/wow.min.js"></script>
+	<script src="/resources/assets/js/animated.headline.js"></script>
+	<script src="/resources/assets/js/jquery.magnific-popup.js"></script>
+	
+	<!-- Nice-select, sticky -->
+	<script src="/resources/assets/js/jquery.nice-select.min.js"></script>
+	<script src="/resources/assets/js/jquery.sticky.js"></script>
+	
+	<!-- contact js -->
+	<script src="/resources/assets/js/contact.js"></script>
+	<script src="/resources/assets/js/jquery.form.js"></script>
+	<script src="/resources/assets/js/jquery.validate.min.js"></script>
+	<script src="/resources/assets/js/mail-script.js"></script>
+	<script src="/resources/assets/js/jquery.ajaxchimp.min.js"></script>
+	
+	<!-- Jquery Plugins, main Jquery -->	
+	<script src="/resources/assets/js/plugins.js"></script>
+	<script src="/resources/assets/js/main.js"></script> 
+	
 		
 		
 		

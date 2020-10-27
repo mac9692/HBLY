@@ -81,3 +81,127 @@
     font-weight: 700;
     line-height: 1;
 }
+
+
+/*table response*/
+/* line 321, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table-wrap {
+  overflow-x: scroll;
+}
+/* line 325, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table {
+  background: #f9f9ff;
+  padding: 15px 0px 30px 0px;
+  min-width: 800px;
+}
+/* line 329, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .serial {
+  width: 11.83%;
+  padding-left: 30px;
+}
+
+/* line 333, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .country {
+  width: 28.07%;
+}
+
+/* line 336, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .visit {
+  width: 19.74%;
+}
+
+/* line 339, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .percentage {
+  width: 40.36%;
+  padding-right: 50px;
+}
+
+/* line 343, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-head {
+  display: flex;
+}
+
+/* line 345, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-head .serial,
+.progress-table .table-head .country,
+.progress-table .table-head .visit,
+.progress-table .table-head .percentage {
+  color: #415094;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* line 355, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row {
+  padding: 15px 0;
+  border-top: 1px solid #edf3fd;
+  display: flex;
+}
+
+/* line 359, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .serial,
+.progress-table .table-row .country,
+.progress-table .table-row .visit,
+.progress-table .table-row .percentage {
+  display: flex;
+  align-items: center;
+}
+
+/* line 367, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .country img {
+  margin-right: 15px;
+}
+
+/* line 372, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress {
+  width: 80%;
+  border-radius: 0px;
+  background: transparent;
+}
+
+/* line 376, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar {
+  height: 5px;
+  line-height: 5px;
+}
+
+/* line 379, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-1 {
+  background-color: #6382e6;
+}
+
+/* line 382, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-2 {
+  background-color: #e66686;
+}
+
+/* line 385, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-3 {
+  background-color: #f09359;
+}
+
+/* line 388, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-4 {
+  background-color: #73fbaf;
+}
+
+/* line 391, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-5 {
+  background-color: #73fbaf;
+}
+
+/* line 394, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-6 {
+  background-color: #6382e6;
+}
+
+/* line 397, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-7 {
+  background-color: #a367e7;
+}
+
+/* line 400, C:/Users/HP/Desktop/July-HTML/292 Health coach/assets/scss/_elements.scss */
+.progress-table .table-row .percentage .progress .progress-bar.color-8 {
+  background-color: #e66686;
+}

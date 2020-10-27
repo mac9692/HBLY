@@ -24,7 +24,7 @@
 					<ul class="navbar-nav ml-auto">
 						<sec:authentication var="principal" property="principal" />
 						<c:if test="${principal.member.verify == 9}">
-							<li class="nav-item"><a class="nav-link" href="/admin/index">관리자
+							<li class="nav-item"><a class="nav-link" href="/admin/goods/list">관리자
 									화면</a></li>
 						</c:if>
 

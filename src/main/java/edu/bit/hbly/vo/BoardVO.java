@@ -16,10 +16,7 @@ public class BoardVO {
 	private Date boardRegidate;
 	private String userId;
 	private int boardHit;
-	private String categoryCode;
-
-	
-	
+	private String categoryCode;	
 
 	public String getCategoryCode() {
 		return categoryCode;
@@ -64,6 +61,5 @@ public class BoardVO {
 		this.userId = userId;
 	}
 
-	
 	
 }

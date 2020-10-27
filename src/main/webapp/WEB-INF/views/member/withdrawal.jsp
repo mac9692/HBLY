@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="/resources/assets/css/slick.css">
     <link rel="stylesheet" href="/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="/resources/assets/css/style.css">
+    
+    <link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
 
  <style>
 .hero-j h5{
@@ -108,56 +110,21 @@ $(document).ready(function(){
         </div>
     </div>
     
-    <section class="services-area">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon1.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>게시글 수</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon2.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>댓글 수</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>최근 방문일</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                    <div class="single-services mb-40">
-                        <div class="features-icon">
-                            <img src="/resources/assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>포인트</h3>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <nav class="navbar navbar-dark black-bg">
+		    <div class="container d-flex justify-content-center" style="padding:40px;">
+		      <div class="container px-5 mx-5 text-center">
+		        <div class="row">
+		          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 daun">
+		          <a href="/member/mypage"><i class="fa fa-user-circle" aria-hidden="true"></i> 개인정보 수정</a>
+		          </div>
+		          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 daun">
+		            <a href="/shop/cartList"><i class="fa fa-cart-plus" aria-hidden="true"></i> 장바구니</a></div>
+		            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 daun">
+		           <a href="/shop/orderList"><i class="fa fa-list-ol" aria-hidden="true"></i> 주문목록</a></div>
+		        </div>
+		      </div>
+		    </div>
+		</nav>
 
 	<div class="py-5">
 		<div class="container">
@@ -238,8 +205,7 @@ $(document).ready(function(){
 																	<div class="container text-center">
 																		<div class="row">
 																			<div class="mx-auto col-md-10">
-																				<h4 style="" contenteditable="true">회원탈퇴를 위한
-																					회원정보 인증 절차</h4>
+																				<h4>회원탈퇴를 위한 회원정보 인증 절차</h4>
 																				<p class="mb-3 text-muted">회원가입 시 등록한 정보를
 																					입력해주세요.</p>
 																				<c:url value="/member/withdrawal"

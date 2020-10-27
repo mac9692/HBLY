@@ -11,7 +11,6 @@
 	<title>HBLY | 비밀번호 찾기</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
@@ -27,7 +26,11 @@
 	
 	<link rel="stylesheet" href="/resources/assets/css/daunstyle.css">
 </head>
-
+	<style type="text/css">
+	.dauntable{
+	width:100%;
+	}
+	</style>
 <body>
 
 	
@@ -55,7 +58,7 @@
 		<!-- nav2 -->
 		<nav class="navbar navbar-dark black-bg">
 		    <div class="container d-flex justify-content-center">
-		      <div class="container px-5 mx-5">
+		      <div class="container px-5 mx-5 text-center">
 		        <div class="row">
 		          <div class="col-md-6 daun">
 		          <a class="navbar-brand" href="/member/idInqury">아이디 찾기</a>
@@ -89,39 +92,39 @@
 						<blockquote class="generic-blockquote">
 						
 							<div class="form-group row">
-				              <label for="userName" class="col-lg-2 col-md-2 col-sm-2 col-form-label">이름</label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
+				              <label for="userName" class="col-lg-2 col-md-3 col-sm-12 col-form-label">이름</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
 				                  <input type="text" class="form-control" id="userName" name="userName"placeholder="이름" required>
 				                </div>
 				                                  
 				              </div>
 				              
 				              <div class="form-group row">
-				              	<div class="col-lg-2 col-md-2 col-sm-2"></div>
-				                <div class="col-lg-8 col-md-8 col-sm-8"> <div id="nameCheck"></div></div> 
+				              	<div class="col-lg-2 col-md-3 col-sm-12"></div>
+				                <div class="col-lg-7 col-md-5 col-sm-12"> <div id="nameCheck"></div></div> 
 				              </div>
 				              
 				              <div class="form-group row">
-				              <label for="userPhoneNumber" class="col-lg-2 col-md-2 col-sm-2 col-form-label">휴대전화</label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
+				              <label for="userPhoneNumber" class="col-lg-2 col-md-3 col-sm-12 col-form-label">휴대전화</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
 				                  <input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="ex)01012345678" required>
 				                  
 				                 </div>
-				               <div class="col-lg-3 col-md-3 col-sm-3"><button type="button" class="genric-btn danger radius" onclick="ckeck1();">인증번호 받기</button></div>   
+				               <div class="col-lg-3 col-md-4 col-sm-12"><button type="button" class="genric-btn danger radius dauntable" onclick="ckeck1();">인증번호 받기</button></div>   
 				                
 				              </div>
 				              
 				              <div class="form-group row">
-				              	<div class="col-lg-2 col-md-2 col-sm-2"></div>
-				                <div class="col-lg-8 col-md-8 col-sm-8"><div id="phoneCheck"></div></div> 
+				              	<div class="col-lg-2 col-md-3 col-sm-12"></div>
+				                <div class="col-lg-8 col-md-8 col-sm-12"><div id="phoneCheck"></div></div> 
 				              </div>
 				              
-				              <div class="form-group row"> <label for="certification" class="col-lg-2 col-md-2 col-sm-2 col-form-label"></label>
-				                <div class="col-lg-7 col-md-7 col-sm-7">
+				              <div class="form-group row"> <label for="certification" class="col-lg-2 col-md-3 col-sm-12 col-form-label">인증번호</label>
+				                <div class="col-lg-7 col-md-5 col-sm-12">
 				                  <input type="text" class="form-control" id="certification" name="certification"placeholder="인증번호 숫자 입력">
 				                </div>
 				                
-				                 <div class="col-lg-3 col-md-3 col-sm-3"><button type="button" class="genric-btn danger radius" onclick="smsAuthBtn();">인증번호 확인</button></div>
+				                 <div class="col-lg-3 col-md-4 col-sm-12"><button type="button" class="genric-btn danger radius dauntable" onclick="smsAuthBtn();">인증번호 확인</button></div>
 				              </div>
 				              
 				              <input type="hidden" id="randomVal" value=""/>	
@@ -133,7 +136,7 @@
 				             </div>
 				              
 				        <div class="container text-center">
-				          <button type="submit" class="genric-btn danger radius" id="pwInqury_btn">다음</button>
+				          <button type="submit" class="genric-btn danger radius" id="pwInqury_btn" disabled="disabled">다음</button>
 				        </div>
         
 						</blockquote>

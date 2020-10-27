@@ -7,14 +7,13 @@
 <html class="no-js" lang="zxx">
 <head>
  
-  <title>HBLY : 로그인</title>
+  <title>HBLY | 로그인</title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 
 	<!-- CSS here -->
@@ -105,6 +104,7 @@
 		            <a href ="https://kauth.kakao.com/oauth/authorize?client_id=5bde6ae9c71bf5f382a97fe4ea87eb67&redirect_uri=http://localhost:8282/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png"/></a>
 							  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		          </div>
+		           
 		        </div>
 		      </div>
 		    </div>

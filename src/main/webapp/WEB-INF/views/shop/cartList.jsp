@@ -47,34 +47,63 @@
 
 
     <style>
-        .allCheck {
+    	
+        div.allCheck {
+            color: #000000;
+            font-size: 20px;			
+			/* margin: auto; width: 50%; */
+        }
+        
+        .checkBox {
             color: #000;
             font-size: 20px;
-            outline: medium none;
+           
+            
         }
 
-		.selectDelete_btn {
-            color: tomato;
-            font-size: 16px;
-            outline: medium none;
+		button {
+            margin: 5px;
+        }
+
+
+		.genric-btn danger radius {
+            /* color: tomato; */
+            font-size: 50px;
+            color: #fff;
+    		background: #f44a40;
+   			border: 1px solid transparent;
+           	margin-top: 20px;
+            
+        }
+        
+        
+        .gdsInfo {
+ 			border: 1px solid #000000;
+  			padding: 5px;
+  			color: #000000;
+  			/* margin: auto; */ width: 50%;
         }
         
         #delete {
-            color: tomato;
-            font-size: 16px;
-            outline: medium none;
+            font-size: 10px;
+            color: #fff;
+    		background: #f44a40;
+   			border: 1px solid transparent;
+            
         }
 
  		.sum {
-            
-            font-size: 16px;
+            color: #000000;
+            font-size: 25px;
             outline: medium none;
         }
         
         .orderOpne_bnt {
-            color: tomato;
+            color: orange;
             font-size: 16px;
             outline: medium none;
+            padding: 3px;
+            margin: 10px;
         } 
            
         .orderInfo {
@@ -83,28 +112,34 @@
             outline: medium none;
         }  
         
-        #order_btn1 {
-            color: red;
-            font-size: 16px;
+       /*  #order_btn1 {
+            color: orange;
+            font-size: 20px;
             outline: medium none;
-        }
+            border: 2px solid #000;
+            box-shadow: 3px 3px 3px grey;
+            margin: 10px;
+            background-color: #ffffff;
+        } */
        
-        #order_btn2 {
+        /* #order_btn2 {
             color: blue;
-            font-size: 16px;
+            font-size: 20px;
             outline: medium none;
-        }
+            border: 2px solid #000;
+            box-shadow: 3px 3px 3px grey;
+            margin: 10px;
+            background-color: #ffffff;
+        } */
         
-        #cancel_btn {
-            color: tomato;
-            font-size: 16px;
+       /*  #cancel_btn {
+            color: MediumSeaGreen;
+            font-size: 20px;
             outline: medium none;
-        }
-        
-        /* #order_btn {
-            color: red;
-            font-size: 16px;
-            outline: medium none;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 3px grey;
+            margin: 10px;
+            background-color: #ffffff;
         } */
         
         .goodsPrice {
@@ -173,8 +208,69 @@
             left: 0;
             max-width: 100%;
             height: auto;
-
+        } 
+        
+        section#back{background-color: #ffffff; text-color: #000000; }
+        
+        /* 메인 주문목록 구역 */
+        div#mainMenu{background-color: #ffffff; border: 2px solid #000; /* align: center; */ }
+        section#back{font-size: 100px;}
+        
+        
+        /* 수령인, 수령인 연락처 */
+        div.inputArea{color: #000000;}
+        
+        /* 수령인, 수령인 연락처 */
+        input#orderRec{color: #000000;}
+        input#orderPhoneNumber{color: #000000;}
+        
+        /* 주소입력 */
+        input#post_bt{color: #000000;}
+        input#sample6_postcode{color: #000000;}
+        input#sample6_address{color: #000000;}
+        input#sample6_detailAddress{color: #000000;}
+        input#sample6_extraAddress{color: #000000;}
+        
+        /* 상품주문 가이드 */
+        span.guide {
+        font-size: 30px;
+  		font-weight: 500;
+  		color: #000000;
+  		text-transform: uppercase;
         }
+        
+        /* 상품주문 상단 */
+        h2 {
+        font-size: 100px;
+        padding: 20px;
+        }
+        
+        /* .thumbnail-wrappper { width: 25%; } 
+        /* .thumbnail { position: relative; padding-top: 100%; /* 1:1 ratio */ overflow: hidden; }
+
+        
+        #chase {
+	        width:250px;
+	        overflow:hidden;
+	        margin-top:10px;
+	        margin-left:10px;
+	        margin-right:10px;
+	        margin-bottom:10px;
+	    }
+	
+	    #chase Img {
+	        width:100%;
+	        height:500px;
+	    }
+	
+	    #chaseBar {
+	        width:100%;
+	        background-color:#000000;
+	        color:#FFFFFF;
+	        font-weight:bold;
+	        text-align:center;
+	        font-size: 30px;
+	    }  
     </style>
 
 </head>
@@ -202,9 +298,40 @@
             </div>
         </div>
         <!-- Hero End -->
-        <section id="container">
-            <div id="container_box">
-                <section id="content">
+        
+          <!-- Courses area start -->
+    <section class="pricing-area section-padding30 fix" id="back">
+        <div class="container2">
+        <div class="container-fluid">
+        <!-- <div class="mainMenu col-lg-12 col-md-12 col-sm-12 col-xs-12" id="mainMenu">  -->
+            <div class="row">
+                 <div class="col-xl-12">
+                    <div class="text-center mb-55">
+                        <h2 style="color:black;">주문목록</h2>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- 사이드 메뉴 바 시작 -->
+			<div class="sideMenu col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			</div>
+            <!-- 사이드 바 메뉴 끝 -->
+            
+            
+            
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <div class="properties mb-30" style="border:2px solid;"> <!-- margin-left:100px; -->
+                        <div class="properties__card">
+                            <%-- <div class="about-icon">
+                               <img src="${pageContext.request.contextPath}/resources/assets/img/icon/price.svg" alt="">
+                            </div> --%>
+                            <div class="properties__caption">
+                            
+                            
+                            
+          		        
                     <ul>
                         <li>
                             <div class="allCheck">
@@ -220,11 +347,12 @@
                                     });
                                 </script>
                             </div>
-
-                            <div class="delBtn">
-                                <button type="button" class="selectDelete_btn">선택 삭제</button>
+                            
+                            
+                             <div class="delBtn">
+                                <button type="button" class="genric-btn danger radius" style="font-size: 17px;">선택 삭제</button>
                                 <script>
-                                    $(".selectDelete_btn").click(function() {
+                                    $(".delBtn").click(function() {
                                         var confirm_val = confirm("정말 삭제하시겠습니까?");
 
                                         if (confirm_val) {
@@ -255,6 +383,7 @@
                                 </script>
                             </div>
                         </li>
+                        
                         <c:set var="sum" value="0" />
 
                         <c:forEach items="${cartList}" var="cartList">
@@ -272,12 +401,12 @@
                                     <img src="${cartList.goodsThumbImage}" />
                                 </div>
                                 <div class="gdsInfo">
-                                    <p>
-                                        <span>상품명</span>${cartList.goodsName}<br />
-                                        <span>개당 가격</span>
+                                    <p style="color:black;">
+                                        <span style="color:black;">상품명&nbsp;:&nbsp;</span>${cartList.goodsName}<br />
+                                        <span style="color:black;">개당 가격&nbsp;:&nbsp;</span>
                                         <fmt:formatNumber pattern="###,###,###" value="${cartList.goodsPrice}" /> 원<br />
-                                        <span>구입 수량</span>${cartList.cartStock} 개<br />
-                                        <span>최종 가격</span>
+                                        <span style="color:black;">구입 수량&nbsp;:&nbsp;</span>${cartList.cartStock} 개<br />
+                                        <span style="color:black;">최종 가격&nbsp;:&nbsp;</span>
                                         <fmt:formatNumber pattern="###,###,###" value="${cartList.goodsPrice * cartList.cartStock}" /> 원
                                     </p>
 
@@ -315,20 +444,20 @@
                             </li>
                             <c:set var="sum" value="${sum + (cartList.goodsPrice * cartList.cartStock)}" />
                         </c:forEach>
-                    </ul>
-
-                    <div class="listResult">
+                    </ul>    
+                            
+                     <div class="listResult">
                         <div class="sum">
                             총 합계 :
                             <fmt:formatNumber pattern="###,###,###" value="${sum}" />원
                         </div>
 
                         <div class="orderOpne">
-                            <button type="button" class="orderOpne_bnt">주문 정보 입력</button>
+                            <button type="button" class="genric-btn danger radius" style="font-size: 20px;">주문 정보 입력</button>
                         </div>
 
                         <script>
-                            $(".orderOpne_bnt").click(function() {
+                            $(".orderOpne").click(function() {
                                 $(".orderInfo").slideDown();
                                 $(".orderOpne_bnt").slideUp();
                             });
@@ -347,28 +476,12 @@
                                 <div class="inputArea">
                                     <label for="orderPhoneNumber">수령인 연락처</label>
                                     <input type="text" name="orderPhoneNumber" id="orderPhoneNumber" required="required" />
-                                </div>
-
-                                <!-- 카카오(다음) 주소 API 사용 전 코드
-						  <div class="inputArea">
-						   <label for="userAddress1">우편번호</label>
-						   <input type="text" name="userAddress1" id="userAddress1" required="required" />
-						  </div>
-						  
-						  <div class="inputArea">
-						   <label for="userAddress2">1차 주소</label>
-						   <input type="text" name="userAddress2" id="userAddress2" required="required" />
-						  </div>
-						  
-						  <div class="inputArea">
-						   <label for="userAddress3">2차 주소</label>
-						   <input type="text" name="userAddress3" id="userAddress3" required="required" />
-						  </div> -->
-
-                                <div class="inputArea">
+                                </div>        
+                            
+                            	 <div class="inputArea" id="postArea">
                                     <p>
                                         <input type="text" id="sample6_postcode" placeholder="우편번호">
-                                        <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                                        <input type="button" id="post_bt" class="genric-btn danger radius" style="color: #fff;" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                                     </p>
                                     <p>
                                         <input type="text" name="userAddress1" id="sample6_address" placeholder="주소"><br>
@@ -427,8 +540,52 @@
                                     </script>
                                 </div>
 
+							<span class="guide">상품주문 가이드</span>
+                                <p style="color:black;" class="paymentMethod">결제방법<span style="color:black;">/주문방법</span></p>
+                                <div class="single-features">
+                                    <div class="features-icon">
+                                        <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
+                                    </div>
+                                    <div class="features-caption">
+                                        <p style="color:black;">1.총 결제 금액을 확인합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="single-features">
+                                    <div class="features-icon">
+                                        <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
+                                    </div>
+                                    <div class="features-caption">
+                                        <p style="color:black;">2.수령 정보를 입력 후 결제 버튼을 누릅니다.</p>
+                                    </div>
+                                </div>
+                                <div class="single-features">
+                                    <div class="features-icon">
+                                        <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
+                                    </div>
+                                    <div class="features-caption">
+                                        <p style="color:black;">3.결제완료 후 주문 버튼을 누릅니다</p>
+                                    </div>
+                                </div>
+                                <div class="single-features">
+                                    <div class="features-icon">
+                                        <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
+                                    </div>
+                                    <div class="features-caption">
+                                        <p style="color:black;">4.주문목록 페이지에서 주문현황을 확인하세요.</p>
+                                    </div>
+                                </div>
+                                <div class="single-features mb-20">
+                                    <div class="features-icon">
+                                        <img src="${pageContext.request.contextPath}/resources/assets/img/icon/check.svg" alt="">
+                                    </div>
+                                    <div class="features-caption">
+                                        <p style="color:black;">5.배송현황이나 환불요청은 고객센터 문의</p>
+                                    </div>
+                                </div>
+                               <!--  <a href="#" class="border-btn border-btn2">Join Now</a> -->
+           
                                 <div class="inputArea">
-                                    <button type="button" id="order_btn1" class="order_btn">결제</button>
+                                    <button type="button" id="order_btn1" class="genric-btn danger radius" style="font-size: 20px;">결제</button>
 
                                     <script>
                                         $("#order_btn1").on("click", function() {
@@ -466,23 +623,36 @@
                                 </div>
 
                                 <div class="inputArea">
-                                    <button type="submit" class="order_btn" id="order_btn2">주문</button>
-                                    <button type="button" class="cancel_btn" id="cancel_btn">취소</button>
+                                    <button type="submit" class="genric-btn danger radius" id="order_btn2" style="font-size: 20px;">주문</button>
+                                    <button type="button" class="genric-btn danger radius" id="cancel_btn" style="font-size: 20px;">취소</button>
 
                                     <script>
-                                        $(".cancel_btn").click(function() {
+                                        $("#cancel_btn").click(function() {
                                             $(".orderInfo").slideUp();
                                             $(".orderOpne_bnt").slideDown();
                                         });
                                     </script>
                                 </div>
-                            </form:form>
+                                </form:form>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                
+      			<!-- 우측 스크롤 배너 -->
+      			<div class="banner col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      				<div id="chase">
+      					<img src= "${pageContext.request.contextPath}/resources/images/deliveryGuide.jpg"/>
+      					<div id="chaseBar">빠른배송!</div>
+      				</div>
+      			</div>
+      			<!-- 우측 스크롤 배너 끝 -->
                         </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-
+                    </div>     
+      		</div>
+      		</section>
         <section id="service">
             <div class="service_box">
                 <%@ include file= "../include/gymService.jsp" %>

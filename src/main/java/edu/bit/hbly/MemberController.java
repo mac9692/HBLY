@@ -60,7 +60,7 @@ public class MemberController {
 
 	// member sign up POST
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signUp(MemberVO vo)	throws Exception{
+	public String signUp(MemberVO vo) throws Exception{
 		logger.info("post signup");
 		
 		service.signUp(vo);
