@@ -60,15 +60,13 @@ public class BoardDAOImpl implements BoardDAO{
 		sqlSession.update("boardMapper.boardHit", boardNumber);
 	}
 
-<<<<<<< HEAD
+
 	//게시판 아이디 체크
 	@Override
 	public String boardIdCheck(int boardNumber) throws Exception {		
 		return sqlSession.selectOne("boardMapper.boardIdCheck", boardNumber);
 	}
-=======
-	
->>>>>>> feature/design
+
 
 
 

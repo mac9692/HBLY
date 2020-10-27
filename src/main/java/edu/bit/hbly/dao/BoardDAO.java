@@ -23,22 +23,16 @@ public interface BoardDAO {
 	// 寃뚯떆臾� �닔�젙
 	public void update(BoardVO boardVO) throws Exception;
 		
-<<<<<<< HEAD
+
 	// 게시물 삭제
 	public void delete(BoardVO boardVO) throws Exception;
-=======
-	// 寃뚯떆臾� �궘�젣
-	public void delete(int boardNumber) throws Exception;
->>>>>>> feature/design
+
 	
 	//寃뚯떆�뙋 議고쉶�닔
 	public void boardHit(int boardNumber) throws Exception;
 	
-<<<<<<< HEAD
+
 	//게시판 아이디 체크
 	public String boardIdCheck(int boardNumber) throws Exception;
-=======
 
->>>>>>> feature/design
-	
 }
