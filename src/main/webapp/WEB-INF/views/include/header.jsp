@@ -170,11 +170,7 @@
                                     </li>
                                     
                                     <li><a href="contact.html">Contact</a></li>
-                                 
-                                    
-                                    <li><a href="/gym/contact">Contact</a></li>
-
-										
+                                 			
 										<sec:authorize access="isAuthenticated()">
 												
 										
