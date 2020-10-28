@@ -20,6 +20,7 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
+		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
 		<!-- 근육질  -->
 		<link rel="manifest" href="site.webmanifest">
@@ -134,7 +135,16 @@
 			bottom: 0;
 			max-width: 100%;
 			height: auto;
-		}				
+		}		
+		
+		#cke_boardContent{
+		height:550;
+		}  				
+		
+		#cke_1_bottom{
+			display: none;
+		}		
+		
 	</style>		
 	
 		<!-- 우측 사이드배너 스타일 -->
@@ -239,7 +249,7 @@
 	    }
 	    
 	    .t0{
-	   	margin-top: 1%;
+   	    margin-top: 3%;
 	    margin-left: 5%;
 	    margin-right: 5%;
    	    margin-bottom: 1%;
@@ -376,7 +386,19 @@
 					<tbody >
 					<tr>
 						<td class="t1">댓글 내용</td>
-						<td class="t2"><input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/></td>
+						<td class="t2">
+						<input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/>
+						<script>
+							 var ckeditor_config = {
+							   resize_enaleb : false,
+							   enterMode : CKEDITOR.ENTER_BR,
+							   shiftEnterMode : CKEDITOR.ENTER_P,
+							   filebrowserUploadUrl : "/admin/goods/ckUpload"
+							 };
+							 
+							 CKEDITOR.replace("boardReplyContent", ckeditor_config);
+						</script>
+						</td>
 					</tr>
 					<tr>
 						<td class="t1">댓글 작성자</td>

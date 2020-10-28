@@ -136,7 +136,7 @@
 		#buttonBoxes{
 			display: flex;
 			margin-left: 25%;
-   			padding-left: 25%;
+   			padding-left: 20%;
 			color: black;
 			margin-top: 1rem;
 		    margin-bottom: 5rem;
@@ -440,7 +440,6 @@
     text-align:center;
     margin:center;
     padding-top: 8%;
-	
 	}
 	
 	
@@ -700,7 +699,7 @@
 				<table class="table">
 					<tbody>	
 						<tr>
-							<td class="t1" style="padding-top:3.5%; border:1px solid #7A7276;">
+							<td class="t1" style="padding-top:3%; border:1px solid #7A7276;">
 								<label for="boardTitle">제목</label>
 							</td>
 							<td style="border:1px solid #7A7276;">
@@ -708,7 +707,7 @@
 							</td>
 						</tr>	
 						<tr>
-							<td class="t1" style="padding-top:3.5%;">
+							<td class="t1" style="padding-top:3.0%;">
 								<label for="userId">작성자</label>
 							</td>
 							<td>
@@ -718,16 +717,17 @@
 						<tr>
 							<td class="t1" style="padding-top: 20%;">
 								<label  for="boardContent">내용</label>
-								</td>
+							</td>							
 							<td style="border:1px solid #7A7276;">
 								<textarea id="boardContent" name="boardContent" readonly="readonly"><c:out value="${read.boardContent}" /></textarea>
+
 							</td>
 						</tr>
 						<tr>
-							<td class="t1" style="padding-top:3.5%;">
+							<td class="t1" style="padding-top:2%;">
 								<label for="boardRegidate">작성 날짜</label>
 							</td>
-							<td >	
+							<td style="padding-top:1.5%">	
 								<fmt:formatDate value="${read.boardRegidate}" pattern="yyyy-MM-dd"/>					
 							</td>
 						</tr>		
