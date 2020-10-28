@@ -43,11 +43,11 @@ public class BoardController {
 	@Inject
 	ReplyService replyService;
 	
-	// 寃뚯떆�뙋 湲� �옉�꽦 �솕硫�
+	// 게시판 글 작성 화면
 	@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
-	public void writeView(HttpServletRequest request, Model model) throws Exception{			
+	public void writeView(BoardVO boardVO, HttpServletRequest request, Model model) throws Exception{			
 		
-		logger.info("writeView : "  + request.getParameter("categoryCode")+request.getParameter("userId"));
+		logger.info("writeView : "  + request.getParameter("categoryCode"));
 		
 		String category =  request.getParameter("categoryCode");
 		String userId = request.getParameter("userId");
@@ -56,24 +56,27 @@ public class BoardController {
 		model.addAttribute("userId", userId);
 	}
 		
-	// 寃뚯떆�뙋 湲� �옉�꽦
+	// 게시판 글 작성
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
 	public String write(BoardVO boardVO, HttpServletRequest request, Model model) throws Exception{
 		logger.info("write : "   + request.getParameter("categoryCode"));
-			
+		logger.info("======="+boardVO.getBoardNumber());
+		
 		service.write(boardVO);
 		
 		String category =  request.getParameter("categoryCode");
+		String bn = request.getParameter("boardNumber");
 		
-		model.addAttribute("categoryCode", category);	
+		model.addAttribute("categoryCode", category);
+		model.addAttribute("boardNumber", bn);
 		
-		return "redirect:/board/list?page=1&categoryCode="+category;
+		return "redirect:/board/list";
 	}
 	
-	// 寃뚯떆�뙋 紐⑸줉 議고쉶
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri) throws Exception{
-		logger.info("list");
+	// 게시판 목록 조회
+	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
+	public String list(Model model,@ModelAttribute("scri") SearchCriteria scri,HttpServletRequest request) throws Exception{
+		logger.info("list :" + request.getParameter("categoryCode"));
 		logger.info("======="+scri);
 		
 		model.addAttribute("list",service.list(scri));
@@ -83,6 +86,10 @@ public class BoardController {
 		pageMaker.setTotalCount(service.listCount(scri));
 		
 		model.addAttribute("pageMaker", pageMaker);
+		
+		String category =  request.getParameter("categoryCode");
+		
+		model.addAttribute("categoryCode", category);	
 					
 	return "board/list";
 			
@@ -177,7 +184,8 @@ public class BoardController {
 		
 		// 寃뚯떆�뙋 �닔�젙
 		@RequestMapping(value = "/update", method = RequestMethod.POST)
-		public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model,RedirectAttributes rttr) throws Exception{
+		public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, @ModelAttribute("boardNumber") BoardVO boardNumber, Model model,RedirectAttributes rttr) throws Exception{
+			
 			logger.info("update");
 			
 			service.update(boardVO);
@@ -186,8 +194,10 @@ public class BoardController {
 			rttr.addAttribute("perPageNum", scri.getPerPageNum());
 			rttr.addAttribute("searchType", scri.getSearchType());
 			rttr.addAttribute("keyword", scri.getKeyword());
+			rttr.addAttribute("categoryCode", scri.getCategoryCode());
+			rttr.addAttribute("boardNumber", boardNumber.getBoardNumber());
 				
-			return "redirect:/board/list";
+			return "redirect:/board/readView";
 		}
 		
 	// 寃뚯떆�뙋 議고쉶
@@ -311,19 +321,21 @@ public class BoardController {
 			
 			// �뙎湲� �닔�젙
 			@RequestMapping(value = "/replyUpdate", method = RequestMethod.POST)
-			public String replyUpdate(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model,RedirectAttributes rttr) throws Exception{
+			public String replyUpdate(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model,@ModelAttribute("boardReplyNumber") ReplyVO boardReplyNumber, RedirectAttributes rttr) throws Exception{
+				
 				logger.info("replyUpdate");
-				
-				logger.info("********************************************");
-				
+								
 				replyService.updateReply(replyVO);
 				
 				rttr.addAttribute("page", scri.getPage());
 				rttr.addAttribute("perPageNum", scri.getPerPageNum());
 				rttr.addAttribute("searchType", scri.getSearchType());
 				rttr.addAttribute("keyword", scri.getKeyword());
+				rttr.addAttribute("categoryCode", scri.getCategoryCode());
+				rttr.addAttribute("boardNumber", replyVO.getBoardNumber());
+				rttr.addAttribute("boardReplyNumber", replyVO.getBoardReplyNumber());
 					
-				return "redirect:/board/list";
+				return "redirect:/board/replyUpdateView";
 			}
 
 

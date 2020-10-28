@@ -168,11 +168,9 @@
                                             <li><a href="elements.html">Elements</a></li>
                                         </ul>
                                     </li>
-                                    
-                                    
+                                   
                                     <li><a href="/gym/contact">Contact</a></li>
 
-										
 										<sec:authorize access="isAuthenticated()">
 												
 										

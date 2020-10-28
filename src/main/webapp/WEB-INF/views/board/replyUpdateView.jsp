@@ -303,22 +303,7 @@
 	    } */
 	    
 		</style>
-	
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var formObj = $("form[name='updateForm']");
-			
-			$(".cancel_btn").on("click", function(){
-				location.href = "/board/readView?boardNumber=${replyDelete.boardNumber}"
-					   + "&page=${scri.page}"
-					   + "&perPageNum=${scri.perPageNum}"
-					   + "&searchType=${scri.searchType}"
-					   + "&keyword=${scri.keyword}";
-			})
-			
-		})
-		
-	</script>
+
 </head>
 
 	<script type="text/javascript">
@@ -326,11 +311,18 @@
 			var formObj = $("form[name='updateForm']");
 			
 			$(".cancel_btn").on("click", function(){
-				location.href = "/board/readView?boardNumber=${replyUpdate.boardNumber}"
+				location.href =  "/board/readView?boardNumber=${update.boardNumber}"
 					   + "&page=${scri.page}"
 					   + "&perPageNum=${scri.perPageNum}"
 					   + "&searchType=${scri.searchType}"
 					   + "&keyword=${scri.keyword}";
+					
+					
+					/* "/board/readView?boardNumber=${replyUpdate.boardNumber}"
+								   + "&page=${scri.page}"
+								   + "&perPageNum=${scri.perPageNum}"
+								   + "&searchType=${scri.searchType}"
+								   + "&keyword=${scri.keyword}"; */
 			});
 			
 			$(".update_btn").on("click", function() {
