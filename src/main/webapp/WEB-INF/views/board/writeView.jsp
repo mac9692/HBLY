@@ -20,6 +20,7 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
+		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
 		<!-- 근육질  -->
 		<link rel="manifest" href="site.webmanifest">
@@ -133,7 +134,16 @@
 			bottom: 0;
 			max-width: 100%;
 			height: auto;
-		}				
+		}
+		
+		#cke_boardContent{
+			height:500px;
+		}  				
+		
+		#cke_1_bottom{
+			display: none;
+		}
+						
 	</style>		
 	
 		<!-- 우측 사이드배너 스타일 -->
@@ -183,7 +193,14 @@
 	    width: 90%;
 	    border: 1px solid #7A7276;
 	    margin: 1%;
-		  }		  
+		  }		 
+		  
+/* 		  .button1{
+			display: flex;
+			margin-left: 30%;
+   			padding-left: 15%;
+			margin-top: 1rem;
+		  }  */
 	
 		.write_btn{
 		-webkit-tap-highlight-color: transparent;
@@ -194,7 +211,7 @@
 		 clear: both;
 		 cursor: pointer;
 		 display: block;
-		 margin-left: 89%;
+		 margin-left: 80%;
 		 font-family: inherit;
 		 font-size: 14px;
 		 font-weight: normal;
@@ -210,11 +227,39 @@
 		     -ms-user-select: none;
 		         user-select: none;
 		 white-space: nowrap;
-
 		 color: black;
 		 margin-top: 1%;
    		 margin-bottom: 1%;
 	}
+	
+/* 	  .cancel_btn{
+		-webkit-tap-highlight-color: transparent;
+		 background-color: #fff;
+		 border-radius: 5px;
+		 border: solid 1px #e8e8e8;
+		 box-sizing: border-box;
+		 clear: both;
+		 cursor: pointer;
+		 display: block;
+		 font-family: inherit;
+		 font-size: 14px;
+		 font-weight: normal;
+		 height: 42px;
+		 line-height: 40px;
+		 outline: none;
+		 padding-left: 30px;
+		 padding-right: 30px;	
+		 -webkit-transition: all 0.2s ease-in-out;
+		 transition: all 0.2s ease-in-out;
+		 -webkit-user-select: none;
+		    -moz-user-select: none;
+		     -ms-user-select: none;
+		         user-select: none;
+		 white-space: nowrap;
+		 color: black;
+		 margin-top: 1%;
+   		 margin-bottom: 1%;
+		  } */
 	
 	 .category{
 		margin: 1%;
@@ -262,18 +307,20 @@
 	
 	#boardContent{
 	    margin-top: 1%;
-        height: 446px;
+        height: 1000px !important;
    		width: 90%;
 
 	}
 
 	#userId{
-	   text-align: center;
-      margin-top: 1%;
+	text-align: center;
+    margin-top: 1%;
     margin-bottom: 1%;
     width: 90%;
 
 	} 
+	
+
 	    
 		</style>
 		
@@ -306,8 +353,7 @@
 				formObj.attr("method", "post");
 				formObj.submit();
 			});
-		})
-		
+		})		
 	</script>
 	
 	<body>	
@@ -355,18 +401,41 @@
 						<tbody>	
 							<tr>
 								<td class="t2">제목</td>
-								<td class="t3"><input type="text" id="boardTitle" name="boardTitle" required="required"/></td>
+								<td class="t3">
+								<input type="text" id="boardTitle" name="boardTitle" required="required"/>
+								</td>
 							</tr>	
 							<tr>
 								<td class="t2">내용</td>
-								<td class="t3"><textarea id="boardContent" name="boardContent" required="required"></textarea></td>
+								<td class="t3">
+								<textarea id="boardContent" name="boardContent" required="required" ></textarea>
+								
+								<script>
+								 var ckeditor_config = {
+								   resize_enaleb : false,
+								   enterMode : CKEDITOR.ENTER_BR,
+								   shiftEnterMode : CKEDITOR.ENTER_P,
+								   filebrowserUploadUrl : "/admin/goods/ckUpload"
+								 };
+								 
+								 CKEDITOR.replace("boardContent", ckeditor_config);
+								</script>
+								
+								</td>
 							</tr>						
 							<tr>
 								<td class="t2">작성자</td>
-								<td class="t3"><input type="text" id="userId" name="userId" value="${principal.member.userId}"/></td>		
+								<td class="t3">
+								<input type="text" id="userId" name="userId" value="${principal.member.userId}"/>
+								</td>		
 						</tbody>			
-					</table>				
+					</table>
+					
+					<div class="button1">				
 						<button class="write_btn" type="submit">작성</button>	
+						<button class="cancel_btn" type="submit">취소</button>
+					</div>
+					
 				</form>
 			</section>
 			<hr />

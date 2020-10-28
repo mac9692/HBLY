@@ -20,6 +20,7 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
+		<script src="/resources/ckeditor/ckeditor.js"></script>
 		
 		<!-- 근육질  -->
 		<link rel="manifest" href="site.webmanifest">
@@ -133,7 +134,15 @@
 			bottom: 0;
 			max-width: 100%;
 			height: auto;
-		}				
+		}		
+		
+		#cke_boardContent{
+		height:550;
+		}  				
+		
+		#cke_1_bottom{
+			display: none;
+		}		
 	</style>		
 	
 		<!-- 우측 사이드배너 스타일 -->
@@ -361,7 +370,19 @@
 					</tr>
 					<tr>
 						<td class="t1">내용</td>
-						<td><textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea></td>
+						<td><textarea id="boardContent" name="boardContent" class="chk" title="내용을 입력하세요"><c:out value="${update.boardContent}" /></textarea>
+							<script>
+								 var ckeditor_config = {
+								   resize_enaleb : false,
+								   enterMode : CKEDITOR.ENTER_BR,
+								   shiftEnterMode : CKEDITOR.ENTER_P,
+								   filebrowserUploadUrl : "/admin/goods/ckUpload"
+								 };
+								 
+								 CKEDITOR.replace("boardContent", ckeditor_config);
+							</script>
+						</td>
+				
 					</tr>
 					<tr>
 						<td class="t1">작성날짜</td>

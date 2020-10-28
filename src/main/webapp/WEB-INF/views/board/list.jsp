@@ -153,6 +153,10 @@
 		margin-left: 10%;
 	}
 	
+	a:hover{
+		color:#F23838;
+	}
+	
 	th,td{
 		text-align:center;
 	}
