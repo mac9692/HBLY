@@ -476,6 +476,7 @@
 	background-color: #EEE8E9;
     border: 1px solid #7A7276;
     text-align: center;
+    width:300px
 	}
 	
 	.rt22, .rt33{
