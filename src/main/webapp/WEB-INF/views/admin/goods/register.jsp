@@ -20,6 +20,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         
         <script src="/resources/ckeditor/ckeditor.js"></script>
+        
+        
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<style type="text/css">
 	.dauntable{
@@ -105,6 +107,7 @@
 												</td>
 												<td colspan="3">
 												<textarea class="form-control" rows="5" cols="50" id="goodsDescribe" name="goodsDescribe"></textarea>
+												 
 												 <script>
 													 var ckeditor_config = {
 														   resize_enaleb : false,
@@ -115,6 +118,8 @@
 													 
 													 CKEDITOR.replace("goodsDescribe", ckeditor_config);
 												  </script>
+												  
+												  
 												</td>
 											</tr>
 											<tr>
@@ -271,7 +276,6 @@
 			
 			// 1차 분류 셀렉트 박스에 삽입할 데이터 준비
 			for(var i = 0; i < jsonData.length; i++) {
-			 
 			 if(jsonData[i].level == "1") {
 			  cate1Obj = new Object();  //초기화
 			  cate1Obj.categoryCode = jsonData[i].categoryCode;
@@ -279,7 +283,6 @@
 			  cate1Arr.push(cate1Obj);
 			 }
 			}
-			
 			// 1차 분류 셀렉트 박스에 데이터 삽입
 			var cate1Select = $("select.category1")
 			

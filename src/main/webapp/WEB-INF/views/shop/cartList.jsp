@@ -534,11 +534,11 @@
                                                     document.getElementById("sample6_address").value = addr;
                                                     // 커서를 상세주소 필드로 이동한다.
                                                     document.getElementById("sample6_detailAddress").focus();
-                                                }
-                                            }).open();
-                                        }
-                                    </script>
-                                </div>
+                                                	}
+                                            		}).open();
+                                        			}
+                                    				</script>
+                                					</div>
 
 							<span class="guide">상품주문 가이드</span>
                                 <p style="color:black;" class="paymentMethod">결제방법<span style="color:black;">/주문방법</span></p>
