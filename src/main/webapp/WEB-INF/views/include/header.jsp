@@ -154,9 +154,9 @@
 									
                                     <li><a href="/gym/about">ABOUT</a>
                                     </li>
-                                    <li><a href="/gym/courses">courses</a>
+                                    <li><a href="/gym/course">courses</a>
                                     </li>
-                                    <li><a href="/gym/pricing">pricing</a>
+                                    <li><a href="/gym/price">pricing</a>
                                     </li>
                                     <li><a href="/gym/gallery">Gallery</a>
                                     </li>
