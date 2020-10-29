@@ -197,7 +197,7 @@ $(document).ready(function(){
 																	<b> </b>
 																	<div class="form-check">
 																		<input class="form-check-input" type="checkbox"
-																			id="form21" value="on"> <label
+																			id="form21" value="on" required="required"> <label
 																			class="form-check-label" for="form21">위 내용을
 																			모두 확인하였습니다.</label>
 																	</div>
