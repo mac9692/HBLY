@@ -321,9 +321,11 @@ public class BoardController {
 			
 			// �뙎湲� �닔�젙
 			@RequestMapping(value = "/replyUpdate", method = RequestMethod.POST)
-			public String replyUpdate(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model,@ModelAttribute("boardReplyNumber") ReplyVO boardReplyNumber, RedirectAttributes rttr) throws Exception{
+			public String replyUpdate(ReplyVO replyVO,HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model,@ModelAttribute("boardReplyNumber") ReplyVO boardReplyNumber, RedirectAttributes rttr) throws Exception{
 				
 				logger.info("replyUpdate");
+				logger.info("==========="+ request.getParameter("boardReplyNumber"));
+				logger.info("==========="+ request.getParameter("boardNumber"));
 								
 				replyService.updateReply(replyVO);
 				
@@ -331,13 +333,27 @@ public class BoardController {
 				rttr.addAttribute("perPageNum", scri.getPerPageNum());
 				rttr.addAttribute("searchType", scri.getSearchType());
 				rttr.addAttribute("keyword", scri.getKeyword());
-				rttr.addAttribute("categoryCode", scri.getCategoryCode());
+				//rttr.addAttribute("categoryCode", scri.getCategoryCode());
 				rttr.addAttribute("boardNumber", replyVO.getBoardNumber());
-				rttr.addAttribute("boardReplyNumber", replyVO.getBoardReplyNumber());
+				//rttr.addAttribute("boardReplyNumber", replyVO.getBoardReplyNumber());
 					
-				return "redirect:/board/replyUpdateView";
+				return "redirect:/board/readView";
 			}
 
+
+			/*
+			 * @RequestMapping(value = "/replyUpdate", method = RequestMethod.GET) public
+			 * String replyUpdate(ReplyVO replyVO, HttpServletRequest request, Model model)
+			 * {
+			 * 
+			 * logger.info("replyUpdate"); logger.info("==========="+
+			 * request.getParameter("categoryCode")); logger.info("==========="+
+			 * request.getParameter("boardNumber"));
+			 * 
+			 * model.addAttribute("replyUpdate", replyService.updateReply(replyVO));
+			 * 
+			 * }
+			 */
 
 
 }

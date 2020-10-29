@@ -388,7 +388,7 @@
 						<td class="t1">댓글 내용</td>
 						<td class="t2">
 						<input type="text" id="boardReplyContent" name="boardReplyContent" value="${update.boardReplyContent}"/>
-						<script>
+<!-- 						<script>
 							 var ckeditor_config = {
 							   resize_enaleb : false,
 							   enterMode : CKEDITOR.ENTER_BR,
@@ -397,7 +397,7 @@
 							 };
 							 
 							 CKEDITOR.replace("boardReplyContent", ckeditor_config);
-						</script>
+						</script> -->
 						</td>
 					</tr>
 					<tr>
