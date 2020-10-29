@@ -393,7 +393,7 @@
 			  width: auto; 
 	    }
 	    
-	    #reply{
+	   /*  #reply{
 	  		margin-top: 1%;
 		    margin-right: 5%;
 		    margin-left: 5%;
@@ -404,7 +404,7 @@
 		    width: 90%;
 	        border: 1px solid #7A7276;
 	        border-radius: 5px;
-	    }
+	    } */
 
 	#boardTitle{
  	   text-align: center;
@@ -772,7 +772,7 @@
 			</form>
 
 		<!-- 댓글 -->
-		<h1 style="margin-left:5%;font-weight:bold;color:#332424">댓글</h1>
+		<h1 style="margin:5%;font-weight:bold;color:#332424">댓글</h1>
 		<div id="reply">
 			<ol class="replyList">
 				<c:forEach items="${replyList}" var="replyList">
