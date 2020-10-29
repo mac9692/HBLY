@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,16 +17,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+
 
 import edu.bit.hbly.security.CustomUserDetailsService;
 import edu.bit.hbly.service.MemberService;
@@ -56,7 +61,7 @@ public class UserController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		
-		//HttpBody ¿ÀºêÁ§Æ® »ı¼º
+		//HttpBody ì˜¤ë¸Œì íŠ¸ ìƒì„±
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		params.add("grant_type", "authorization_code");
 		params.add("client_id", "5bde6ae9c71bf5f382a97fe4ea87eb67");
@@ -64,11 +69,11 @@ public class UserController {
 		params.add("code", code);
 		
 		
-		//HttpHeader¿Í HttpBody¸¦ ÇÏ³ªÀÇ ¿ÀºêÁ§Æ®¿¡ ´ã±â
+		//HttpHeaderì™€ HttpBodyë¥¼ í•˜ë‚˜ì˜ ì˜¤ë¸Œì íŠ¸ì— ë‹´ê¸°
 		HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
 				new HttpEntity<>(params, headers);
 		
-		//Http ¿äÃ»ÇÏ±â-post¹æ½ÄÀ¸·Î- ±×¸®°í responseº¯¼öÀÇ ÀÀ´ä ¹ŞÀ½
+		//Http ìš”ì²­í•˜ê¸°-postë°©ì‹ìœ¼ë¡œ- ê·¸ë¦¬ê³  responseë³€ìˆ˜ì˜ ì‘ë‹µ ë°›ìŒ
 		ResponseEntity<String> response = rt.exchange(
 				"https://kauth.kakao.com/oauth/token",
 				HttpMethod.POST,
@@ -91,19 +96,19 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Ä«Ä«¿À ¿¢¼¼½º ÅäÅ«:" + oauthToken.getAccess_token());
+		System.out.println("ì¹´ì¹´ì˜¤ ì—‘ì„¸ìŠ¤ í† í°:" + oauthToken.getAccess_token());
 		
 		RestTemplate rt2 = new RestTemplate();
-		//HttpHeader ¿ÀºêÁ§Æ® »ı¼º
+		//HttpHeader ì˜¤ë¸Œì íŠ¸ ìƒì„±
 		HttpHeaders headers2 = new HttpHeaders();
 		headers2.add("Authorization", "Bearer "+oauthToken.getAccess_token());
 		headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		
-		//HttpHeader¿Í HttpBody¸¦ ÇÏ³ªÀÇ ¿ÀºêÁ§Æ®¿¡ ´ã±â
+		//HttpHeaderì™€ HttpBodyë¥¼ í•˜ë‚˜ì˜ ì˜¤ë¸Œì íŠ¸ì— ë‹´ê¸°
 		HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest2 =
 				new HttpEntity<>(headers2);
 		
-		//Http ¿äÃ»ÇÏ±â-post¹æ½ÄÀ¸·Î- ±×¸®°í responseº¯¼öÀÇ ÀÀ´ä ¹ŞÀ½
+		//Http ìš”ì²­í•˜ê¸°-postë°©ì‹ìœ¼ë¡œ- ê·¸ë¦¬ê³  responseë³€ìˆ˜ì˜ ì‘ë‹µ ë°›ìŒ
 		ResponseEntity<String> response2 = rt2.exchange(
 				"https://kapi.kakao.com/v2/user/me",
 				HttpMethod.POST,
@@ -117,7 +122,7 @@ public class UserController {
 		ObjectMapper objectMapper2 = new ObjectMapper();	    	
     	KakaoProfile kakaoProfile = null;    	
     	try {
-    		// Ä«Ä«¿À ·Î±×ÀÎ Á¤º¸ ¹ŞÀº °÷
+    		// ì¹´ì¹´ì˜¤ ë¡œê·¸ì¸ ì •ë³´ ë°›ì€ ê³³
     		kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
     		
 		} catch (JsonParseException e) {			
@@ -128,17 +133,17 @@ public class UserController {
 			e.printStackTrace();
 		}
     	
-    	// Ä«Ä«¿ÀÅå °íÀ¯ ¾ÆÀÌµğ°ª
+    	// ì¹´ì¹´ì˜¤í†¡ ê³ ìœ  ì•„ì´ë””ê°’
     	String socialUserId = kakaoProfile.getId().toString();
-    	// ¿ì¸®¼­ºñ½º È¸¿ø°¡ÀÔ ¿©ºÎ ÆÇ´Ü
-    	// ÀÌÁ¦ ·Î±×ÀÎ Å¸ÀÔ±îÁö Ãß°¡·Î ºñ±³¸¦ ÇØ¾ßÇØ (Ä«Ä«¿À¸¸ÀÇ ¾ÆÀÌµğ °ËÁõÀ» ÇØ¾ßÇÏ´Ï(
+    	// ìš°ë¦¬ì„œë¹„ìŠ¤ íšŒì›ê°€ì… ì—¬ë¶€ íŒë‹¨
+    	// ì´ì œ ë¡œê·¸ì¸ íƒ€ì…ê¹Œì§€ ì¶”ê°€ë¡œ ë¹„êµë¥¼ í•´ì•¼í•´ (ì¹´ì¹´ì˜¤ë§Œì˜ ì•„ì´ë”” ê²€ì¦ì„ í•´ì•¼í•˜ë‹ˆ(
     	MemberVO loginUserInfo = service.getUserByIdAndLoginType(socialUserId,"kakao");
     	
-    	log.info("Å×½ºÆ®");
+    	log.info("í…ŒìŠ¤íŠ¸");
     	log.info(loginUserInfo);
     	
     	if(loginUserInfo == null) {
-    		// ¿©±âµµ Ä«Ä«¿À ·Î±×ÀÎ Å¸ÀÔÀ» Ãß°¡ÇØ¾ßÁö
+    		// ì—¬ê¸°ë„ ì¹´ì¹´ì˜¤ ë¡œê·¸ì¸ íƒ€ì…ì„ ì¶”ê°€í•´ì•¼ì§€
     		MemberVO socialRegisterUser = MemberVO.builder()
 	    			.userId(socialUserId)
 	    			.userPassword(kakaoProfile.getId() + "kakao")
@@ -154,32 +159,34 @@ public class UserController {
 	    			.login_Type("kakao")
 	    			.build();
     		System.out.println(socialRegisterUser.getLogin_Type());
-    		log.info("  ¿©±â±îÁö ¿Ô³¶  	;" +gson.toJson(socialRegisterUser));
+    		log.info("  ì—¬ê¸°ê¹Œì§€ ì™”ë‚­  	;" +gson.toJson(socialRegisterUser));
     		System.out.println(socialUserId);
     		System.out.println(kakaoProfile.getId() + "kakao");
     		
     		service.signUp(socialRegisterUser);
     	}
     	
-    	// ½ÃÅ¥¸®Æ¼ Á¦°øÇÏ´Â À¯Àú Á¤º¸ Á¶È¸ ¼­ºñ½º¸¦ ÅëÇÑ À¯Àú Á¤º¸ Á¶È¸
+    	// ì‹œíë¦¬í‹° ì œê³µí•˜ëŠ” ìœ ì € ì •ë³´ ì¡°íšŒ ì„œë¹„ìŠ¤ë¥¼ í†µí•œ ìœ ì € ì •ë³´ ì¡°íšŒ
     	UserDetails user= customUserDetailService.loadUserByUsername(socialUserId);
     	
-    	log.info(" ·Î±×ÀÎÃ³¸® Á÷Àü 	;" +gson.toJson(loginUserInfo));
-    	// ¿©±â¼­ ·Î±×ÀÎ Ã³¸®
+    	log.info(" ë¡œê·¸ì¸ì²˜ë¦¬ ì§ì „ 	;" +gson.toJson(loginUserInfo));
+    	// ì—¬ê¸°ì„œ ë¡œê·¸ì¸ ì²˜ë¦¬
     
-    	// À¯ÀúÁ¤º¸ + ºñ¹Ğ¹øÈ£(2¹ø¤Š ÆÄ¶ó¹ÌÅÍ) ¸¦ ÅëÇÑ ·Î±×ÀÎ ±ÇÇÑÁ¤º¸ »ı¼º
+    	// ìœ ì €ì •ë³´ + ë¹„ë°€ë²ˆí˜¸(2ë²ˆì¨° íŒŒë¼ë¯¸í„°) ë¥¼ í†µí•œ ë¡œê·¸ì¸ ê¶Œí•œì •ë³´ ìƒì„±
         Authentication authentication = new UsernamePasswordAuthenticationToken(user, socialUserId + "kakao", user.getAuthorities());
-		// ·Î±×ÀÎ Á¤º¸¸¦ ½ºÇÁ¸µ ½ÃÅ¥¸®Æ¼ ÄÁÅØ½ºÆ®¿¡ ³Ö±â À§ÇØ ÄÁÅØ½ºÆ® Á¤º¸ °¡Á®¿À±â
+		// ë¡œê·¸ì¸ ì •ë³´ë¥¼ ìŠ¤í”„ë§ ì‹œíë¦¬í‹° ì»¨í…ìŠ¤íŠ¸ì— ë„£ê¸° ìœ„í•´ ì»¨í…ìŠ¤íŠ¸ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
         SecurityContext securityContext = SecurityContextHolder.getContext();
-        // ½ºÇÁ¸µ ½ÃÅ¥¸®Æ¼ ±ÇÇÑÁ¤º¸¿¡ À§¿¡¼­ ¸¸µç ±ÇÇÑÁ¤º¸¸¦ ³Ö¾îÁØ´Ù.
+        // ìŠ¤í”„ë§ ì‹œíë¦¬í‹° ê¶Œí•œì •ë³´ì— ìœ„ì—ì„œ ë§Œë“  ê¶Œí•œì •ë³´ë¥¼ ë„£ì–´ì¤€ë‹¤.
         securityContext.setAuthentication(authentication);
         HttpSession session = request.getSession();
-        // ½ÃÅ¥¸®Æ¼ ·Î±×ÀÎ ¼¼¼ÇÀ» »ı¼º
+        // ì‹œíë¦¬í‹° ë¡œê·¸ì¸ ì„¸ì…˜ì„ ìƒì„±
         
         session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
     	
         
 
-        return "redirect:/";  // ¿©±â¼­ È¨À¸·Î ¸®´Ù¸®¿¢Æ® ÇÏ¸é µÊ
+        return "redirect:/";  // ì—¬ê¸°ì„œ í™ˆìœ¼ë¡œ ë¦¬ë‹¤ë¦¬ì—‘íŠ¸ í•˜ë©´ ë¨
     }
+	
+	
 }

@@ -76,7 +76,7 @@
 		      </div>
 		      
 		      <!-- form -->
-			  <form:form method="POST" action="/member/pwInquryCheck">	
+			  <form method="POST" action="/member/pwInquryCheck">	
 		      <div class="row">
 		        <div class="col-md-11 border my-2 p-3">
 		            <div class="form-group"> <label for="form16" class="py-2"></label>
@@ -97,7 +97,7 @@
 		          <button type="submit" class="genric-btn danger e-large" id="pwInqury_btn" disabled="disabled">다음</button>
 		        </div>
 		      </div>
-		      </form:form>
+		      </form>
 		      <!-- form end -->
 		      
 		    </div>
