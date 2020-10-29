@@ -7,16 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.bit.hbly.service.BoardService;
 import edu.bit.hbly.service.ReplyService;
 import edu.bit.hbly.vo.BoardVO;
-import edu.bit.hbly.vo.Criteria;
-import edu.bit.hbly.vo.CustomUser;
 import edu.bit.hbly.vo.PageMaker;
 import edu.bit.hbly.vo.ReplyVO;
 import edu.bit.hbly.vo.SearchCriteria;
@@ -162,7 +155,7 @@ public class BoardController {
       return String.valueOf(result);
 	   }
 	   
-		// 寃뚯떆�뙋 �닔�젙酉�
+		// 게시판 수정 화면
 		@RequestMapping(value = "/updateView", method = RequestMethod.GET)
 		public String updateView(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 			logger.info("updateView");
@@ -182,7 +175,7 @@ public class BoardController {
 			return "board/updateView";
 		}
 		
-		// 寃뚯떆�뙋 �닔�젙
+		// 게시판 수정
 		@RequestMapping(value = "/update", method = RequestMethod.POST)
 		public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, @ModelAttribute("boardNumber") BoardVO boardNumber, Model model,RedirectAttributes rttr) throws Exception{
 			
@@ -200,7 +193,7 @@ public class BoardController {
 			return "redirect:/board/readView";
 		}
 		
-	// 寃뚯떆�뙋 議고쉶
+	// 글 읽기
 	@RequestMapping(value = "/readView", method = RequestMethod.GET)
 	public String read(BoardVO boardVO, HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{		
 
@@ -215,7 +208,7 @@ public class BoardController {
 		return "board/readView";
 	}
 	
-	//�뙎湲� �옉�꽦
+	// 댓글 작성
 	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyVO ReplyVO, SearchCriteria scri, RedirectAttributes rttr) throws Exception {
 		
@@ -233,7 +226,7 @@ public class BoardController {
 		return "redirect:/board/readView";
 	}
 		
-		//�뙎湲� �궘�젣
+		// 댓글 삭제
 	   @ResponseBody
 	   @RequestMapping(value = "/replyDelete", method = RequestMethod.POST) 
 	   public String replyDelete(ReplyVO replyVO, HttpServletRequest request) throws Exception {
@@ -267,7 +260,7 @@ public class BoardController {
 	      return String.valueOf(result);
 	   }
 	   
-	   		//�뙎湲� �닔�젙 check
+	   		//댓글 check
 	   		@ResponseBody
 	 		@RequestMapping(value="/replyUpdateCheck", method = RequestMethod.POST)
 	 		public String replyUpdate(ReplyVO replyVO, HttpServletRequest request) throws Exception {
@@ -296,7 +289,7 @@ public class BoardController {
  		      return String.valueOf(result);
 	 		}
 	   		
-	   		// �뙎湲� �닔�젙酉�
+	   		// 댓글 수정 화면
 			@RequestMapping(value = "/replyUpdateView", method = RequestMethod.GET)
 			public String replyUpdateView(ReplyVO replyVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 				logger.info("replyUpdateView");
@@ -319,7 +312,7 @@ public class BoardController {
 				return "board/replyUpdateView";
 			}
 			
-			// �뙎湲� �닔�젙
+			// 댓글 수정
 			@RequestMapping(value = "/replyUpdate", method = RequestMethod.POST)
 			public String replyUpdate(ReplyVO replyVO,HttpServletRequest request, @ModelAttribute("scri") SearchCriteria scri, Model model,@ModelAttribute("boardReplyNumber") ReplyVO boardReplyNumber, RedirectAttributes rttr) throws Exception{
 				
