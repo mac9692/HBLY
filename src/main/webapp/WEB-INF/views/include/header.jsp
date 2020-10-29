@@ -194,7 +194,7 @@
 										
 										<li><sec:authorize access="isAuthenticated()">
 												<form:form action="/logout" method="POST">
-													<input type="submit" class="btn navbar-btn ml-md-2 btn-light" value="Logout">
+													<input type="submit" class="header-btn btn" value="Logout">
 												</form:form>
 											</sec:authorize>
 										</li>

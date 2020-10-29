@@ -76,7 +76,7 @@
   		<div class="container box_1170">
   		<!-- form start -->
   		 <!-- form -->
-       <form:form method="post" action="/member/pwInquryModify">
+       <form method="post" action="/member/pwInquryModify">
   		<div class="section-top-border">
   		      <div class="row">
         <div class="col-md-11">
@@ -145,7 +145,7 @@
 				
 			</div>
 		</div>
-		</form:form>
+		</form>
 		<!-- form end -->
   		</div>
   		</div>

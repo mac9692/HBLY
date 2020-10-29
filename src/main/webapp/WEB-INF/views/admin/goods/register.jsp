@@ -10,7 +10,8 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="_csrf" content="${_csrf.token}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -133,9 +134,12 @@
 												$("#goodsImage").change(function(){
 													if(this.files && this.files[0]) {
 													var reader = new FileReader;
+													
+								
 													reader.onload = function(data) {
 													$(".select_img img").attr("src", data.target.result).width(500);        
 														}
+													
 													reader.readAsDataURL(this.files[0]);
 													}
 												});
@@ -346,6 +350,7 @@
 		$("#goodsPrice").keyup(function(){ numCheck($(this)); });
 		$("#goodsStock").keyup(function(){ numCheck($(this)); });
 		
+
 		function numCheck(selector) {
 		 var tempVal = selector.val();
 		 selector.val(tempVal.replace(regExp, ""));
