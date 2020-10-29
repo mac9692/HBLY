@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -51,6 +52,7 @@
 </style>
 </head>
 <body>
+ 
 
 	<!--? Header Start -->
 	<%@ include file= "../include/header.jsp" %>
@@ -101,10 +103,12 @@
 		          <hr>
 		          <h3 class="hero-capd">간편하게 시작하기</h3>
 		          <div>
-		            <a href ="https://kauth.kakao.com/oauth/authorize?client_id=5bde6ae9c71bf5f382a97fe4ea87eb67&redirect_uri=http://localhost:8282/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png"/></a>
+		            <a href ="https://kauth.kakao.com/oauth/authorize?client_id=5bde6ae9c71bf5f382a97fe4ea87eb67&redirect_uri=http://192.168.6.53:8282/auth/kakao/callback&response_type=code"><img src="/images/login_kakao.png" style="width:50%;"/></a>
 							  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		          </div>
-		           
+		           <div>
+		        	<a href="void(0);" onclick="alert('서비스 준비중입니다.');return false;"><img src="/images/naver_login.png" style="width:50%;" alt="Naver Login"/></a>		 
+		          </div> 
 		        </div>
 		      </div>
 		    </div>

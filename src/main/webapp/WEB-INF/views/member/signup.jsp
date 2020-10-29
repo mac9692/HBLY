@@ -65,9 +65,9 @@
 			<div class="py-5 text-center">
 				<div class="container">
 					<div class="row">
-						<div class="mx-auto">
+						<div class="mx-auto col-sm-12 col-md-12 col-lg-12 col-xl-12">
 							<h1>HBLY 회원가입</h1>
-		
+							
 							<!-- form -->
 							<form method="post" class="text-left" action="/member/signup">									
 								
