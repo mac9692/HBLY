@@ -137,7 +137,7 @@
     </div>
   </div>
  </div>
- 
+ <%@ include file= "../include/footer.jsp" %>
 <!-- JS here -->
 
 <script src="/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>

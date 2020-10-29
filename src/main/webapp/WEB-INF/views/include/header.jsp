@@ -6,7 +6,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 
     <header>
-    	    <!--로딩시 로고 시작 -->
+    	  <%--   <!--로딩시 로고 시작 -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    
+     --%>
     
     <!-- Preloader Start -->
     
@@ -153,24 +153,16 @@
 									
 									
                                     <li><a href="/gym/about">ABOUT</a>
-                                        <ul class="submenu">
-                                            <li><a href="/gym/price">등록 요금</a></li>
-                                            <li><a href="/gym/course">운영 프로그램</a></li>
-                                            <li><a href="/gym/gallery">명예의 전당</a></li>
-                                        </ul>
                                     </li>
-                                    
-                                    
-                                    <li><a href="/board/list">HELP</a>
-                                        <ul class="submenu">
-                                            <li><a href="/">고객센터</a></li>
-                                            <li><a href="/board/list?categoryCode=0"">공지사항</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                        </ul>
+                                    <li><a href="/gym/course">courses</a>
                                     </li>
-                                    
-                                    <li><a href="contact.html">Contact</a></li>
-                                 			
+                                    <li><a href="/gym/price">pricing</a>
+                                    </li>
+                                    <li><a href="/gym/gallery">Gallery</a>
+                                    </li>
+                                   
+                                    <li><a href="/gym/contact">Contact</a></li>
+
 										<sec:authorize access="isAuthenticated()">
 												
 										
@@ -203,7 +195,7 @@
 										
 										<li><sec:authorize access="isAuthenticated()">
 												<form:form action="/logout" method="POST">
-													<input type="submit" class="btn navbar-btn ml-md-2 btn-light" value="Logout">
+													<input type="submit" class="header-btn btn" value="Logout">
 												</form:form>
 											</sec:authorize>
 										</li>

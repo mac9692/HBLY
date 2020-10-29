@@ -8,11 +8,11 @@
   
 <!-- 카테고리 호출 -->
 <select id="category" resultType="edu.bit.hbly.vo.CategoryVO">
- select
-  level, categoryName, categoryCode, categoryCodeRef
- from goods_category
-     start with categoryCodeRef is null connect by prior categoryCode = categoryCodeRef
+	select level, categoryName, categoryCode, categoryCodeRef
+ 	from goods_category
+    start with categoryCodeRef is null connect by prior categoryCode = categoryCodeRef
 </select>
+
 
 <!-- 상품 등록 -->
 <insert id="register">

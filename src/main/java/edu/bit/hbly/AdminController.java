@@ -49,50 +49,50 @@ public class AdminController {
 	AdminService adminService;
 	
 	
-	//Servlet-context���� ������ uploadPath
+	//Servlet-context占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 uploadPath
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
-	//������������ ����
+	//占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public void getIndex() throws Exception{
 		logger.info("get index");
 	}
 	
 	
-	//ck �����Ϳ��� ���� ���ε�
+	//ck 占쏙옙占쏙옙占싶울옙占쏙옙 占쏙옙占쏙옙 占쏙옙占싸듸옙
 		@RequestMapping(value = "/goods/ckUpload", method = RequestMethod.POST)
 		public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload ) throws Exception{
 			logger.info("post CKEditor img upload");
 			
 			
-			//���� ���� ����
+			//占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
 			 UUID uid = UUID.randomUUID();
 			 
 			 OutputStream out = null;
 			 PrintWriter printWriter = null;
 			   
-			 //���ڵ�
+			 //占쏙옙占쌘듸옙
 			 res.setCharacterEncoding("utf-8");
 			 res.setContentType("text/html;charset=utf-8");
 			 
 			 try {
 			  
-			  String fileName = upload.getOriginalFilename();  //���� �̸� ��������
+			  String fileName = upload.getOriginalFilename();  //占쏙옙占쏙옙 占싱몌옙 占쏙옙占쏙옙占쏙옙占쏙옙
 			  byte[] bytes = upload.getBytes();
 			  
-			  //���ε� ���
+			  //占쏙옙占싸듸옙 占쏙옙占�
 			  String ckUploadPath = uploadPath + File.separator + "ckUpload" + File.separator + uid + "_" + fileName;
 			  
 			  out = new FileOutputStream(new File(ckUploadPath));
 			  out.write(bytes);
-			  out.flush();  // out�� ����� �����͸� �����ϰ� �ʱ�ȭ
+			  out.flush();  // out占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙占싶몌옙 占쏙옙占쏙옙占싹곤옙 占십깍옙화
 			  
 			  String callback = req.getParameter("CKEditorFuncNum");
 			  printWriter = res.getWriter();
-			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  //�ۼ�ȭ��
+			  String fileUrl = "/ckUpload/" + uid + "_" + fileName;  //占쌜쇽옙화占쏙옙
 			  
-			  // ���ε�� �޽��� ���
+			  // 占쏙옙占싸듸옙占� 占쌨쏙옙占쏙옙 占쏙옙占�
 			  JsonObject json = new JsonObject();
 			  json.addProperty("uploaded", 1);
 			  json.addProperty("fileName", fileName);
@@ -113,7 +113,7 @@ public class AdminController {
 		
 	
 	
-	//��ǰ ��� GET
+	//상품등록 GET
 	@RequestMapping(value = "/goods/register", method = RequestMethod.GET)
 	public void getGoodsRegister(Model model) throws Exception {
 	 logger.info("get goods register");
@@ -123,27 +123,22 @@ public class AdminController {
 	 model.addAttribute("category", JSONArray.fromObject(category));
 	}
 	
-	// ��ǰ ���
+	//상품등록 POST
 	@RequestMapping(value = "/goods/register", method = RequestMethod.POST)
 	public String postGoodsRegister(GoodsVO vo, MultipartFile file) throws Exception {
 	 
-	 String imgUploadPath = uploadPath + File.separator + "imgUpload"; // �̹����� ���ε��� ������ ���� = /uploadPath/imgUpload
-	 String ymdPath = UploadFileUtils.calcPath(imgUploadPath);// ���� ������ �������� ������ ������ ����
-	 String fileName = null; // �⺻ ��ο� ������ �ۼ��Ǵ� ��� + �����̸�
+	 String imgUploadPath = uploadPath + File.separator + "imgUpload"; 
+	 String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+	 String fileName = null; 
 	   
 	 if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-	  // ���� ��ǲ�ڽ��� ÷�ε� ������ ���ٸ�(=÷�ε� ������ �̸��� ���ٸ�)
-	  
 	  fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
-
-	  // gdsImg�� ���� ���� ��� + ���ϸ� ����
 	  vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-	  // gdsThumbImg�� ����� ���� ��� + ����� ���ϸ� ����
 	  vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 	  
-	 } else { // ÷�ε� ������ ������
-	  fileName = File.separator + "images" + File.separator + "none.png";
-	  // �̸� �غ�� none.png������ ��� �����
+	 } else { 
+	  fileName = File.separator + "images" + File.separator + "none.jpeg";
+	  
 	  
 	  vo.setGoodsImage(fileName);
 	  vo.setGoodsThumbImage(fileName);
@@ -159,7 +154,7 @@ public class AdminController {
 	
 	
 	
-	//?��?�� 목록
+	//?占쏙옙?占쏙옙 紐⑸줉
 	@RequestMapping(value = "/goods/list", method = RequestMethod.GET)
 	public void getGoodsList(Model model) throws Exception{
 		logger.info("get goods list");
@@ -168,7 +163,7 @@ public class AdminController {
 		model.addAttribute("list", list);
 	}
 	
-	//?��?�� 조회
+	//?占쏙옙?占쏙옙 議고쉶
 	@RequestMapping(value = "/goods/view", method = RequestMethod.GET)
 	public void getGoodsview(@RequestParam("n") int goodsNumber, Model model) throws Exception{
 		logger.info("get goods view");
@@ -178,7 +173,7 @@ public class AdminController {
 		model.addAttribute("goods",goods);
 	}
 	
-	    //?��?�� ?��?��GET
+	    //?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙GET
 		@RequestMapping(value = "/goods/modify", method = RequestMethod.GET)
 		public void getGoodsModify(@RequestParam("n") int goodsNumber, Model model) throws Exception {
 		 logger.info("get goods modify");
@@ -191,18 +186,18 @@ public class AdminController {
 		 model.addAttribute("category", JSONArray.fromObject(category));
 		}
 		
-		// ?��?�� ?��?��POST
+		// ?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙POST
 		@RequestMapping(value = "/goods/modify", method = RequestMethod.POST)
 		public String postGoodsModify(GoodsVO vo, MultipartFile file, HttpServletRequest req) throws Exception {
 		 logger.info("post goods modify");
 		 
-		// ?��로운 ?��?��?�� ?��록되?��?���? ?��?��
+		// ?占쏙옙濡쒖슫 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙濡앸릺?占쏙옙?占쏙옙占�? ?占쏙옙?占쏙옙
 		 if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-		  // 기존 ?��?��?�� ?��?��
+		  // 湲곗〈 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙
 		  new File(uploadPath + req.getParameter("goodsImage")).delete();
 		  new File(uploadPath + req.getParameter("goodsThumbImage")).delete();
 		  
-		  // ?���? 첨�??�� ?��?��?�� ?���?
+		  // ?占쏙옙占�? 泥⑨옙??占쏙옙 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙占�?
 		  String imgUploadPath = uploadPath + File.separator + "imgUpload";
 		  String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		  String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
@@ -210,8 +205,8 @@ public class AdminController {
 		  vo.setGoodsImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 		  vo.setGoodsThumbImage(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		  
-		 } else {  // ?��로운 ?��?��?�� ?��록되�? ?��?��?���?
-		  // 기존 ?��미�?�? 그�?�? ?��?��
+		 } else {  // ?占쏙옙濡쒖슫 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙濡앸릺占�? ?占쏙옙?占쏙옙?占쏙옙占�?
+		  // 湲곗〈 ?占쏙옙誘몌옙?占�? 洹몌옙?占�? ?占쏙옙?占쏙옙
 		  vo.setGoodsImage(req.getParameter("goodsImage"));
 		  vo.setGoodsThumbImage(req.getParameter("goodsThumbImage"));
 		  
@@ -223,7 +218,7 @@ public class AdminController {
 		 return "redirect:/admin/index";
 		}
 		
-		// ?��?�� ?��?��POST
+		// ?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙POST
 		@RequestMapping(value = "/goods/delete", method = RequestMethod.POST)
 		public String postGoodsDelete(@RequestParam("n") int goodsNumber) throws Exception {
 		logger.info("post goods delete");
@@ -233,7 +228,7 @@ public class AdminController {
 		return "redirect:/admin/index";
 		}
 		
-		//�ֹ� ���
+		//占쌍뱄옙 占쏙옙占�
 		@RequestMapping(value = "/shop/orderList", method = RequestMethod.GET)
 		public void getOrderList(Model model) throws Exception {
 		logger.info("get order list");
@@ -242,7 +237,7 @@ public class AdminController {
 		
 		model.addAttribute("orderList", orderList);
 		}
-		//�ֹ� �� ���
+		//占쌍뱄옙 占쏙옙 占쏙옙占�
 		@RequestMapping(value = "/shop/orderView", method = RequestMethod.GET)
 		public void getOrderList(@RequestParam("n") String orderId, OrderVO order, Model model) throws Exception {
 			
@@ -254,7 +249,7 @@ public class AdminController {
 		model.addAttribute("orderView", orderView);
 		}
 		
-		//�ֹ� �� ��� - ���� ����
+		//占쌍뱄옙 占쏙옙 占쏙옙占� - 占쏙옙占쏙옙 占쏙옙占쏙옙
 		@RequestMapping(value = "/shop/orderView", method = RequestMethod.POST)
 		public String delivery(OrderVO order) throws Exception {
 		logger.info("post order view");
@@ -273,7 +268,7 @@ public class AdminController {
 		return "redirect:/admin/shop/orderView?n=" + order.getOrderId();
 		}
 		
-		//��� �Ұ�(���)
+		//占쏙옙占� 占쌀곤옙(占쏙옙占�)
 		@RequestMapping(value = "/shop/allGoodsReply", method= RequestMethod.GET)
 		public void getAllGoodsReply(Model model) throws Exception{
 			logger.info("get all reply");
@@ -283,7 +278,7 @@ public class AdminController {
 			model.addAttribute("goodsReply", goodsReply);
 		}
 		
-		// ��� �Ұ�(���) POST
+		// 占쏙옙占� 占쌀곤옙(占쏙옙占�) POST
 		@RequestMapping(value = "/shop/allGoodsReply", method = RequestMethod.POST)
 		public String postAllReply(GoodsReplyVO goodsReply) throws Exception {
 			logger.info("post all reply");

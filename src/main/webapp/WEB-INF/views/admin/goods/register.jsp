@@ -10,7 +10,8 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="_csrf" content="${_csrf.token}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -20,6 +21,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         
         <script src="/resources/ckeditor/ckeditor.js"></script>
+        
+        
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<style type="text/css">
 	.dauntable{
@@ -105,6 +108,7 @@
 												</td>
 												<td colspan="3">
 												<textarea class="form-control" rows="5" cols="50" id="goodsDescribe" name="goodsDescribe"></textarea>
+												 
 												 <script>
 													 var ckeditor_config = {
 														   resize_enaleb : false,
@@ -115,6 +119,8 @@
 													 
 													 CKEDITOR.replace("goodsDescribe", ckeditor_config);
 												  </script>
+												  
+												  
 												</td>
 											</tr>
 											<tr>
@@ -133,9 +139,12 @@
 												$("#goodsImage").change(function(){
 													if(this.files && this.files[0]) {
 													var reader = new FileReader;
+													
+								
 													reader.onload = function(data) {
 													$(".select_img img").attr("src", data.target.result).width(500);        
 														}
+													
 													reader.readAsDataURL(this.files[0]);
 													}
 												});
@@ -271,7 +280,6 @@
 			
 			// 1차 분류 셀렉트 박스에 삽입할 데이터 준비
 			for(var i = 0; i < jsonData.length; i++) {
-			 
 			 if(jsonData[i].level == "1") {
 			  cate1Obj = new Object();  //초기화
 			  cate1Obj.categoryCode = jsonData[i].categoryCode;
@@ -279,7 +287,6 @@
 			  cate1Arr.push(cate1Obj);
 			 }
 			}
-			
 			// 1차 분류 셀렉트 박스에 데이터 삽입
 			var cate1Select = $("select.category1")
 			
@@ -346,6 +353,7 @@
 		$("#goodsPrice").keyup(function(){ numCheck($(this)); });
 		$("#goodsStock").keyup(function(){ numCheck($(this)); });
 		
+
 		function numCheck(selector) {
 		 var tempVal = selector.val();
 		 selector.val(tempVal.replace(regExp, ""));
